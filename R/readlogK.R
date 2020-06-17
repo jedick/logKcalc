@@ -22,10 +22,11 @@ readlogK <- function(file, quiet = FALSE) {
     logKs <- lapply(inames, function(i) {
       # get the number of species in the reaction
       # account for an extra line for minerals and some gases 20200526
-      for(nf in 0:1) {
+      for(nf in 0:2) {
         nspecies <- suppressWarnings(as.numeric(gsub(" ", "", gsub("species in reaction", "", LINES[i + 2 + nf]))))
         if(!is.na(nspecies)) break
       }
+      if(is.na(nspecies)) stop("can't find number of species in reaction for ", LINES[i])
       # calculate the number of reaction lines
       nrxnlines <- ceiling(nspecies/3)
       # identify the lines with the logK values

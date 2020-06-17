@@ -28,7 +28,10 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
   j <- 1
   # flag to indicate whether to include the current basis species
   okbasis <- FALSE
+  # line number with the name of the current species
   icurrent <- NA
+  # content for reference line
+  refline <- NA
   # loop over lines of the input file
   for(i in 1:length(LINES)) {
 
@@ -62,9 +65,26 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
         if(LINES[i] %in% LOGK$basismap$GWB) okbasis <- TRUE else okbasis <- FALSE
         # include -end- marker
         if(i %in% HEAD$iend) okbasis <- TRUE
+        # get the number of elements in the species 20200617
+        for(nf in 0:1) {
+          nspecies <- suppressWarnings(as.numeric(gsub(" ", "", gsub("elements in species", "", LINES[i + 2 + nf]))))
+          if(!is.na(nspecies)) break
+        }
+        if(is.na(nspecies)) stop("can't find number of elements in species for ", LINES[i])
+        # calculate the line number *after* all the element lines
+        iafter <- i + 2 + ceiling(nspecies/3) + nf
       }
       # copy the line from the input file
-      if(okbasis) outline <- LINES[i]
+      if(okbasis) {
+        # don't copy comment lines from input file 20200617
+        if(!grepl("^\\*", LINES[i])) {
+          outline <- LINES[i]
+        }
+#        # add reference line 20200617
+#        if(i == iafter) {
+#          refline <- "* refs go here"
+#        }
+      }
     }
 
     # check if we're in a species type header
@@ -76,7 +96,10 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
       if(identical(i, HEAD$igas)) type <- "gas"
       if(identical(i, HEAD$ioxide)) type <- "oxide"
       # get the logK values for this type of species
-      logKs <- LOGK[[type]]
+      logKs <- LOGK[[type]]$logKs
+      # also get the references 20200617
+      ref1 <- LOGK[[type]]$ref1
+      ref2 <- LOGK[[type]]$ref2
       # update the number of this type of species
       inames <- HEAD$ispecies[[type]]
       outline <- gsub(length(inames), length(logKs), LINES[i])
@@ -93,17 +116,17 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
         if(!line2name(LINES[i]) %in% names(logKs)) okspecies <- FALSE else {
           okspecies <- TRUE
           # get the number of species in the reaction
-          # account for an extra line for minerals and some gases 20200526
-          for(nf in 0:1) {
+          # account for extra intervening lines for minerals and some gases 20200526
+          for(nf in 0:2) {
             nspecies <- suppressWarnings(as.numeric(gsub(" ", "", gsub("species in reaction", "", LINES[i + 2 + nf]))))
             if(!is.na(nspecies)) break
           }
+          if(is.na(nspecies)) stop("can't find number of species in reaction for ", LINES[i])
           # calculate the number of reaction lines
           nrxnlines <- ceiling(nspecies/3)
           # identify the lines with the logK values
           ilogK1 <- i + nrxnlines + 3 + nf
           ilogK2 <- i + nrxnlines + 4 + nf
-          # keep the line number with the name of the current species
           icurrent <- i
         }
       }
@@ -114,9 +137,15 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
         outline <- LINES[i]
         icurrent <- NA
       } else if(okspecies) {
+        # write the logK or other data for a species
         if(!i %in% c(ilogK1, ilogK2)) {
           # if we're inside a species block, copy the line from the input file
-          if(!is.na(icurrent)) outline <- LINES[i]
+          if(!is.na(icurrent)) {
+            # don't copy comment lines from input file 20200617
+            if(!grepl("^\\*", LINES[i])) {
+              outline <- LINES[i]
+            }
+          }
         } else {
           # don't attempt to insert logK for oxide species 20200528
           if(i < HEAD$ioxide) {
@@ -124,6 +153,13 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
             if(i == ilogK1) iline <- 1
             if(i == ilogK2) iline <- 2
             outline <- logKline(LINES, icurrent, logKs, iline)
+            # add reference line 20200617
+            if(i == ilogK2) {
+              ispecies <- match(line2name(LINES[icurrent]), names(logKs))
+              refline <- paste("* reference:", ref1[ispecies])
+              r2 <- ref2[ispecies]
+              if(!is.na(r2)) refline <- paste("* references: ", ref1[ispecies], ", ", r2, sep = "")
+            }
           } else outline <- ""
         }
       }
@@ -138,6 +174,12 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
     if(!is.na(outline)) {
       out[j] <- outline
       j <- j + 1
+    }
+    # add the reference line to the output 20200617
+    if(!is.na(refline)) {
+      out[j] <- refline
+      j <- j + 1
+      refline <- NA
     }
 
   }

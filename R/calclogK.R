@@ -56,7 +56,7 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
   message("The pressures for the logK calculation are:")
   print(paste(P, collapse = ", "))
   # make a list to hold information on the different types of species
-  LOGK <- list(T = T, P = P, basismap = NA)
+  OUT <- list(T = T, P = P, basismap = NA)
   # get information on the different types of species
   for(type in c("redox", "aqueous", "electron", "mineral", "gas", "oxide")) {
     # get the line numbers with the species names
@@ -69,11 +69,11 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
     # test if all basis species or redox species are available
     if(type=="redox") {
       # set the basis species
-      LOGK$basismap <- mapnames(LINES[HEAD$ispecies$basis], type = "basis", na.omit = TRUE)
-      basis <- CHNOSZ::basis(LOGK$basismap$CHNOSZ)
+      OUT$basismap <- mapnames(LINES[HEAD$ispecies$basis], type = "basis", na.omit = TRUE)
+      basis <- CHNOSZ::basis(OUT$basismap$CHNOSZ)
       message(paste("The basis has", nrow(basis), "elements:"))
       print(paste(colnames(basis)[1:nrow(basis)], collapse=", "))
-      inbasis <- sapply(rxnGWB, function(x) all(x$species %in% LOGK$basismap$GWB))
+      inbasis <- sapply(rxnGWB, function(x) all(x$species %in% OUT$basismap$GWB))
       if(!all(inbasis)) {
         printNA("The basis species for", "species are not available", type, speciesGWB[!inbasis], maxprint)
       }
@@ -82,7 +82,7 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       CHNOSZ::basis(delete = TRUE)
     } else {
       # add O2(g) here, needed for the free electron in thermo.tdat 20200526
-      inbasis <- sapply(rxnGWB, function(x) all(x$species %in% c(LOGK$basismap$GWB, names(LOGK$redox), "O2(g)")))
+      inbasis <- sapply(rxnGWB, function(x) all(x$species %in% c(OUT$basismap$GWB, names(OUT$redox$logKs), "O2(g)")))
       if(!all(inbasis)) {
         printNA("The basis or redox species for", "species are not available", type, speciesGWB[!inbasis], maxprint)
       }
@@ -134,11 +134,19 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
         }
         logK
       })
+      # get references 20200617
+      ispecies <- suppressMessages(CHNOSZ::info(speciesCHNOSZ, check.it = FALSE))
+      iinfo <- suppressMessages(CHNOSZ::info(ispecies, check.it = FALSE))
+      ref1 <- iinfo$ref1
+      ref2 <- iinfo$ref2
+      # remove suffixes
+      ref1 <- sapply(strsplit(sapply(strsplit(ref1, "\\."), "[", 1), " "), "[", 1)
+      ref2 <- sapply(strsplit(sapply(strsplit(ref2, "\\."), "[", 1), " "), "[", 1)
       names(logKs) <- speciesGWB
-    } else logKs <- NULL
+    } else ref1 <- ref2 <- logKs <- NULL
     # save the information
-    LOGK[[type]] <- logKs
+    OUT[[type]] <- list(logKs = logKs, ref1 = ref1, ref2 = ref2)
   }
-  LOGK
+  OUT
 }
 
