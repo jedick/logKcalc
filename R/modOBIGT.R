@@ -113,7 +113,7 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
   ## Make a new species
   # Use abbrv to store the Tmax
   Tmax <- max(T[!is.na(logK)])
-  CHNOSZ::mod.obigt(species, formula = formula, state = "aq", abbrv = Tmax, G = G, S = S, c1 = Cp)
+  CHNOSZ::mod.obigt(species, formula = formula, state = "aq", abbrv = Tmax, ref1 = "logK_fit", G = G, S = S, c1 = Cp)
   # We need to call mod.obigt() a second time to set Z = 0 (to avoid triggering HKF omega derivatives)
   suppressMessages(CHNOSZ::mod.obigt(species, state = "aq", z = 0))
   # Calculate ΔG°r of the reaction with the reactant species

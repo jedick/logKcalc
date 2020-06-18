@@ -2135,6 +2135,13 @@ JUN92.bs (1992). “JUN92.bs database supplied with Theriak/Domino software.” 
 updated on 2017-02-04. Accessed on 2017-10-01. <URL:
 http://titan.minpet.unibas.ch/minpet/theriak/prog170204/>.
 
+[Joh92]
+Johnson JW (1992). “Reference for H2O(g) from SUPCRT92/sprons92.dat.” Personal
+calculation, Earth Sciences Dept., Lawrence Livermore National Lab, Livermore,
+CA. Parameters given provide smooth metastable extrapolation of one-bar steam
+properties predicted by the Haar et al. (1984) equation of state to temperatures
+< the saturation temperature (99.632 C).
+
 [Kel60]
 Kelley KK (1960). _Contributions to the Data in Theoretical Metallurgy XIII:
 High Temperature Heat Content, Heat Capacities and Entropy Data for the Elements
@@ -2289,7 +2296,7 @@ HCl°\textsubscript{(aq)}.” _Geochimica et Cosmochimica Acta_, *61*(20),
 https://doi.org/10.1016/S0016-7037(97)00274-3).
 
 [VPT01]
-Vidal O, Parra T, Trotet F (2001). “A thermodynamic model for fe-mg aluminous
+Vidal O, Parra T, Trotet F (2001). “A thermodynamic model for Fe-Mg aluminous
 chlorite using data from phase equilibrium experiments and natural pelitic
 assemblages in the 100° to 600°C, 1 to 25 kb range.” _American Journal of
 Science_, *301*(6), 557-592. doi: 10.2475/ajs.301.6.557 (URL:

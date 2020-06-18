@@ -13,10 +13,10 @@ remotes::install_github("jedick/logKcalc", build_vignettes = TRUE)
 ## Features
 
   * Ability to change the temperature and pressure for log*K* calculations.
+  * List data references in the output file (requires CHNOSZ version > 1.3.6).
   * Make plots comparing log*K* values from two data files.
 
 ## TODO (planned features)
 
   * Update activity coefficient model blocks (Debye-Hückel, H<sub>2</sub>O, CO<sub>2</sub>) for specified *T* and *P*.
   * Add new species; currently, only species in the input file are included.
-  * List data references in the output file.

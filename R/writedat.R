@@ -206,12 +206,15 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
     speciesrefs <- lapply(speciestypes, function(x) c(LOGK[[x]]$ref1, LOGK[[x]]$ref2))
     allrefs <- c(basisrefs, speciesrefs)
     keys <- sort(unique(stats::na.omit(unlist(allrefs))))
-    # read the bibtex file from CHNOSZ
-    bibfile <- system.file("extdata/OBIGT/obigt.bib", package = "CHNOSZ")
-    bibentry <- bibtex::read.bib(bibfile)
+    # read the bibtex files from CHNOSZ and logKcalc
+    bibfile1 <- system.file("extdata/OBIGT/obigt.bib", package = "CHNOSZ")
+    bibentry1 <- bibtex::read.bib(bibfile1)
+    bibfile2 <- system.file("extdata/logKcalc.bib", package = "logKcalc")
+    bibentry2 <- bibtex::read.bib(bibfile2)
+    bibentry <- c(bibentry1, bibentry2)
     # check for missing entries
     inbib <- keys %in% names(bibentry)
-    if(any(!inbib)) warning(paste("references not found in bibtex file:", paste(keys[!inbib], collapse = ", ")))
+    if(any(!inbib)) warning(paste("reference(s) not found in bibtex file:", paste(keys[!inbib], collapse = ", ")))
     keys <- keys[inbib]
     # format the printed references
     op <- options(width = 90)
