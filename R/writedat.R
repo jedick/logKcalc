@@ -52,17 +52,18 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
     # check if we're in the basis species header
     if(i == HEAD$ibasis) {
       # update the number of basis species
-      outline <- gsub(length(HEAD$ispecies$basis), length(LOGK$basismap$GWB), LINES[HEAD$ibasis])
+      outline <- gsub(length(HEAD$ispecies$basis), length(LOGK$basis$map$GWB), LINES[HEAD$ibasis])
       message(paste("Writing output to", outfile, "..."))
-      print(paste("outputting", length(LOGK$basismap$GWB), "basis species"))
+      print(paste("outputting", length(LOGK$basis$map$GWB), "basis species"))
     }
 
     # check if we're in the basis species block
     if(i > HEAD$ibasis & i < HEAD$iredox) {
       # check if we're reading the name of a basis species
       if(i %in% HEAD$ispecies$basis) {
-        # update the flag
-        if(LINES[i] %in% LOGK$basismap$GWB) okbasis <- TRUE else okbasis <- FALSE
+        # update the output flag
+        if(LINES[i] %in% LOGK$basis$map$GWB) okbasis <- TRUE else okbasis <- FALSE
+        icurrent <- i
         # include -end- marker
         if(i %in% HEAD$iend) okbasis <- TRUE
         # get the number of elements in the species 20200617
@@ -80,10 +81,17 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
         if(!grepl("^\\*", LINES[i])) {
           outline <- LINES[i]
         }
-#        # add reference line 20200617
-#        if(i == iafter) {
-#          refline <- "* refs go here"
-#        }
+        # add reference line 20200618
+        if(i == iafter) {
+          ispecies <- match(line2name(LINES[icurrent]), LOGK$basis$map$GWB)
+          refline <- "* no references available"
+          r1 <- LOGK$basis$ref1[ispecies]
+          if(!is.na(r1)) {
+            refline <- paste("* reference:", r1)
+            r2 <- LOGK$basis$ref2[ispecies]
+            if(!is.na(r2)) refline <- paste("* references: ", r1, ", ", r2, sep = "")
+          }
+        }
       }
     }
 
@@ -156,9 +164,13 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
             # add reference line 20200617
             if(i == ilogK2) {
               ispecies <- match(line2name(LINES[icurrent]), names(logKs))
-              refline <- paste("* reference:", ref1[ispecies])
-              r2 <- ref2[ispecies]
-              if(!is.na(r2)) refline <- paste("* references: ", ref1[ispecies], ", ", r2, sep = "")
+              refline <- "* no references available"
+              r1 <- ref1[ispecies]
+              if(!is.na(r1)) {
+                refline <- paste("* reference:", r1)
+                r2 <- ref2[ispecies]
+                if(!is.na(r2)) refline <- paste("* references: ", ref1[ispecies], ", ", r2, sep = "")
+              }
             }
           } else outline <- ""
         }
@@ -189,12 +201,18 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
   # add reference block 20200618
   if(utils::packageVersion("CHNOSZ") > "1.3.6") {
     # get all reference keys used in output GWB file
-    reftypes <- c("redox", "aqueous", "electron", "mineral", "gas")
-    allrefs <- lapply(reftypes, function(x) c(LOGK[[x]]$ref1, LOGK[[x]]$ref2))
+    basisrefs <- c(LOGK$basis$ref1, LOGK$basis$ref2)
+    speciestypes <- c("redox", "aqueous", "electron", "mineral", "gas")
+    speciesrefs <- lapply(speciestypes, function(x) c(LOGK[[x]]$ref1, LOGK[[x]]$ref2))
+    allrefs <- c(basisrefs, speciesrefs)
     keys <- sort(unique(stats::na.omit(unlist(allrefs))))
     # read the bibtex file from CHNOSZ
     bibfile <- system.file("extdata/OBIGT/obigt.bib", package = "CHNOSZ")
     bibentry <- bibtex::read.bib(bibfile)
+    # check for missing entries
+    inbib <- keys %in% names(bibentry)
+    if(any(!inbib)) warning(paste("references not found in bibtex file:", paste(keys[!inbib], collapse = ", ")))
+    keys <- keys[inbib]
     # format the printed references
     op <- options(width = 90)
     on.exit(options(op))

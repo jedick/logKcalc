@@ -56,7 +56,7 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
   message("The pressures for the logK calculation are:")
   print(paste(P, collapse = ", "))
   # make a list to hold information on the different types of species
-  OUT <- list(T = T, P = P, basismap = NA)
+  OUT <- list(T = T, P = P, basis = list())
   # get information on the different types of species
   for(type in c("redox", "aqueous", "electron", "mineral", "gas", "oxide")) {
     # get the line numbers with the species names
@@ -68,21 +68,29 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
     rxnGWB <- lapply(inames, function(i) readrxn(LINES, HEAD$ihead, i))
     # test if all basis species or redox species are available
     if(type=="redox") {
-      # set the basis species
-      OUT$basismap <- mapnames(LINES[HEAD$ispecies$basis], type = "basis", na.omit = TRUE)
-      basis <- CHNOSZ::basis(OUT$basismap$CHNOSZ)
+      # first set the basis species
+      OUT$basis$map <- mapnames(LINES[HEAD$ispecies$basis], type = "basis", na.omit = TRUE)
+      basis <- CHNOSZ::basis(OUT$basis$map$CHNOSZ)
       message(paste("The basis has", nrow(basis), "elements:"))
       print(paste(colnames(basis)[1:nrow(basis)], collapse=", "))
-      inbasis <- sapply(rxnGWB, function(x) all(x$species %in% OUT$basismap$GWB))
+      inbasis <- sapply(rxnGWB, function(x) all(x$species %in% OUT$basis$map$GWB))
       if(!all(inbasis)) {
         printNA("The basis species for", "species are not available", type, speciesGWB[!inbasis], maxprint)
       }
+      # get references 20200618
+      ispecies <- basis$ispecies
+      iinfo <- suppressMessages(CHNOSZ::info(ispecies, check.it = FALSE))
+      ref1 <- iinfo$ref1
+      ref2 <- iinfo$ref2
+      # remove suffixes
+      OUT$basis$ref1 <- sapply(strsplit(sapply(strsplit(ref1, "\\."), "[", 1), " "), "[", 1)
+      OUT$basis$ref2 <- sapply(strsplit(sapply(strsplit(ref2, "\\."), "[", 1), " "), "[", 1)
       # remove the basis species so that incorrect reactions for other
       # types of species are not automatically balanced 20200611
       CHNOSZ::basis(delete = TRUE)
     } else {
       # add O2(g) here, needed for the free electron in thermo.tdat 20200526
-      inbasis <- sapply(rxnGWB, function(x) all(x$species %in% c(OUT$basismap$GWB, names(OUT$redox$logKs), "O2(g)")))
+      inbasis <- sapply(rxnGWB, function(x) all(x$species %in% c(OUT$basis$map$GWB, names(OUT$redox$logKs), "O2(g)")))
       if(!all(inbasis)) {
         printNA("The basis or redox species for", "species are not available", type, speciesGWB[!inbasis], maxprint)
       }
@@ -118,8 +126,8 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
         if(any(is.na(species))) print(species)
         sres <- suppressMessages(CHNOSZ::subcrt(species, coeff, T = T, P = P, property = "logK"))
         logK <- sres$out$logK
-        # get Tmax from ref1 (for species added by addOBIGT) 20200615
-        Tmax <- stats::na.omit(suppressWarnings(as.numeric(suppressMessages(CHNOSZ::info(CHNOSZ::info(species))$ref1))))
+        # get Tmax from abbrv (for species added by addOBIGT) 20200615
+        Tmax <- stats::na.omit(suppressWarnings(as.numeric(suppressMessages(CHNOSZ::info(CHNOSZ::info(species))$abbrv))))
         if(length(Tmax) > 0) logK[T > min(Tmax)] <- NA
         # if there are any warnings for unbalanced reactions, set logK to NA 20200614
         if(!is.null(sres$warnings)) {

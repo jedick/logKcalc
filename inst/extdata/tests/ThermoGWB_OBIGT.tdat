@@ -95,126 +95,151 @@ H2O
      charge=  0.0      ion size=  0.0 A      mole wt.=   18.0150 g
      2 elements in species
   2.0000 H  1.0000 O  
+* no references available
 
 H+
      charge=  1.0      ion size=  9.0 A      mole wt.=   1.0080 g
      1 elements in species
   1.0000 H    
+* no references available
 
 HCO3-
      charge=  -1.0      ion size=  4.0 A      mole wt.=   61.0170 g
      3 elements in species
   1.0000 C  1.0000 H  3.0000 O
+* reference: SH88
 
 SiO2(aq)
      charge=  0.0      ion size=  0.0 A      mole wt.=   60.0840 g
      2 elements in species
   2.0000 O  1.0000 Si  
+* reference: SHS89
 
 NO3-
      charge=  -1.0      ion size=  3.0 A      mole wt.=   62.0050 g
      2 elements in species
   1.0000 N  3.0000 O  
+* reference: SH88
 
 HPO4--
      charge=  -2.0      ion size=  4.0 A      mole wt.=   95.9790 g
      3 elements in species
   1.0000 H  4.0000 O  1.0000 P
+* reference: SH88
 
 As(OH)3
      charge=  0.0      ion size=  0.0 A      mole wt.=   125.9440 g
      3 elements in species
   1.0000 As  3.0000 H  3.0000 O
+* reference: NA03
 
 O2(aq)
      charge=  0.0      ion size=  0.0 A      mole wt.=   31.9990 g
      1 elements in species
   2.0000 O    
+* reference: SHS89
 
 SO4--
      charge=  -2.0      ion size=  4.5 A      mole wt.=   96.0640 g
      2 elements in species
   4.0000 O  1.0000 S  
+* reference: SH88
 
 F-
      charge=  -1.0      ion size=  3.5 A      mole wt.=   18.9980 g
      1 elements in species
   1.0000 F    
+* reference: SH88
 
 Cl-
      charge=  -1.0      ion size=  3.0 A      mole wt.=   35.4530 g
      1 elements in species
   1.0000 Cl    
+* reference: SH88
 
 Na+
      charge=  1.0      ion size=  4.0 A      mole wt.=   22.9900 g
      1 elements in species
   1.0000 Na    
+* reference: SH88
 
 K+
      charge=  1.0      ion size=  3.0 A      mole wt.=   39.0980 g
      1 elements in species
   1.0000 K    
+* reference: SH88
 
 Mg++
      charge=  2.0      ion size=  8.0 A      mole wt.=   24.3050 g
      1 elements in species
   1.0000 Mg    
+* reference: SH88
 
 Ca++
      charge=  2.0      ion size=  6.0 A      mole wt.=   40.0780 g
      1 elements in species
   1.0000 Ca    
+* reference: SH88
 
 Al+++
      charge=  3.0      ion size=  9.0 A      mole wt.=   26.9820 g
      1 elements in species
   1.0000 Al    
+* reference: TS01
 
 Cu+
      charge=  1.0      ion size=  4.5 A      mole wt.=   63.5460 g
      1 elements in species
   1.0000 Cu    
+* reference: AZ01
 
 Zn++
      charge=  2.0      ion size=  6.0 A      mole wt.=   65.3900 g
      1 elements in species
   1.0000 Zn    
+* reference: AT14
 
 Pb++
      charge=  2.0      ion size=  4.5 A      mole wt.=   207.2000 g
      1 elements in species
   1.0000 Pb    
+* reference: SH88
 
 Ag+
      charge=  1.0      ion size=  2.5 A      mole wt.=   107.8680 g
      1 elements in species
   1.0000 Ag    
+* reference: AZ01
 
 Sn++
      charge=  2.0      ion size=  6.0 A      mole wt.=   118.7100 g
      1 elements in species
   1.0000 Sn    
+* reference: SSWS97
 
 Au+
      charge=  1.0      ion size=  4.5 A      mole wt.=   196.9670 g
      1 elements in species
   1.0000 Au    
+* reference: AZ01
 
 Mn++
      charge=  2.0      ion size=  6.0 A      mole wt.=   54.9380 g
      1 elements in species
   1.0000 Mn    
+* reference: SSWS97
 
 Fe++
      charge=  2.0      ion size=  6.0 A      mole wt.=   55.8470 g
      1 elements in species
   1.0000 Fe    
+* reference: SSWS97
 
 UO2++
      charge=  2.0      ion size=  4.5 A      mole wt.=   270.0280 g
      2 elements in species
   2.0000 O  1.0000 U  
+* reference: SSWS97
 
 -end-
 
@@ -2110,20 +2135,20 @@ JUN92.bs (1992). “JUN92.bs database supplied with Theriak/Domino software.” 
 updated on 2017-02-04. Accessed on 2017-10-01. <URL:
 http://titan.minpet.unibas.ch/minpet/theriak/prog170204/>.
 
-[Joh92]
+[Kel60]
 Kelley KK (1960). _Contributions to the Data in Theoretical Metallurgy XIII:
 High Temperature Heat Content, Heat Capacities and Entropy Data for the Elements
 and Inorganic Compounds_, series Bulletin 584. U. S. Bureau of Mines. <URL:
 http://www.worldcat.org/oclc/693388901>.
 
-[Kel60]
+[MGN03]
 Majzlan J, Grevel K, Navrotsky A (2003). “Thermodynamics of Fe oxides: Part II.
 Enthalpies of formation and relative stability of goethite ($\alpha$-FeOOH),
 lepidocrocite ($\gamma$-FeOOH), and maghemite ($\gamma$-Fe$_2$O$_3$).” _American
 Mineralogist_, *88*(5-6), 855-859. ISSN 0003-004X, doi: 10.2138/am-2003-5-614
 (URL: https://doi.org/10.2138/am-2003-5-614).
 
-[MGN03]
+[MLS+03]
 Majzlan J, Lang BE, Stevens R, Navrotsky A, Woodfield BF, Boerio-Goates J
 (2003). “Thermodynamics of Fe oxides: Part I. Entropy at standard temperature
 and pressure and heat capacity of goethite ($\alpha$-FeOOH), lepidocrocite
@@ -2131,61 +2156,61 @@ and pressure and heat capacity of goethite ($\alpha$-FeOOH), lepidocrocite
 Mineralogist_, *88*(5-6), 846-854. ISSN 0003-004X, doi: 10.2138/am-2003-5-613
 (URL: https://doi.org/10.2138/am-2003-5-613).
 
-[MLS+03]
+[MS97]
 McCollom TM, Shock EL (1997). “Geochemical constraints on chemolithoautotrophic
 metabolism by microorganisms in seafloor hydrothermal systems.” _Geochimica et
 Cosmochimica Acta_, *61*(20), 4375-4391. doi: 10.1016/S0016-7037(97)00241-X
 (URL: https://doi.org/10.1016/S0016-7037(97)00241-X).
 
-[MS97]
+[NA03]
 Nordstrom DK, Archer DG (2003). “Arsenic thermodynamic data and environmental
 geochemistry.” In Welch AH, Stollenwerk KG (eds.), _Arsenic in Groundwater_,
 1-25. Springer, New York. doi: 10.1007/0-306-47956-7_1 (URL:
 https://doi.org/10.1007/0-306-47956-7_1).
 
-[NA03]
+[NRK74]
 Naumov GB, Ryzhenko BN, Khodakovskii IL (1974). _Handbook of Thermodynamic
 Data_. U.S. Geological Survey, Water Resources Division, Menlo Park, Calif.
 Translated by George J. Soleimani, <URL:
 https://trove.nla.gov.au/work/22192707>.
 
-[NRK74]
+[PAB+14]
 Pokrovski GS, Akinfiev NN, Borisova AY, Zotov AV, Kouzmanov K (2014). “Gold
 speciation and transport in geological fluids: insights from experiments and
 physical-chemical modelling.” _Geological Society, London, Special
 Publications_, *402*(1), 9-70. ISSN 0305-8719, doi: 10.1144/SP402.4 (URL:
 https://doi.org/10.1144/SP402.4).
 
-[PAB+14]
+[PK70]
 Pankratz LB, King EG (1970). _High-Temperature Enthalpies and Entropies of
 Chalcopyrite and Bornite_, number 7435 series Report of Investigations. U. S.
 Bureau of Mines. <URL: http://www.worldcat.org/oclc/14154292>.
 
-[PK70]
+[PS01]
 Plyasunov AV, Shock EL (2001). “Correlation strategy for determining the
 parameters of the revised Helgeson-Kirkham-Flowers model for aqueous
 nonelectrolytes.” _Geochimica et Cosmochimica Acta_, *65*(21), 3879-3900. doi:
 10.1016/S0016-7037(01)00678-0 (URL:
 https://doi.org/10.1016/S0016-7037(01)00678-0).
 
-[PS01]
+[RH95]
 Robie RA, Hemingway BS (1995). _Thermodynamic Properties of Minerals and Related
 Substances at 298.15 K and 1 Bar (10\textsuperscript{5} Pascals) Pressure and at
 Higher Temperatures_, series Bulletin 2131. U. S. Geological Survey, Washington,
 D. C. doi: 10.3133/b2131 (URL: https://doi.org/10.3133/b2131).
 
-[RH95]
+[RHF78]
 Robie RA, Hemingway BS, Fisher JR (1978). _Thermodynamic Properties of Minerals
 and Related Substances at 298.15 K and 1 Bar ($10^5$ Pascals) Pressure and at
 Higher Temperatures_, series Bulletin 1452. U. S. Geological Surv. <URL:
 https://pubs.er.usgs.gov/publication/b1452>.
 
-[RHF78]
+[SB99]
 Shvarov Y, Bastrakov E (1999). _HCh: A software package for geochemical
 equilibrium modelling. User's Guide_. Australian Geological Survey Organisation,
 Record 1999/25. <URL: http://pid.geoscience.gov.au/dataset/ga/25473>.
 
-[SB99]
+[SH88]
 Shock EL, Helgeson HC (1988). “Calculation of the thermodynamic and transport
 properties of aqueous species at high pressures and temperatures: Correlation
 algorithms for ionic species and equation of state predictions to 5 kb and
@@ -2193,91 +2218,91 @@ algorithms for ionic species and equation of state predictions to 5 kb and
 10.1016/0016-7037(88)90181-0 (URL:
 https://doi.org/10.1016/0016-7037(88)90181-0).
 
-[SH88]
+[SH90]
 Shock EL, Helgeson HC (1990). “Calculation of the thermodynamic and transport
 properties of aqueous species at high pressures and temperatures: Standard
 partial molal properties of organic species.” _Geochimica et Cosmochimica Acta_,
 *54*(4), 915-945. doi: 10.1016/0016-7037(90)90429-O (URL:
 https://doi.org/10.1016/0016-7037(90)90429-O).
 
-[SH90]
+[SHD91]
 Sverjensky DA, Hemley JJ, D'Angelo WM (1991). “Thermodynamic assessment of
 hydrothermal alkali feldspar-mica-aluminosilicate equilibria.” _Geochimica et
 Cosmochimica Acta_, *55*(4), 989-1004. doi: 10.1016/0016-7037(91)90157-Z (URL:
 https://doi.org/10.1016/0016-7037(91)90157-Z).
 
-[SHD91]
+[SHS89]
 Shock EL, Helgeson HC, Sverjensky DA (1989). “Calculation of the thermodynamic
 and transport properties of aqueous species at high pressures and temperatures:
 Standard partial molal properties of inorganic neutral species.” _Geochimica et
 Cosmochimica Acta_, *53*(9), 2157-2183. doi: 10.1016/0016-7037(89)90341-4 (URL:
 https://doi.org/10.1016/0016-7037(89)90341-4).
 
-[SHS89]
+[SLOP98]
 slop98.dat (1998). “Sequential-access thermodynamic datafile used by PROGRAM
 supcrt92.” Last updated on 1998-08-20. Accessed on 2019-04-08. doi:
 10.5281/zenodo.2630820 (URL: https://doi.org/10.5281/zenodo.2630820).
 
-[SLOP98]
+[SPRONS92]
 sprons92.dat (1992). “s[equential-access] pro[perties of] n[atural]
 s[ubstances].dat; datafile used by PROGRAM supcrt91.” Included with the SUPCRT92
 package (Johnson et al., 1992). Last updated on 1991-02-15.
 
-[SPRONS92]
+[SSB97]
 Shock EL, Sassani DC, Betz H (1997b). “Uranium in geologic fluids: Estimates of
 standard partial molal properties, oxidation potentials, and hydrolysis
 constants at high temperatures and pressures.” _Geochimica et Cosmochimica
 Acta_, *61*(20), 4245-4266. doi: 10.1016/S0016-7037(97)00240-8 (URL:
 https://doi.org/10.1016/S0016-7037(97)00240-8).
 
-[SSB97]
+[SSH97]
 Sverjensky DA, Shock EL, Helgeson HC (1997). “Prediction of the thermodynamic
 properties of aqueous metal complexes to 1000°C and 5 kb.” _Geochimica et
 Cosmochimica Acta_, *61*(7), 1359-1412. doi: 10.1016/S0016-7037(97)00009-4 (URL:
 https://doi.org/10.1016/S0016-7037(97)00009-4).
 
-[SSH97]
+[SSWS97]
 Shock EL, Sassani DC, Willis M, Sverjensky DA (1997). “Inorganic species in
 geologic fluids: Correlations among standard molal thermodynamic properties of
 aqueous ions and hydroxide complexes.” _Geochimica et Cosmochimica Acta_,
 *61*(5), 907-950. doi: 10.1016/S0016-7037(96)00339-0 (URL:
 https://doi.org/10.1016/S0016-7037(96)00339-0).
 
-[SSWS97]
+[Sho95]
 Shock EL (1995). “Organic acids in hydrothermal solutions: Standard molal
 thermodynamic properties of carboxylic acids and estimates of dissociation
 constants at high temperatures and pressures.” _American Journal of Science_,
 *295*(5), 496-580. doi: 10.2475/ajs.295.5.496 (URL:
 https://doi.org/10.2475/ajs.295.5.496).
 
-[Sho95]
+[TS01]
 Tagirov B, Schott J (2001). “Aluminum speciation in crustal fluids revisited.”
 _Geochimica et Cosmochimica Acta_, *65*(21), 3965-3992. doi:
 10.1016/S0016-7037(01)00705-0 (URL:
 https://doi.org/10.1016/S0016-7037(01)00705-0).
 
-[TS01]
+[TZA97]
 Tagirov BR, Zotov AV, Akinfiev NN (1997). “Experimental study of dissociation of
 HCl from 350 to 500°C and from 500 to 2500 bars: Thermodynamic properties of
 HCl°\textsubscript{(aq)}.” _Geochimica et Cosmochimica Acta_, *61*(20),
 4267-4280. doi: 10.1016/S0016-7037(97)00274-3 (URL:
 https://doi.org/10.1016/S0016-7037(97)00274-3).
 
-[TZA97]
+[VPT01]
 Vidal O, Parra T, Trotet F (2001). “A thermodynamic model for fe-mg aluminous
 chlorite using data from phase equilibrium experiments and natural pelitic
 assemblages in the 100° to 600°C, 1 to 25 kb range.” _American Journal of
 Science_, *301*(6), 557-592. doi: 10.2475/ajs.301.6.557 (URL:
 https://doi.org/10.2475/ajs.301.6.557).
 
-[VPT01]
+[WEP+82]
 Wagman DD, Evans WH, Parker VB, Schumm RH, Halow I, Bailey SM, Churney KL,
 Nuttall RL (1982). “The NBS tables of chemical thermodynamic properties.
 Selected values for inorganic and C$_1$ and C$_2$ organic substances in SI
 units.” _Journal of Physical and Chemical Reference Data_, *11*(Suppl. 2),
 1-392. <URL: https://srd.nist.gov/JPCRD/jpcrdS2Vol11.pdf>.
 
-[WEP+82]
+[ZZL+16]
 Zimmer K, Zhang Y, Lu P, Chen Y, Zhang G, Dalkilic M, Zhu C (2016). “SUPCRTBL: A
 revised and extended thermodynamic dataset and software package of SUPCRT92.”
 _Computers \& Geosciences_, *90*, 97-111. ISSN 0098-3004, doi:

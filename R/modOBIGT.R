@@ -111,9 +111,9 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
   S <- - Gfun(Cp)$coefficients[[2]]
 
   ## Make a new species
-  # Use ref1 to store the Tmax
+  # Use abbrv to store the Tmax
   Tmax <- max(T[!is.na(logK)])
-  CHNOSZ::mod.obigt(species, formula = formula, state = "aq", ref1 = Tmax, G = G, S = S, c1 = Cp)
+  CHNOSZ::mod.obigt(species, formula = formula, state = "aq", abbrv = Tmax, G = G, S = S, c1 = Cp)
   # We need to call mod.obigt() a second time to set Z = 0 (to avoid triggering HKF omega derivatives)
   suppressMessages(CHNOSZ::mod.obigt(species, state = "aq", z = 0))
   # Calculate ΔG°r of the reaction with the reactant species
@@ -121,7 +121,7 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
   rxncoeff <- c(-1, rxncoeff)
   logKcalc <- suppressMessages(CHNOSZ::subcrt(rxnspecies, rxncoeff, T = T)$out$logK)
   # Re-read Tmax from the database and set the appropriate values of logK to NA
-  Tmax <- as.numeric(suppressMessages(CHNOSZ::info(CHNOSZ::info(species))$ref1))
+  Tmax <- as.numeric(suppressMessages(CHNOSZ::info(CHNOSZ::info(species))$abbrv))
   logKcalc[T > Tmax] <- NA
   # Check that calculated values are close to input values
   stopifnot(all.equal(logK, logKcalc, tolerance = tolerance, scale = 1))
