@@ -184,7 +184,33 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
 
   }
 
-  # cleanup and write the output to file
+  # cleanup
   out <- stats::na.omit(out)
+  # add reference block 20200618
+  if(utils::packageVersion("CHNOSZ") > "1.3.6") {
+    # get all reference keys used in output GWB file
+    reftypes <- c("redox", "aqueous", "electron", "mineral", "gas")
+    allrefs <- lapply(reftypes, function(x) c(LOGK[[x]]$ref1, LOGK[[x]]$ref2))
+    keys <- sort(unique(stats::na.omit(unlist(allrefs))))
+    # read the bibtex file from CHNOSZ
+    bibfile <- system.file("extdata/OBIGT/obigt.bib", package = "CHNOSZ")
+    bibentry <- bibtex::read.bib(bibfile)
+    # format the printed references
+    op <- options(width = 90)
+    on.exit(options(op))
+    reftext <- utils::capture.output(print(bibentry[keys]))
+    # insert the reference keys before the references
+    keys <- paste0("[", keys, "]")
+    refout <- character()
+    j <- 1
+    for(i in 1:length(reftext)) {
+      if(i==1) { refout <- c(refout, keys[j]); j <- j + 1 }
+      refout <- c(refout, reftext[i])
+      if(reftext[i]=="") { refout <- c(refout, keys[j]); j <- j + 1 }
+    }
+    out <- c(out, refout)
+  }
+
+  # write the output to file
   writeLines(out, outfile)
 }

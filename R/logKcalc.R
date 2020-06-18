@@ -16,6 +16,12 @@
 #source("writedat.R")
 
 logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat", T = NULL, P = "Psat", maxprint = Inf) {
+## for debugging:
+#  infile <- "thermo.tdat"
+#  outfile <- "thermo_OBIGT.tdat"
+#  T <- NULL
+#  P <- "Psat"
+  maxprint <- Inf
   if(!file.exists(infile)) stop("file specified by 'infile' doesn't exist")
   # read the GWB data file
   LINES <- readLines(infile)
