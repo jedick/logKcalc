@@ -14,14 +14,17 @@
 #source("readhead.R")
 #source("calclogK.R")
 #source("writedat.R")
+#source("addspecies.R")
 
-logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat", T = NULL, P = "Psat", maxprint = Inf) {
+logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
+  T = NULL, P = "Psat", ispecies = NULL, maxprint = Inf) {
 ## for debugging:
-#  infile <- "thermo.tdat"
-#  outfile <- "thermo_OBIGT.tdat"
-#  T <- NULL
-#  P <- "Psat"
-  maxprint <- Inf
+#infile <- "~/lib/GWB/testfile/thermo.tdat"
+#outfile <- "thermo_OBIGT.tdat"
+#T <- NULL
+#P <- "Psat"
+#ispecies <- info(c("CO2", "carbon dioxide"))
+#maxprint <- Inf
   if(!file.exists(infile)) stop("file specified by 'infile' doesn't exist")
   # read the GWB data file
   LINES <- readLines(infile)
@@ -29,6 +32,8 @@ logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat", T = 
   HEAD <- readhead(LINES)
   # calculate the logK values for available species
   LOGK <- calclogK(LINES, HEAD, T = T, P = P, maxprint = maxprint)
+  # get lines for added species
+  ADDS <- addspecies(LOGK, ispecies)
   # write the new file
-  writedat(outfile, LINES, HEAD, LOGK)
+  writedat(outfile, LINES, HEAD, LOGK, ADDS)
 }

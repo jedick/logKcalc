@@ -2,25 +2,16 @@
 # write a GWB data file with updated logK values
 # 20200524
 
-# a function to create one line of logK values
-logKline <- function(LINES, iname, logKs, iline) {
-  GWBnames <- names(logKs)
-  ispecies <- match(line2name(LINES[iname]), GWBnames)
-  if(iline==1) thislogK <- logKs[[ispecies]][1:4]
-  if(iline==2) thislogK <- logKs[[ispecies]][5:8]
+# a function to format values on separate lines 20200610
+formatline <- function(values, iline, na.500 = FALSE) {
+  if(iline==1) values <- values[1:4]
+  if(iline==2) values <- values[5:8]
   # use 500 for NA 20200526
-  thislogK[is.na(thislogK)] <- 500
-  paste0("   ", paste(sprintf("%12.4f", thislogK), collapse = ""))
+  if(na.500) values[is.na(values)] <- 500
+  paste0("   ", paste(sprintf("%12.4f", values), collapse = ""))
 }
 
-# a function to create one line of T or P values 20200610
-TPline <- function(x, iline) {
-  if(iline==1) x <- x[1:4]
-  if(iline==2) x <- x[5:8]
-  paste0("   ", paste(sprintf("%12.4f", x), collapse = ""))
-}
-
-writedat <- function(outfile, LINES, HEAD, LOGK) {
+writedat <- function(outfile, LINES, HEAD, LOGK, ADDS) {
   # put together the output
   # start with empty lines
   out <- rep(NA, length(LINES))
@@ -43,10 +34,10 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
       # just copy the line from the input file
       outline <- LINES[i]
       # change T and P 20200610
-      if(i == HEAD$iT + 1) outline <- TPline(LOGK$T, 1)
-      if(i == HEAD$iT + 2) outline <- TPline(LOGK$T, 2)
-      if(i == HEAD$iP + 1) outline <- TPline(LOGK$P, 1)
-      if(i == HEAD$iP + 2) outline <- TPline(LOGK$P, 2)
+      if(i == HEAD$iT + 1) outline <- formatline(LOGK$T, 1)
+      if(i == HEAD$iT + 2) outline <- formatline(LOGK$T, 2)
+      if(i == HEAD$iP + 1) outline <- formatline(LOGK$P, 1)
+      if(i == HEAD$iP + 2) outline <- formatline(LOGK$P, 2)
     }
 
     # check if we're in the basis species header
@@ -157,13 +148,15 @@ writedat <- function(outfile, LINES, HEAD, LOGK) {
         } else {
           # don't attempt to insert logK for oxide species 20200528
           if(i < HEAD$ioxide) {
+            # get calculated logK values
+            ispecies <- match(line2name(LINES[icurrent]), names(logKs))
+            values <- logKs[[ispecies]]
             # insert calculated logK values
             if(i == ilogK1) iline <- 1
             if(i == ilogK2) iline <- 2
-            outline <- logKline(LINES, icurrent, logKs, iline)
+            outline <- formatline(values, iline, na.500 = TRUE)
             # add reference line 20200617
             if(i == ilogK2) {
-              ispecies <- match(line2name(LINES[icurrent]), names(logKs))
               refline <- "* no references available"
               r1 <- ref1[ispecies]
               if(!is.na(r1)) {

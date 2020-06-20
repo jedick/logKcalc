@@ -8,7 +8,7 @@ Read dissociation reactions from a thermodynamic data file for The Geochemist's 
 
 \usage{
   logKcalc(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
-    T = NULL, P = "Psat", maxprint = Inf)
+    T = NULL, P = "Psat", ispecies = NULL, maxprint = Inf)
 }
 
 \arguments{
@@ -16,6 +16,7 @@ Read dissociation reactions from a thermodynamic data file for The Geochemist's 
   \item{outfile}{Output GWB data file}
   \item{T}{Temperature (\degC)}
   \item{P}{Pressure (bar)}
+  \item{ispecies}{Species index of specie(s) to add to the data file}
   \item{maxprint}{Maximum number of missing species to show in print statements}
 }
 
@@ -60,6 +61,19 @@ Both names and formulas of species in OBIGT are searched, but formulas are searc
 Species names that are not mapped after these steps are then searched in the names mapping file.
 This file was constructed by identifying unmapped species in \samp{thermo.tdat} and GWB files produced by K2GWB and DBCreate.
 Some of the mapped names are for SUPCRT92 minerals that are not in the default database, so they won't be mapped to the output file unless \code{modOBIGT} is used add these minerals.
+
+}
+
+\section{Adding Species}{
+
+By default, only species in the input file that can be mapped to OBIGT are included in the output file.
+Other species can be added to the output using the \code{ispecies} argument.
+The values in this argument are the species index for one or more species, as returned by \code{CHNOSZ::\link[CHNOSZ]{info}}.
+Species can only be added if all of their elements are in the available basis species in the GWB file.
+Species with the states \samp{aq}, \samp{cr}, and \samp{gas} in OBIGT are added to the aqueous, mineral, and gas sections of the output file, respectively; any other states produce an error.
+
+The molecular weight of species is calculated using \code{CHNOSZ::\link[CHNOSZ:util.formula]{mass}}, which likely does not correspond precisely to the element masses in the input GWB file.
+Ion sizes for all new aqueous species are set to 4.0 A.
 
 }
 
