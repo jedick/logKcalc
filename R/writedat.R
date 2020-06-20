@@ -200,7 +200,7 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS) {
     allrefs <- c(basisrefs, speciesrefs)
     keys <- sort(unique(stats::na.omit(unlist(allrefs))))
     # read the bibtex files from CHNOSZ and logKcalc
-    bibfile1 <- system.file("extdata/OBIGT/obigt.bib", package = "CHNOSZ")
+    bibfile1 <- system.file("doc/obigt.bib", package = "CHNOSZ")
     bibentry1 <- bibtex::read.bib(bibfile1)
     bibfile2 <- system.file("extdata/logKcalc.bib", package = "logKcalc")
     bibentry2 <- bibtex::read.bib(bibfile2)
