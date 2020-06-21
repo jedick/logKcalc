@@ -41,45 +41,45 @@ mapnames <- function(GWBnames, type = NULL, na.omit = FALSE, return.processed.na
     if(type == "gas") OBIGT <- OBIGT[OBIGT$state=="gas", ]
   }
   # H2O is a liquid, so doesn't fall in the other categories
-  OBIGTnames <- unique(c("H2O", OBIGT$name, OBIGT$formula))
-  iOBIGT <- match(Gnames, OBIGTnames)
-  CHNOSZnames <- OBIGTnames[iOBIGT]
+  allOBIGTnames <- unique(c("H2O", OBIGT$name, OBIGT$formula))
+  iOBIGT <- match(Gnames, allOBIGTnames)
+  OBIGTnames <- allOBIGTnames[iOBIGT]
   # also try lower-case names
-  iOBIGT <- match(tolower(Gnames), OBIGTnames)
-  ina <- is.na(CHNOSZnames)
-  CHNOSZnames[ina] <- OBIGTnames[iOBIGT[ina]]
+  iOBIGT <- match(tolower(Gnames), allOBIGTnames)
+  ina <- is.na(OBIGTnames)
+  OBIGTnames[ina] <- allOBIGTnames[iOBIGT[ina]]
 
   # then look in map_names.csv
   mapfile <- system.file("extdata/map_names.csv", package = "logKcalc")
   map <- utils::read.csv(mapfile, as.is = TRUE)
   # earlier versions of CHNOSZ use lowercase "a" for Angstrom abbreviation in mineral names 20200609
   if(!utils::packageVersion("CHNOSZ") > "1.3.6") {
-    map$CHNOSZ <- gsub("7A$", "7a", map$CHNOSZ)
-    map$CHNOSZ <- gsub("14A$", "14a", map$CHNOSZ)
+    map$OBIGT <- gsub("7A$", "7a", map$OBIGT)
+    map$OBIGT <- gsub("14A$", "14a", map$OBIGT)
   }
   imap <- match(GWBnames, map$GWB)
   # get the names of the mapped species
   iimap <- !is.na(imap)
-  mappednames <- map$CHNOSZ[imap[iimap]]
+  mappednames <- map$OBIGT[imap[iimap]]
   # check that they're actually present in OBIGT 20200614
   infonames <- suppressMessages(CHNOSZ::info(mappednames))
   iimap[iimap][is.na(infonames)] <- FALSE
-  CHNOSZnames[iimap] <- map$CHNOSZ[imap[iimap]]
+  OBIGTnames[iimap] <- map$OBIGT[imap[iimap]]
 
   if(na.omit) {
     # remove species that are NA in CHNOSZ
-    ina <- is.na(CHNOSZnames)
+    ina <- is.na(OBIGTnames)
     if(any(ina)) {
       message("Can't map these ", type, " species to the OBIGT database:")
       print(paste(GWBnames[ina], collapse = ", "))
       GWBnames <- GWBnames[!ina]
-      CHNOSZnames <- CHNOSZnames[!ina]
+      OBIGTnames <- OBIGTnames[!ina]
     }
   } else {
     # identify species that are NA in CHNOSZ
-    GWBnames[is.na(CHNOSZnames)] <- NA
+    GWBnames[is.na(OBIGTnames)] <- NA
   }
 
   # return the mapping
-  list(GWB = GWBnames, CHNOSZ = CHNOSZnames)
+  list(GWB = GWBnames, CHNOSZ = OBIGTnames)
 }

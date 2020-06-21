@@ -1,0 +1,1003 @@
+dataset of thermodynamic data for gwb programs
+dataset format: jan19
+activity model: debye-huckel
+fugacity model: tsonopoulos
+* 
+* -- based on the data0 dataset of wolery et al.:
+*    data file data0.3245r46
+*             1 atm steam saturation curve data
+*    last modified  13aug86   (da0r)
+* 
+*    for data sources, please scroll to end of file.
+
+* temperatures
+         0.0000     25.0000     60.0000    100.0000
+       150.0000    200.0000    250.0000    300.0000
+* pressures
+         1.0000      1.0000      1.0000      1.0133
+         4.7573     15.5366     39.7366     85.8379
+* debye huckel a (adh)
+          .4913       .5092       .5450       .5998
+          .6898       .8099       .9785      1.2555
+* debye huckel b (bdh)
+          .3247       .3283       .3343       .3422
+          .3533       .3655       .3792       .3965
+* bdot
+          .0174       .0410       .0440       .0460
+          .0470       .0470       .0340      0.0000
+* c co2 1
+          .1224       .1127      .09341      .08018
+         .08427      .09892       .1371       .1967
+* c co2 2
+       -.004679     -.01049      -.0036    -.001503
+        -.01184      -.0104    -.007086     -.01809
+* c co2 3
+      -.0004114     .001545    9.609e-5    .0005009
+        .003118     .001386    -.002887    -.002497
+* c co2 4
+         0.0000      0.0000      0.0000      0.0000
+         0.0000      0.0000      0.0000      0.0000
+* c h2o 1
+       500.0000     1.45397    500.0000      1.5551
+         1.6225    500.0000    500.0000    500.0000
+* c h2o 2
+       500.0000     .022357    500.0000     .036478
+        .045891    500.0000    500.0000    500.0000
+* c h2o 3
+       500.0000    .0093804    500.0000    .0064366
+       .0045221    500.0000    500.0000    500.0000
+* c h2o 4
+       500.0000   -.0005362    500.0000   -.0007132
+      -.0008312    500.0000    500.0000    500.0000
+
+   12 elements
+
+Gold            (Au)          mole wt.=  196.9665 g
+Carbon          (C )          mole wt.=   12.0110 g
+Chlorine        (Cl)          mole wt.=   35.4530 g
+Iron            (Fe)          mole wt.=   55.8470 g
+Hydrogen        (H )          mole wt.=    1.0079 g
+Potassium       (K )          mole wt.=   39.0983 g
+Nitrogen        (N )          mole wt.=   14.0067 g
+Sodium          (Na)          mole wt.=   22.9898 g
+Oxygen          (O )          mole wt.=   15.9994 g
+Phosphorus      (P )          mole wt.=   30.9738 g
+Sulfur          (S )          mole wt.=   32.0600 g
+Silicon         (Si)          mole wt.=   28.0850 g
+
+-end-
+
+   13 basis species
+
+H2O
+     charge=  0      ion size=  0.0 A      mole wt.=   18.0152 g
+     2 elements in species
+        2.000 H               1.000 O       
+* no references available
+
+Au+
+     charge=  1      ion size=  2.5 A      mole wt.=  196.9665 g
+     1 elements in species
+        1.000 Au      
+* reference: AZ01
+
+Cl-
+     charge= -1      ion size=  3.0 A      mole wt.=   35.4530 g
+     1 elements in species
+        1.000 Cl      
+* reference: SH88
+
+Fe++
+     charge=  2      ion size=  6.0 A      mole wt.=   55.8470 g
+     1 elements in species
+        1.000 Fe      
+* reference: SSWS97
+
+H+
+     charge=  1      ion size=  9.0 A      mole wt.=    1.0079 g
+     1 elements in species
+        1.000 H       
+* no references available
+
+HCO3-
+     charge= -1      ion size=  4.5 A      mole wt.=   61.0171 g
+     3 elements in species
+        1.000 C               1.000 H               3.000 O       
+* reference: SH88
+
+HPO4--
+     charge= -2      ion size=  4.0 A      mole wt.=   95.9793 g
+     3 elements in species
+        1.000 H               4.000 O               1.000 P       
+* reference: SH88
+
+K+
+     charge=  1      ion size=  3.0 A      mole wt.=   39.0983 g
+     1 elements in species
+        1.000 K       
+* reference: SH88
+
+Na+
+     charge=  1      ion size=  4.0 A      mole wt.=   22.9898 g
+     1 elements in species
+        1.000 Na      
+* reference: SH88
+
+NO3-
+     charge= -1      ion size=  3.0 A      mole wt.=   62.0049 g
+     2 elements in species
+        1.000 N               3.000 O       
+* reference: SH88
+
+O2(aq)
+     charge=  0      ion size=  -.5 A      mole wt.=   31.9988 g
+     1 elements in species
+        2.000 O       
+* reference: SHS89
+
+SiO2(aq)
+     charge=  0      ion size=  -.5 A      mole wt.=   60.0843 g
+     2 elements in species
+        2.000 O               1.000 Si      
+* reference: SHS89
+
+SO4--
+     charge= -2      ion size=  4.0 A      mole wt.=   96.0576 g
+     2 elements in species
+        4.000 O               1.000 S       
+* reference: SH88
+
+-end-
+
+   10 redox couples
+
+Au+++
+     charge=  3      ion size=  9.0 A      mole wt.=  196.9665 g
+     4 species in reaction
+       -1.000 H2O             2.000 H+              1.000 Au+     
+         .500 O2(aq)  
+         3.4164      4.3506      5.4673      6.5301
+         7.6423      8.6095      9.5090     10.4091
+* references: SSWS97, SH88
+
+CH3COO-
+     charge= -1      ion size=  4.5 A      mole wt.=   59.0445 g
+     3 species in reaction
+        2.000 HCO3-           1.000 H+             -2.000 O2(aq)  
+       160.5574    146.7494    130.5819    115.5180
+       100.3508     88.0614     77.7942     68.9038
+* reference: Sho95
+
+CH4(aq)
+     charge=  0      ion size=  -.5 A      mole wt.=   16.0426 g
+     4 species in reaction
+        1.000 H2O             1.000 H+              1.000 HCO3-   
+       -2.000 O2(aq)  
+       157.9054    144.2101    128.1147    113.0651
+        97.8553     85.4778     75.0822     66.0056
+* reference: PS01
+
+ClO4-
+     charge= -1      ion size=  3.5 A      mole wt.=   99.4506 g
+     2 species in reaction
+        1.000 Cl-             2.000 O2(aq)  
+        16.7900     15.7091     14.6708     13.9062
+        13.3466     13.0727     12.9985     13.1029
+* references: SSWS97, SH88
+
+Fe+++
+     charge=  3      ion size=  9.0 A      mole wt.=   55.8470 g
+     4 species in reaction
+        -.500 H2O             1.000 Fe++            1.000 H+      
+         .250 O2(aq)  
+       -10.0335     -8.4899     -6.6809     -4.9945
+        -3.2874     -1.8842     -0.6820      0.3902
+* reference: SSWS97
+
+H2(aq)
+     charge=  0      ion size=  -.5 A      mole wt.=    2.0158 g
+     2 species in reaction
+        1.000 H2O             -.500 O2(aq)  
+        50.4784     46.1066     40.9717     36.1762
+        31.3419     27.4263     24.1653     21.3650
+* reference: SHS89
+
+HS-
+     charge= -1      ion size=  3.5 A      mole wt.=   33.0679 g
+     3 species in reaction
+        1.000 SO4--           1.000 H+             -2.000 O2(aq)  
+       152.0993    138.3169    122.1371    107.0295
+        91.7855     79.4025     69.0257     60.0062
+* reference: SH88
+
+N2(aq)
+     charge=  0      ion size=  3.0 A      mole wt.=   28.0134 g
+     4 species in reaction
+       -1.000 H2O             2.000 H+              2.000 NO3-    
+       -2.500 O2(aq)  
+         8.8995      7.7393      5.8410      3.5667
+         0.7156     -2.1191     -4.9973     -8.1171
+* reference: SHS89
+
+NH4+
+     charge=  1      ion size=  2.5 A      mole wt.=   18.0383 g
+     4 species in reaction
+        1.000 NO3-            2.000 H+              1.000 H2O     
+       -2.000 O2(aq)  
+        58.1088     52.8591     46.5407     40.4987
+        34.2478     29.0290     24.5195     20.4270
+* reference: SH88
+
+NO2-
+     charge= -1      ion size=  3.0 A      mole wt.=   46.0055 g
+     2 species in reaction
+        1.000 NO3-            -.500 O2(aq)  
+        16.7548     15.2348     13.4416     11.7580
+        10.0504      8.6583      7.4916      6.4828
+* reference: SH88
+
+-end-
+
+   36 aqueous species
+
+AuCl2-
+     charge= -1      ion size=  4.0 A      mole wt.=  267.8725 g
+     2 species in reaction
+        2.000 Cl-             1.000 Au+     
+       -10.3823     -9.5562     -8.6807     -7.9976
+        -7.4988     -7.3030     -7.3706     -7.7371
+* reference: AZ01
+
+CO2(aq)
+     charge=  0      ion size=  4.0 A      mole wt.=   44.0098 g
+     3 species in reaction
+       -1.000 H2O             1.000 H+              1.000 HCO3-   
+        -6.5677     -6.3447     -6.2574     -6.3539
+        -6.6615     -7.1173     -7.7083     -8.4882
+* reference: PS01
+
+CO3--
+     charge= -2      ion size=  4.5 A      mole wt.=   60.0092 g
+     2 species in reaction
+        1.000 HCO3-          -1.000 H+      
+        10.6241     10.3288     10.1304     10.0836
+        10.2003     10.4648     10.8707     11.4638
+* reference: SH88
+
+FeCH3COO+
+     charge=  1      ion size=  4.0 A      mole wt.=  114.8915 g
+     2 species in reaction
+        1.000 CH3COO-         1.000 Fe++    
+        -1.4284     -1.2901     -1.3225     -1.5167
+        -1.8944     -2.3822     -2.9839     -3.7545
+* reference: SSH97
+
+FeCl+
+     charge=  1      ion size=  4.0 A      mole wt.=   91.3000 g
+     2 species in reaction
+        1.000 Cl-             1.000 Fe++    
+         0.1522      0.1605      0.0364     -0.2061
+        -0.6047     -1.0921     -1.6835     -2.4419
+* reference: SSH97
+
+FeCl++
+     charge=  2      ion size=  5.0 A      mole wt.=   91.3000 g
+     2 species in reaction
+        1.000 Cl-             1.000 Fe+++   
+        -1.4655     -1.4799     -1.6152     -1.8550
+        -2.2399     -2.7096     -3.2837     -4.0256
+* reference: SSH97
+
+FeCl2
+     charge=  0      ion size=  4.0 A      mole wt.=  126.7530 g
+     2 species in reaction
+        2.000 Cl-             1.000 Fe++    
+         9.6489      8.1716      6.2535      4.2845
+         2.0690      0.0106     -2.0222     -4.2220
+* reference: SSH97
+
+FeOH+
+     charge=  1      ion size=  4.0 A      mole wt.=   72.8543 g
+     3 species in reaction
+       -1.000 H+              1.000 Fe++            1.000 H2O     
+        10.1319      9.3148      8.3650      7.4949
+         6.6337      5.9419      5.3584      4.8384
+* reference: SSWS97
+
+FeOH++
+     charge=  2      ion size=  5.0 A      mole wt.=   72.8543 g
+     3 species in reaction
+       -1.000 H+              1.000 Fe+++           1.000 H2O     
+         2.8954      2.2047      1.4285      0.7408
+         0.0794     -0.4433     -0.8855     -1.2837
+* reference: SSWS97
+
+H2P2O7--
+     charge= -2      ion size=  4.0 A      mole wt.=  175.9591 g
+     3 species in reaction
+       -1.000 H2O             2.000 H+              2.000 HPO4--  
+       -11.8902    -12.0709    -12.6291    -13.4703
+       -14.6882    -16.0462    -17.5682    -19.3712
+* reference: SSWS97
+
+H2PO4-
+     charge= -1      ion size=  4.0 A      mole wt.=   96.9872 g
+     2 species in reaction
+        1.000 HPO4--          1.000 H+      
+        -7.3231     -7.2055     -7.1888     -7.2876
+        -7.5259     -7.8671     -8.3189     -8.9357
+* reference: SH88
+
+H2S(aq)
+     charge=  0      ion size=  4.0 A      mole wt.=   34.0758 g
+     2 species in reaction
+        1.000 H+              1.000 HS-     
+        -7.4159     -6.9878     -6.6467     -6.4827
+        -6.4960     -6.6831     -7.0225     -7.5536
+* reference: SHS89
+
+H3P2O7-
+     charge= -1      ion size=  4.0 A      mole wt.=  176.9670 g
+     3 species in reaction
+       -1.000 H2O             3.000 H+              2.000 HPO4--  
+       -14.2299    -14.4166    -15.0276    -15.9654
+       -17.3495    -18.9315    -20.7632    -23.0356
+* reference: SSWS97
+
+H3PO4
+     charge=  0      ion size=  4.0 A      mole wt.=   97.9951 g
+     2 species in reaction
+        1.000 HPO4--          2.000 H+      
+        -9.3933     -9.3752     -9.5434     -9.8805
+       -10.4425    -11.1429    -12.0169    -13.1928
+* reference: SHS89
+
+H4P2O7
+     charge=  0      ion size=  4.0 A      mole wt.=  177.9749 g
+     3 species in reaction
+       -1.000 H2O             4.000 H+              2.000 HPO4--  
+       -15.6710    -15.9559    -16.7292    -17.8656
+       -19.5151    -21.3956    -23.5932    -26.3870
+* reference: SSWS97
+
+HCH3COO
+     charge=  0      ion size=  4.0 A      mole wt.=   60.0524 g
+     2 species in reaction
+        1.000 H+              1.000 CH3COO- 
+        -4.7812     -4.7572     -4.8080     -4.9438
+        -5.1953     -5.5241     -5.9419     -6.5094
+* reference: Sho95
+
+HCl
+     charge=  0      ion size=  4.0 A      mole wt.=   36.4609 g
+     2 species in reaction
+        1.000 H+              1.000 Cl-     
+         0.4554      0.7096      0.8519      0.8053
+         0.5366      0.1018     -0.4733     -1.2196
+* reference: TZA97
+
+HNO2
+     charge=  0      ion size=  4.0 A      mole wt.=   47.0134 g
+     2 species in reaction
+        1.000 H+              1.000 NO2-    
+        -3.4897     -3.2252     -2.9908     -2.8441
+        -2.7852     -2.8365     -2.9999     -3.3278
+* reference: SSWS97
+
+HP2O7---
+     charge= -3      ion size=  4.0 A      mole wt.=  174.9512 g
+     3 species in reaction
+       -1.000 H2O             1.000 H+              2.000 HPO4--  
+        -5.2041     -5.4739     -6.0274     -6.7605
+        -7.7412     -8.7662     -9.8471    -11.0415
+* reference: SSWS97
+
+HSO4-
+     charge= -1      ion size=  4.0 A      mole wt.=   97.0655 g
+     2 species in reaction
+        1.000 SO4--           1.000 H+      
+        -1.7193     -1.9791     -2.4371     -3.0002
+        -3.7234     -4.4683     -5.2633     -6.1799
+* reference: SH88
+
+KCl
+     charge=  0      ion size=  4.0 A      mole wt.=   74.5513 g
+     2 species in reaction
+        1.000 K+              1.000 Cl-     
+         2.8401      2.5355      2.1412      1.7313
+         1.2545      0.7846      0.2783     -0.3441
+* reference: SSH97
+
+KOH
+     charge=  0      ion size=  4.0 A      mole wt.=   56.1056 g
+     3 species in reaction
+        1.000 K+              1.000 H2O            -1.000 H+      
+        15.4984     14.4386     13.3143     12.3777
+        11.5515     10.9778     10.5696     10.2671
+* reference: SSWS97
+
+KSO4-
+     charge= -1      ion size=  4.0 A      mole wt.=  135.1559 g
+     2 species in reaction
+        1.000 K+              1.000 SO4--   
+        -0.8855     -0.8796     -0.9908     -1.1950
+        -1.5212     -1.9206     -2.4186     -3.0896
+* reference: SSH97
+
+NaCH3COO
+     charge=  0      ion size=  4.0 A      mole wt.=   82.0343 g
+     2 species in reaction
+        1.000 Na+             1.000 CH3COO- 
+         0.0431      0.1034      0.0347     -0.1378
+        -0.4282     -0.7835     -1.2196     -1.8010
+* reference: SK93
+
+NaCl
+     charge=  0      ion size=  4.0 A      mole wt.=   58.4428 g
+     2 species in reaction
+        1.000 Na+             1.000 Cl-     
+         0.8286      0.7770      0.6509      0.4730
+         0.2140     -0.0932     -0.4777     -1.0126
+* reference: SSH97
+
+NaOH
+     charge=  0      ion size=  4.0 A      mole wt.=   39.9971 g
+     3 species in reaction
+        1.000 Na+             1.000 H2O            -1.000 H+      
+        15.1315     14.2047     13.2097     12.3772
+        11.6420     11.1304     10.7623     10.4801
+* reference: SSWS97
+
+NaSO4-
+     charge= -1      ion size=  4.0 A      mole wt.=  119.0474 g
+     2 species in reaction
+        1.000 Na+             1.000 SO4--   
+        -0.6765     -0.7000     -0.8416     -1.0629
+        -1.3893     -1.7724     -2.2416     -2.8730
+* references: MS97, SLOP98
+
+NH3
+     charge=  0      ion size=  4.0 A      mole wt.=   17.0304 g
+     2 species in reaction
+        1.000 NH4+           -1.000 H+      
+        10.0691      9.2410      8.2847      7.4010
+         6.5156      5.7992      5.1995      4.6767
+* reference: SHS89
+
+OH-
+     charge= -1      ion size=  3.5 A      mole wt.=   17.0073 g
+     2 species in reaction
+        1.000 H2O            -1.000 H+      
+        14.9398     13.9951     13.0273     12.2551
+        11.6308     11.2836     11.1675     11.3002
+* reference: SH88
+
+P2O7----
+     charge= -4      ion size=  4.0 A      mole wt.=  173.9433 g
+     2 species in reaction
+       -1.000 H2O             2.000 HPO4--  
+         4.2851      3.8353      3.3291      2.8753
+         2.4397      2.1086      1.8549      1.6602
+* reference: SSWS97
+
+PO4---
+     charge= -3      ion size=  4.0 A      mole wt.=   94.9714 g
+     2 species in reaction
+       -1.000 H+              1.000 HPO4--  
+        12.6143     12.3218     12.1389     12.1176
+        12.2727     12.5798     13.0291     13.6570
+* references: SSWS97, SH88
+
+S2--
+     charge= -2      ion size=  4.0 A      mole wt.=   64.1200 g
+     4 species in reaction
+        1.750 HS-            -1.000 H2O              .250 SO4--   
+         .250 H+      
+         1.3024      1.3119      1.3035      1.2703
+         1.2035      1.1149      1.0042      0.8599
+* reference: SH88
+
+S3--
+     charge= -2      ion size=  4.0 A      mole wt.=   96.1800 g
+     4 species in reaction
+        2.500 HS-            -2.000 H2O             1.500 H+      
+         .500 SO4--   
+       -11.1079    -10.2331     -9.3819     -8.7614
+        -8.3470     -8.2307     -8.3748     -8.8269
+* reference: SH88
+
+S4--
+     charge= -2      ion size=  4.0 A      mole wt.=  128.2400 g
+     4 species in reaction
+        3.250 HS-            -3.000 H2O             2.750 H+      
+         .750 SO4--   
+       -23.2802    -21.5582    -19.8682    -18.6130
+       -17.7362    -17.4298    -17.6198    -18.3910
+* reference: SH88
+
+S5--
+     charge= -2      ion size=  4.0 A      mole wt.=  160.3000 g
+     4 species in reaction
+        4.000 HS-            -4.000 H2O             4.000 H+      
+        1.000 SO4--   
+       -35.2123    -32.6634    -30.1575    -28.2885
+       -26.9695    -26.4888    -26.7374    -27.8389
+* reference: SH88
+
+AuCl
+     charge=  0      ion size=  4.0 A      mole wt.=  232.4200 g
+     2 species in reaction
+        1.000 Au+             1.000 Cl-          
+       -11.4246    -10.9201    -10.3728     -9.9090
+        -9.5092     -9.2720     -9.1912     -9.3119
+
+-end-
+
+   1 free electron
+
+e-
+     charge= -1      ion size=  0.0 A      mole wt.=    0.0000 g
+     3 species in reaction
+         .500 H2O             -.250 O2(g)          -1.000 H+      
+        23.0734     20.7762     18.1548     15.7800
+        13.4650     11.6588     10.2135      9.0331
+* no references available
+
+-end-
+
+   21 minerals
+
+Amrph^silica                       type= silica
+     formula= SiO2
+     mole vol.=   29.0000 cc      mole wt.=   60.0843 g
+     1 species in reaction
+        1.000 SiO2(aq)
+        -3.1240     -2.7136     -2.4067     -2.1843
+        -1.9796     -1.8190     -1.6928     -1.6042
+* reference: HDNB78
+
+Chalcedony                         type= silica
+     formula= SiO2
+     mole vol.=   22.6880 cc      mole wt.=   60.0843 g
+     1 species in reaction
+        1.000 SiO2(aq)
+        -4.3359     -3.7281     -3.2307     -2.8615
+        -2.5280     -2.2669     -2.0512     -1.8760
+* reference: HDNB78
+
+Cristobalite                       type= silica
+     formula= SiO2
+     mole vol.=   25.7400 cc      mole wt.=   60.0843 g
+     1 species in reaction
+        1.000 SiO2(aq)
+        -4.0213     -3.4488     -2.9921     -2.6605
+        -2.3644     -2.1326     -1.9402    500.0000
+* reference: HDNB78
+
+Fayalite                           type= olivine
+     formula= Fe2SiO4
+     mole vol.=   46.3900 cc      mole wt.=  203.7771 g
+     4 species in reaction
+       -4.000 H+              2.000 Fe++            1.000 SiO2(aq)
+        2.000 H2O     
+        21.7492     19.3815     16.4588     13.7143
+        10.9758      8.7691      6.8980      5.2043
+* reference: Ber88
+
+FeO(c)                             type= 
+     formula= 
+     mole vol.=   12.0000 cc      mole wt.=   71.8464 g
+     3 species in reaction
+       -2.000 H+              1.000 Fe++            1.000 H2O     
+        22.2516     20.4052     18.3075     16.4168
+        14.5709     13.1069     11.8857     10.8065
+* reference: SSWS97
+
+Ferrosilite                        type= pyroxene
+     formula= FeSiO3
+     mole vol.=   37.7000 cc      mole wt.=  131.9307 g
+     4 species in reaction
+       -2.000 H+              1.000 Fe++            1.000 SiO2(aq)
+        1.000 H2O     
+         8.6961      7.8180      6.6080      5.4235
+         4.2250      3.2560      2.4317      1.6755
+* reference: Ber88
+
+Goethite                           type= hydroxide
+     formula= FeOOH
+     mole vol.=   20.8200 cc      mole wt.=   88.8537 g
+     3 species in reaction
+       -3.000 H+              1.000 Fe+++           2.000 H2O     
+         1.2832      0.3155     -0.7979     -1.8121
+       500.0000    500.0000    500.0000    500.0000
+* references: MGN03, MLS+03
+
+Gold                               type= native
+     formula= Au
+     mole vol.=   10.2150 cc      mole wt.=  196.9665 g
+     4 species in reaction
+         .500 H2O            -1.000 H+              1.000 Au+     
+        -.250 O2(aq)  
+        -7.8869     -7.0864     -6.1914     -5.3884
+        -4.6116     -4.0133     -3.5487     -3.1974
+* reference: HDNB78
+
+Graphite                           type= native
+     formula= C
+     mole vol.=    5.2900 cc      mole wt.=   12.0110 g
+     4 species in reaction
+       -1.500 H2O              .500 CH4(aq)          .500 H+      
+         .500 HCO3-   
+        -8.5769     -7.9315     -7.2009     -6.5512
+        -5.9408     -5.4958     -5.1812     -4.9863
+* reference: HDNB78
+
+Greenalite                         type= serpentine
+     formula= Fe3Si2O5(OH)4
+     mole vol.=  248.4500 cc      mole wt.=  371.7382 g
+     4 species in reaction
+       -6.000 H+              3.000 Fe++            2.000 SiO2(aq)
+        5.000 H2O     
+        26.0472     23.5211     20.2478     17.1379
+        14.0437     11.5642      9.4573      7.5150
+* reference: HDNB78
+
+Halite                             type= halide
+     formula= NaCl
+     mole vol.=   27.0150 cc      mole wt.=   58.4428 g
+     2 species in reaction
+        1.000 Na+             1.000 Cl-     
+         1.4920      1.5855      1.6176      1.5780
+         1.4499      1.2422      0.9364      0.4683
+* reference: HDNB78
+
+Hematite                           type= oxide
+     formula= Fe2O3
+     mole vol.=   30.2700 cc      mole wt.=  159.6922 g
+     3 species in reaction
+       -6.000 H+              2.000 Fe+++           3.000 H2O     
+         2.4999      0.4100     -2.0106     -4.2302
+        -6.4643     -8.3389    -10.0379    -11.6965
+* reference: Ber88
+
+Jarosite-K                         type= sulfate
+     formula= KFe3(SO4)2(OH)6
+     mole vol.=  153.2000 cc      mole wt.=  500.7983 g
+     5 species in reaction
+        2.000 SO4--           3.000 Fe+++           6.000 H2O     
+        1.000 K+             -6.000 H+      
+        -9.1781    -11.1453    -13.8117    -16.6318
+       -19.9666    -23.3117    -26.9369    -31.2361
+* reference: SAJ00
+
+Magnetite                          type= oxide
+     formula= Fe3O4
+     mole vol.=   44.5200 cc      mole wt.=  231.5386 g
+     4 species in reaction
+       -8.000 H+              1.000 Fe++            4.000 H2O     
+        2.000 Fe+++   
+        14.0643     10.5942      6.5850      2.9171
+        -0.7493     -3.7794     -6.4616     -9.0090
+* reference: Ber88
+
+Melanterite                        type= sulfate
+     formula= FeSO4:7H2O
+     mole vol.=  613.1000 cc      mole wt.=  278.0110 g
+     3 species in reaction
+        1.000 SO4--           1.000 Fe++            7.000 H2O     
+        -2.1361     -2.0177     -1.7597     -1.3369
+        -0.7224     -0.1280      0.3210      0.4429
+* reference: PK95
+
+Pyrite                             type= sulfide
+     formula= FeS2
+     mole vol.=   23.9400 cc      mole wt.=  119.9670 g
+     5 species in reaction
+       -1.000 H2O             1.000 Fe++            1.750 HS-     
+         .250 SO4--            .250 H+      
+       -26.5030    -24.6534    -22.7519    -21.2342
+       -20.0243    -19.3946    -19.2757    -19.7393
+* reference: HDNB78
+
+Quartz                             type= silica
+     formula= SiO2
+     mole vol.=   22.6880 cc      mole wt.=   60.0843 g
+     1 species in reaction
+        1.000 SiO2(aq)
+        -4.6407     -4.0077     -3.4817     -3.0863
+        -2.7270     -2.4455     -2.2132     -2.0242
+* reference: Ber88
+
+Siderite                           type= carbonate
+     formula= FeCO3
+     mole vol.=   28.6300 cc      mole wt.=  115.8562 g
+     3 species in reaction
+        1.000 HCO3-           1.000 Fe++           -1.000 H+      
+         0.2914     -0.1920     -0.8309     -1.4966
+        -2.2680     -3.0227     -3.8214     -4.7582
+* references: HDNB78, Hel85
+
+Sulfur-Rhmb                        type= native
+     formula= S
+     mole vol.=   15.5100 cc      mole wt.=   32.0600 g
+     4 species in reaction
+       -1.000 H2O              .750 HS-             1.250 H+      
+         .250 SO4--   
+       -11.3158    -10.5188     -9.7335     -9.1479
+        -8.7554     -8.6341     -8.7382     -9.1036
+* references: MS97, SLOP98
+
+Sylvite                            type= halide
+     formula= KCl
+     mole vol.=   37.5240 cc      mole wt.=   74.5513 g
+     2 species in reaction
+        1.000 K+              1.000 Cl-     
+         0.5252      0.8459      1.1224      1.2845
+         1.3297      1.2382      1.0128      0.6044
+* reference: HDNB78
+
+pyrrhotite
+     formula= FeS
+     mole vol.=   18.2000 cc      mole wt.=   87.9070 g
+     3 species in reaction
+        1.000 Fe++           -2.000 O2(aq)          1.000 SO4--        
+       148.4642    134.5976    118.2200    102.8332
+        87.1702     74.2657     63.2603     53.4258
+
+-end-
+
+   9 gases
+
+CH4(g)
+     mole wt.=   16.0426 g
+     chi=       -537.779     1.54946 -.000927827     1.20861  -.00370814  3.33804e-6
+     Pcrit=     46.0 bar      Tcrit=     190.4 K      omega=        .011
+     1 species in reaction
+        1.000 CH4(aq) 
+        -2.6698     -2.9191     -3.0928     -3.1403
+        -3.0646     -2.8956     -2.6612     -2.3581
+* references: WEP+82, Kel60
+
+CO2(g)
+     mole wt.=   44.0098 g
+     chi=       -1430.87       3.598  -.00227376     3.47644   -.0104247  8.46271e-6
+     Pcrit=     73.8 bar      Tcrit=     304.1 K      omega=        .239
+     3 species in reaction
+       -1.000 H2O             1.000 H+              1.000 HCO3-   
+        -7.6765     -7.8136     -8.0527     -8.3574
+        -8.7692     -9.2165     -9.7202    -10.3393
+* references: WEP+82, Kel60
+
+H2(g)
+     mole wt.=    2.0158 g
+     chi=       -12.5908     .259789  -7.2473e-5   .00447195 -2.69962e-5  2.15622e-8
+     Pcrit=     13.0 bar      Tcrit=      33.2 K      omega=       -.218
+     1 species in reaction
+        1.000 H2(aq)  
+        -3.0091     -3.1050     -3.1394     -3.0976
+        -2.9766     -2.8101     -2.6133     -2.3841
+* references: WEP+82, Kel60
+
+H2S(g)
+     mole wt.=   34.0758 g
+     Pcrit=     89.4 bar      Tcrit=     373.2 K      omega=        .097
+     2 species in reaction
+        1.000 H+              1.000 HS-     
+        -8.0781     -7.9758     -7.9295     -7.9572
+        -8.0759     -8.2750     -8.5671     -9.0074
+* references: WEP+82, Kel60
+
+N2(g)
+     mole wt.=   28.0134 g
+     Pcrit=     33.9 bar      Tcrit=     126.2 K      omega=        .039
+     1 species in reaction
+        1.000 N2(aq)  
+        -2.9729     -3.1864     -3.3189     -3.3334
+        -3.2324     -3.0499     -2.8103     -2.5103
+* references: WEP+82, Kel60
+
+O2(g)
+     mole wt.=   31.9988 g
+     Pcrit=     50.4 bar      Tcrit=     154.6 K      omega=        .025
+     1 species in reaction
+        1.000 O2(aq)  
+        -2.6567     -2.8983     -3.0633     -3.1076
+        -3.0354     -2.8742     -2.6488     -2.3537
+* references: WEP+82, Kel60
+
+S2(g)
+     mole wt.=   64.1200 g
+     4 species in reaction
+       -2.000 H2O             2.500 H+               .500 SO4--   
+        1.500 HS-     
+        -6.6787     -7.1449     -7.9330     -8.9055
+       -10.1781    -11.5217    -12.9970    -14.7638
+* references: WEP+82, Kel60
+
+Steam
+     mole wt.=   18.0152 g
+     chi=       -6191.41     14.8528  -.00914267    -66.3326      .18277  -.00013274
+     Pcrit=    221.2 bar      Tcrit=     647.3 K      omega=        .344    a=-.0109    b=   0.0
+     1 species in reaction
+        1.000 H2O     
+         2.2985      1.5854      0.7859      0.0791
+        -0.5884     -1.0882     -1.4702     -1.7663
+* reference: Joh92
+
+ammonia
+     mole wt.=   17.0305 g
+     4 species in reaction
+        1.000 H2O             1.000 H+              1.000 NO3-         
+       -2.000 O2(aq)       
+        70.5512     63.8967     55.9822     48.5012
+        40.8523     34.5428     29.1546     24.3303
+
+-end-
+
+   5 oxides
+
+Fe2O3
+     mole wt.=  159.6923 g
+     3 species in reaction
+       -6.000 H+              2.000 Fe+++           3.000 H2O     
+
+FeO
+     mole wt.=   71.8466 g
+     3 species in reaction
+       -2.000 H+              1.000 Fe++            1.000 H2O     
+
+K2O
+     mole wt.=   94.2030 g
+     3 species in reaction
+       -2.000 H+              2.000 K+              1.000 H2O     
+
+Na2O
+     mole wt.=   61.9810 g
+     3 species in reaction
+       -2.000 H+              2.000 Na+             1.000 H2O     
+
+SiO2
+     mole wt.=   60.0836 g
+     1 species in reaction
+        1.000 SiO2(aq)
+
+-end-
+
+[AZ01]
+Akinfiev NN, Zotov AV (2001). “Thermodynamic description of chloride,
+hydrosulfide, and hydroxo complexes of Ag(I), Cu(I), and Au(I) at temperatures
+of 25-500°C and pressures of 1-2000 bar.” _Geochemistry International_,
+*39*(10), 990-1006.
+
+[Ber88]
+Berman RG (1988). “Internally-consistent thermodynamic data for minerals in the
+system
+Na$_2$O-K$_2$O-CaO-MgO-FeO-Fe$_2$O$_3$-Al$_2$O$_3$-SiO$_2$-TiO$_2$-H$_2$O-CO$_2$.”
+_Journal of Petrology_, *29*(2), 445-522. doi: 10.1093/petrology/29.2.445 (URL:
+https://doi.org/10.1093/petrology/29.2.445).
+
+[HDNB78]
+Helgeson HC, Delany JM, Nesbitt HW, Bird DK (1978). “Summary and critique of the
+thermodynamic properties of rock-forming minerals.” _American Journal of
+Science_, *278A*, 1-229. <URL: http://www.worldcat.org/oclc/13594862>.
+
+[Hel85]
+Helgeson HC (1985). “Errata. II. Thermodynamics of minerals, reactions, and
+aqueous solutions at high pressures and temperatures.” _American Journal of
+Science_, *285*(9), 845-855. doi: 10.2475/ajs.285.9.845 (URL:
+https://doi.org/10.2475/ajs.285.9.845).
+
+[Joh92]
+Johnson JW (1992). “Reference for H2O(g) from SUPCRT92/sprons92.dat.” Personal
+calculation, Earth Sciences Dept., Lawrence Livermore National Lab, Livermore,
+CA. Parameters given provide smooth metastable extrapolation of one-bar steam
+properties predicted by the Haar et al. (1984) equation of state to temperatures
+< the saturation temperature (99.632 C).
+
+[Kel60]
+Kelley KK (1960). _Contributions to the Data in Theoretical Metallurgy XIII:
+High Temperature Heat Content, Heat Capacities and Entropy Data for the Elements
+and Inorganic Compounds_, series Bulletin 584. U. S. Bureau of Mines. <URL:
+http://www.worldcat.org/oclc/693388901>.
+
+[MGN03]
+Majzlan J, Grevel K, Navrotsky A (2003). “Thermodynamics of Fe oxides: Part II.
+Enthalpies of formation and relative stability of goethite ($\alpha$-FeOOH),
+lepidocrocite ($\gamma$-FeOOH), and maghemite ($\gamma$-Fe$_2$O$_3$).” _American
+Mineralogist_, *88*(5-6), 855-859. ISSN 0003-004X, doi: 10.2138/am-2003-5-614
+(URL: https://doi.org/10.2138/am-2003-5-614).
+
+[MLS+03]
+Majzlan J, Lang BE, Stevens R, Navrotsky A, Woodfield BF, Boerio-Goates J
+(2003). “Thermodynamics of Fe oxides: Part I. Entropy at standard temperature
+and pressure and heat capacity of goethite ($\alpha$-FeOOH), lepidocrocite
+($\gamma$-FeOOH), and maghemite ($\gamma$-Fe$_2$O$_3$).” _American
+Mineralogist_, *88*(5-6), 846-854. ISSN 0003-004X, doi: 10.2138/am-2003-5-613
+(URL: https://doi.org/10.2138/am-2003-5-613).
+
+[MS97]
+McCollom TM, Shock EL (1997). “Geochemical constraints on chemolithoautotrophic
+metabolism by microorganisms in seafloor hydrothermal systems.” _Geochimica et
+Cosmochimica Acta_, *61*(20), 4375-4391. doi: 10.1016/S0016-7037(97)00241-X
+(URL: https://doi.org/10.1016/S0016-7037(97)00241-X).
+
+[PK95]
+Parker VB, Khodakovskii IL (1995). “Thermodynamic properties of the aqueous ions
+(2+ and 3+) of iron and the key compounds of iron.” _Journal of Physical and
+Chemical Reference Data_, *24*(5), 1699-1745. ISSN 0047-2689, doi:
+10.1063/1.555964 (URL: https://doi.org/10.1063/1.555964).
+
+[PS01]
+Plyasunov AV, Shock EL (2001). “Correlation strategy for determining the
+parameters of the revised Helgeson-Kirkham-Flowers model for aqueous
+nonelectrolytes.” _Geochimica et Cosmochimica Acta_, *65*(21), 3879-3900. doi:
+10.1016/S0016-7037(01)00678-0 (URL:
+https://doi.org/10.1016/S0016-7037(01)00678-0).
+
+[SAJ00]
+Stoffregen RE, Alpers CN, Jambor JL (2000). “Alunite-jarosite crystallography,
+thermodynamics, and geochronology.” In _Sulfate Minerals: Crystallography,
+Geochemistry and Environmental Significance_, volume 40 series Reviews in
+Mineralogy and Geochemistry, 453-479. Mineralogical Society of America. doi:
+10.2138/rmg.2000.40.9 (URL: https://doi.org/10.2138/rmg.2000.40.9).
+
+[SH88]
+Shock EL, Helgeson HC (1988). “Calculation of the thermodynamic and transport
+properties of aqueous species at high pressures and temperatures: Correlation
+algorithms for ionic species and equation of state predictions to 5 kb and
+1000°C.” _Geochimica et Cosmochimica Acta_, *52*(8), 2009-2036. doi:
+10.1016/0016-7037(88)90181-0 (URL:
+https://doi.org/10.1016/0016-7037(88)90181-0).
+
+[SHS89]
+Shock EL, Helgeson HC, Sverjensky DA (1989). “Calculation of the thermodynamic
+and transport properties of aqueous species at high pressures and temperatures:
+Standard partial molal properties of inorganic neutral species.” _Geochimica et
+Cosmochimica Acta_, *53*(9), 2157-2183. doi: 10.1016/0016-7037(89)90341-4 (URL:
+https://doi.org/10.1016/0016-7037(89)90341-4).
+
+[SK93]
+Shock EL, Koretsky CM (1993). “Metal-organic complexes in geochemical processes:
+Calculation of standard partial molal thermodynamic properties of aqueous
+acetate complexes at high pressures and temperatures.” _Geochimica et
+Cosmochimica Acta_, *57*(20), 4899-4922. doi: 10.1016/0016-7037(93)90128-J (URL:
+https://doi.org/10.1016/0016-7037(93)90128-J).
+
+[SLOP98]
+slop98.dat (1998). “Sequential-access thermodynamic datafile used by PROGRAM
+supcrt92.” Last updated on 1998-08-20. Accessed on 2019-04-08. doi:
+10.5281/zenodo.2630820 (URL: https://doi.org/10.5281/zenodo.2630820).
+
+[SSH97]
+Sverjensky DA, Shock EL, Helgeson HC (1997). “Prediction of the thermodynamic
+properties of aqueous metal complexes to 1000°C and 5 kb.” _Geochimica et
+Cosmochimica Acta_, *61*(7), 1359-1412. doi: 10.1016/S0016-7037(97)00009-4 (URL:
+https://doi.org/10.1016/S0016-7037(97)00009-4).
+
+[SSWS97]
+Shock EL, Sassani DC, Willis M, Sverjensky DA (1997). “Inorganic species in
+geologic fluids: Correlations among standard molal thermodynamic properties of
+aqueous ions and hydroxide complexes.” _Geochimica et Cosmochimica Acta_,
+*61*(5), 907-950. doi: 10.1016/S0016-7037(96)00339-0 (URL:
+https://doi.org/10.1016/S0016-7037(96)00339-0).
+
+[Sho95]
+Shock EL (1995). “Organic acids in hydrothermal solutions: Standard molal
+thermodynamic properties of carboxylic acids and estimates of dissociation
+constants at high temperatures and pressures.” _American Journal of Science_,
+*295*(5), 496-580. doi: 10.2475/ajs.295.5.496 (URL:
+https://doi.org/10.2475/ajs.295.5.496).
+
+[TZA97]
+Tagirov BR, Zotov AV, Akinfiev NN (1997). “Experimental study of dissociation of
+HCl from 350 to 500°C and from 500 to 2500 bars: Thermodynamic properties of
+HCl°\textsubscript{(aq)}.” _Geochimica et Cosmochimica Acta_, *61*(20),
+4267-4280. doi: 10.1016/S0016-7037(97)00274-3 (URL:
+https://doi.org/10.1016/S0016-7037(97)00274-3).
+
+[WEP+82]
+Wagman DD, Evans WH, Parker VB, Schumm RH, Halow I, Bailey SM, Churney KL,
+Nuttall RL (1982). “The NBS tables of chemical thermodynamic properties.
+Selected values for inorganic and C$_1$ and C$_2$ organic substances in SI
+units.” _Journal of Physical and Chemical Reference Data_, *11*(Suppl. 2),
+1-392. <URL: https://srd.nist.gov/JPCRD/jpcrdS2Vol11.pdf>.

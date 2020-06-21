@@ -19,11 +19,13 @@
 logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
   T = NULL, P = "Psat", ispecies = NULL, maxprint = Inf) {
 ## for debugging:
-#infile <- "~/lib/GWB/testfile/thermo.tdat"
+##infile <- "~/lib/GWB/testfile/thermo.tdat"
+#infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
 #outfile <- "thermo_OBIGT.tdat"
 #T <- NULL
 #P <- "Psat"
-#ispecies <- info(c("CO2", "carbon dioxide"))
+##ispecies <- info(c("CO2", "carbon dioxide"))
+#ispecies <- NULL
 #maxprint <- Inf
   if(!file.exists(infile)) stop("file specified by 'infile' doesn't exist")
   # read the GWB data file

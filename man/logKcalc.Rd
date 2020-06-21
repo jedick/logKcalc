@@ -39,11 +39,11 @@ Logarithms (base 10) of equilibrium constants are calculated for each of the fol
 The corresponding values for each species are inserted into the output GWB file.
 Any NA values (e.g. for temperatures above the melting point of a mineral) are represented by \samp{500} in the output file to indicate unavailable data (Bethke and Yeakel, 2010).
 
-The mass balance of dissociation reactions is checked by using the chemical formulas of species in OBIGT.
-Any unbalanced reactions produce a warning from \code{\link{subcrt}}.
-Species with unbalanced reactions are listed in the output file, but their \logK values are set to \samp{500} if the difference for any element exceeds 0.001.
-This includes the minerals antigorite, pyrrhotite, and scorodite in the GWB \samp{thermo.tdat} file, for which the chemical formulas (and therefore reactions) differ from those in OBIGT.
-An unbalanced reaction warning is also produced for realgar, not because of a different chemical formula but because of rounded reaction coefficients to the nearest 0.001, so its \logK values are included in the output.
+The mass balance of dissociation reactions is checked (in CHNOSZ::\code{\link{subcrt}}) using the chemical formulas of species in OBIGT.
+To allow for rounding errors in fractional coefficients, reactions are considered unbalanced if the difference for any element exceeds 0.001.
+Messages are shown for unbalanced reactions, and these species are omitted from the output file.
+This includes the minerals antigorite and pyrrhotite in the GWB \samp{thermo.tdat} file, for which the chemical formulas (and therefore reactions) differ from those in OBIGT.
+These minerals can be included by using \code{\link{modOBIGT}} and the \code{ispecies} argument, as shown in the example and \code{thermo.Rmd} vignette.
 
 }
 
@@ -86,11 +86,18 @@ Ion sizes for all new aqueous species are set to 4.0 A.
 mapfile <- system.file("extdata/map_names.csv", package = "logKcalc")
 head(read.csv(mapfile))
 
-# Process a GWB file and save the output in a temporary file
-infile <- system.file("extdata/ThermoGWB_15_6_2020.tdat", package = "logKcalc")
+# Process a GWB file
+# 1) define input and output files
+infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
 outfile <- tempfile("thermo", fileext = ".tdat")
-modOBIGT(c("addSUPCRT", "steam", "realgar*4"))
-logKcalc(infile, outfile)
+# 2) make some modifications to OBIGT
+# addSUPCRT - minerals from SUPCRT92 database
+# steam - deprecated H2O(g)
+modOBIGT(c("addSUPCRT", "steam"))
+# 3) identify species to add to the output
+ispecies <- info("pyrrhotite")
+# 4) process the file
+logKcalc(infile, outfile, ispecies = ispecies)
 }
 
 \references{

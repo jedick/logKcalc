@@ -1,0 +1,1418 @@
+dataset of thermodynamic data for gwb programs
+dataset format: jan19
+activity model: debye-huckel
+fugacity model: tsonopoulos
+* 
+* -- based on the data0 dataset of wolery et al.:
+*    data file data0.3245r46
+*             1 atm steam saturation curve data
+*    last modified  13aug86   (da0r)
+* 
+*    for data sources, please scroll to end of file.
+
+* temperatures
+         0.0000     25.0000     60.0000    100.0000
+       150.0000    200.0000    250.0000    300.0000
+* pressures
+         1.0134      1.0134      1.0134      1.0134
+         4.7600     15.5490     39.7760     85.9270
+* debye huckel a (adh)
+          .4913       .5092       .5450       .5998
+          .6898       .8099       .9785      1.2555
+* debye huckel b (bdh)
+          .3247       .3283       .3343       .3422
+          .3533       .3655       .3792       .3965
+* bdot
+          .0174       .0410       .0440       .0460
+          .0470       .0470       .0340      0.0000
+* c co2 1
+          .1224       .1127      .09341      .08018
+         .08427      .09892       .1371       .1967
+* c co2 2
+       -.004679     -.01049      -.0036    -.001503
+        -.01184      -.0104    -.007086     -.01809
+* c co2 3
+      -.0004114     .001545    9.609e-5    .0005009
+        .003118     .001386    -.002887    -.002497
+* c co2 4
+         0.0000      0.0000      0.0000      0.0000
+         0.0000      0.0000      0.0000      0.0000
+* c h2o 1
+       500.0000     1.45397    500.0000      1.5551
+         1.6225    500.0000    500.0000    500.0000
+* c h2o 2
+       500.0000     .022357    500.0000     .036478
+        .045891    500.0000    500.0000    500.0000
+* c h2o 3
+       500.0000    .0093804    500.0000    .0064366
+       .0045221    500.0000    500.0000    500.0000
+* c h2o 4
+       500.0000   -.0005362    500.0000   -.0007132
+      -.0008312    500.0000    500.0000    500.0000
+
+   12 elements
+
+Gold            (Au)          mole wt.=  196.9665 g
+Carbon          (C )          mole wt.=   12.0110 g
+Chlorine        (Cl)          mole wt.=   35.4530 g
+Iron            (Fe)          mole wt.=   55.8470 g
+Hydrogen        (H )          mole wt.=    1.0079 g
+Potassium       (K )          mole wt.=   39.0983 g
+Nitrogen        (N )          mole wt.=   14.0067 g
+Sodium          (Na)          mole wt.=   22.9898 g
+Oxygen          (O )          mole wt.=   15.9994 g
+Phosphorus      (P )          mole wt.=   30.9738 g
+Sulfur          (S )          mole wt.=   32.0600 g
+Silicon         (Si)          mole wt.=   28.0850 g
+
+-end-
+
+   13 basis species
+
+H2O
+     charge=  0      ion size=  0.0 A      mole wt.=   18.0152 g
+     2 elements in species
+        2.000 H               1.000 O       
+
+Au+
+     charge=  1      ion size=  2.5 A      mole wt.=  196.9665 g
+     1 elements in species
+        1.000 Au      
+
+Cl-
+     charge= -1      ion size=  3.0 A      mole wt.=   35.4530 g
+     1 elements in species
+        1.000 Cl      
+
+Fe++
+     charge=  2      ion size=  6.0 A      mole wt.=   55.8470 g
+     1 elements in species
+        1.000 Fe      
+
+H+
+     charge=  1      ion size=  9.0 A      mole wt.=    1.0079 g
+     1 elements in species
+        1.000 H       
+
+HCO3-
+     charge= -1      ion size=  4.5 A      mole wt.=   61.0171 g
+     3 elements in species
+        1.000 C               1.000 H               3.000 O       
+
+HPO4--
+     charge= -2      ion size=  4.0 A      mole wt.=   95.9793 g
+     3 elements in species
+        1.000 H               4.000 O               1.000 P       
+
+K+
+     charge=  1      ion size=  3.0 A      mole wt.=   39.0983 g
+     1 elements in species
+        1.000 K       
+
+Na+
+     charge=  1      ion size=  4.0 A      mole wt.=   22.9898 g
+     1 elements in species
+        1.000 Na      
+
+NO3-
+     charge= -1      ion size=  3.0 A      mole wt.=   62.0049 g
+     2 elements in species
+        1.000 N               3.000 O       
+
+O2(aq)
+     charge=  0      ion size=  -.5 A      mole wt.=   31.9988 g
+     1 elements in species
+        2.000 O       
+
+SiO2(aq)
+     charge=  0      ion size=  -.5 A      mole wt.=   60.0843 g
+     2 elements in species
+        2.000 O               1.000 Si      
+
+SO4--
+     charge= -2      ion size=  4.0 A      mole wt.=   96.0576 g
+     2 elements in species
+        4.000 O               1.000 S       
+
+-end-
+
+   11 redox couples
+
+(O-phth)--
+     charge= -2      ion size=  4.0 A      mole wt.=  164.1172 g
+     4 species in reaction
+       -5.000 H2O             8.000 HCO3-           6.000 H+      
+       -7.500 O2(aq)  
+       594.3211    542.8292    482.3612    425.9738
+       368.7004    321.8658    281.8216    246.4849
+
+Au+++
+     charge=  3      ion size=  9.0 A      mole wt.=  196.9665 g
+     4 species in reaction
+       -1.000 H2O             2.000 H+              1.000 Au+     
+         .500 O2(aq)  
+         3.2900      4.3513      5.6219      6.8164
+         8.0674      9.1557     10.2267     11.4411
+
+CH3COO-
+     charge= -1      ion size=  4.5 A      mole wt.=   59.0445 g
+     3 species in reaction
+        2.000 HCO3-           1.000 H+             -2.000 O2(aq)  
+       160.6192    146.7487    130.6352    115.8131
+       100.9856     89.0757     79.0857     70.4395
+
+CH4(aq)
+     charge=  0      ion size=  -.5 A      mole wt.=   16.0426 g
+     4 species in reaction
+        1.000 H2O             1.000 H+              1.000 HCO3-   
+       -2.000 O2(aq)  
+       157.8920    144.1080    127.9360    112.8800
+        97.7060     85.2880     74.7500     65.6500
+
+ClO4-
+     charge= -1      ion size=  3.5 A      mole wt.=   99.4506 g
+     2 species in reaction
+        1.000 Cl-             2.000 O2(aq)  
+        16.7898     15.7107     14.6883     13.8819
+        13.2930     12.9533     12.8197     12.5526
+
+Fe+++
+     charge=  3      ion size=  9.0 A      mole wt.=   55.8470 g
+     4 species in reaction
+        -.500 H2O             1.000 Fe++            1.000 H+      
+         .250 O2(aq)  
+       -10.0553     -8.4878     -6.6954     -5.0568
+        -3.4154     -2.0747      -.8908       .2679
+
+H2(aq)
+     charge=  0      ion size=  -.5 A      mole wt.=    2.0158 g
+     2 species in reaction
+        1.000 H2O             -.500 O2(aq)  
+        50.4955     46.1129     40.9736     36.2002
+        31.4328     27.5804     24.2906     21.4524
+
+HS-
+     charge= -1      ion size=  3.5 A      mole wt.=   33.0679 g
+     3 species in reaction
+        1.000 SO4--           1.000 H+             -2.000 O2(aq)  
+       152.1174    138.3443    122.1842    107.1558
+        91.9624     79.6191     69.1691     60.1261
+
+N2(aq)
+     charge=  0      ion size=  3.0 A      mole wt.=   28.0134 g
+     4 species in reaction
+       -1.000 H2O             2.000 H+              2.000 NO3-    
+       -2.500 O2(aq)  
+         8.8995      7.7393      5.8410      3.5667
+          .7156     -2.1191     -4.9973     -8.1171
+
+NH4+
+     charge=  1      ion size=  2.5 A      mole wt.=   18.0383 g
+     4 species in reaction
+        1.000 NO3-            2.000 H+              1.000 H2O     
+       -2.000 O2(aq)  
+        58.2003     52.9326     46.5866     40.5545
+        34.2601     28.9895     24.3387     20.2251
+
+NO2-
+     charge= -1      ion size=  3.0 A      mole wt.=   46.0055 g
+     2 species in reaction
+        1.000 NO3-            -.500 O2(aq)  
+        16.8517     15.3132     13.5245     11.8941
+        10.2613      8.9505      7.8182      6.7580
+
+-end-
+
+   80 aqueous species
+
+AuCl2-
+     charge= -1      ion size=  4.0 A      mole wt.=  267.8725 g
+     2 species in reaction
+        2.000 Cl-             1.000 Au+     
+        -9.8000     -9.0000     -8.2000     -7.5000
+        -6.4000     -6.4000     -6.2000     -6.2000
+
+AuCl4-
+     charge= -1      ion size=  4.0 A      mole wt.=  338.7785 g
+     2 species in reaction
+        4.000 Cl-             1.000 Au+++   
+       -27.8000    -26.0000    -24.1000    -22.4000
+       -21.0000    -20.2000    -20.2000    -21.1000
+
+CO2(aq)
+     charge=  0      ion size=  4.0 A      mole wt.=   44.0098 g
+     3 species in reaction
+       -1.000 H2O             1.000 H+              1.000 HCO3-   
+        -6.5570     -6.3660     -6.3325     -6.4330
+        -6.7420     -7.1880     -7.7630     -8.4650
+
+CO3--
+     charge= -2      ion size=  4.5 A      mole wt.=   60.0092 g
+     2 species in reaction
+        1.000 HCO3-          -1.000 H+      
+        10.6169     10.3439     10.2092     10.2793
+        10.5131     10.8637     11.2860     11.6319
+
+Fe(CH3COO)2+
+     charge=  1      ion size=  4.0 A      mole wt.=  173.9360 g
+     2 species in reaction
+        2.000 CH3COO-         1.000 Fe+++   
+        -7.5989     -7.5989    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+Fe(CH3COO)3
+     charge=  0      ion size=  4.0 A      mole wt.=  232.9805 g
+     2 species in reaction
+        3.000 CH3COO-         1.000 Fe+++   
+        -9.5984     -9.5984    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+Fe(OH)2
+     charge=  0      ion size=  4.0 A      mole wt.=   89.8616 g
+     3 species in reaction
+       -2.000 H+              1.000 Fe++            2.000 H2O     
+        23.3603     21.4222     19.1881     17.1575
+        15.1663     13.6060    500.0000    500.0000
+
+Fe(OH)2+
+     charge=  1      ion size=  4.0 A      mole wt.=   89.8616 g
+     3 species in reaction
+       -2.000 H+              1.000 Fe+++           2.000 H2O     
+         6.8280      5.6689      4.3918      3.2789
+         2.2317      1.3913       .5922      -.4219
+
+Fe(OH)3
+     charge=  0      ion size=  4.0 A      mole wt.=  106.8689 g
+     3 species in reaction
+       -3.000 H+              1.000 Fe+++           3.000 H2O     
+        13.7601     12.0180      9.9003      7.8005
+         5.4494      3.1992    500.0000    500.0000
+
+Fe(OH)3-
+     charge= -1      ion size=  4.0 A      mole wt.=  106.8689 g
+     3 species in reaction
+       -3.000 H+              1.000 Fe++            3.000 H2O     
+        37.1086     34.2245     31.2001     28.8006
+        26.8449     25.6690     25.0099     24.5823
+
+Fe(OH)4-
+     charge= -1      ion size=  4.0 A      mole wt.=  123.8762 g
+     3 species in reaction
+       -4.000 H+              1.000 Fe+++           4.000 H2O     
+        23.8625     21.6458     19.4544     17.8703
+        16.7635     16.2755     16.1412     16.0042
+
+Fe(SO4)2-
+     charge= -1      ion size=  4.0 A      mole wt.=  247.9622 g
+     2 species in reaction
+        2.000 SO4--           1.000 Fe+++   
+        -4.9108     -5.3852     -6.0161     -6.6006
+        -7.2716     -8.0083     -9.0532    -11.1351
+
+Fe2(OH)2++++
+     charge=  4      ion size= 11.0 A      mole wt.=  145.7086 g
+     3 species in reaction
+       -2.000 H+              2.000 Fe+++           2.000 H2O     
+         3.8917      2.9495      1.9836      1.2930
+          .8351       .5676       .2523      -.5855
+
+Fe3(OH)4(5+)
+     charge=  5      ion size= 11.0 A      mole wt.=  235.5702 g
+     3 species in reaction
+       -4.000 H+              3.000 Fe+++           4.000 H2O     
+         7.0974      6.2993      5.5777      5.2047
+         5.1503      5.2323      5.1303      4.1556
+
+FeCH3COO+
+     charge=  1      ion size=  4.0 A      mole wt.=  114.8915 g
+     2 species in reaction
+        1.000 CH3COO-         1.000 Fe++    
+        -2.3587     -2.3587    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+FeCH3COO++
+     charge=  2      ion size=  5.0 A      mole wt.=  114.8915 g
+     2 species in reaction
+        1.000 CH3COO-         1.000 Fe+++   
+        -3.7998     -3.7998    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+FeCl+
+     charge=  1      ion size=  4.0 A      mole wt.=   91.3000 g
+     2 species in reaction
+        1.000 Cl-             1.000 Fe++    
+          .0829      -.3797     -1.0159     -1.6882
+        -2.4618     -3.2315     -4.0978     -5.2901
+
+FeCl++
+     charge=  2      ion size=  5.0 A      mole wt.=   91.3000 g
+     2 species in reaction
+        1.000 Cl-             1.000 Fe+++   
+         -.9827     -1.4799     -2.1267     -2.7855
+        -3.5328     -4.2934     -5.2014     -6.5827
+
+FeCl2
+     charge=  0      ion size=  4.0 A      mole wt.=  126.7530 g
+     2 species in reaction
+        2.000 Cl-             1.000 Fe++    
+          .3598      -.0997      -.6906     -1.3573
+        -2.2165     -3.1766    500.0000    500.0000
+
+FeCl2+
+     charge=  1      ion size=  4.0 A      mole wt.=  126.7530 g
+     2 species in reaction
+        2.000 Cl-             1.000 Fe+++   
+        -1.6611     -2.1301     -2.8378     -3.6801
+        -4.7828     -6.0083     -7.5119     -9.7120
+
+FeCl3
+     charge=  0      ion size=  4.0 A      mole wt.=  162.2060 g
+     2 species in reaction
+        3.000 Cl-             1.000 Fe+++   
+         -.4650     -1.1295     -1.9861     -2.9795
+        -4.2877     -5.7794    500.0000    500.0000
+
+FeCl4-
+     charge= -1      ion size=  4.0 A      mole wt.=  197.6590 g
+     2 species in reaction
+        4.000 Cl-             1.000 Fe+++   
+         1.6456       .7902      -.3836     -1.6859
+        -3.3077     -5.0234     -7.0953    -10.1635
+
+FeCO3
+     charge=  0      ion size=  4.0 A      mole wt.=  115.8562 g
+     3 species in reaction
+        1.000 HCO3-           1.000 Fe++           -1.000 H+      
+         6.2281      6.6636      7.3096      8.1820
+         9.4944     11.1610    500.0000    500.0000
+
+FeCO3+
+     charge=  1      ion size=  4.0 A      mole wt.=  115.8562 g
+     3 species in reaction
+        1.000 HCO3-           1.000 Fe+++          -1.000 H+      
+         -.2140       .6252      1.4693      2.0509
+         2.3407      2.2347      1.7057       .5083
+
+FeH2PO4+
+     charge=  1      ion size=  4.0 A      mole wt.=  152.8342 g
+     3 species in reaction
+        1.000 Fe++            1.000 H+              1.000 HPO4--  
+        -9.8216     -9.9048    -10.1976    -10.6417
+       -11.2900    -12.0540    -12.9442    -14.0556
+
+FeH2PO4++
+     charge=  2      ion size=  5.0 A      mole wt.=  152.8342 g
+     3 species in reaction
+        1.000 Fe+++           1.000 H+              1.000 HPO4--  
+       -11.3745    -11.3745    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+FeH3SiO4++
+     charge=  2      ion size=  5.0 A      mole wt.=  150.9538 g
+     4 species in reaction
+       -1.000 H+              1.000 Fe+++           1.000 SiO2(aq)
+        2.000 H2O     
+          .8347       .5864       .3303       .2003
+          .2256       .3418       .4229       .2221
+
+FeHCO3+
+     charge=  1      ion size=  4.0 A      mole wt.=  116.8641 g
+     2 species in reaction
+        1.000 HCO3-           1.000 Fe++    
+        -1.6071     -1.2996     -1.0283      -.8570
+         -.7913      -.8884     -1.1992     -1.9143
+
+FeHPO4
+     charge=  0      ion size=  4.0 A      mole wt.=  151.8263 g
+     2 species in reaction
+        1.000 Fe++            1.000 HPO4--  
+        -3.4212     -3.5997     -3.9167     -4.3325
+        -4.9706     -5.7925    500.0000    500.0000
+
+FeHPO4+
+     charge=  1      ion size=  4.0 A      mole wt.=  151.8263 g
+     2 species in reaction
+        1.000 Fe+++           1.000 HPO4--  
+        -9.9188     -9.9188    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+FeHSO4++
+     charge=  2      ion size=  5.0 A      mole wt.=  152.9125 g
+     3 species in reaction
+        1.000 SO4--           1.000 Fe+++           1.000 H+      
+        -3.3609     -3.7030     -4.2672     -4.9323
+        -5.7897     -6.7608     -8.0054     -9.9686
+
+FeNO2++
+     charge=  2      ion size=  5.0 A      mole wt.=  101.8525 g
+     2 species in reaction
+        1.000 Fe+++           1.000 NO2-    
+        -3.3187     -3.1518     -3.0595     -3.0693
+        -3.1863     -3.4413     -3.8909     -4.7228
+
+FeNO3++
+     charge=  2      ion size=  5.0 A      mole wt.=  117.8519 g
+     2 species in reaction
+        1.000 NO3-            1.000 Fe+++   
+        -1.6414      -.9998      -.3411       .1763
+          .5652       .6921       .5062      -.2503
+
+FeOH+
+     charge=  1      ion size=  4.0 A      mole wt.=   72.8543 g
+     3 species in reaction
+       -1.000 H+              1.000 Fe++            1.000 H2O     
+        10.8246     10.1790      9.4159      8.6968
+         7.9573      7.3125      6.6791      5.9219
+
+FeOH++
+     charge=  2      ion size=  5.0 A      mole wt.=   72.8543 g
+     3 species in reaction
+       -1.000 H+              1.000 Fe+++           1.000 H2O     
+         2.8986      2.1894      1.4067       .7402
+          .1346      -.3541      -.8551     -1.6068
+
+FePO4-
+     charge= -1      ion size=  4.0 A      mole wt.=  150.8184 g
+     3 species in reaction
+       -1.000 H+              1.000 Fe++            1.000 HPO4--  
+         5.4334      4.9103      4.4718      4.3423
+         4.4786      4.8299      5.3538      5.8540
+
+FeSO4
+     charge=  0      ion size=  4.0 A      mole wt.=  151.9046 g
+     2 species in reaction
+        1.000 SO4--           1.000 Fe++    
+        -2.2002     -2.1997     -2.2890     -2.4083
+        -2.6256     -2.9360    500.0000    500.0000
+
+FeSO4+
+     charge=  1      ion size=  4.0 A      mole wt.=  151.9046 g
+     2 species in reaction
+        1.000 SO4--           1.000 Fe+++   
+        -3.7808     -4.1113     -4.6973     -5.4550
+        -6.5058     -7.7216     -9.2530    -11.5340
+
+H(O-phth)-
+     charge= -1      ion size=  4.0 A      mole wt.=  165.1251 g
+     2 species in reaction
+        1.000 H+              1.000 (O-phth)--
+        -5.4459     -5.4072     -5.5878     -6.0800
+        -6.9175     -7.9112     -9.0658    -10.3361
+
+H2(O-phth)
+     charge=  0      ion size=  4.0 A      mole wt.=  166.1330 g
+     2 species in reaction
+        2.000 H+              1.000 (O-phth)--
+        -8.3245     -8.3568     -8.5312     -8.8989
+        -9.6122    -10.6638    500.0000    500.0000
+
+H2P2O7--
+     charge= -2      ion size=  4.0 A      mole wt.=  175.9591 g
+     3 species in reaction
+       -1.000 H2O             2.000 H+              2.000 HPO4--  
+       -11.9595    -12.0986    -12.7970    -14.1453
+       -16.3493    -18.9387    -21.8291    -24.9341
+
+H2PO4-
+     charge= -1      ion size=  4.0 A      mole wt.=   96.9872 g
+     2 species in reaction
+        1.000 HPO4--          1.000 H+      
+        -7.3193     -7.2053     -7.2080     -7.3864
+        -7.7637     -8.2593     -8.8547     -9.5221
+
+H2S(aq)
+     charge=  0      ion size=  4.0 A      mole wt.=   34.0758 g
+     2 species in reaction
+        1.000 H+              1.000 HS-     
+        -7.6500     -6.9500     -6.6800     -6.6100
+        -6.7900     -7.1700     -7.7200     -8.4300
+
+H2SiO4--
+     charge= -2      ion size=  4.0 A      mole wt.=   94.0989 g
+     3 species in reaction
+       -2.000 H+              1.000 SiO2(aq)        2.000 H2O     
+        24.0793     22.9072     21.7008     20.7687
+        20.0922     19.8144     19.7973     19.9551
+
+H2SO4
+     charge=  0      ion size=  4.0 A      mole wt.=   98.0734 g
+     2 species in reaction
+        2.000 H+              1.000 SO4--   
+         1.8462      1.0122       .0233     -1.0995
+        -2.5115     -4.0523    500.0000    500.0000
+
+H3P2O7-
+     charge= -1      ion size=  4.0 A      mole wt.=  176.9670 g
+     3 species in reaction
+       -1.000 H2O             3.000 H+              2.000 HPO4--  
+       -14.1092    -14.2983    -15.0704    -16.4875
+       -18.7465    -21.3727    -24.2885    -27.4101
+
+H3PO4
+     charge=  0      ion size=  4.0 A      mole wt.=   97.9951 g
+     2 species in reaction
+        1.000 HPO4--          2.000 H+      
+        -9.3451     -9.3529     -9.5135     -9.8854
+       -10.6327    -11.7527    500.0000    500.0000
+
+H3SiO4-
+     charge= -1      ion size=  4.0 A      mole wt.=   95.1068 g
+     3 species in reaction
+       -1.000 H+              1.000 SiO2(aq)        2.000 H2O     
+        10.1782      9.8088      9.4497      9.2039
+         9.1098      9.1973      9.3820      9.6220
+
+H4(H2SiO4)4----
+     charge= -4      ion size=  4.0 A      mole wt.=  380.4272 g
+     3 species in reaction
+       -4.000 H+              4.000 SiO2(aq)        8.000 H2O     
+        35.7315     35.7315    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+H4P2O7
+     charge=  0      ion size=  4.0 A      mole wt.=  177.9749 g
+     3 species in reaction
+       -1.000 H2O             4.000 H+              2.000 HPO4--  
+       -14.7144    -15.0980    -15.8526    -17.0009
+       -18.9112    -21.5036    500.0000    500.0000
+
+H6(H2SiO4)4--
+     charge= -2      ion size=  4.0 A      mole wt.=  382.4430 g
+     3 species in reaction
+       -2.000 H+              4.000 SiO2(aq)        8.000 H2O     
+        13.4341     13.4341    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+HCH3COO
+     charge=  0      ion size=  4.0 A      mole wt.=   60.0524 g
+     2 species in reaction
+        1.000 H+              1.000 CH3COO- 
+        -4.7743     -4.7563     -4.8079     -4.9640
+        -5.3017     -5.8241    500.0000    500.0000
+
+HCl
+     charge=  0      ion size=  4.0 A      mole wt.=   36.4609 g
+     2 species in reaction
+        1.000 H+              1.000 Cl-     
+         7.3900      6.1000      4.5600      2.9000
+         1.2300       .0600      -.6700     -1.2400
+
+HNO2
+     charge=  0      ion size=  4.0 A      mole wt.=   47.0134 g
+     2 species in reaction
+        1.000 H+              1.000 NO2-    
+        -3.4534     -3.2207     -2.9531     -2.7280
+        -2.5316     -2.4115    500.0000    500.0000
+
+HP2O7---
+     charge= -3      ion size=  4.0 A      mole wt.=  174.9512 g
+     3 species in reaction
+       -1.000 H2O             1.000 H+              2.000 HPO4--  
+        -5.2001     -5.3999     -6.0314     -7.1384
+        -8.8982    -10.9343    -13.1777    -15.5685
+
+HSO4-
+     charge= -1      ion size=  4.0 A      mole wt.=   97.0655 g
+     2 species in reaction
+        1.000 SO4--           1.000 H+      
+        -1.7152     -1.9930     -2.5099     -3.2410
+        -4.2717     -5.4134     -6.7686     -8.5575
+
+KCl
+     charge=  0      ion size=  4.0 A      mole wt.=   74.5513 g
+     2 species in reaction
+        1.000 K+              1.000 Cl-     
+         1.7570      1.5876      1.3880      1.1997
+         1.0036       .8339    500.0000    500.0000
+
+KHPO4-
+     charge= -1      ion size=  4.0 A      mole wt.=  135.0776 g
+     2 species in reaction
+        1.000 K+              1.000 HPO4--  
+         -.7223     -1.0401     -1.6715     -2.6158
+        -3.9794     -5.4777     -7.1124     -8.8644
+
+KOH
+     charge=  0      ion size=  4.0 A      mole wt.=   56.1056 g
+     3 species in reaction
+        1.000 K+              1.000 H2O            -1.000 H+      
+        15.4309     14.4852    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+KSO4-
+     charge= -1      ion size=  4.0 A      mole wt.=  135.1559 g
+     2 species in reaction
+        1.000 K+              1.000 SO4--   
+         -.8355      -.8525      -.9675     -1.1545
+        -1.4590     -1.8612     -2.4430     -3.4535
+
+Na(O-phth)-
+     charge= -1      ion size=  4.0 A      mole wt.=  187.1070 g
+     2 species in reaction
+        1.000 Na+             1.000 (O-phth)--
+         -.7000      -.7000    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+NaCH3COO
+     charge=  0      ion size=  4.0 A      mole wt.=   82.0343 g
+     2 species in reaction
+        1.000 Na+             1.000 CH3COO- 
+          .1825       .1825    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+NaCl
+     charge=  0      ion size=  4.0 A      mole wt.=   58.4428 g
+     2 species in reaction
+        1.000 Na+             1.000 Cl-     
+         1.8550      1.5994      1.2945       .9856
+          .6350       .2935    500.0000    500.0000
+
+NaCO3-
+     charge= -1      ion size=  4.0 A      mole wt.=   82.9990 g
+     3 species in reaction
+        1.000 Na+             1.000 HCO3-          -1.000 H+      
+         9.8420      9.8396     10.0930     10.6556
+        11.5593     12.6046     13.7334     14.7613
+
+NaH3SiO4
+     charge=  0      ion size=  4.0 A      mole wt.=  118.0966 g
+     4 species in reaction
+       -1.000 H+              1.000 Na+             1.000 SiO2(aq)
+        2.000 H2O     
+         9.0057      8.6595      8.3640      8.2042
+         8.2488      8.5650    500.0000    500.0000
+
+NaHCO3
+     charge=  0      ion size=  4.0 A      mole wt.=   84.0069 g
+     2 species in reaction
+        1.000 Na+             1.000 HCO3-   
+         -.3530      -.1290       .1269       .4263
+          .8067      1.2260    500.0000    500.0000
+
+NaHPO4-
+     charge= -1      ion size=  4.0 A      mole wt.=  118.9690 g
+     2 species in reaction
+        1.000 Na+             1.000 HPO4--  
+         -.6709     -1.1501     -1.9346     -2.9746
+        -4.3786     -5.8599     -7.4412     -9.1248
+
+NaOH
+     charge=  0      ion size=  4.0 A      mole wt.=   39.9971 g
+     3 species in reaction
+        1.000 Na+             1.000 H2O            -1.000 H+      
+        15.1522     14.1891     13.2404     12.4676
+        11.8362     11.4847    500.0000    500.0000
+
+NaSO4-
+     charge= -1      ion size=  4.0 A      mole wt.=  119.0474 g
+     2 species in reaction
+        1.000 Na+             1.000 SO4--   
+         -.6409      -.6938      -.7905      -.8826
+        -1.0065     -1.1805     -1.4969     -2.2298
+
+NH3
+     charge=  0      ion size=  4.0 A      mole wt.=   17.0304 g
+     2 species in reaction
+        1.000 NH4+           -1.000 H+      
+        10.1477      9.2774      8.3161      7.4538
+         6.5654      5.7757    500.0000    500.0000
+
+NH4SO4-
+     charge= -1      ion size=  4.0 A      mole wt.=  114.0959 g
+     2 species in reaction
+        1.000 NH4+            1.000 SO4--   
+         -.9397      -.9397    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+OH-
+     charge= -1      ion size=  3.5 A      mole wt.=   17.0073 g
+     2 species in reaction
+        1.000 H2O            -1.000 H+      
+        14.9325     13.9868     13.0199     12.2403
+        11.5940     11.2191     11.0880     11.2844
+
+P2O7----
+     charge= -4      ion size=  4.0 A      mole wt.=  173.9433 g
+     2 species in reaction
+       -1.000 H2O             2.000 HPO4--  
+         4.2889      3.9992      3.4607      2.6891
+         1.4780       .1057     -1.3268     -2.8144
+
+PO4---
+     charge= -3      ion size=  4.0 A      mole wt.=   94.9714 g
+     2 species in reaction
+       -1.000 H+              1.000 HPO4--  
+        12.5908     12.3090     12.1325     12.1305
+        12.2148     12.3992     12.7240     13.1298
+
+S--
+     charge= -2      ion size=  5.0 A      mole wt.=   32.0600 g
+     2 species in reaction
+        1.000 HS-            -1.000 H+      
+        14.6889     13.9032     12.9416     11.9771
+        10.9072      9.9374      8.9859      7.9397
+
+S2--
+     charge= -2      ion size=  4.0 A      mole wt.=   64.1200 g
+     4 species in reaction
+        1.750 HS-            -1.000 H2O              .250 SO4--   
+         .250 H+      
+         2.4183      2.3960      2.1878      1.7705
+         1.0578       .1783      -.9285     -2.4699
+
+S3--
+     charge= -2      ion size=  4.0 A      mole wt.=   96.1800 g
+     4 species in reaction
+        2.500 HS-            -2.000 H2O             1.500 H+      
+         .500 SO4--   
+        -9.4205     -8.5513     -7.8674     -7.6110
+        -7.8397     -8.5309     -9.7145    -11.6872
+
+S4--
+     charge= -2      ion size=  4.0 A      mole wt.=  128.2400 g
+     4 species in reaction
+        3.250 HS-            -3.000 H2O             2.750 H+      
+         .750 SO4--   
+       -23.7352    -22.0517    -20.5492    -19.6864
+       -19.5012    -20.0562    -21.3571    -23.7930
+
+S5--
+     charge= -2      ion size=  4.0 A      mole wt.=  160.3000 g
+     4 species in reaction
+        4.000 HS-            -4.000 H2O             4.000 H+      
+        1.000 SO4--   
+       -35.1712    -32.6860    -30.3916    -28.9465
+       -28.3681    -28.8057    -30.2404    -33.1545
+
+S6--
+     charge= -2      ion size=  4.0 A      mole wt.=  192.3600 g
+     4 species in reaction
+        4.750 HS-            -5.000 H2O             5.250 H+      
+        1.250 SO4--   
+       -46.2759    -43.0029    -39.9334    -37.9213
+       -36.9646    -37.2967    -38.8751    -42.2754
+
+-end-
+
+   1 free electron
+
+e-
+     charge= -1      ion size=  0.0 A      mole wt.=    0.0000 g
+     3 species in reaction
+         .500 H2O             -.250 O2(g)          -1.000 H+      
+       22.76135     20.7757   18.513025     16.4658
+      14.473225    12.92125    11.68165    10.67105
+
+-end-
+
+   52 minerals
+
+Amrph^silica                       type= silica
+     formula= SiO2
+     mole vol.=   29.0000 cc      mole wt.=   60.0843 g
+     1 species in reaction
+        1.000 SiO2(aq)
+        -2.9940     -2.7136     -2.4359     -2.2012
+        -1.9781     -1.8084     -1.6814     -1.5980
+
+Arcanite                           type= sulfate
+     formula= K2SO4
+     mole vol.=   65.5000 cc      mole wt.=  174.2542 g
+     2 species in reaction
+        2.000 K+              1.000 SO4--   
+        -2.1570     -1.6888     -1.3705     -1.2861
+        -1.4594     -1.8888     -2.6081     -3.8514
+
+Burkeite                           type= sulfide
+     formula= Na6CO3(SO4)2
+     mole vol.=  151.3000 cc      mole wt.=  390.0630 g
+     4 species in reaction
+        6.000 Na+            -1.000 H+              1.000 HCO3-   
+        2.000 SO4--   
+         8.0983      9.6534     11.2284     12.5601
+        13.7223     14.3479    500.0000    500.0000
+
+Chalcedony                         type= silica
+     formula= SiO2
+     mole vol.=   22.6880 cc      mole wt.=   60.0843 g
+     1 species in reaction
+        1.000 SiO2(aq)
+        -4.2061     -3.7281     -3.2598     -2.8783
+        -2.5266     -2.2563     -2.0398     -1.8697
+
+Cristobalite                       type= silica
+     formula= SiO2
+     mole vol.=   25.7400 cc      mole wt.=   60.0843 g
+     1 species in reaction
+        1.000 SiO2(aq)
+        -3.8914     -3.4488     -3.0213     -2.6774
+        -2.3629     -2.1221     -1.9288     -1.7837
+
+Cronstedt-7A                       type= serpentine
+     formula= Fe4SiO5(OH)4
+     mole vol.=  113.8000 cc      mole wt.=  399.4997 g
+     5 species in reaction
+      -10.000 H+              2.000 Fe+++           1.000 SiO2(aq)
+        2.000 Fe++            7.000 H2O     
+        20.0841     16.1308     11.6042      7.5892
+         3.7697       .7316     -2.0557     -5.4282
+
+Fayalite                           type= olivine
+     formula= Fe2SiO4
+     mole vol.=   46.3900 cc      mole wt.=  203.7771 g
+     4 species in reaction
+       -4.000 H+              2.000 Fe++            1.000 SiO2(aq)
+        2.000 H2O     
+        21.4991     19.0495     16.1632     13.5448
+        11.0194      9.0366      7.3383      5.5737
+
+Fe(OH)2(ppd)                       type= 
+     formula= 
+     mole vol.=   26.4300 cc      mole wt.=   89.8616 g
+     3 species in reaction
+       -2.000 H+              1.000 Fe++            2.000 H2O     
+        14.2797     12.8485     11.2185      9.7713
+         8.3964      7.3293      6.4272      5.5108
+
+Fe(OH)3(ppd)                       type= 
+     formula= 
+     mole vol.=   34.3200 cc      mole wt.=  106.8689 g
+     3 species in reaction
+       -3.000 H+              1.000 Fe+++           3.000 H2O     
+         6.1946      4.8890      3.4608      2.2392
+         1.1150       .2446      -.5504     -1.5398
+
+Fe2(SO4)3(c)                       type= 
+     formula= 
+     mole vol.=  130.8000 cc      mole wt.=  399.8668 g
+     2 species in reaction
+        3.000 SO4--           2.000 Fe+++   
+         4.4695       .8129     -4.0181     -9.0506
+       -14.8362    -20.4230    -26.3529    -33.8468
+
+FeO(c)                             type= 
+     formula= 
+     mole vol.=   12.0000 cc      mole wt.=   71.8464 g
+     3 species in reaction
+       -2.000 H+              1.000 Fe++            1.000 H2O     
+        12.8533     11.3598      9.6423      8.0984
+         6.6089      5.4355      4.4352      3.4291
+
+Ferrosilite                        type= pyroxene
+     formula= FeSiO3
+     mole vol.=   37.7000 cc      mole wt.=  131.9307 g
+     4 species in reaction
+       -2.000 H+              1.000 Fe++            1.000 SiO2(aq)
+        1.000 H2O     
+         8.3573      7.4163      6.2540      5.1727
+         4.1139      3.2713      2.5350      1.7347
+
+FeSO4(c)                           type= 
+     formula= 
+     mole vol.=   41.5900 cc      mole wt.=  151.9046 g
+     2 species in reaction
+        1.000 SO4--           1.000 Fe++    
+         3.7094      2.6424      1.1836      -.3547
+        -2.1293     -3.8441     -5.6619     -7.9617
+
+Goethite                           type= hydroxide
+     formula= FeOOH
+     mole vol.=   20.8200 cc      mole wt.=   88.8537 g
+     3 species in reaction
+       -3.000 H+              1.000 Fe+++           2.000 H2O     
+         1.5096       .4999      -.6071     -1.5556
+        -2.4347     -3.1327     -3.8051     -4.7065
+
+Gold                               type= native
+     formula= Au
+     mole vol.=   10.2150 cc      mole wt.=  196.9665 g
+     4 species in reaction
+         .500 H2O            -1.000 H+              1.000 Au+     
+        -.250 O2(aq)  
+        -8.0877     -7.0869     -5.9633     -4.9425
+        -3.9485     -3.1716     -2.5680     -2.0900
+
+Graphite                           type= native
+     formula= C
+     mole vol.=    5.2900 cc      mole wt.=   12.0110 g
+     4 species in reaction
+       -1.500 H2O              .500 CH4(aq)          .500 H+      
+         .500 HCO3-   
+        -4.4576     -4.2382     -4.1187     -4.0096
+        -4.0475     -4.1825     -4.4018     -4.6989
+
+Greenalite                         type= serpentine
+     formula= Fe3Si2O5(OH)4
+     mole vol.=  248.4500 cc      mole wt.=  371.7382 g
+     4 species in reaction
+       -6.000 H+              3.000 Fe++            2.000 SiO2(aq)
+        5.000 H2O     
+        25.2635     22.5752     19.3627     16.4548
+        13.6785     11.5109      9.6198      7.5087
+
+Halite                             type= halide
+     formula= NaCl
+     mole vol.=   27.0150 cc      mole wt.=   58.4428 g
+     2 species in reaction
+        1.000 Na+             1.000 Cl-     
+         1.5009      1.5928      1.6247      1.5818
+         1.4468      1.2275       .8918       .3152
+
+Hematite                           type= oxide
+     formula= Fe2O3
+     mole vol.=   30.2700 cc      mole wt.=  159.6922 g
+     3 species in reaction
+       -6.000 H+              2.000 Fe+++           3.000 H2O     
+         2.1377       .0433     -2.2916     -4.3361
+        -6.2802     -7.8548     -9.3663    -11.3212
+
+Jarosite-K                         type= sulfate
+     formula= KFe3(SO4)2(OH)6
+     mole vol.=  153.2000 cc      mole wt.=  500.7983 g
+     5 species in reaction
+        2.000 SO4--           3.000 Fe+++           6.000 H2O     
+        1.000 K+             -6.000 H+      
+        -5.8197     -8.8889    -12.4748    -15.7308
+       -18.9953    -21.8913    500.0000    500.0000
+
+Jarosite-Na                        type= sulfate
+     formula= NaFe3(SO4)2(OH)6
+     mole vol.=  469.0500 cc      mole wt.=  484.6898 g
+     5 species in reaction
+        2.000 SO4--           3.000 Fe+++           6.000 H2O     
+        1.000 Na+            -6.000 H+      
+        -4.8714     -4.8714    500.0000    500.0000
+       500.0000    500.0000    500.0000    500.0000
+
+K2CO3^3/2H2O                       type= 
+     formula= 
+     mole vol.=    0.0000 cc      mole wt.=  165.2286 g
+     4 species in reaction
+        2.000 K+             -1.000 H+              1.000 HCO3-   
+        1.500 H2O     
+        12.7803     13.4730     14.3171     15.1648
+        16.0866     16.8621    500.0000    500.0000
+
+K8H4(CO3)6^3H2O                    type= 
+     formula= 
+     mole vol.=    0.0000 cc      mole wt.=  730.9188 g
+     4 species in reaction
+        8.000 K+              6.000 HCO3-           3.000 H2O     
+       -2.000 H+      
+        22.9524     28.0924     34.0079     39.5245
+        45.0517     49.3322    500.0000    500.0000
+
+Kalicinite                         type= carbonate
+     formula= KHCO3
+     mole vol.=   46.1400 cc      mole wt.=  100.1154 g
+     2 species in reaction
+        1.000 K+              1.000 HCO3-   
+         -.6025       .3320      1.3841      2.3350
+         3.2516      3.9306    500.0000    500.0000
+
+KNaCO3^6H2O                        type= 
+     formula= 
+     mole vol.=    0.0000 cc      mole wt.=  230.1885 g
+     5 species in reaction
+        1.000 K+             -1.000 H+              1.000 Na+     
+        1.000 HCO3-           6.000 H2O     
+         8.1191     10.3226     13.1058     15.9569
+        19.1255     21.9149    500.0000    500.0000
+
+Lawrencite                         type= halide
+     formula= FeCl2
+     mole vol.=   39.4600 cc      mole wt.=  126.7530 g
+     2 species in reaction
+        1.000 Fe++            2.000 Cl-     
+        10.3147      9.0450      7.3896      5.6841
+         3.7509      1.9184       .0182     -2.3141
+
+Magnetite                          type= oxide
+     formula= Fe3O4
+     mole vol.=   44.5200 cc      mole wt.=  231.5386 g
+     4 species in reaction
+       -8.000 H+              1.000 Fe++            4.000 H2O     
+        2.000 Fe+++   
+        13.7717     10.2940      6.3699      2.9003
+         -.4152     -3.0712     -5.5112     -8.4170
+
+Melanterite                        type= sulfate
+     formula= FeSO4:7H2O
+     mole vol.=  613.1000 cc      mole wt.=  278.0110 g
+     3 species in reaction
+        1.000 SO4--           1.000 Fe++            7.000 H2O     
+        -2.6118     -2.3726     -2.1997     -2.1036
+        -2.0701     -2.1606     -2.4599     -3.2876
+
+Mercallite                         type= sulfate
+     formula= KHSO4
+     mole vol.=   58.6000 cc      mole wt.=  136.1638 g
+     3 species in reaction
+        1.000 K+              1.000 H+              1.000 SO4--   
+        -2.1442     -1.3751      -.6468      -.1177
+          .2272       .2822    500.0000    500.0000
+
+Minnesotaite                       type= mica
+     formula= Fe3Si4O10(OH)2
+     mole vol.=  156.9000 cc      mole wt.=  473.8916 g
+     4 species in reaction
+       -6.000 H+              3.000 Fe++            4.000 SiO2(aq)
+        4.000 H2O     
+        15.6529     13.8871     11.5464      9.3205
+         7.1442      5.4191      3.8678      2.0067
+
+Mirabilite                         type= sulfate
+     formula= Na2SO4:10H2O
+     mole vol.=  219.8000 cc      mole wt.=  322.1891 g
+     3 species in reaction
+        2.000 Na+             1.000 SO4--          10.000 H2O     
+        -2.2516     -1.0914       .5443      2.4305
+         4.7506      6.9322    500.0000    500.0000
+
+Misenite                           type= sulfate
+     formula= K8H6(SO4)7
+     mole vol.=    0.0000 cc      mole wt.=  991.2370 g
+     3 species in reaction
+        8.000 K+              6.000 H+              7.000 SO4--   
+       -16.5350    -10.5807     -4.8207      -.4966
+         2.5523      3.4563    500.0000    500.0000
+
+Molysite                           type= halide
+     formula= FeCl3
+     mole vol.=   57.8600 cc      mole wt.=  162.2060 g
+     2 species in reaction
+        1.000 Fe+++           3.000 Cl-     
+        15.8094     13.4796     10.5689      7.6507
+         4.4119      1.3966     -1.6928     -5.4560
+
+Na2Si2O5                           type= 
+     formula= Na2Si2O5
+     mole vol.=   73.4500 cc      mole wt.=  182.1475 g
+     4 species in reaction
+       -2.000 H+              2.000 Na+             2.000 SiO2(aq)
+        1.000 H2O     
+        19.0618     18.1621     17.0192     15.9605
+        14.9645     14.2393     13.6834     13.1697
+
+Na2SiO3                            type= 
+     formula= Na2SiO3
+     mole vol.=    0.0000 cc      mole wt.=  122.0632 g
+     4 species in reaction
+       -2.000 H+              2.000 Na+             1.000 SiO2(aq)
+        1.000 H2O     
+        23.6462     22.2759     20.6738     19.2422
+        17.9062     16.9239     16.1672     15.5030
+
+Na3H(SO4)2                         type= 
+     formula= 
+     mole vol.=    0.0000 cc      mole wt.=  262.0924 g
+     3 species in reaction
+        1.000 H+              3.000 Na+             2.000 SO4--   
+        -2.0026      -.7916       .3457      1.1918
+         1.7725      1.8803    500.0000    500.0000
+
+Na4SiO4                            type= 
+     formula= Na4SiO4
+     mole vol.=    0.0000 cc      mole wt.=  184.0422 g
+     4 species in reaction
+       -4.000 H+              4.000 Na+             1.000 SiO2(aq)
+        2.000 H2O     
+        71.4748     66.5403     60.8960     55.8521
+        51.0667     47.4536     44.6218     42.2275
+
+Na6Si2O7                           type= 
+     formula= Na6Si2O7
+     mole vol.=    0.0000 cc      mole wt.=  306.1054 g
+     4 species in reaction
+       -6.000 H+              6.000 Na+             2.000 SiO2(aq)
+        3.000 H2O     
+       109.3978    101.7272     92.9076     84.9897
+        77.4417     71.7147     67.2054     63.3818
+
+NaFeO2(c)                          type= 
+     formula= 
+     mole vol.=   33.4800 cc      mole wt.=  110.8356 g
+     4 species in reaction
+       -4.000 H+              1.000 Fe+++           2.000 H2O     
+        1.000 Na+     
+        22.5344     19.8785     16.9377     14.3917
+        12.0399     10.2697    500.0000    500.0000
+
+O-phth acid(c)                     type= 
+     formula= H2(O-phth)
+     mole vol.=    0.0000 cc      mole wt.=  166.1330 g
+     2 species in reaction
+        2.000 H+              1.000 (O-phth)--
+       -10.2442     -9.8040     -9.3386     -8.9128
+        -8.4628     -8.0891    500.0000    500.0000
+
+Pyrite                             type= sulfide
+     formula= FeS2
+     mole vol.=   23.9400 cc      mole wt.=  119.9670 g
+     5 species in reaction
+       -1.000 H2O             1.000 Fe++            1.750 HS-     
+         .250 SO4--            .250 H+      
+       -26.5279    -24.7025    -22.8643    -21.4327
+       -20.3362    -19.8398    -19.9168    -20.8284
+
+Pyrrhotite                         type= sulfide
+     formula= Fe.875S
+     mole vol.=   17.6200 cc      mole wt.=   80.9261 g
+     4 species in reaction
+       -1.000 H+               .625 Fe++            1.000 HS-     
+         .250 Fe+++   
+        -7.8740     -7.7541     -7.7250     -7.7962
+        -7.9938     -8.3191     -8.8322     -9.7478
+
+Quartz                             type= silica
+     formula= SiO2
+     mole vol.=   22.6880 cc      mole wt.=   60.0843 g
+     1 species in reaction
+        1.000 SiO2(aq)
+        -4.5021     -3.9993     -3.5026     -3.0951
+        -2.7176     -2.4272     -2.1943     -2.0106
+
+Siderite                           type= carbonate
+     formula= FeCO3
+     mole vol.=   28.6300 cc      mole wt.=  115.8562 g
+     3 species in reaction
+        1.000 HCO3-           1.000 Fe++           -1.000 H+      
+          .2541      -.2214      -.8573     -1.5089
+        -2.2472     -2.9685     -3.7710     -4.8810
+
+Strengite                          type= phosphate
+     formula= FePO4:2H2O
+     mole vol.=   64.5400 cc      mole wt.=  186.8488 g
+     4 species in reaction
+       -1.000 H+              1.000 Fe+++           1.000 HPO4--  
+        2.000 H2O     
+       -13.8454    -14.1173    -14.6086    -15.2383
+       -16.1005    -17.0780    -18.2222    -19.7305
+
+Sulfur-Rhmb                        type= native
+     formula= S
+     mole vol.=   15.5100 cc      mole wt.=   32.0600 g
+     4 species in reaction
+       -1.000 H2O              .750 HS-             1.250 H+      
+         .250 SO4--   
+       -11.3085    -10.5243     -9.7718     -9.2396
+        -8.9099     -8.8577     -9.0550     -9.5929
+
+Sylvite                            type= halide
+     formula= KCl
+     mole vol.=   37.5240 cc      mole wt.=   74.5513 g
+     2 species in reaction
+        1.000 K+              1.000 Cl-     
+          .6490       .9595      1.2252      1.3743
+         1.4031      1.2922      1.0321       .5196
+
+Thenardite                         type= sulfate
+     formula= Na2SO4
+     mole vol.=   53.3300 cc      mole wt.=  142.0371 g
+     2 species in reaction
+        2.000 Na+             1.000 SO4--   
+         -.2743      -.2360      -.3771      -.6678
+        -1.1598     -1.7990     -2.6648     -4.1025
+
+Tridymite                          type= silica
+     formula= SiO2
+     mole vol.=  101.3200 cc      mole wt.=   60.0843 g
+     1 species in reaction
+        1.000 SiO2(aq)
+        -4.3111     -3.8335     -3.3659     -2.9822
+        -2.6199     -2.3281     -2.0767     -1.8553
+
+Troilite                           type= sulfide
+     formula= FeS
+     mole vol.=   18.2000 cc      mole wt.=   87.9070 g
+     3 species in reaction
+       -1.000 H+              1.000 Fe++            1.000 HS-     
+        -3.6672     -3.7631     -3.9915     -4.3019
+        -4.7472     -5.2972     -5.9915     -7.0445
+
+Vivianite                          type= phosphate
+     formula= Fe3(PO4)2:8H2O
+     mole vol.=  187.2000 cc      mole wt.=  501.6053 g
+     4 species in reaction
+       -2.000 H+              3.000 Fe++            2.000 HPO4--  
+        8.000 H2O     
+       -10.6200    -11.3774    -12.6151    -14.0490
+       -15.8387    -17.7284    -19.8227    -22.4702
+
+Wustite                            type= oxide
+     formula= Fe.947O
+     mole vol.=   12.0400 cc      mole wt.=   68.8865 g
+     4 species in reaction
+       -2.000 H+               .841 Fe++            1.000 H2O     
+         .106 Fe+++   
+        14.0117     12.3781     10.5037      8.8168
+         7.1855      5.8977      4.8006      3.7059
+
+-end-
+
+   8 gases
+
+CH4(g)
+     mole wt.=   16.0426 g
+     chi=       -537.779     1.54946 -.000927827     1.20861  -.00370814  3.33804e-6
+     Pcrit=     46.0 bar      Tcrit=     190.4 K      omega=        .011
+     1 species in reaction
+        1.000 CH4(aq) 
+        -2.6487     -2.8202     -2.9329     -2.9446
+        -2.9163     -2.7253     -2.4643     -2.1569
+
+CO2(g)
+     mole wt.=   44.0098 g
+     chi=       -1430.87       3.598  -.00227376     3.47644   -.0104247  8.46271e-6
+     Pcrit=     73.8 bar      Tcrit=     304.1 K      omega=        .239
+     3 species in reaction
+       -1.000 H2O             1.000 H+              1.000 HCO3-   
+        -7.6827     -7.8184     -8.0628     -8.3849
+        -8.8297     -9.3208     -9.8841    -10.6132
+
+H2(g)
+     mole wt.=    2.0158 g
+     chi=       -12.5908     .259789  -7.2473e-5   .00447195 -2.69962e-5  2.15622e-8
+     Pcrit=     13.0 bar      Tcrit=      33.2 K      omega=       -.218
+     1 species in reaction
+        1.000 H2(aq)  
+        -3.0240     -3.1120     -3.1440     -3.1120
+        -3.0520     -2.9419     -2.7300     -2.4399
+
+H2S(g)
+     mole wt.=   34.0758 g
+     Pcrit=     89.4 bar      Tcrit=     373.2 K      omega=        .097
+     2 species in reaction
+        1.000 H+              1.000 HS-     
+        -8.0615     -7.9791     -7.9737     -8.0646
+        -7.1449     -4.6551       .4746      9.3231
+
+N2(g)
+     mole wt.=   28.0134 g
+     Pcrit=     33.9 bar      Tcrit=     126.2 K      omega=        .039
+     1 species in reaction
+        1.000 N2(aq)  
+        -2.9620     -3.1848     -3.3320     -3.2902
+        -3.1631     -2.9499     -2.7827     -2.3699
+
+O2(g)
+     mole wt.=   31.9988 g
+     Pcrit=     50.4 bar      Tcrit=     154.6 K      omega=        .025
+     1 species in reaction
+        1.000 O2(aq)  
+        -2.6610     -2.8990     -3.0580     -3.1250
+        -3.0630     -2.9140     -2.6600     -2.4100
+
+S2(g)
+     mole wt.=   64.1200 g
+     4 species in reaction
+       -2.000 H2O             2.500 H+               .500 SO4--   
+        1.500 HS-     
+        -6.6585     -7.1519     -8.0049     -9.0867
+       -10.5330    -12.0844    -13.8174    -16.0006
+
+Steam
+     mole wt.=   18.0152 g
+     chi=       -6191.41     14.8528  -.00914267    -66.3326      .18277  -.00013274
+     Pcrit=    221.2 bar      Tcrit=     647.3 K      omega=        .344    a=-.0109    b=   0.0
+     1 species in reaction
+        1.000 H2O     
+         2.2185      1.5043       .7073       .0056
+         -.6552     -1.1499     -1.5293     -1.8257
+
+-end-
+
+   8 oxides
+
+Fe2O3
+     mole wt.=  159.6923 g
+     3 species in reaction
+       -6.000 H+              2.000 Fe+++           3.000 H2O     
+
+FeO
+     mole wt.=   71.8466 g
+     3 species in reaction
+       -2.000 H+              1.000 Fe++            1.000 H2O     
+
+HCl(ox)
+     mole wt.=   36.4609 g
+     2 species in reaction
+        1.000 H+              1.000 Cl-     
+
+K2O
+     mole wt.=   94.2030 g
+     3 species in reaction
+       -2.000 H+              2.000 K+              1.000 H2O     
+
+Na2O
+     mole wt.=   61.9810 g
+     3 species in reaction
+       -2.000 H+              2.000 Na+             1.000 H2O     
+
+P2O5
+     mole wt.=  141.9430 g
+     3 species in reaction
+       -3.000 H2O             2.000 HPO4--          4.000 H+      
+
+SiO2
+     mole wt.=   60.0836 g
+     1 species in reaction
+        1.000 SiO2(aq)
+
+SO3
+     mole wt.=   80.0610 g
+     3 species in reaction
+       -1.000 H2O             1.000 SO4--           2.000 H+      
+
+-end-
+* 
+* 
+* Data sources, as cited by LLNL:
+* 
+* Baes, C.F., JR., and Mesmer, R.E. 1976. The Hydrolysis of Cations.
+*   Wiley-Interscience, New York.
+* 
+* Codata Task Group on Key Values for Thermodynamics. 1978. Recommended
+*   key values for thermodynamics, 1977. J. Chem. Thermo. 10, 903-
+*   906.
+* 
+* Helgeson, H.C. 1969. Thermodynamics of hydrothermal systems at
+*   elevated temperatures and pressures.  Amer. J. Sci. 267, 729-804.
+* 
+* Helgeson, H.C., and Kirkham, D.H. 1974a. Theoretical prediction
+*   of the thermodynamic behavior of aqueous electrolytes at
+*   high pressures and temperatures. I. Summary of the
+*   thermodynamic/electrostatic properties of the solvent.  Amer.
+*   J. Sci. 274, 1089-1198.
+* 
+* Helgeson, H.C., and Kirkham, D.H. 1974b. Theoretical prediction
+*   of the thermodynamic behavior of aqueous electrolytes at
+*   high pressures and temperatures. II. Debye-huckel parameters
+*   for activity coefficients and partial molal properties. Amer.
+*   J. Sci. 274, 1199-1261.
+* 
+* Helgeson, H.C., and Kirkham, D.H. 1976. Theoretical prediction
+*   of the thermodynamic behavior of aqueous electrolytes at
+*   high pressures and temperatures. III. Equation of state for
+*   aqueous species at infinite dilution. Amer. J. Sci. 276,
+*   97-240.
+* 
+* Helgeson, H.C., Delaney, J.M., Nesbitt, H.W., and Bird, D.K. 1978.
+*   Summary and critique of the thermodynamic properties of rock-
+*   forming minerals.  Amer. J. Sci. 278-A, 1-229.
+* 
+* Helgeson, H.C., Kirkham, D.H., and Flowers, G.C. 1981. Theoretical
+*   prediction of the thermodynamic behavior of aqueous electrolytes at
+*   high pressures and temperatures. IV. Calculation of activity
+*   coefficients, osmotic coefficients, and apparent molal and
+*   standard and relative partial molal properties to 600 C and 5 kb.
+*   Amer. J. Sci. 281, 1249-1516.
+* 
+* Robie, R.A., B.S. Hemingway, and J.R. Fisher, 1978, Thermodynamic
+*   properties of minerals and related substances at 298.15 K and
+*   1 bar pressure and at higher temperatures,
+*   Geological Survey Bulletin 1452, U.S. Govt. Printing Office,
+*   Washington, D.C.
+* 
+* Tsonopoulos, C., 1974, An empirical correlation of second virial
+*   coefficients. AIChE Journal 20, 263–272.

@@ -108,23 +108,26 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
     # use the 'type' argument here to restrict matches to a subset of OBIGT
     # so e.g. the mineral BaCrO4 doesn't match aqueous BaCrO4
     speciesmap <- lapply(speciesGWB, mapnames, type = type)
-    speciesCHNOSZ <- unlist(lapply(speciesmap, "[", 2))
-    speciesNA <- speciesGWB[is.na(speciesCHNOSZ)]
+    speciesOBIGT <- unlist(lapply(speciesmap, "[", 2))
+    speciesNA <- speciesGWB[is.na(speciesOBIGT)]
     if(length(speciesNA) > 0) {
       printNA("Can't map", "species to the OBIGT database", type, speciesNA, maxprint)
     }
-    speciesGWB <- speciesGWB[!is.na(speciesCHNOSZ)]
-    rxnGWB <- rxnGWB[!is.na(speciesCHNOSZ)]
-    speciesCHNOSZ <- stats::na.omit(speciesCHNOSZ)
-    if(length(speciesCHNOSZ) > 0) {
-      print(paste("calculating logKs for", length(speciesCHNOSZ), type, "species ..."))
-      logKs <- lapply(1:length(speciesCHNOSZ), function(i) {
+    speciesGWB <- speciesGWB[!is.na(speciesOBIGT)]
+    rxnGWB <- rxnGWB[!is.na(speciesOBIGT)]
+    speciesOBIGT <- as.character(stats::na.omit(speciesOBIGT))
+    if(length(speciesOBIGT) > 0) {
+      #print(paste("calculating logKs for", length(speciesOBIGT), type, "species ..."))
+      logKs <- lapply(1:length(speciesOBIGT), function(i) {
         rxnCHNOSZ <- mapnames(rxnGWB[[i]]$species)$CHNOSZ
         coeff <- c(-1, rxnGWB[[i]]$coeff)
-        species <- c(speciesCHNOSZ[i], rxnCHNOSZ)
+        species <- c(speciesOBIGT[i], rxnCHNOSZ)
         # print NA species names for debugging mapping problems
-        if(any(is.na(species))) print(species)
-        sres <- suppressMessages(CHNOSZ::subcrt(species, coeff, T = T, P = P, property = "logK"))
+        if(any(is.na(species))) {
+          message("Some species in the reaction are NA:")
+          print(species)
+        }
+        sres <- suppressWarnings(suppressMessages(CHNOSZ::subcrt(species, coeff, T = T, P = P, property = "logK")))
         logK <- sres$out$logK
         # get Tmax from abbrv (for species added by addOBIGT) 20200615
         Tmax <- stats::na.omit(suppressWarnings(as.numeric(suppressMessages(CHNOSZ::info(CHNOSZ::info(species))$abbrv))))
@@ -137,13 +140,27 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
             warn <- sres$warnings[iswarn]
             missing <- strsplit(warn, "missing ")[[1]][2]
             # tolerate a difference of up to 0.001 (for Realgar in thermo.dat)
-            if(any(abs(round(CHNOSZ::makeup(missing), 3)) > 0.001)) logK[] <- NA
+            if(any(abs(round(CHNOSZ::makeup(missing), 3)) > 0.001)) {
+              logK[] <- NA
+              # show the warning as a message (capitalize first letter)
+              message(gsub("^r", "R", warn))
+            }
           }
         }
         logK
       })
+      # remove species with all NA values (produced by unbalanced reactions) 20200621
+      allisna <- sapply(logKs, function(x) all(is.na(x)))
+      if(any(allisna)) {
+        removed <- speciesGWB[allisna]
+        message("Removing species with unavailable logKs:")
+        print(removed)
+        speciesGWB <- speciesGWB[!allisna]
+        speciesOBIGT <- speciesOBIGT[!allisna]
+        logKs <- logKs[!allisna]
+      }
       # get references 20200617
-      ispecies <- suppressMessages(CHNOSZ::info(speciesCHNOSZ, check.it = FALSE))
+      ispecies <- suppressMessages(CHNOSZ::info(speciesOBIGT, check.it = FALSE))
       iinfo <- suppressMessages(CHNOSZ::info(ispecies, check.it = FALSE))
       ref1 <- iinfo$ref1
       ref2 <- iinfo$ref2
@@ -153,7 +170,7 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       names(logKs) <- speciesGWB
     } else ref1 <- ref2 <- logKs <- NULL
     # save the information
-    OUT[[type]] <- list(logKs = logKs, ref1 = ref1, ref2 = ref2)
+    OUT[[type]] <- list(logKs = logKs, ref1 = ref1, ref2 = ref2, speciesOBIGT = speciesOBIGT)
   }
   OUT
 }

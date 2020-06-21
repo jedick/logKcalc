@@ -66,6 +66,14 @@ addOBIGT("As(OH)4-")
 addOBIGT("Sn++++")
 ```
 
+It is also possible to add other species from OBIGT to the output.
+Their dissociation reactions are written in terms of the available basis species in the GWB file.
+This adds a selection of aqueous, mineral, and gas species.
+
+```{r ispecies}
+ispecies <- info(c("AuCl", "pyrrhotite", "ammonia"))
+```
+
 Set the file paths and perform the log*K* calculation.
 The `maxprint` argument is used to prevent the printing of long lists of species that can't be found in OBIGT.
 
@@ -74,6 +82,10 @@ infile <- system.file("extdata/thermo_24elements.tdat", package = "logKcalc")
 outfile <- file.path(tempdir(), "thermo_OBIGT.tdat")
 logKcalc(infile, outfile, maxprint = 10)
 ```
+
+Note that species are removed if their log*K* values are all NA.
+This includes a few minerals taken from SUPCRT92, as well as pyrrhotite, whose chemical formula in the GWB file (Fe.875S) is different from that in OBIGT (FeS).
+However, pyrrhotite is subsequently added with a dissociation reaction that uses the chemical formula in OBIGT.
 
 #### Now we can make some plots to compare the logK values in the input and output files.
 

@@ -30,7 +30,9 @@ rxnlines <- function(stoich) {
 addspecies <- function(LOGK, ispecies) {
   # Initialize output
   init <- list(n = 0, lines = character())
-  ADDS <- list(aqueous = init, mineral = init, gas = init)
+  # aqueous, mineral, gas: the ones we can add
+  # redox, electron, oxide: will not be changed
+  ADDS <- list(redox = init, aqueous = init, electron = init, mineral = init, gas = init, oxide = init)
   if(is.null(ispecies)) return(ADDS)
   if(length(ispecies) == 0) return(ADDS)
   # Set basis species
@@ -46,18 +48,39 @@ addspecies <- function(LOGK, ispecies) {
     name <- a$species$name[i]
     state <- a$species$state[i]
     # Create header lines depending on state
+    # TODO: use element mole wt. from GWB file
+    mw <- CHNOSZ::mass(ispecies[i])
+    mw <- sprintf("%10.4f", mw)
     if(state == "aq") {
-      # get and format charge, ion size, and molecular weight
-      Z <- suppressMessages(CHNOSZ::info(ispecies[i])$Z)
+      type <- "aqueous"
+      # first header line: charge, ion size, and molecular weight
+      Z <- suppressMessages(CHNOSZ::info(ispecies[i], check.it = FALSE)$Z)
       Z <- sprintf("%3.0f", Z)
       # TODO: lookup or have user specify ion size
       r <- 4.0
       r <- sprintf("%5.1f", r)
-      # TODO: use element mole wt. from GWB file
-      mw <- CHNOSZ::mass(ispecies[i])
-      mw <- sprintf("%10.4f", mw)
-      head <- paste0("     charge=", Z, "      ion size=", r, " A      mole wt.=", mw, " g")
-    }
+      head1 <- paste0("     charge=", Z, "      ion size=", r, " A      mole wt.=", mw, " g")
+      # there's no second header line
+      head2 <- character()
+    } else if(state == "cr") {
+      type <- "mineral"
+      # first header line: formula
+      formula <- CHNOSZ::info(ispecies[i], check.it = FALSE)$formula
+      head1 <- paste("     formula=", formula)
+      # second header line: volume and molecular weight
+      V <- CHNOSZ::info(ispecies[i], check.it = FALSE)$V
+      V <- sprintf("%10.4f", V)
+      head2 <- paste0("     mole vol.=", V, " cc      mole wt.=", mw, " g")
+    } else if(state == "gas") {
+      type <- "gas"
+      # first header line: molecular weight
+      head1 <- paste0("     mole wt.=", mw, " g")
+      head2 <- character()
+    } else stop(paste("can't handle", state, "species"))
+    # Don't allow duplicated species -- check both existing GWB and OBIGT names
+    existing <- c(names(LOGK[[type]]$logKs), LOGK[[type]]$speciesOBIGT)
+    if(name %in% existing) stop(paste(name, "is a duplicated", type, "species"))
+    message("Adding ", type, " species: ", name)
     # Get reaction stoichiometry
     stoich <- a$species[i, 1:nrow(a$basis)]
     # Use GWB names in reaction
@@ -65,15 +88,12 @@ addspecies <- function(LOGK, ispecies) {
     # Get reaction lines
     rxn <- rxnlines(stoich)
     # Get logK lines
-    logK1 <- formatline(a$values[[i]], 1)
-    logK2 <- formatline(a$values[[i]], 2)
+    # NOTE: logK of dissociation reaction is opposite that of formation reaction
+    logK1 <- formatline(-a$values[[i]], 1)
+    logK2 <- formatline(-a$values[[i]], 2)
     # Put together the lines for this species (including a blank line at the end)
-    alllines <- c(name, head, rxn, logK1, logK2, "")
+    alllines <- c(name, head1, head2, rxn, logK1, logK2, "")
     # Add the lines to the output
-    if(state=="aq") type <- "aqueous"
-    else if(state=="cr") type <- "mineral"
-    else if(state=="gas") type <- "gas"
-    else stop(paste("can't handle", state, "species"))
     ADDS[[type]]$n <- ADDS[[type]]$n + 1
     ADDS[[type]]$lines <- c(ADDS[[type]]$lines, alllines)
   }

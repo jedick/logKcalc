@@ -45,7 +45,7 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS) {
       # update the number of basis species
       outline <- gsub(length(HEAD$ispecies$basis), length(LOGK$basis$map$GWB), LINES[HEAD$ibasis])
       message(paste("Writing output to", outfile, "..."))
-      print(paste("outputting", length(LOGK$basis$map$GWB), "basis species"))
+      print(paste(length(LOGK$basis$map$GWB), "basis species"))
     }
 
     # check if we're in the basis species block
@@ -101,8 +101,11 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS) {
       ref2 <- LOGK[[type]]$ref2
       # update the number of this type of species
       inames <- HEAD$ispecies[[type]]
-      outline <- gsub(length(inames), length(logKs), LINES[i])
-      print(paste("outputting", length(logKs), type, "species"))
+      oldn <- length(inames)
+      newn <- length(logKs)
+      if(i %in% c(HEAD$iaqueous, HEAD$imineral, HEAD$igas)) newn <- newn + ADDS[[type]]$n
+      outline <- gsub(oldn, newn, LINES[i])
+      print(paste(newn, type, "species"))
       # initialize the species inclusion flag
       okspecies <- FALSE
     }
@@ -135,6 +138,8 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS) {
         # include -end- marker and reset icurrent to NA
         outline <- LINES[i]
         icurrent <- NA
+        # get lines for added species 20200621
+        addlines <- ADDS[[type]]$lines
       } else if(okspecies) {
         # write the logK or other data for a species
         if(!i %in% c(ilogK1, ilogK2)) {
@@ -175,6 +180,12 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS) {
     if(i %in% (c(HEAD$ibasis, HEAD$iredox, HEAD$iaqueous, HEAD$ielectron, HEAD$imineral, HEAD$igas, HEAD$ioxide) + 1)) outline <- ""
     # keep a blank line after the -end- markers
     if(i %in% (HEAD$iend + 1)) outline <- ""
+    # insert the lines for added species before the -end- markers 20200621
+    if(i %in% HEAD$iend & i > HEAD$iredox) {
+      nlines <- length(addlines)
+      if(nlines > 0) out[j : (j + nlines - 1)] <- addlines
+      j <- j + nlines
+    }
     # add the line to the output
     if(!is.na(outline)) {
       out[j] <- outline
