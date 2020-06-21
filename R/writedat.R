@@ -11,7 +11,7 @@ formatline <- function(values, iline, na.500 = FALSE) {
   paste0("   ", paste(sprintf("%12.4f", values), collapse = ""))
 }
 
-writedat <- function(outfile, LINES, HEAD, LOGK, ADDS) {
+writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile) {
   # put together the output
   # start with empty lines
   out <- rep(NA, length(LINES))
@@ -33,6 +33,10 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS) {
     if(i < HEAD$ibasis) {
       # just copy the line from the input file
       outline <- LINES[i]
+      # exclude comment lines 20200621
+      if(grepl("^\\*", LINES[i]) & i < HEAD$iT) {
+        outline <- NA
+      }
       # change T and P 20200610
       if(i == HEAD$iT + 1) outline <- formatline(LOGK$T, 1)
       if(i == HEAD$iT + 2) outline <- formatline(LOGK$T, 2)
@@ -196,6 +200,23 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS) {
       out[j] <- refline
       j <- j + 1
       refline <- NA
+    }
+    # insert comment block at top of file 20200621
+    if(i == HEAD$iT - 2) {
+      nadd <- sum(sapply(ADDS, "[[", "n"))
+      lver <- utils::packageDescription("logKcalc")$Version
+      cver <- utils::packageDescription("CHNOSZ")$Version
+      clines <- c(
+        paste0("* Thermodynamic database: OBIGT in CHNOSZ"),
+        paste0("* File generated at ", date()),
+        paste0("* by logKcalc ", lver, " with CHNOSZ ", cver, "."),
+        paste0("* (https://github.com/jedick/logKcalc)"),
+        paste0("* System based on ", basename(infile)),
+        paste0("* with ", nadd, " added species.")
+      )
+      nlines <- length(clines)
+      out[j : (j + nlines - 1)] <- clines
+      j <- j + nlines
     }
 
   }

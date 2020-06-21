@@ -37,5 +37,5 @@ logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
   # get lines for added species
   ADDS <- addspecies(LOGK, ispecies)
   # write the new file
-  writedat(outfile, LINES, HEAD, LOGK, ADDS)
+  writedat(outfile, LINES, HEAD, LOGK, ADDS, infile)
 }

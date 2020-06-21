@@ -10,7 +10,7 @@ These functions modify the thermodynamic database by adding data from optional d
 \usage{
   modOBIGT(mod)
   addOBIGT(species, formula = NULL, file = system.file("extdata/thermo_24swapped.tdat",
-           package = "logKcalc"), tolerance = 0.05)
+           package = "logKcalc"), tolerance = 0.1)
 }
 
 \arguments{

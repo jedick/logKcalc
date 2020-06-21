@@ -53,7 +53,7 @@ modOBIGT <- function(mod) {
 
 # (v1) Calculate thermodynamic parameters of redox or aqueous species in a GWB file 20200615
 # (v0) Calculate thermodynamic parameters of As(OH)4- from logK values 20200614
-addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo_24swapped.tdat", package = "logKcalc"), tolerance = 0.05) {
+addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo_24swapped.tdat", package = "logKcalc"), tolerance = 0.1) {
 
   ## Figure out the chemical formula of the species
   if(is.null(formula)) {
