@@ -56,8 +56,9 @@ addspecies <- function(LOGK, ispecies) {
       # first header line: charge, ion size, and molecular weight
       Z <- suppressMessages(CHNOSZ::info(ispecies[i], check.it = FALSE)$Z)
       Z <- sprintf("%3.0f", Z)
-      # TODO: lookup or have user specify ion size
-      r <- 4.0
+      # default ion size from UNITHERM
+      # TODO: allow user to change ion size
+      r <- 4.5
       r <- sprintf("%5.1f", r)
       head1 <- paste0("     charge=", Z, "      ion size=", r, " A      mole wt.=", mw, " g")
       # there's no second header line

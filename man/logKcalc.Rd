@@ -73,8 +73,17 @@ Species can only be added if all of their elements are in the available basis sp
 Species with the states \samp{aq}, \samp{cr}, and \samp{gas} in OBIGT are added to the aqueous, mineral, and gas sections of the output file, respectively; any other states produce an error.
 
 The molecular weight of species is calculated using \code{CHNOSZ::\link[CHNOSZ:util.formula]{mass}}, which likely does not correspond precisely to the element masses in the input GWB file.
-Ion sizes for all new aqueous species are set to 4.0 A.
+Ion sizes for new aqueous species are set to 4.5 A; this setting follows the behavior in UNITHERM for ions without a specified value (Shvarov and Bastrakov, 1999).
+TODO: specify ion sizes for neutral aqueous species (Cleverley and Bastrakov, 2005)
 
+}
+
+\section{Activity and Fugacity Models}{
+Coefficients in the extended Debye-Hückel equation (\samp{adh} and \samp{bdh} in the GWB file) are calculated as a function of \T and \P using \code{CHNOSZ::\link[CHNOSZ]{water}}.
+The extended term (\samp{bdot} parameter) by default is calculated using a spline fit to values at 25-300 \degC from Helgeson (1969); values at \T > 300 \degC are set to zero.
+
+TODO: The \code{DH.method} argument can be changed to \samp{bgamma} to use the b-gamma approximation, in which the ion size parameter is a constant for all ions, and the extended term parameter is a function of temperature and pressure that has been extrapolated to 1000 \degC and 30 kbar (Manning et al., 2013) and provisionally as high as 60 kbar (see Figure S5 of Dick, 2019).
+The high-pressure extrapolation is intended to be used in conjunction with the Deep Earth Water (DEW) model for water.
 }
 
 \seealso{
@@ -102,4 +111,12 @@ logKcalc(infile, outfile, ispecies = ispecies)
 
 \references{
 Bethke, C. M. and Yeakel, S. (2010) The Geochemist's Workbench® Reference Manual (Release 8.0), Hydrogeology Program, University of Illinois.
+
+Cleverley, J. S. and Bastrakov, E. N. (2005) K2GWB: Utility for generating thermodynamic data files for The Geochemist's Workbench® at 0-1000 °C and 1-5000 bar from UT2K and the UNITHERM database. \emph{Computers & Geosciences} \bold{31}, 756--767. \doi{10.1016/j.cageo.2005.01.007}
+
+Dick, J. M. (2019) CHNOSZ: Thermodynamic calculations and diagrams for geochemistry. \emph{Front. Earth Sci.} \bold{7}:180. \doi{10.3389/feart.2019.00180}
+
+Manning, C. E., Shock, E. L. and Sverjensky, D. A. (2013) The chemistry of carbon in aqueous fluids at crustal and upper-mantle conditions: Experimental and theoretical constraints. \emph{Rev. Mineral. Geochem.} \bold{75}, 109--148. \doi{10.2138/rmg.2013.75.5}
+
+Shvarov, Y. and Bastrakov, E. (1999) HCh: A software package for geochemical equilibrium modelling. User's Guide. \emph{Australian Geological Survey Organisation} \bold{1999/25}. \url{http://pid.geoscience.gov.au/dataset/ga/25473}
 }

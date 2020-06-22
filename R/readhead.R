@@ -31,6 +31,9 @@ readhead <- function(LINES, quiet = FALSE) {
   # find header lines before data blocks
   iT <- grep("^\\*\ temperatures", LINES)
   iP <- grep("^\\*\ pressures", LINES)
+  iadh <- grep("^\\*\ debye.*adh", LINES)
+  ibdh <- grep("^\\*\ debye.*bdh", LINES)
+  ibdot <- grep("^\\*\ bdot", LINES)
   # find header lines before sections
   jbasis <- grep("basis species$", LINES)
   jredox <- grep("redox couples$", LINES)
@@ -78,6 +81,9 @@ readhead <- function(LINES, quiet = FALSE) {
   out <- list(
     iT = iT,
     iP = iP,
+    iadh = iadh,
+    ibdh = ibdh,
+    ibdot = ibdot,
     ibasis = jbasis,
     iredox = jredox,
     iaqueous = jaqueous,

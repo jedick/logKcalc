@@ -23,6 +23,8 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile) {
   icurrent <- NA
   # content for reference line
   refline <- NA
+  # calculate Debye-Hückel coefficients 20200622
+  DH <- DH(T = LOGK$T, P = LOGK$P)
   # loop over lines of the input file
   for(i in 1:length(LINES)) {
 
@@ -37,11 +39,18 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile) {
       if(grepl("^\\*", LINES[i]) & i < HEAD$iT) {
         outline <- NA
       }
-      # change T and P 20200610
+      # output T and P 20200610
       if(i == HEAD$iT + 1) outline <- formatline(LOGK$T, 1)
       if(i == HEAD$iT + 2) outline <- formatline(LOGK$T, 2)
       if(i == HEAD$iP + 1) outline <- formatline(LOGK$P, 1)
       if(i == HEAD$iP + 2) outline <- formatline(LOGK$P, 2)
+      # output Debye-Hückel coefficients 20200622
+      if(i == HEAD$iadh + 1) outline <- formatline(DH$adh, 1)
+      if(i == HEAD$iadh + 2) outline <- formatline(DH$adh, 2)
+      if(i == HEAD$ibdh + 1) outline <- formatline(DH$bdh * 1e-8, 1)
+      if(i == HEAD$ibdh + 2) outline <- formatline(DH$bdh * 1e-8, 2)
+      if(i == HEAD$ibdot + 1) outline <- formatline(DH$bdot, 1)
+      if(i == HEAD$ibdot + 2) outline <- formatline(DH$bdot, 2)
     }
 
     # check if we're in the basis species header
