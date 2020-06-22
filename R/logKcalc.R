@@ -17,7 +17,8 @@
 #source("addspecies.R")
 
 logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
-  T = NULL, P = "Psat", ispecies = NULL, maxprint = Inf) {
+  T = NULL, P = "Psat", ispecies = NULL, a0_ion = 4.5, a0_neutral = 0,
+  maxprint = Inf) {
 ## for debugging:
 ##infile <- "~/lib/GWB/testfile/thermo.tdat"
 #infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
@@ -33,9 +34,9 @@ logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
   # get the header data
   HEAD <- readhead(LINES)
   # calculate the logK values for available species
-  LOGK <- calclogK(LINES, HEAD, T = T, P = P, maxprint = maxprint)
+  LOGK <- calclogK(LINES, HEAD, T, P, maxprint)
   # get lines for added species
-  ADDS <- addspecies(LOGK, ispecies)
+  ADDS <- addspecies(LOGK, ispecies, a0_ion, a0_neutral)
   # write the new file
   writedat(outfile, LINES, HEAD, LOGK, ADDS, infile)
 }

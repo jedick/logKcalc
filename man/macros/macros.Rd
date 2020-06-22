@@ -6,3 +6,6 @@
 % subscripted numbers
 \newcommand{\s2}{\ifelse{latex}{\eqn{_2}}{\ifelse{html}{\out{<sub>2</sub>}}{2}}}
 \newcommand{\s3}{\ifelse{latex}{\eqn{_3}}{\ifelse{html}{\out{<sub>3</sub>}}{3}}}
+\newcommand{\s4}{\ifelse{latex}{\eqn{_4}}{\ifelse{html}{\out{<sub>4</sub>}}{4}}}
+% unicode characters
+\newcommand{\le}{\ifelse{latex}{\eqn{\le}}{\ifelse{html}{\out{&le;}}{≤}}}

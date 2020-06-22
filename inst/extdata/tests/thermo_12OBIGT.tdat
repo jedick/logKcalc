@@ -3,11 +3,11 @@ dataset format: jan19
 activity model: debye-huckel
 fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
-* File generated at Mon Jun 22 11:21:46 2020
+* File generated at Mon Jun 22 21:29:30 2020
 * by logKcalc 0.1.0 with CHNOSZ 1.3.6-9.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat
-* with 3 added and 77 unavailable species.
+* with 6 added and 77 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -237,7 +237,7 @@ NO2-
 
 -end-
 
-   37 aqueous species
+   40 aqueous species
 
 AuCl2-
      charge= -1      ion size=  4.0 A      mole wt.=  267.8725 g
@@ -531,12 +531,34 @@ S5--
        -26.9695    -26.4888    -26.7374    -27.8389
 * reference: SH88
 
+ethylene
+     charge=  0      ion size= -0.5 A      mole wt.=   28.0538 g
+     3 species in reaction
+        2.000 H+              2.000 HCO3-          -3.000 O2(aq)       
+       247.5281    225.6658    199.9667    175.9389
+       151.6593    131.9032    115.3101    100.8211
+
 AuCl
-     charge=  0      ion size=  4.5 A      mole wt.=  232.4200 g
+     charge=  0      ion size=  1.0 A      mole wt.=  232.4200 g
      2 species in reaction
         1.000 Au+             1.000 Cl-          
        -11.4246    -10.9201    -10.3728     -9.9090
         -9.5092     -9.2720     -9.1912     -9.3119
+
+Au(OH)2-
+     charge= -1      ion size=  3.5 A      mole wt.=  230.9817 g
+     3 species in reaction
+        2.000 H2O             1.000 Au+            -2.000 H+           
+         2.5823      2.7339      3.0680      3.5402
+         4.1987      4.8997      5.6364      6.4378
+
+Au(HS)2-
+     charge= -1      ion size=  3.5 A      mole wt.=  263.1029 g
+     4 species in reaction
+        1.000 Au+             2.000 H+             -4.000 O2(aq)       
+        2.000 SO4--        
+       268.7081    243.4097    213.5410    185.5986
+       157.3870    134.4367    115.1120     98.0953
 
 -end-
 

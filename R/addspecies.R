@@ -27,7 +27,7 @@ rxnlines <- function(stoich) {
 }
 
 # ispecies: species index in thermo()$obigt
-addspecies <- function(LOGK, ispecies) {
+addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral) {
   # Initialize output
   init <- list(n = 0, lines = character())
   # aqueous, mineral, gas: the ones we can add
@@ -42,7 +42,11 @@ addspecies <- function(LOGK, ispecies) {
   CHNOSZ::species(ispecies)
   # Calculate affinity for all species
   a <- suppressMessages(CHNOSZ::affinity(T = LOGK$T, P = LOGK$P))
+  # Make a0_ion and a0_species the same length as the number of species
+  a0_ion <- rep(a0_ion, length.out = length(ispecies))
+  a0_neutral <- rep(a0_neutral, length.out = length(ispecies))
   # Loop over species to add them to the output
+  extramsg <- character()
   for(i in 1:length(ispecies)) {
     # Get species name and state
     name <- a$species$name[i]
@@ -54,13 +58,17 @@ addspecies <- function(LOGK, ispecies) {
     if(state == "aq") {
       type <- "aqueous"
       # first header line: charge, ion size, and molecular weight
-      Z <- suppressMessages(CHNOSZ::info(ispecies[i], check.it = FALSE)$Z)
+      #Z <- suppressMessages(CHNOSZ::info(ispecies[i], check.it = FALSE)$Z)
+      # use the charge from the formula, not the "Z" parameter, because
+      # the latter is set to zero to disable the g-function for some organic ions 20200622
+      Z <- CHNOSZ::makeup(ispecies[i])["Z"]
+      if(is.na(Z)) Z <- 0
+      # get ion size parameter for ions or aqueous species
+      if(Z == 0) a0 <- a0_neutral[i] else a0 <- a0_ion[i]
+      extramsg <- paste(" with a0 =", a0)
       Z <- sprintf("%3.0f", Z)
-      # default ion size from UNITHERM
-      # TODO: allow user to change ion size
-      r <- 4.5
-      r <- sprintf("%5.1f", r)
-      head1 <- paste0("     charge=", Z, "      ion size=", r, " A      mole wt.=", mw, " g")
+      a0 <- sprintf("%5.1f", a0)
+      head1 <- paste0("     charge=", Z, "      ion size=", a0, " A      mole wt.=", mw, " g")
       # there's no second header line
       head2 <- character()
     } else if(state == "cr") {
@@ -81,7 +89,7 @@ addspecies <- function(LOGK, ispecies) {
     # Don't allow duplicated species -- check both existing GWB and OBIGT names
     existing <- c(names(LOGK[[type]]$logKs), LOGK[[type]]$speciesOBIGT)
     if(name %in% existing) stop(paste(name, "is a duplicated", type, "species"))
-    message("Adding ", type, " species: ", name)
+    message("Adding ", type, " species ", name, extramsg)
     # Get reaction stoichiometry
     stoich <- a$species[i, 1:nrow(a$basis)]
     # Use GWB names in reaction

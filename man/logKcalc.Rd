@@ -8,7 +8,8 @@ Read dissociation reactions from a thermodynamic data file for The Geochemist's 
 
 \usage{
   logKcalc(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
-    T = NULL, P = "Psat", ispecies = NULL, maxprint = Inf)
+    T = NULL, P = "Psat", ispecies = NULL, a0_ion = 4.5, a0_neutral = 0,
+    maxprint = Inf)
 }
 
 \arguments{
@@ -17,6 +18,8 @@ Read dissociation reactions from a thermodynamic data file for The Geochemist's 
   \item{T}{Temperature (\degC)}
   \item{P}{Pressure (bar)}
   \item{ispecies}{Species index of specie(s) to add to the data file}
+  \item{a0_ion}{Ion size parameter for added aqueous ions}
+  \item{a0_neutral}{Ion size parameter for added aqueous neutral species}
   \item{maxprint}{Maximum number of missing species to show in print statements}
 }
 
@@ -73,12 +76,19 @@ Species can only be added if all of their elements are in the available basis sp
 Species with the states \samp{aq}, \samp{cr}, and \samp{gas} in OBIGT are added to the aqueous, mineral, and gas sections of the output file, respectively; any other states produce an error.
 
 The molecular weight of species is calculated using \code{CHNOSZ::\link[CHNOSZ:util.formula]{mass}}, which likely does not correspond precisely to the element masses in the input GWB file.
-Ion sizes for new aqueous species are set to 4.5 A; this setting follows the behavior in UNITHERM for ions without a specified value (Shvarov and Bastrakov, 1999).
-TODO: specify ion sizes for neutral aqueous species (Cleverley and Bastrakov, 2005)
+The default ion size parameter for added aqueous ions (\code{a0_ion}) is 4.5 A; this setting follows the behavior in UNITHERM for ions without a specified value (Shvarov and Bastrakov, 1999).
+
+The ion size parameter for neutral aqueous species (\code{a0_neutral}) has a special meaning in the GWB thermodynamic data file (Bethke and Yeakel, 2010).
+The default value of 0 corresponds to unit activity coefficient (the default in the UT2K converter used by K2GWB; Cleverley and Bastrakov, 2005).
+With a value of -0.5, the activity coefficient is equal to that of CO\s2 in an NaCl solution of the same ionic strength (this is used for B(OH)\s3, O\s2, SiO\s2, CH\s4, and H\s2 in \samp{thermo.tdat}).
+For values \le -1, the activity coefficient is calculated as the product of the \samp{bdot} parameter and the true ionic strength.
+
+The values of \code{a0_ion} and \code{a0_neutral} are recycled to the total number of species, including all aqueous ions and neutral species as well as non-aqueous species.
+Therefore, to specify particular values of these parameters for different ions or neutral aqueous species, values must be specified for \emph{all} added species, but will only be used for the respective aqueous species.
 
 }
 
-\section{Activity and Fugacity Models}{
+\section{Activity and Osmotic Coefficients}{
 Coefficients in the extended Debye-Hückel equation (\samp{adh} and \samp{bdh} in the GWB file) are calculated as a function of \T and \P using \code{CHNOSZ::\link[CHNOSZ]{water}}.
 The extended term (\samp{bdot} parameter) by default is calculated using a spline fit to values at 25-300 \degC from Helgeson (1969); values at \T > 300 \degC are set to zero.
 
