@@ -73,6 +73,8 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       basis <- CHNOSZ::basis(OUT$basis$map$CHNOSZ)
       message(paste("The basis has", nrow(basis), "elements:"))
       print(paste(colnames(basis)[1:nrow(basis)], collapse=", "))
+      OUT$basis$nNA <- length(HEAD$ispecies$basis) - nrow(basis)
+      # check if basis species are available for dissociation reactions for the redox species
       inbasis <- sapply(rxnGWB, function(x) all(x$species %in% OUT$basis$map$GWB))
       if(!all(inbasis)) {
         printNA("The basis species for", "species are not available", type, speciesGWB[!inbasis], maxprint)
@@ -104,6 +106,14 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
     # remove species with missing basis species
     speciesGWB <- speciesGWB[inbasis]
     rxnGWB <- rxnGWB[inbasis]
+    # skip calculating logKs for oxide species 20200622
+    if(type == "oxide") {
+      # https://stackoverflow.com/questions/58081243/turning-a-character-vector-into-an-empty-list-with-names-from-the-character-vect
+      logKs <- Map(function(x) NULL, speciesGWB)
+      nNA <- sum(!inbasis)
+      OUT[[type]] <- list(logKs = logKs, nNA = nNA)
+      next
+    }
     # map the names from GWB to CHNOSZ
     # use the 'type' argument here to restrict matches to a subset of OBIGT
     # so e.g. the mineral BaCrO4 doesn't match aqueous BaCrO4
@@ -169,8 +179,10 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       ref2 <- sapply(strsplit(sapply(strsplit(ref2, "\\."), "[", 1), " "), "[", 1)
       names(logKs) <- speciesGWB
     } else ref1 <- ref2 <- logKs <- NULL
+    # get number of unavailable species
+    nNA <- sum(!inbasis) + length(speciesNA) + sum(allisna)
     # save the information
-    OUT[[type]] <- list(logKs = logKs, ref1 = ref1, ref2 = ref2, speciesOBIGT = speciesOBIGT)
+    OUT[[type]] <- list(logKs = logKs, ref1 = ref1, ref2 = ref2, speciesOBIGT = speciesOBIGT, nNA = nNA)
   }
   OUT
 }

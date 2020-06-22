@@ -203,16 +203,17 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile) {
     }
     # insert comment block at top of file 20200621
     if(i == HEAD$iT - 2) {
-      nadd <- sum(sapply(ADDS, "[[", "n"))
       lver <- utils::packageDescription("logKcalc")$Version
       cver <- utils::packageDescription("CHNOSZ")$Version
+      nadd <- sum(sapply(ADDS, "[[", "n"))
+      nNA <- sum(unlist(sapply(LOGK, "[", "nNA")), na.rm = TRUE)
       clines <- c(
         paste0("* Thermodynamic database: OBIGT in CHNOSZ"),
         paste0("* File generated at ", date()),
         paste0("* by logKcalc ", lver, " with CHNOSZ ", cver, "."),
         paste0("* (https://github.com/jedick/logKcalc)"),
         paste0("* System based on ", basename(infile)),
-        paste0("* with ", nadd, " added species.")
+        paste0("* with ", nadd, " added and ", nNA, " unavailable species.")
       )
       nlines <- length(clines)
       out[j : (j + nlines - 1)] <- clines
