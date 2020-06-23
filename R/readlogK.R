@@ -3,6 +3,14 @@
 # 20200523 jmd initial version
 # 20200525 revision to move not-reading logic to calclogK()
 
+# a function to exclude type= ... at end of line with names 20200526
+# also remove formula= (occurs in thermo.com.V8.R6+.tdat) 20200623
+line2name <- function(LINE) {
+  LINE <- gsub("\ *type=.*", "", LINE)
+  LINE <- gsub("\ *formula=.*", "", LINE)
+  LINE
+}
+
 readlogK <- function(file, quiet = FALSE) {
   # read the GWB data file
   message(paste("Reading file", file))

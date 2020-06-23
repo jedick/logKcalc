@@ -16,14 +16,14 @@ The elements include those present in many of the GWB example scripts along with
 The original GWB data file \samp{thermo.tdat} is available in the \code{Gtdata} directory of the GWB installation and at \url{https://www.gwb.com/thermo.php}.
 
 \samp{thermo_24swapped.tdat} is based on the previous file, with As(OH)3, Sn++, and UO2++ swapped for the basis species As(OH)4-, Sn++++, and U++++, respectively.
-The result is a data file with basis species that are all in the default Unitherm and OBIGT databases.
+The result is a data file with basis species that are all in the default UNITHERM and OBIGT databases.
 This file is used by \code{\link{addOBIGT}} to regress thermodynamic parameters from logK values for species that are not in OBIGT.
 
 \samp{thermo_24noredox.tdat} is based on the previous file, with basis species swapped for all redox species appearing in the dissociation reactions of other species.
 The former redox species, which no longer appear in any reactions, were moved into the aqueous species block.
 By writing all dissociation reactions in terms of basis species, the \logK values in this file can be compared with those in the file produced by K2GWB, where no redox species are present (see \code{\link{logKcomp}}).
 
-\samp{ThermoGWB_15_6_2020.tdat}, with dataset format \code{oct94}, was created using K2GWB (Cleverley and Bastrakov, 2005) from the default Unitherm database in HCh version 4.4 (Shvarov, 2008).
+\samp{ThermoGWB_15_6_2020.tdat}, with dataset format \code{oct94}, was created using K2GWB (Cleverley and Bastrakov, 2005) from the default UNITHERM database in HCh version 4.4 (Shvarov, 2008).
 This data file has the same basis species as \samp{thermo_24noredox.tdat}.
 The suffix of the file output by K2GWB was changed from \code{dat} to \code{tdat}.
 To match the names used in \samp{thermo_24noredox.tdat}, the output of K2GWB was manually modified to rename H2O(g), Oxygen(g), and H3AsO3(aq) to Steam, O2(g), and As(OH)3, respectively.

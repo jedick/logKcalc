@@ -3,7 +3,7 @@ dataset format: jan19
 activity model: debye-huckel
 fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
-* File generated at Tue Jun 23 12:59:58 2020
+* File generated at Tue Jun 23 17:18:10 2020
 * by logKcalc 0.1.0 with CHNOSZ 1.3.6-9.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat

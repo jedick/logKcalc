@@ -1,9 +1,6 @@
 # readhead.R
 # read header information from a GWB data file 20200523
 
-# a function to exclude type= ... at end of line with names 20200526
-line2name <- function(LINE) gsub("\ *type=.*", "", LINE)
-
 # a function to read the *numeric* values in a data block
 # 'i' is the line number for the header line in the file
 readblock <- function(LINES, ihead, i) {
@@ -29,11 +26,11 @@ readblock <- function(LINES, ihead, i) {
 
 readhead <- function(LINES, quiet = FALSE) {
   # find header lines before data blocks
-  iT <- grep("^\\*\ temperatures", LINES)
-  iP <- grep("^\\*\ pressures", LINES)
+  iT <- grep("^\\*\ temperatures\\s*$", LINES)
+  iP <- grep("^\\*\ pressures\\s*$", LINES)
   iadh <- grep("^\\*\ debye.*adh", LINES)
   ibdh <- grep("^\\*\ debye.*bdh", LINES)
-  ibdot <- grep("^\\*\ bdot", LINES)
+  ibdot <- grep("^\\*\ bdot\\s*$", LINES)
   ico2_1 <- grep("* c co2 1", LINES, fixed = TRUE)
   ico2_2 <- grep("* c co2 2", LINES, fixed = TRUE)
   ico2_3 <- grep("* c co2 3", LINES, fixed = TRUE)

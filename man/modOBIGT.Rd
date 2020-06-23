@@ -34,7 +34,7 @@ This entry was removed in CHNOSZ 1.1.3 based on the issues raised by Zavarin et 
 However, many existing GWB files have an entry for steam, and the data are needed to include it in the output.
 
 \code{modOBIGT("realgar*4")} and \code{modOBIGT("antigorite/2")} scale the properties of realgar and antigorite by the indicated factors.
-These changes are appropriate for the Unitherm database in the HCh package (Shvarov and Bastrkov, 1999) and for the thermo.tdat file from GWB, respectively.
+These changes are appropriate for the UNITHERM database in the HCh package (Shvarov and Bastrkov, 1999) and for the thermo.tdat file from GWB, respectively.
 
 If you require a redox or aqueous species from a GWB file that is not present in OBIGT, \code{addOBIGT} can be used to add it.
 This function reads the equilibrium constants for the dissociation reaction of the species from the GWB file.

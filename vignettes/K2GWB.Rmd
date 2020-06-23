@@ -61,8 +61,8 @@ logKcalc(infile, outfile)
 Labels are added to points with a difference of greater that 1 log*K* unit.
 
 ```{r logKcomp, message = FALSE, results = "hide", fig.width = 12, fig.height = 6, out.width = "100%", out.extra='class="full-width"'}
-plot1 <- logKcomp(infile, outfile, lab1 = "Unitherm", lab2 = "OBIGT")
-plot2 <- logKcomp(infile, outfile, type = "mineral", lab1 = "Unitherm", lab2 = "OBIGT")
+plot1 <- logKcomp(infile, outfile, lab1 = "UNITHERM", lab2 = "OBIGT")
+plot2 <- logKcomp(infile, outfile, type = "mineral", lab1 = "UNITHERM", lab2 = "OBIGT")
 gridExtra::grid.arrange(plot1, plot2, ncol = 2)
 ```
 
