@@ -100,6 +100,9 @@ The default for \samp{bgamma} is to set the ion size parameter for \emph{all} io
 This differs from HCh, where ion size parameters for individual ions are calculated from their effective elecrostatic radii (Shvarov and Bastrakov, 1999).
 Calling the function with the explicit argument \code{a0_ion = NULL} overrides this setting, so that no changes are made to ion size parameters from the input file.
 
+Parameters for calculating the activity coefficient of CO\s2 in a pure NaCl solution and the osmotic coefficient of \H2O (i.e., \samp{co2} and \samp{h2o} blocks of the GWB file) are calculated as described for K2GWB (Cleverley and Bastrakov, 2005).
+Because of a bug with calculating exponents in some versions of K2GWB, the CO\s2 parameters (especially in the first block) may not match those in GWB files produced by K2GWB for the same values of \T.
+
 }
 
 \seealso{

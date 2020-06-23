@@ -3,12 +3,14 @@
 # 20200524
 
 # a function to format values on separate lines 20200610
-formatline <- function(values, iline, na.500 = FALSE) {
+formatline <- function(values, iline, na.500 = FALSE, ndec = 4) {
   if(iline==1) values <- values[1:4]
   if(iline==2) values <- values[5:8]
   # use 500 for NA 20200526
   if(na.500) values[is.na(values)] <- 500
-  paste0("   ", paste(sprintf("%12.4f", values), collapse = ""))
+  if(ndec == 4) line <- paste0("   ", paste(sprintf("%12.4f", values), collapse = ""))
+  if(ndec == 6) line <- paste0("   ", paste(sprintf("%12.6f", values), collapse = ""))
+  line
 }
 
 writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion = NULL) {
@@ -24,8 +26,11 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
   # content for reference line
   refline <- NA
   # calculate Debye-Hückel coefficients 20200622
-  DH <- DH(LOGK$T, LOGK$P, DH.method)
+  DH <- dh(LOGK$T, LOGK$P, DH.method)
   if(!is.null(a0_ion)) a0 <- sprintf("%5.2f", a0_ion)
+  # calculate coefficients for CO2 and H2O activity 20200623
+  CO2 <- co2(LOGK$T)
+  H2O <- h2o(LOGK$T)
   # loop over lines of the input file
   for(i in 1:length(LINES)) {
 
@@ -45,13 +50,31 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
       if(i == HEAD$iT + 2) outline <- formatline(LOGK$T, 2)
       if(i == HEAD$iP + 1) outline <- formatline(LOGK$P, 1)
       if(i == HEAD$iP + 2) outline <- formatline(LOGK$P, 2)
-      # output Debye-Hückel coefficients 20200622
+      # output Debye-Hückel parameters 20200622
       if(i == HEAD$iadh + 1) outline <- formatline(DH$adh, 1)
       if(i == HEAD$iadh + 2) outline <- formatline(DH$adh, 2)
       if(i == HEAD$ibdh + 1) outline <- formatline(DH$bdh * 1e-8, 1)
       if(i == HEAD$ibdh + 2) outline <- formatline(DH$bdh * 1e-8, 2)
       if(i == HEAD$ibdot + 1) outline <- formatline(DH$bdot, 1)
       if(i == HEAD$ibdot + 2) outline <- formatline(DH$bdot, 2)
+      # output CO2 parameters 20200623
+      if(i == HEAD$ico2_1 + 1) outline <- formatline(CO2$co2_1, 1, ndec = 6)
+      if(i == HEAD$ico2_1 + 2) outline <- formatline(CO2$co2_1, 2, ndec = 6)
+      if(i == HEAD$ico2_2 + 1) outline <- formatline(CO2$co2_2, 1, ndec = 6)
+      if(i == HEAD$ico2_2 + 2) outline <- formatline(CO2$co2_2, 2, ndec = 6)
+      if(i == HEAD$ico2_3 + 1) outline <- formatline(CO2$co2_3, 1, ndec = 6)
+      if(i == HEAD$ico2_3 + 2) outline <- formatline(CO2$co2_3, 2, ndec = 6)
+      if(i == HEAD$ico2_4 + 1) outline <- formatline(CO2$co2_4, 1, ndec = 6)
+      if(i == HEAD$ico2_4 + 2) outline <- formatline(CO2$co2_4, 2, ndec = 6)
+      # output H2O parameters 20200623
+      if(i == HEAD$ih2o_1 + 1) outline <- formatline(H2O$h2o_1, 1, ndec = 6)
+      if(i == HEAD$ih2o_1 + 2) outline <- formatline(H2O$h2o_1, 2, ndec = 6)
+      if(i == HEAD$ih2o_2 + 1) outline <- formatline(H2O$h2o_2, 1, ndec = 6)
+      if(i == HEAD$ih2o_2 + 2) outline <- formatline(H2O$h2o_2, 2, ndec = 6)
+      if(i == HEAD$ih2o_3 + 1) outline <- formatline(H2O$h2o_3, 1, ndec = 6)
+      if(i == HEAD$ih2o_3 + 2) outline <- formatline(H2O$h2o_3, 2, ndec = 6)
+      if(i == HEAD$ih2o_4 + 1) outline <- formatline(H2O$h2o_4, 1, ndec = 6)
+      if(i == HEAD$ih2o_4 + 2) outline <- formatline(H2O$h2o_4, 2, ndec = 6)
     }
 
     # check if we're in the basis species header

@@ -34,6 +34,14 @@ readhead <- function(LINES, quiet = FALSE) {
   iadh <- grep("^\\*\ debye.*adh", LINES)
   ibdh <- grep("^\\*\ debye.*bdh", LINES)
   ibdot <- grep("^\\*\ bdot", LINES)
+  ico2_1 <- grep("* c co2 1", LINES, fixed = TRUE)
+  ico2_2 <- grep("* c co2 2", LINES, fixed = TRUE)
+  ico2_3 <- grep("* c co2 3", LINES, fixed = TRUE)
+  ico2_4 <- grep("* c co2 4", LINES, fixed = TRUE)
+  ih2o_1 <- grep("* c h2o 1", LINES, fixed = TRUE)
+  ih2o_2 <- grep("* c h2o 2", LINES, fixed = TRUE)
+  ih2o_3 <- grep("* c h2o 3", LINES, fixed = TRUE)
+  ih2o_4 <- grep("* c h2o 4", LINES, fixed = TRUE)
   # find header lines before sections
   jbasis <- grep("basis species$", LINES)
   jredox <- grep("redox couples$", LINES)
@@ -84,6 +92,14 @@ readhead <- function(LINES, quiet = FALSE) {
     iadh = iadh,
     ibdh = ibdh,
     ibdot = ibdot,
+    ico2_1 = ico2_1,
+    ico2_2 = ico2_2,
+    ico2_3 = ico2_3,
+    ico2_4 = ico2_4,
+    ih2o_1 = ih2o_1,
+    ih2o_2 = ih2o_2,
+    ih2o_3 = ih2o_3,
+    ih2o_4 = ih2o_4,
     ibasis = jbasis,
     iredox = jredox,
     iaqueous = jaqueous,
