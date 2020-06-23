@@ -10,7 +10,7 @@ Read values of logK from a data file, and make plots comparing equilibrium const
 \usage{
   readlogK(file, quiet = FALSE)
   logKcomp(file1, file2, type = "aqueous", iTP = 2,
-    lab1 = NULL, lab2 = NULL, plot.it = TRUE)
+    lab1 = NULL, lab2 = NULL, xlim = NULL, ylim = NULL, plot.it = TRUE)
 }
 
 \arguments{
@@ -22,6 +22,8 @@ Read values of logK from a data file, and make plots comparing equilibrium const
   \item{iTP}{Which pair of \T, \P values to use (1..8)}
   \item{lab1}{Title for \code{file1} in plot labels}
   \item{lab2}{Title for \code{file2} in plot labels}
+  \item{xlim}{Limits for \emph{x} axis}
+  \item{ylim}{Limits for \emph{y} axis}
   \item{plot.it}{Logical, make a plot?}
 }
 

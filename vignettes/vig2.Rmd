@@ -4,7 +4,7 @@ output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Processing a GWB thermodyamic data file}
+  %\VignetteIndexEntry{2 - Processing a GWB thermodyamic data file}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: logKcalc.bib
@@ -48,9 +48,11 @@ knit_hooks$set(warning = color_block('magenta'), error = color_block('red'), mes
 ```
 
 #### This vignette shows the results from processing thermo_24elements.tdat.
-(That is, a modfied version of GWB's thermo.tdat file reduced to 24 elements.)
 
-First we use `modOBIGT` to add some minerals from SUPCRT92, H2O(g), and antigorite with halved chemical formula to match the one used in thermo.tdat.
+This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
+
+The thermodynamic system is defined by thermo_24elements.tdat, which is a modfied version of GWB's thermo.tdat file reduced to 24 elements.
+First we use `modOBIGT` to add some minerals from SUPCRT92, an entry for steam that has been removed from OBIGT, and antigorite with a chemical formula to match the one used in thermo.tdat.
 
 ```{r modOBIGT}
 reset()
@@ -74,7 +76,7 @@ This adds a selection of aqueous, mineral, and gas species.
 ispecies <- info(c("AuCl", "pyrrhotite", "ammonia"))
 ```
 
-Set the file paths and perform the log*K* calculation.
+Here we set the file paths and perform the log*K* calculation.
 The `maxprint` argument is used to prevent the printing of long lists of species that can't be found in OBIGT.
 
 ```{r logKcalc}
@@ -85,7 +87,7 @@ logKcalc(infile, outfile, maxprint = 10)
 
 Note that species are removed if their log*K* values are all NA.
 This includes a few minerals taken from SUPCRT92, as well as pyrrhotite, whose chemical formula in the GWB file (Fe.875S) is different from that in OBIGT (FeS).
-However, pyrrhotite is subsequently added with a dissociation reaction that uses the chemical formula in OBIGT.
+However, pyrrhotite is subsequently added with a dissociation reaction written using the chemical formula of this mineral in OBIGT.
 
 #### Now we can make some plots to compare the logK values in the input and output files.
 
@@ -96,8 +98,6 @@ plot1 <- logKcomp(infile, outfile, lab2 = "OBIGT")
 plot2 <- logKcomp(infile, outfile, type = "mineral", lab2 = "OBIGT")
 gridExtra::grid.arrange(plot1, plot2, ncol = 2)
 ```
-
-These plots were made with **logKcalc** version `r packageDescription("logKcalc")$Version` and **CHNOSZ** version `r packageDescription("CHNOSZ")$Version`.
 
 #### Now let's see two plots made with Act2 in GWB.
 

@@ -2,7 +2,8 @@
 # compare logK values from two GWB files 20200525
 # use ggrepel to label outliers 20200526
 
-logKcomp <- function(file1, file2, type = "aqueous", iTP = 2, lab1 = NULL, lab2 = NULL, plot.it = TRUE) {
+logKcomp <- function(file1, file2, type = "aqueous", iTP = 2,
+  lab1 = NULL, lab2 = NULL, xlim = NULL, ylim = NULL, plot.it = TRUE) {
 
   if(!requireNamespace("ggrepel")) stop("logKcomp() requires the ggrepel package")
 
@@ -98,5 +99,6 @@ logKcomp <- function(file1, file2, type = "aqueous", iTP = 2, lab1 = NULL, lab2 
     ggplot2::ylab(ylab) +
     ggplot2::geom_hline(yintercept = 0, linetype = 3, colour = "gray30") +
     ggplot2::ggtitle(title, subtitle) +
-    ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, size = 16), plot.subtitle = ggplot2::element_text(hjust = 0.5, size = 14))
+    ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, size = 16), plot.subtitle = ggplot2::element_text(hjust = 0.5, size = 14)) +
+    ggplot2::coord_cartesian(xlim = xlim, ylim = ylim)
 }
