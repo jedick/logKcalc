@@ -3,11 +3,11 @@ dataset format: jan19
 activity model: debye-huckel
 fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
-* File generated at Mon Jun 22 21:29:30 2020
+* File generated at Tue Jun 23 10:00:50 2020
 * by logKcalc 0.1.0 with CHNOSZ 1.3.6-9.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat
-* with 6 added and 77 unavailable species.
+* with 7 added and 77 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -237,7 +237,7 @@ NO2-
 
 -end-
 
-   40 aqueous species
+   41 aqueous species
 
 AuCl2-
      charge= -1      ion size=  4.0 A      mole wt.=  267.8725 g
@@ -531,34 +531,47 @@ S5--
        -26.9695    -26.4888    -26.7374    -27.8389
 * reference: SH88
 
+glycinate
+     charge= -1      ion size=  3.5 A      mole wt.=   74.0593 g
+     4 species in reaction
+        2.000 H+              2.000 HCO3-           1.000 NO3-         
+       -3.500 O2(aq)       
+       197.0600    180.0558    160.0040    141.1819
+       122.0639    106.4001     93.1210     81.3504
+* references: Kit14, GKL02
+
 ethylene
      charge=  0      ion size= -0.5 A      mole wt.=   28.0538 g
      3 species in reaction
         2.000 H+              2.000 HCO3-          -3.000 O2(aq)       
-       247.5281    225.6658    199.9667    175.9389
-       151.6593    131.9032    115.3101    100.8211
+       250.5281    228.6658    202.9667    178.9389
+       154.6593    134.9032    118.3101    103.8211
+* reference: PS01
 
 AuCl
      charge=  0      ion size=  1.0 A      mole wt.=  232.4200 g
      2 species in reaction
         1.000 Au+             1.000 Cl-          
-       -11.4246    -10.9201    -10.3728     -9.9090
-        -9.5092     -9.2720     -9.1912     -9.3119
+        -8.4246     -7.9201     -7.3728     -6.9090
+        -6.5092     -6.2720     -6.1912     -6.3119
+* reference: AZ01
 
 Au(OH)2-
      charge= -1      ion size=  3.5 A      mole wt.=  230.9817 g
      3 species in reaction
         2.000 H2O             1.000 Au+            -2.000 H+           
-         2.5823      2.7339      3.0680      3.5402
-         4.1987      4.8997      5.6364      6.4378
+         5.5823      5.7339      6.0680      6.5402
+         7.1987      7.8997      8.6364      9.4378
+* reference: AZ01
 
 Au(HS)2-
      charge= -1      ion size=  3.5 A      mole wt.=  263.1029 g
      4 species in reaction
         1.000 Au+             2.000 H+             -4.000 O2(aq)       
         2.000 SO4--        
-       268.7081    243.4097    213.5410    185.5986
-       157.3870    134.4367    115.1120     98.0953
+       271.7081    246.4097    216.5410    188.5986
+       160.3870    137.4367    118.1120    101.0953
+* reference: AZ10
 
 -end-
 
@@ -772,6 +785,7 @@ pyrrhotite
         1.000 Fe++           -2.000 O2(aq)          1.000 SO4--        
        148.4642    134.5976    118.2200    102.8332
         87.1702     74.2657     63.2603     53.4258
+* reference: HDNB78
 
 -end-
 
@@ -860,6 +874,7 @@ ammonia
        -2.000 O2(aq)       
         70.5512     63.8967     55.9822     48.5012
         40.8523     34.5428     29.1546     24.3303
+* references: WEP+82, Kel60
 
 -end-
 
@@ -913,12 +928,24 @@ hydrosulfide, and hydroxo complexes of Ag(I), Cu(I), and Au(I) at temperatures
 of 25-500°C and pressures of 1-2000 bar.” _Geochemistry International_,
 *39*(10), 990-1006.
 
+[AZ10]
+Akinfiev NN, Zotov AV (2010). “Thermodynamic description of aqueous species in
+the system Cu-Ag-Au-S-O-H at temperatures of 0-600°C and pressures of 1-3000
+bar.” _Geochemistry International_, *48*(7), 714-720. doi:
+10.1134/S0016702910070074 (URL: https://doi.org/10.1134/S0016702910070074).
+
 [Ber88]
 Berman RG (1988). “Internally-consistent thermodynamic data for minerals in the
 system
 Na$_2$O-K$_2$O-CaO-MgO-FeO-Fe$_2$O$_3$-Al$_2$O$_3$-SiO$_2$-TiO$_2$-H$_2$O-CO$_2$.”
 _Journal of Petrology_, *29*(2), 445-522. doi: 10.1093/petrology/29.2.445 (URL:
 https://doi.org/10.1093/petrology/29.2.445).
+
+[GKL02]
+Goldberg RN, Kishore N, Lennen RM (2002). “Thermodynamic quantities for the
+ionization reactions of buffers.” _Journal of Physical and Chemical Reference
+Data_, *31*(2), 231-370. doi: 10.1063/1.1416902 (URL:
+https://doi.org/10.1063/1.1416902).
 
 [HDNB78]
 Helgeson HC, Delany JM, Nesbitt HW, Bird DK (1978). “Summary and critique of the
@@ -943,6 +970,12 @@ Kelley KK (1960). _Contributions to the Data in Theoretical Metallurgy XIII:
 High Temperature Heat Content, Heat Capacities and Entropy Data for the Elements
 and Inorganic Compounds_, series Bulletin 584. U. S. Bureau of Mines. <URL:
 http://www.worldcat.org/oclc/693388901>.
+
+[Kit14]
+Kitadai N (2014). “Thermodynamic prediction of glycine polymerization as a
+function of temperature and pH consistent with experimentally obtained results.”
+_Journal of Molecular Evolution_, *78*(3-4), 171-187. ISSN 0022-2844, doi:
+10.1007/s00239-014-9616-1 (URL: https://doi.org/10.1007/s00239-014-9616-1).
 
 [MGN03]
 Majzlan J, Grevel K, Navrotsky A (2003). “Thermodynamics of Fe oxides: Part II.

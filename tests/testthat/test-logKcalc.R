@@ -14,12 +14,12 @@ test_that("Modifying the database and adding species to the output work as expec
   reset()
   modOBIGT(c("addSUPCRT", "steam"))
   addOBIGT("AuCl4-")
-  # add a selection of 4 aqueous, 1 mineral and 1 gas species
-  ispecies <- info(c("C2H4", "AuCl", "Au(OH)2-", "Au(HS)2-", "pyrrhotite", "ammonia"))
+  # add a selection of 5 aqueous, 1 mineral and 1 gas species
+  ispecies <- info(c("glycinate", "C2H4", "AuCl", "Au(OH)2-", "Au(HS)2-", "pyrrhotite", "ammonia"))
   # set a non-default ion size parameter for the ions
   a0_ion <- 3.5
   # use particular ion size parameters for each neutral aqueous species
-  a0_neutral <- c(-0.5, 1, NA, NA, NA, NA)
+  a0_neutral <- c(NA, -0.5, 1, NA, NA, NA, NA)
   logKcalc(infile, outfile, ispecies = ispecies, a0_ion = a0_ion, a0_neutral = a0_neutral)
   reffile <- system.file("extdata/tests/thermo_12OBIGT.tdat", package = "logKcalc")
   reflines <- readLines(reffile)
@@ -48,8 +48,8 @@ test_that("Changing the temperature and Debye-Hückel method work as expected", 
   reset()
   modOBIGT(c("addSUPCRT", "steam"))
   addOBIGT("AuCl4-")
-  # add a selection of 2 aqueous, 1 mineral and 1 gas species
-  ispecies <- info(c("C2H4", "AuCl", "Au(OH)2-", "Au(HS)2-", "pyrrhotite", "ammonia"))
+  # add a selection of aqueous, mineral and gas species
+  ispecies <- info(c("glycinate", "C2H4", "AuCl", "Au(OH)2-", "Au(HS)2-", "pyrrhotite", "ammonia"))
   # set T and P
   T <- seq(300, 650, 50)
   P <- 1000

@@ -202,7 +202,7 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
               if(!is.na(r1)) {
                 refline <- paste("* reference:", r1)
                 r2 <- ref2[ispecies]
-                if(!is.na(r2)) refline <- paste("* references: ", ref1[ispecies], ", ", r2, sep = "")
+                if(!is.na(r2)) refline <- paste("* references: ", r1, ", ", r2, sep = "")
               }
             }
           } else outline <- ""
@@ -261,13 +261,16 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
     basisrefs <- c(LOGK$basis$ref1, LOGK$basis$ref2)
     speciestypes <- c("redox", "aqueous", "electron", "mineral", "gas")
     speciesrefs <- lapply(speciestypes, function(x) c(LOGK[[x]]$ref1, LOGK[[x]]$ref2))
-    allrefs <- c(basisrefs, speciesrefs)
+    addrefs <- sapply(ADDS, "[[", "refs")
+    allrefs <- c(basisrefs, speciesrefs, addrefs)
     keys <- sort(unique(stats::na.omit(unlist(allrefs))))
     # read the bibtex files from CHNOSZ and logKcalc
     bibfile1 <- system.file("doc/obigt.bib", package = "CHNOSZ")
     bibentry1 <- bibtex::read.bib(bibfile1)
     bibfile2 <- system.file("extdata/logKcalc.bib", package = "logKcalc")
     bibentry2 <- bibtex::read.bib(bibfile2)
+    # use the current year for the logK_fit entry 20200623
+    bibentry2["logK_fit"]$year <- substr(date(), 21, 24)
     bibentry <- c(bibentry1, bibentry2)
     # check for missing entries
     inbib <- keys %in% names(bibentry)

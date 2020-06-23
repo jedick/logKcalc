@@ -35,17 +35,17 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
     else stop("DH.method should be 'bdot' or 'bgamma'")
   }
   # Initialize output
-  init <- list(n = 0, lines = character())
+  init <- list(n = 0, lines = character(), refs = character())
   # aqueous, mineral, gas: the ones we can add
   # redox, electron, oxide: will not be changed
   ADDS <- list(redox = init, aqueous = init, electron = init, mineral = init, gas = init, oxide = init)
   if(is.null(ispecies)) return(ADDS)
   if(length(ispecies) == 0) return(ADDS)
-  # Set basis species
+  # Set basis species (default logact is 0)
   CHNOSZ::basis(LOGK$basis$map$CHNOSZ)
   on.exit(CHNOSZ::basis(delete = TRUE))
-  # Load species
-  CHNOSZ::species(ispecies)
+  # Load species (set logact to 0!)
+  CHNOSZ::species(ispecies, 0)
   # Calculate affinity for all species
   a <- suppressMessages(CHNOSZ::affinity(T = LOGK$T, P = LOGK$P))
   # Make a0_ion and a0_species the same length as the number of species
@@ -73,7 +73,7 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
       if(Z == 0) a0 <- a0_neutral[i] else a0 <- a0_ion[i]
       extramsg <- paste(" with a0 =", a0)
       Z <- sprintf("%3.0f", Z)
-      # add a decimal place for a0 in bgamma (default 3.72)
+      # add a decimal place for a0 in bgamma (default 3.72) 20200623
       if(DH.method=="bdot") a0 <- sprintf("%5.1f", a0)
       if(DH.method=="bgamma") a0 <- sprintf("%5.2f", a0)
       head1 <- paste0("     charge=", Z, "      ion size=", a0, " A      mole wt.=", mw, " g")
@@ -108,8 +108,23 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
     # NOTE: logK of dissociation reaction is opposite that of formation reaction
     logK1 <- formatline(-a$values[[i]], 1, na.500 = TRUE)
     logK2 <- formatline(-a$values[[i]], 2, na.500 = TRUE)
+    # Make a reference line 20200623
+    refline <- "* no references available"
+    r1 <- CHNOSZ::info(ispecies[i], check.it = FALSE)$ref1
+    # remove suffixes
+    r1 <- sapply(strsplit(sapply(strsplit(r1, "\\."), "[", 1), " "), "[", 1)
+    if(!is.na(r1)) {
+      ADDS[[type]]$refs <- c(ADDS[[type]]$refs, r1)
+      refline <- paste("* reference:", r1)
+      r2 <- CHNOSZ::info(ispecies[i], check.it = FALSE)$ref2
+      r2 <- sapply(strsplit(sapply(strsplit(r2, "\\."), "[", 1), " "), "[", 1)
+      if(!is.na(r2)) {
+        ADDS[[type]]$refs <- c(ADDS[[type]]$refs, r2)
+        refline <- paste("* references: ", r1, ", ", r2, sep = "")
+      }
+    }
     # Put together the lines for this species (including a blank line at the end)
-    alllines <- c(name, head1, head2, rxn, logK1, logK2, "")
+    alllines <- c(name, head1, head2, rxn, logK1, logK2, refline, "")
     # Add the lines to the output
     ADDS[[type]]$n <- ADDS[[type]]$n + 1
     ADDS[[type]]$lines <- c(ADDS[[type]]$lines, alllines)
