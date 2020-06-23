@@ -9,3 +9,4 @@
 \newcommand{\s4}{\ifelse{latex}{\eqn{_4}}{\ifelse{html}{\out{<sub>4</sub>}}{4}}}
 % unicode characters
 \newcommand{\le}{\ifelse{latex}{\eqn{\le}}{\ifelse{html}{\out{&le;}}{≤}}}
+\newcommand{\AA}{\ifelse{latex}{\out{\AA}}{\ifelse{html}{\out{&#x212B;}}{Å}}}

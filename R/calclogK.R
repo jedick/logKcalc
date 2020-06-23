@@ -44,6 +44,8 @@ printNA <- function(start, end, type, species, maxprint) {
 calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
   # process T and P arguments
   if(is.null(T)) T <- HEAD$T
+  if(length(T) == 1) T <- rep(T, 8)
+  if(length(T) != 8) stop("please supply 1 or 8 values for T")
   message("The temperatures for the logK calculation are:")
   print(paste(T, collapse = ", "))
   if(is.null(P)) P <- HEAD$P else {
@@ -53,6 +55,8 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       P[P > 1] <- P[P > 1] + 0.0001
     }
   }
+  if(length(P) == 1) P <- rep(P, 8)
+  if(length(P) != 8) stop("please supply 1 or 8 values for P")
   message("The pressures for the logK calculation are:")
   print(paste(P, collapse = ", "))
   # make a list to hold information on the different types of species

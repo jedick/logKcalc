@@ -8,8 +8,8 @@ Read dissociation reactions from a thermodynamic data file for The Geochemist's 
 
 \usage{
   logKcalc(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
-    T = NULL, P = "Psat", ispecies = NULL, a0_ion = 4.5, a0_neutral = 0,
-    maxprint = Inf)
+    T = NULL, P = "Psat", ispecies = NULL, a0_ion = NULL, a0_neutral = 0,
+    DH.method = "bdot", maxprint = Inf)
 }
 
 \arguments{
@@ -20,6 +20,7 @@ Read dissociation reactions from a thermodynamic data file for The Geochemist's 
   \item{ispecies}{Species index of specie(s) to add to the data file}
   \item{a0_ion}{Ion size parameter for added aqueous ions}
   \item{a0_neutral}{Ion size parameter for added aqueous neutral species}
+  \item{DH.method}{Method for generating Debye-Hückel parameters, \samp{bdot} or \samp{bgamma}}
   \item{maxprint}{Maximum number of missing species to show in print statements}
 }
 
@@ -76,7 +77,7 @@ Species can only be added if all of their elements are in the available basis sp
 Species with the states \samp{aq}, \samp{cr}, and \samp{gas} in OBIGT are added to the aqueous, mineral, and gas sections of the output file, respectively; any other states produce an error.
 
 The molecular weight of species is calculated using \code{CHNOSZ::\link[CHNOSZ:util.formula]{mass}}, which likely does not correspond precisely to the element masses in the input GWB file.
-The default ion size parameter for added aqueous ions (\code{a0_ion}) is 4.5 A; this setting follows the behavior in UNITHERM for ions without a specified value (Shvarov and Bastrakov, 1999).
+The default ion size parameter for added aqueous ions (\code{a0_ion}) is 4.5 \AA; this setting follows the behavior in UNITHERM for ions without a specified value (Shvarov and Bastrakov, 1999).
 
 The ion size parameter for neutral aqueous species (\code{a0_neutral}) has a special meaning in the GWB thermodynamic data file (Bethke and Yeakel, 2010).
 The default value of 0 corresponds to unit activity coefficient (the default in the UT2K converter used by K2GWB; Cleverley and Bastrakov, 2005).
@@ -89,11 +90,16 @@ Therefore, to specify particular values of these parameters for different ions o
 }
 
 \section{Activity and Osmotic Coefficients}{
+
 Coefficients in the extended Debye-Hückel equation (\samp{adh} and \samp{bdh} in the GWB file) are calculated as a function of \T and \P using \code{CHNOSZ::\link[CHNOSZ]{water}}.
 The extended term (\samp{bdot} parameter) by default is calculated using a spline fit to values at 25-300 \degC from Helgeson (1969); values at \T > 300 \degC are set to zero.
 
-TODO: The \code{DH.method} argument can be changed to \samp{bgamma} to use the b-gamma approximation, in which the ion size parameter is a constant for all ions, and the extended term parameter is a function of temperature and pressure that has been extrapolated to 1000 \degC and 30 kbar (Manning et al., 2013) and provisionally as high as 60 kbar (see Figure S5 of Dick, 2019).
+The \code{DH.method} argument can be changed to \samp{bgamma} to use the b-gamma approximation, in which the extended term parameter is a function of temperature and pressure that has been extrapolated to 1000 \degC and 30 kbar (Manning et al., 2013) and provisionally as high as 60 kbar (see Figure S5 of Dick, 2019).
 The high-pressure extrapolation is intended to be used in conjunction with the Deep Earth Water (DEW) model for water.
+The default for \samp{bgamma} is to set the ion size parameter for \emph{all} ions in the output file to 3.72 \AA, which is a characteristic value for an NaCl-dominated solution (Helgeson et al., 1981).
+This differs from HCh, where ion size parameters for individual ions are calculated from their effective elecrostatic radii (Shvarov and Bastrakov, 1999).
+Calling the function with the explicit argument \code{a0_ion = NULL} overrides this setting, so that no changes are made to ion size parameters from the input file.
+
 }
 
 \seealso{
@@ -106,16 +112,15 @@ mapfile <- system.file("extdata/map_names.csv", package = "logKcalc")
 head(read.csv(mapfile))
 
 # Process a GWB file
-# 1) define input and output files
+# -- define input and output files
 infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
 outfile <- tempfile("thermo", fileext = ".tdat")
-# 2) make some modifications to OBIGT
-# addSUPCRT - minerals from SUPCRT92 database
-# steam - deprecated H2O(g)
+# -- make some modifications to OBIGT
+# (add minerals from SUPCRT92 database and deprecated H2O(g))
 modOBIGT(c("addSUPCRT", "steam"))
-# 3) identify species to add to the output
+# -- identify species to add to the output
 ispecies <- info("pyrrhotite")
-# 4) process the file
+# -- process the file
 logKcalc(infile, outfile, ispecies = ispecies)
 }
 
@@ -125,6 +130,8 @@ Bethke, C. M. and Yeakel, S. (2010) The Geochemist's Workbench® Reference Manua
 Cleverley, J. S. and Bastrakov, E. N. (2005) K2GWB: Utility for generating thermodynamic data files for The Geochemist's Workbench® at 0-1000 °C and 1-5000 bar from UT2K and the UNITHERM database. \emph{Computers & Geosciences} \bold{31}, 756--767. \doi{10.1016/j.cageo.2005.01.007}
 
 Dick, J. M. (2019) CHNOSZ: Thermodynamic calculations and diagrams for geochemistry. \emph{Front. Earth Sci.} \bold{7}:180. \doi{10.3389/feart.2019.00180}
+
+Helgeson, H. C., Kirkham, D. H. and Flowers, G. C. (1981) Theoretical prediction of the thermodynamic behavior of aqueous electrolytes at high pressures and temperatures. IV. Calculation of activity coefficients, osmotic coefficients, and apparent molal and standard and relative partial molal properties to 600\degC and 5 Kb. \emph{Am. J. Sci.} \bold{281}, 1249--1516. \doi{10.2475/ajs.281.10.1249}
 
 Manning, C. E., Shock, E. L. and Sverjensky, D. A. (2013) The chemistry of carbon in aqueous fluids at crustal and upper-mantle conditions: Experimental and theoretical constraints. \emph{Rev. Mineral. Geochem.} \bold{75}, 109--148. \doi{10.2138/rmg.2013.75.5}
 

@@ -27,7 +27,13 @@ rxnlines <- function(stoich) {
 }
 
 # ispecies: species index in thermo()$obigt
-addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral) {
+addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
+  # set defaults for a0_ion
+  if(is.null(a0_ion)) {
+    if(identical(DH.method, "bdot")) a0_ion <- 4.5
+    else if(identical(DH.method, "bgamma")) a0_ion <- 3.72
+    else stop("DH.method should be 'bdot' or 'bgamma'")
+  }
   # Initialize output
   init <- list(n = 0, lines = character())
   # aqueous, mineral, gas: the ones we can add
@@ -67,7 +73,9 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral) {
       if(Z == 0) a0 <- a0_neutral[i] else a0 <- a0_ion[i]
       extramsg <- paste(" with a0 =", a0)
       Z <- sprintf("%3.0f", Z)
-      a0 <- sprintf("%5.1f", a0)
+      # add a decimal place for a0 in bgamma (default 3.72)
+      if(DH.method=="bdot") a0 <- sprintf("%5.1f", a0)
+      if(DH.method=="bgamma") a0 <- sprintf("%5.2f", a0)
       head1 <- paste0("     charge=", Z, "      ion size=", a0, " A      mole wt.=", mw, " g")
       # there's no second header line
       head2 <- character()
@@ -98,8 +106,8 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral) {
     rxn <- rxnlines(stoich)
     # Get logK lines
     # NOTE: logK of dissociation reaction is opposite that of formation reaction
-    logK1 <- formatline(-a$values[[i]], 1)
-    logK2 <- formatline(-a$values[[i]], 2)
+    logK1 <- formatline(-a$values[[i]], 1, na.500 = TRUE)
+    logK2 <- formatline(-a$values[[i]], 2, na.500 = TRUE)
     # Put together the lines for this species (including a blank line at the end)
     alllines <- c(name, head1, head2, rxn, logK1, logK2, "")
     # Add the lines to the output

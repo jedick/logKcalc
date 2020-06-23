@@ -11,7 +11,7 @@ formatline <- function(values, iline, na.500 = FALSE) {
   paste0("   ", paste(sprintf("%12.4f", values), collapse = ""))
 }
 
-writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile) {
+writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion = NULL) {
   # put together the output
   # start with empty lines
   out <- rep(NA, length(LINES))
@@ -24,7 +24,8 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile) {
   # content for reference line
   refline <- NA
   # calculate Debye-Hückel coefficients 20200622
-  DH <- DH(T = LOGK$T, P = LOGK$P)
+  DH <- DH(LOGK$T, LOGK$P, DH.method)
+  if(!is.null(a0_ion)) a0 <- sprintf("%5.2f", a0_ion)
   # loop over lines of the input file
   for(i in 1:length(LINES)) {
 
@@ -84,6 +85,16 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile) {
         # don't copy comment lines from input file 20200617
         if(!grepl("^\\*", LINES[i])) {
           outline <- LINES[i]
+          # adjust a0 parameter for ions with bgamma DH method 20200623
+          if(!is.null(a0_ion)) {
+            if(grepl("ion size", outline, fixed = TRUE)) {
+              if(!grepl("charge=\\s*0", outline)) {
+                start <- paste0(strsplit(outline, "ion size=", fixed = TRUE)[[1]][1], "ion size=")
+                end <- paste0(" A", strsplit(outline, "A", fixed = TRUE)[[1]][2])
+                outline <- paste0(start, a0, end)
+              }
+            }
+          }
         }
         # add reference line 20200618
         if(i == iafter) {
@@ -154,16 +165,27 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile) {
         # get lines for added species 20200621
         addlines <- ADDS[[type]]$lines
       } else if(okspecies) {
-        # write the logK or other data for a species
+        # copy non-logK lines from the input file
         if(!i %in% c(ilogK1, ilogK2)) {
-          # if we're inside a species block, copy the line from the input file
+          # are we inside a species block?
           if(!is.na(icurrent)) {
             # don't copy comment lines from input file 20200617
             if(!grepl("^\\*", LINES[i])) {
               outline <- LINES[i]
+              # adjust a0 parameter for bgamma DH method 20200623
+              if(!is.null(a0_ion)) {
+                if(grepl("ion size", outline, fixed = TRUE)) {
+                  if(!grepl("charge=\\s*0", outline)) {
+                    start <- paste0(strsplit(outline, "ion size=", fixed = TRUE)[[1]][1], "ion size=")
+                    end <- paste0(" A", strsplit(outline, "A", fixed = TRUE)[[1]][2])
+                    outline <- paste0(start, a0, end)
+                  }
+                }
+              }
             }
           }
         } else {
+          # write the logK or other data for a species
           # don't attempt to insert logK for oxide species 20200528
           if(i < HEAD$ioxide) {
             # get calculated logK values
