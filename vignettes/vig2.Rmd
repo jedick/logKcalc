@@ -98,12 +98,3 @@ plot1 <- logKcomp(infile, outfile, lab2 = "OBIGT")
 plot2 <- logKcomp(infile, outfile, type = "mineral", lab2 = "OBIGT")
 gridExtra::grid.arrange(plot1, plot2, ncol = 2)
 ```
-
-#### Now let's see two plots made with Act2 in GWB.
-
-These plots were made with the Mosaic.ac2 script in GWB.
-The plot on the left is made with the default thermodynamic data file (thermo.tdat), and the plot on the right is made using the file created by `logKcalc` (thermo_OBIGT.tdat).
-
-```{r Act2, echo = FALSE, out.width = "100%", out.extra='class="full-width"'}
-knitr::include_graphics("Act2_Mosaic.png")
-```

@@ -36,16 +36,16 @@ However, many existing GWB files have an entry for steam, and the data are neede
 \code{modOBIGT("realgar*4")} and \code{modOBIGT("antigorite/2")} scale the properties of realgar and antigorite by the indicated factors.
 These changes are appropriate for the UNITHERM database in the HCh package (Shvarov and Bastrkov, 1999) and for the thermo.tdat file from GWB, respectively.
 
-If you require a redox or aqueous species from a GWB file that is not present in OBIGT, \code{addOBIGT} can be used to add it.
+If you require a redox, aqueous, or mineral species from a GWB file that is not present in OBIGT, \code{addOBIGT} can be used to add it.
 This function reads the equilibrium constants for the dissociation reaction of the species from the GWB file.
 Then, the standard Gibbs energy of the species is computed at each temperature from the \logK values and the Gibbs energies of the other species in the reaction, which must be available in OBIGT.
 The standard Gibbs energy of the species is fit using the thermodynamic parameters G, S, and Cp.
 
-The species is then added to OBIGT.
+The species is then added to OBIGT; the upper temperature limit (corresponding to the \T range for the fitted \logK values) is set in the \samp{T} parameter for minerals or the \samp{abbrv} parameter for aqueous species; the latter is specially used by other functions in this package to assign NA values at appropriate places (i.e., \samp{500} in GWB data files).
 An attempt is made to convert GWB-style formulas (e.g. \samp{Sn++++}) to an acceptable format for OBIGT (\samp{Sn+4}) (see name mapping heuristics in \code{\link{logKcalc}}), but if there is any doubt, the \code{formula} should be given explicitly.
+For adding minerals, a valid formula must be provided in the \code{formula} argument.
 
-Note that the equation assumes a constant Cp and no volume change, so is not appropriate for some types of calculations.
-However, it is able to reproduce the equilibrium constants in the \samp{thermo.tdat} GWB file within a reasonable error.
+Note that the equation assumes a constant Cp and no volume change, so has a limited validity associated with the \T and \P range of the \logK values available in the input GWB file.
 \code{\link{all.equal}} is used to test the equivalence of the input and calculated equilibrium constants; if the differences exceed \code{tol}, the code generates an error.
 
 }
@@ -59,11 +59,10 @@ See \code{\link[CHNOSZ]{add.obigt}} in \pkg{CHNOSZ} for more information about m
 ## Useful settings for processing the GWB thermo.tdat file
 modOBIGT(c("addSUPCRT", "steam", "antigorite/2"))
 # As(OH)4- and Sn++++ are basis species in the thermo.tdat GWB file,
-# but aren't available in OBIGT, so we add them here
+# but aren't available in OBIGT, so we add them like this:
 addOBIGT("As(OH)4-")
 addOBIGT("Sn++++")
-# Now the file can be processed to include As- and Sn-bearing
-# species (see the thermo.Rmd vignette)
+# Now As- and Sn-bearing species can be included in the logK calculation:
 #logKcalc("thermo.tdat")
 }
 

@@ -1,0 +1,151 @@
+---
+title: "Using fitted thermodynamic parameters in CHNOSZ"
+output:
+  html_vignette:
+    mathjax: null
+vignette: >
+  %\VignetteIndexEntry{5 - Using fitted thermodynamic parameters in CHNOSZ}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: logKcalc.bib
+csl: elementa.csl
+---
+
+<!-- https://gomakethings.com/how-to-break-an-image-out-of-its-parent-container-with-css/ -->
+<style>
+@media (min-width: 700px) {
+  .full-width {
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+    position: relative;
+    right: 50%;
+    width: 100vw;
+  }
+}
+@media (min-width: 1020px) {
+  .full-width {
+    left: 50vw; /* fallback if needed */
+    left: calc(50vw - 160px);
+    width: 1000px;
+    position: relative;
+    background-color: #9ecff7;
+    padding:10px;
+  }
+}
+</style>
+
+```{r setup, include=FALSE}
+library(logKcalc)
+library(knitr)
+## colorize messages 20171031
+## adapted from https://gist.github.com/yihui/2629886#file-knitr-color-msg-rnw
+color_block = function(color) {
+  function(x, options) sprintf('<pre style="color:%s">%s</pre>', color, x)
+}
+knit_hooks$set(warning = color_block('magenta'), error = color_block('red'), message = color_block('blue'))
+```
+
+#### This vignette shows how to use data for species from a GWB file in a diagram made with CHNOSZ.
+
+This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
+
+One of the example scripts for the Act2 program in The Geochemist's Workbench® is a mosaic diagram for the As-S-O-H system [@GWB20a].
+A similar diagram can be produced in CHNOSZ, but some differences are apparent because of different thermodynamic data.
+The source of thermodynamic data for As-bearing species in this diagram is @NA03.
+See the [As_mosaic.R](As_mosaic.R) file in this directory for the script used to make this diagram.
+
+```{r Mosaic1, message = FALSE, fig.width = 12, fig.height = 10, out.width = "75%", fig.align = "center"}
+source("As_mosaic.R")
+```
+
+In order to more closely reproduce the diagram from GWB, we can use `addOBIGT()` to fit thermodynamic parameters to the log*K* values of dissociation reactions of species from a GWB data file.
+This function uses a specially modified version of GWB's `thermo.tdat` in which the basis species are all available in OBIGT (`thermo_24swapped.tdat`).
+The fitted parameters (Δ*G*°, *S*° and *C~p~*°) of the formed species are added to the OBIGT database, so they can be used in diagrams made in CHNOSZ.
+
+Here, we fit the parameters for minerals and aqueous species other than As(OH)~3~ (H~3~AsO~3~ in OBIGT), which is a basis species in `thermo_24swapped.tdat`.
+Although it has no stability field in the diagram, AsH~3~ is also updated because it appears in the dissociation reaction for realgar.
+Because it uses just three parameters, the fit may introduce some error, so we increase the tolerance (in log*K* units) for H~2~AsO~4~^-^ to allow the checks for this species to pass.
+We run `reset()` first to make sure we are starting with the default OBIGT database.
+
+```{r addOBIGT, message = FALSE}
+reset()
+addOBIGT("AsH3(aq)")
+addOBIGT("H2AsO4-", tolerance = 0.15)
+addOBIGT("HAsO4--")
+addOBIGT("As(OH)4-")
+addOBIGT("AsO2OH--")
+addOBIGT("AsO4---")
+addOBIGT("Orpiment", "As2S3")
+addOBIGT("Realgar", "AsS")
+```
+
+The warning about an unbalanced reaction occurs because of the inexact representation of reaction coefficients in the GWB file due to rounding, and can be ignored.
+
+For completeness we can even use fitted thermodynamic parameters for the S-bearing basis species that are speciated across the mosaic diagram.
+This does not include SO~4~^-2^, since it is a basis species in `thermo_24swapped.tdat`.
+For the purposes of the reproduction, we include S^-2^, which has been recommended to be removed from thermodynamic databases [@MBH+18] and is not present in the default OBIGT database.
+
+```{r addS, message = FALSE}
+addOBIGT("HSO4-")
+addOBIGT("H2S(aq)")
+addOBIGT("HS-")
+addOBIGT("S--")
+```
+
+Note that repeated '-' or '+' signs at the end of formulas are converted into e.g. '-2' for compatibility with the OBIGT database.
+
+Next we identify As-bearing species in the As-S-O-H system.
+We remove species with data from @NA03, as they may conflict with the GWB dataset.
+However, we explicitly include H~3~AsO~3~ here; although its thermodynamic parameters in OBIGT are still from @NA03, the parameters of the *other* species were made to be consistent with the log*K* values for the dissociation reactions in `thermo_24swapped.tdat` that involve H~3~AsO~3~ as a basis species.
+
+```{r species, message = FALSE}
+iaq <- retrieve("As", c("S", "O", "H"), "aq")
+iaq <- iaq[!grepl("NA03", info(iaq)$ref1)]
+iaq <- c(info("H3AsO3"), iaq)
+icr <- retrieve("As", c("S", "O", "H"), "cr")
+icr <- icr[!grepl("NA03", info(icr)$ref1)]
+```
+
+Now we write a function to set up the system in CHNOSZ and make the mosaic diagram.
+The activity of As-bearing aqueous species is set to 10^-3^ and that of SO~4~^-2^ to 10^-4^ (this value applies to the S-bearing basis species as a whole).
+
+```{r mosaicfun}
+mosaicfun <- function(blend = FALSE) {
+
+  # Set up basis species and system
+  basis(c("H3AsO3", "SO4-2", "H2O", "O2", "H+"))
+  basis("SO4-2", -4)
+  species(iaq, -3)
+  species(icr, 0)
+  # Set pH and loga(O2) range and grid resolution
+  pH <- c(0, 14, 500)
+  O2 <- c(-70, -40, 500)
+  # Calculate reaction affinities for changing basis species
+  bases <- c("SO4-2", "HSO4-", "H2S", "HS-", "S-2")
+  m <- mosaic(bases, pH = pH, O2 = O2, T = 100, blend = blend)
+  # Make the diagram
+  par(cex = 2.5, mar = c(2.8, 3, 1.4, 1))
+  fill <- c(rep("aliceblue", length(iaq)), rep("antiquewhite1", length(icr)))
+  d <- diagram(m$A.species, fill = fill, lwd = 2)
+  diagram(m$A.bases, add = TRUE, col = "blue", lty = 3, lwd = 2,
+          col.names = "blue", cex.names = 0.7, italic = TRUE)
+  water.lines(d)
+  legend("bottomleft", describe.property("T", 100), bty = "n")
+  title(main = paste("blend =", blend), font.main = 1)
+
+}
+```
+
+Here are two diagrams, the first made with blend = FALSE to portray sharp boundaries between basis species, and the second made with blend = TRUE to represent the continuous change of speciation between basis species.
+
+```{r Mosaic2, fig.width = 24, fig.height = 12, out.width = "100%", out.extra='class="full-width"', message = FALSE}
+par(mfrow = c(1, 2))
+mosaicfun(FALSE)
+mosaicfun(TRUE)
+```
+
+The diagram on the left is very similar to the one from the GWB example [@GWB20a `p.98`].
+
+## References

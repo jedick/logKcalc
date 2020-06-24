@@ -17,3 +17,5 @@ remotes::install_github("jedick/logKcalc", build_vignettes = TRUE)
   * Add new species to the output file.
   * List data references in the output file (requires CHNOSZ version > 1.3.6).
   * Make plots comparing log*K* values from two data files.
+  * Update OBIGT using thermodynamic parameters (Δ*G*°, *S*° and *C<sub>p</sub>*°) fitted to log*K* values from a GWB file.
+    * Enables addition of species from a GWB file to calculations and diagrams in CHNOSZ.
