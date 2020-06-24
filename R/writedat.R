@@ -31,6 +31,9 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
   # calculate coefficients for CO2 and H2O activity 20200623
   CO2 <- co2(LOGK$T)
   H2O <- h2o(LOGK$T)
+  # calculate logK for Eh and O2 solubility reactions 20200624
+  logK_Eh <- suppressMessages(CHNOSZ::subcrt(c("H2O", "oxygen", "H+", "e-"), c(-2, 1, 4, 4), T = LOGK$T, P = LOGK$P)$out$logK)
+  logK_O2 <- suppressMessages(CHNOSZ::subcrt(c("oxygen", "O2"), c(-1, 1), T = LOGK$T, P = LOGK$P)$out$logK)
   # loop over lines of the input file
   for(i in 1:length(LINES)) {
 
@@ -46,35 +49,40 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
         outline <- NA
       }
       # output T and P 20200610
-      if(i == HEAD$iT + 1) outline <- formatline(LOGK$T, 1)
-      if(i == HEAD$iT + 2) outline <- formatline(LOGK$T, 2)
-      if(i == HEAD$iP + 1) outline <- formatline(LOGK$P, 1)
-      if(i == HEAD$iP + 2) outline <- formatline(LOGK$P, 2)
+      if(identical(i, HEAD$iT + 1L)) outline <- formatline(LOGK$T, 1)
+      if(identical(i, HEAD$iT + 2L)) outline <- formatline(LOGK$T, 2)
+      if(identical(i, HEAD$iP + 1L)) outline <- formatline(LOGK$P, 1)
+      if(identical(i, HEAD$iP + 2L)) outline <- formatline(LOGK$P, 2)
       # output Debye-Hückel parameters 20200622
-      if(i == HEAD$iadh + 1) outline <- formatline(DH$adh, 1)
-      if(i == HEAD$iadh + 2) outline <- formatline(DH$adh, 2)
-      if(i == HEAD$ibdh + 1) outline <- formatline(DH$bdh * 1e-8, 1)
-      if(i == HEAD$ibdh + 2) outline <- formatline(DH$bdh * 1e-8, 2)
-      if(i == HEAD$ibdot + 1) outline <- formatline(DH$bdot, 1)
-      if(i == HEAD$ibdot + 2) outline <- formatline(DH$bdot, 2)
+      if(identical(i, HEAD$iadh + 1L)) outline <- formatline(DH$adh, 1)
+      if(identical(i, HEAD$iadh + 2L)) outline <- formatline(DH$adh, 2)
+      if(identical(i, HEAD$ibdh + 1L)) outline <- formatline(DH$bdh * 1e-8, 1)
+      if(identical(i, HEAD$ibdh + 2L)) outline <- formatline(DH$bdh * 1e-8, 2)
+      if(identical(i, HEAD$ibdot + 1L)) outline <- formatline(DH$bdot, 1)
+      if(identical(i, HEAD$ibdot + 2L)) outline <- formatline(DH$bdot, 2)
       # output CO2 parameters 20200623
-      if(i == HEAD$ico2_1 + 1) outline <- formatline(CO2$co2_1, 1, ndec = 6)
-      if(i == HEAD$ico2_1 + 2) outline <- formatline(CO2$co2_1, 2, ndec = 6)
-      if(i == HEAD$ico2_2 + 1) outline <- formatline(CO2$co2_2, 1, ndec = 6)
-      if(i == HEAD$ico2_2 + 2) outline <- formatline(CO2$co2_2, 2, ndec = 6)
-      if(i == HEAD$ico2_3 + 1) outline <- formatline(CO2$co2_3, 1, ndec = 6)
-      if(i == HEAD$ico2_3 + 2) outline <- formatline(CO2$co2_3, 2, ndec = 6)
-      if(i == HEAD$ico2_4 + 1) outline <- formatline(CO2$co2_4, 1, ndec = 6)
-      if(i == HEAD$ico2_4 + 2) outline <- formatline(CO2$co2_4, 2, ndec = 6)
+      if(identical(i, HEAD$ico2_1 + 1L)) outline <- formatline(CO2$co2_1, 1, ndec = 6)
+      if(identical(i, HEAD$ico2_1 + 2L)) outline <- formatline(CO2$co2_1, 2, ndec = 6)
+      if(identical(i, HEAD$ico2_2 + 1L)) outline <- formatline(CO2$co2_2, 1, ndec = 6)
+      if(identical(i, HEAD$ico2_2 + 2L)) outline <- formatline(CO2$co2_2, 2, ndec = 6)
+      if(identical(i, HEAD$ico2_3 + 1L)) outline <- formatline(CO2$co2_3, 1, ndec = 6)
+      if(identical(i, HEAD$ico2_3 + 2L)) outline <- formatline(CO2$co2_3, 2, ndec = 6)
+      if(identical(i, HEAD$ico2_4 + 1L)) outline <- formatline(CO2$co2_4, 1, ndec = 6)
+      if(identical(i, HEAD$ico2_4 + 2L)) outline <- formatline(CO2$co2_4, 2, ndec = 6)
       # output H2O parameters 20200623
-      if(i == HEAD$ih2o_1 + 1) outline <- formatline(H2O$h2o_1, 1, ndec = 6)
-      if(i == HEAD$ih2o_1 + 2) outline <- formatline(H2O$h2o_1, 2, ndec = 6)
-      if(i == HEAD$ih2o_2 + 1) outline <- formatline(H2O$h2o_2, 1, ndec = 6)
-      if(i == HEAD$ih2o_2 + 2) outline <- formatline(H2O$h2o_2, 2, ndec = 6)
-      if(i == HEAD$ih2o_3 + 1) outline <- formatline(H2O$h2o_3, 1, ndec = 6)
-      if(i == HEAD$ih2o_3 + 2) outline <- formatline(H2O$h2o_3, 2, ndec = 6)
-      if(i == HEAD$ih2o_4 + 1) outline <- formatline(H2O$h2o_4, 1, ndec = 6)
-      if(i == HEAD$ih2o_4 + 2) outline <- formatline(H2O$h2o_4, 2, ndec = 6)
+      if(identical(i, HEAD$ih2o_1 + 1L)) outline <- formatline(H2O$h2o_1, 1, ndec = 6)
+      if(identical(i, HEAD$ih2o_1 + 2L)) outline <- formatline(H2O$h2o_1, 2, ndec = 6)
+      if(identical(i, HEAD$ih2o_2 + 1L)) outline <- formatline(H2O$h2o_2, 1, ndec = 6)
+      if(identical(i, HEAD$ih2o_2 + 2L)) outline <- formatline(H2O$h2o_2, 2, ndec = 6)
+      if(identical(i, HEAD$ih2o_3 + 1L)) outline <- formatline(H2O$h2o_3, 1, ndec = 6)
+      if(identical(i, HEAD$ih2o_3 + 2L)) outline <- formatline(H2O$h2o_3, 2, ndec = 6)
+      if(identical(i, HEAD$ih2o_4 + 1L)) outline <- formatline(H2O$h2o_4, 1, ndec = 6)
+      if(identical(i, HEAD$ih2o_4 + 2L)) outline <- formatline(H2O$h2o_4, 2, ndec = 6)
+      # output logKs for Eh reaction and O2 solubility 20200624
+      if(identical(i, HEAD$ieh + 1L)) outline <- formatline(logK_Eh, 1)
+      if(identical(i, HEAD$ieh + 2L)) outline <- formatline(logK_Eh, 2)
+      if(identical(i, HEAD$io2 + 1L)) outline <- formatline(logK_O2, 1)
+      if(identical(i, HEAD$io2 + 2L)) outline <- formatline(logK_O2, 2)
     }
 
     # check if we're in the basis species header

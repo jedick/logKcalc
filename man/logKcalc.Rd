@@ -105,6 +105,20 @@ Because of a bug with calculating exponents in some versions of K2GWB, the CO\s2
 
 }
 
+\section{Dataset Formats}{
+
+The conversion is compatible with all existing dataset formats of GWB files.
+For dataset formats \samp{feb94} and \samp{oct94}, \code{logKcalc} updates the \logK blocks for the Eh reaction and O\s2 gas solubility.
+(Blocks for H\s2 and N\s2 gas solubility, which are not used by GWB, are not updated.)
+
+These blocks are not present in dataset formats \samp{oct13} and later.
+Instead, the free electron is present as a species; \code{logKcalc} updates its \logK values.
+
+Dataset formats \samp{jul17} and \samp{jan19} specify a fugacity model (tsonopoulos, peng-robinson, or spycher-reed).
+The parameters are located in the data blocks for individual gas species and are not modified by \code{logKcalc}.
+
+}
+
 \seealso{
 \code{\link{modOBIGT}} for preparing the thermodynamic database for the \logK calculation.
 }

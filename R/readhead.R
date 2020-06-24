@@ -39,6 +39,8 @@ readhead <- function(LINES, quiet = FALSE) {
   ih2o_2 <- grep("* c h2o 2", LINES, fixed = TRUE)
   ih2o_3 <- grep("* c h2o 3", LINES, fixed = TRUE)
   ih2o_4 <- grep("* c h2o 4", LINES, fixed = TRUE)
+  ieh <- grep("* log k for eh reaction", LINES, fixed = TRUE)
+  io2 <- grep("* log k for o2 gas solubility", LINES, fixed = TRUE)
   # find header lines before sections
   jbasis <- grep("basis species$", LINES)
   jredox <- grep("redox couples$", LINES)
@@ -97,6 +99,8 @@ readhead <- function(LINES, quiet = FALSE) {
     ih2o_2 = ih2o_2,
     ih2o_3 = ih2o_3,
     ih2o_4 = ih2o_4,
+    ieh = ieh,
+    io2 = io2,
     ibasis = jbasis,
     iredox = jredox,
     iaqueous = jaqueous,
