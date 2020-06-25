@@ -327,6 +327,7 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
   }
 
   # write the output to file
-  # use CRLF lineendings (better for Windows users) 20200623
-  writeLines(out, outfile, sep = "\r\n")
+  # use CRLF lineendings - default for Windows, not for other platforms 20200623
+  if(.Platform$OS.type == "windows") writeLines(out, outfile)
+  else writeLines(out, outfile, sep = "\r\n")
 }
