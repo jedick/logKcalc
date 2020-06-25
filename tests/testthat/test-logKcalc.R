@@ -1,5 +1,40 @@
 context("logKcalc")
 
+# function extracted from individual test_that calls 20200625
+getlines <- function(file, do.rm = FALSE) {
+  lines <- readLines(file)
+  # normalize “ and ” to "
+  # (straight quote is created in R CMD check -- locale setting??)
+  lines <- gsub('“', '"', lines)
+  lines <- gsub('”', '"', lines)
+  rmspecies <- function(name, lines) {
+    iname <- grep(paste0("^", name), lines)
+    if(length(iname)==1) {
+      iallrefs <- grep("^\\*\\ reference", lines)
+      irefline <- min(iallrefs[iallrefs > iname])
+      lines <- lines[-(iname:irefline)]
+    }
+    lines
+  }
+  if(utils::packageVersion("CHNOSZ") <= "1.3.6") {
+    # References block isn't available in CHNOSZ <= 1.3.6 20200625
+    iReferences <- match("* References", lines)
+    if(!is.na(iReferences)) lines <- lines[-(iReferences:length(lines))]
+  }
+  # some minerals have changed 20200625
+  if(do.rm) {
+    if(utils::packageVersion("CHNOSZ") <= "1.3.6") lines <- rmspecies("Arsenopyrite", lines)
+    if(utils::packageVersion("CHNOSZ") < "1.3.3") {
+      lines <- rmspecies("Orpiment", lines)
+      lines <- rmspecies("Gibbsite", lines)
+      lines <- rmspecies("Zoisite", lines)
+      lines <- rmspecies("Epidote", lines)
+    }
+  }
+  # exclude lines with the timestamp and package versions
+  lines[-(5:7)]
+}
+
 test_that("Adding duplicate species produces an error", {
   infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
   iAuCl2 <- info("AuCl2-")
@@ -22,27 +57,9 @@ test_that("Modifying the database and adding species to the output work as expec
   a0_neutral <- c(NA, -0.5, 1, NA, NA, NA, NA)
   logKcalc(infile, outfile, ispecies = ispecies, a0_ion = a0_ion, a0_neutral = a0_neutral)
   reffile <- system.file("extdata/tests/thermo_12OBIGT.tdat", package = "logKcalc")
-  reflines <- readLines(reffile)
-  outlines <- readLines(outfile)
-  # normalize “ and ” to "
-  # (straight quote is created in R CMD check -- locale setting??)
-  reflines <- gsub('“', '"', reflines)
-  reflines <- gsub('”', '"', reflines)
-  outlines <- gsub('“', '"', outlines)
-  outlines <- gsub('”', '"', outlines)
-  # References block isn't available in CHNOSZ <= 1.3.6 20200625
-  if(utils::packageVersion("CHNOSZ") <= "1.3.6") {
-    iReferences <- match("* References", reflines)
-    reflines <- reflines[-(iReferences:length(reflines))]
-  }
-  # make the test excluding the lines with the timestamp and package versions
-  expect_identical(outlines[-(6:7)], reflines[-(6:7)])
-#  # Testing for identical files is problematic with ongoing updates to OBIGT,
-#  # so just check that the values are close to each other
-#  mineral <- logKcomp(reffile, outfile, type = "mineral", plot.it = FALSE)
-#  expect_equal(mineral$logK1, mineral$logK2, tolerance = 0.1)
-#  aqueous <- logKcomp(reffile, outfile, type = "aqueous", plot.it = FALSE)
-#  expect_equal(aqueous$logK1, aqueous$logK2, tolerance = 0.1)
+  reflines <- getlines(reffile)
+  outlines <- getlines(outfile)
+  expect_identical(outlines, reflines)
 })
 
 test_that("Changing the temperature and Debye-Hückel method work as expected", {
@@ -60,21 +77,24 @@ test_that("Changing the temperature and Debye-Hückel method work as expected", 
   P <- 1000
   logKcalc(infile, outfile, T, P, ispecies = ispecies, DH.method = "bgamma")
   reffile <- system.file("extdata/tests/thermo_12OBIGT_bgamma.tdat", package = "logKcalc")
-  reflines <- readLines(reffile)
-  outlines <- readLines(outfile)
-  # normalize “ and ” to "
-  # (straight quote is created in R CMD check -- locale setting??)
-  reflines <- gsub('“', '"', reflines)
-  reflines <- gsub('”', '"', reflines)
-  outlines <- gsub('“', '"', outlines)
-  outlines <- gsub('”', '"', outlines)
-  # References block isn't available in CHNOSZ <= 1.3.6 20200625
-  if(utils::packageVersion("CHNOSZ") <= "1.3.6") {
-    iReferences <- match("* References", reflines)
-    reflines <- reflines[-(iReferences:length(reflines))]
-  }
-  # make the test excluding the lines with the timestamp and package versions
+  reflines <- getlines(reffile)
+  outlines <- getlines(outfile)
   # note: 650 degC, 1000 bar is out of the applicable range of HKF (low-density region),
   # so this is also a test that we get "500" values for the last T,P pair
-  expect_identical(outlines[-(6:7)], reflines[-(6:7)])
+  expect_identical(outlines, reflines)
+})
+
+test_that("Processing a K2GWB file works as expected", {
+  # Added this test to make sure the Methane(g) reaction is correct 20200625
+  infile <- system.file("extdata/ThermoGWB_15_6_2020.tdat", package = "logKcalc")
+  outfile <- file.path(tempdir(), "ThermoGWB_OBIGT.tdat")
+#  outfile <- "thermo_OBIGT.tdat"
+  reset()
+  # setup as in vig1.Rmd
+  modOBIGT(c("addSUPCRT", "steam", "realgar*4"))
+  logKcalc(infile, outfile)
+  reffile <- system.file("extdata/tests/ThermoGWB_OBIGT.tdat", package = "logKcalc")
+  reflines <- getlines(reffile, TRUE)
+  outlines <- getlines(outfile, TRUE)
+  expect_identical(outlines, reflines)
 })

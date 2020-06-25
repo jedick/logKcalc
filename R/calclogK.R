@@ -142,16 +142,19 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
           print(species)
         }
         sargs <- list(species = species, coeff, T = T, P = P, property = "logK")
-        # In previous versions of CHNOSZ "methane" and "CH4" both refer to aqueous species, so we have to give the state 20200625
-        if(!utils::packageVersion("CHNOSZ") > "1.3.6") {
-          if(identical(species, c("methane", "CH4"))) {
-            sargs <- list(species = species, state = c("gas", "aq"), coeff, T = T, P = P, property = "logK")
+        # Force "methane" to be gas in previous versions of CHNOSZ 20200625
+        if(utils::packageVersion("CHNOSZ") <= "1.3.6") {
+          if(species[1] == "methane") {
+            # use species indices instead of names
+            infsp <- suppressMessages(CHNOSZ::info(species))
+            infsp[1] <- suppressMessages(CHNOSZ::info("methane", "gas"))
+            sargs <- list(species = infsp, coeff, T = T, P = P, property = "logK")
           }
         }
         sres <- suppressWarnings(suppressMessages(do.call(CHNOSZ::subcrt, sargs)))
         logK <- sres$out$logK
         # get Tmax from abbrv (for species added by addOBIGT) 20200615
-        Tmax <- stats::na.omit(suppressWarnings(as.numeric(suppressMessages(CHNOSZ::info(CHNOSZ::info(species))$abbrv))))
+        Tmax <- stats::na.omit(suppressWarnings(as.numeric(suppressMessages(CHNOSZ::info(sres$reaction$ispecies, check.it = FALSE)$abbrv))))
         if(length(Tmax) > 0) logK[T > min(Tmax)] <- NA
         # if there are any warnings for unbalanced reactions, set logK to NA 20200614
         if(!is.null(sres$warnings)) {
