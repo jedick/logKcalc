@@ -30,6 +30,11 @@ test_that("Modifying the database and adding species to the output work as expec
   reflines <- gsub('”', '"', reflines)
   outlines <- gsub('“', '"', outlines)
   outlines <- gsub('”', '"', outlines)
+  # References block isn't available in CHNOSZ <= 1.3.6 20200625
+  if(utils::packageVersion("CHNOSZ") <= "1.3.6") {
+    iReferences <- match("* References", reflines)
+    reflines <- reflines[-(iReferences:length(reflines))]
+  }
   # make the test excluding the lines with the timestamp and package versions
   expect_identical(outlines[-(6:7)], reflines[-(6:7)])
 #  # Testing for identical files is problematic with ongoing updates to OBIGT,
@@ -63,6 +68,11 @@ test_that("Changing the temperature and Debye-Hückel method work as expected", 
   reflines <- gsub('”', '"', reflines)
   outlines <- gsub('“', '"', outlines)
   outlines <- gsub('”', '"', outlines)
+  # References block isn't available in CHNOSZ <= 1.3.6 20200625
+  if(utils::packageVersion("CHNOSZ") <= "1.3.6") {
+    iReferences <- match("* References", reflines)
+    reflines <- reflines[-(iReferences:length(reflines))]
+  }
   # make the test excluding the lines with the timestamp and package versions
   # note: 650 degC, 1000 bar is out of the applicable range of HKF (low-density region),
   # so this is also a test that we get "500" values for the last T,P pair

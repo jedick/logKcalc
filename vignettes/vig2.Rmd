@@ -45,6 +45,10 @@ color_block = function(color) {
   function(x, options) sprintf('<pre style="color:%s">%s</pre>', color, x)
 }
 knit_hooks$set(warning = color_block('magenta'), error = color_block('red'), message = color_block('blue'))
+## use pngquant to optimize PNG images
+knit_hooks$set(pngquant = hook_pngquant)
+pngquant <- "--speed=1 --quality=0-25"
+if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
 #### This vignette shows the results from processing thermo_24elements.tdat.
@@ -54,7 +58,7 @@ This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$V
 The thermodynamic system is defined by thermo_24elements.tdat, which is a modfied version of GWB's thermo.tdat file reduced to 24 elements.
 First we use `modOBIGT` to add some minerals from SUPCRT92, an entry for steam that has been removed from OBIGT, and antigorite with a chemical formula to match the one used in thermo.tdat.
 
-```{r modOBIGT}
+```{r modOBIGT, message = FALSE}
 reset()
 modOBIGT(c("addSUPCRT", "steam", "antigorite/2"))
 ```
@@ -63,7 +67,7 @@ Some basis species used in the GWB file are not in the default OBIGT database.
 They are added to OBIGT here.
 Their thermodynamic parameters are estimated from the log*K* values for their dissociation reactions in a different GWB file where they have been swapped out of the basis.
 
-```{r addOBIGT}
+```{r addOBIGT, message = FALSE}
 addOBIGT("As(OH)4-")
 addOBIGT("Sn++++")
 ```
@@ -72,7 +76,7 @@ It is also possible to add other species from OBIGT to the output.
 Their dissociation reactions are written in terms of the available basis species in the GWB file.
 This adds a selection of aqueous, mineral, and gas species.
 
-```{r ispecies}
+```{r ispecies, message = FALSE}
 ispecies <- info(c("AuCl", "pyrrhotite", "ammonia"))
 ```
 
@@ -93,7 +97,7 @@ However, pyrrhotite is subsequently added with a dissociation reaction written u
 
 Labels are added to points with a difference of greater that 1 log*K* unit.
 
-```{r logKcomp, message = FALSE, results = "hide", fig.width = 12, fig.height = 6, out.width = "100%", out.extra='class="full-width"'}
+```{r logKcomp, message = FALSE, results = "hide", fig.width = 12, fig.height = 6, out.width = "100%", out.extra='class="full-width"', pngquant = pngquant}
 plot1 <- logKcomp(infile, outfile, lab2 = "OBIGT")
 plot2 <- logKcomp(infile, outfile, type = "mineral", lab2 = "OBIGT")
 gridExtra::grid.arrange(plot1, plot2, ncol = 2)

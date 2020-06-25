@@ -45,6 +45,10 @@ color_block = function(color) {
   function(x, options) sprintf('<pre style="color:%s">%s</pre>', color, x)
 }
 knit_hooks$set(warning = color_block('magenta'), error = color_block('red'), message = color_block('blue'))
+## use pngquant to optimize PNG images
+knit_hooks$set(pngquant = hook_pngquant)
+pngquant <- "--speed=1 --quality=0-25"
+if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
 #### This vignette shows how to use data for species from a GWB file in a diagram made with CHNOSZ.
@@ -56,7 +60,7 @@ A similar diagram can be produced in CHNOSZ, but some differences are apparent b
 The source of thermodynamic data for As-bearing species in this diagram is @NA03.
 See the [As_mosaic.R](As_mosaic.R) file in this directory for the script used to make this diagram.
 
-```{r Mosaic1, message = FALSE, fig.width = 12, fig.height = 10, out.width = "75%", fig.align = "center"}
+```{r Mosaic1, message = FALSE, fig.width = 12, fig.height = 10, out.width = "75%", fig.align = "center", pngquant = pngquant}
 source("As_mosaic.R")
 ```
 
@@ -140,7 +144,7 @@ mosaicfun <- function(blend = FALSE) {
 
 Here are two diagrams, the first made with blend = FALSE to portray sharp boundaries between basis species, and the second made with blend = TRUE to represent the continuous change of speciation between basis species.
 
-```{r Mosaic2, fig.width = 24, fig.height = 12, out.width = "100%", out.extra='class="full-width"', message = FALSE}
+```{r Mosaic2, fig.width = 24, fig.height = 12, out.width = "100%", out.extra='class="full-width"', message = FALSE, pngquant = pngquant}
 par(mfrow = c(1, 2))
 mosaicfun(FALSE)
 mosaicfun(TRUE)

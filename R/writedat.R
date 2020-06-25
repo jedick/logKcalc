@@ -297,30 +297,33 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
     keys <- sort(unique(stats::na.omit(unlist(allrefs))))
     # read the bibtex files from CHNOSZ and logKcalc
     bibfile1 <- system.file("doc/obigt.bib", package = "CHNOSZ")
-    bibentry1 <- bibtex::read.bib(bibfile1)
-    bibfile2 <- system.file("extdata/logKcalc.bib", package = "logKcalc")
-    bibentry2 <- bibtex::read.bib(bibfile2)
-    # use the current year for the logK_fit entry 20200623
-    bibentry2["logK_fit"]$year <- substr(date(), 21, 24)
-    bibentry <- c(bibentry1, bibentry2)
-    # check for missing entries
-    inbib <- keys %in% names(bibentry)
-    if(any(!inbib)) warning(paste("reference(s) not found in bibtex file:", paste(keys[!inbib], collapse = ", ")))
-    keys <- keys[inbib]
-    # format the printed references
-    op <- options(width = 90)
-    on.exit(options(op))
-    reftext <- utils::capture.output(print(bibentry[keys]))
-    # insert the reference keys before the references
-    keys <- paste0("[", keys, "]")
-    refout <- character()
-    j <- 1
-    for(i in 1:length(reftext)) {
-      if(i==1) { refout <- c(refout, keys[j]); j <- j + 1 }
-      refout <- c(refout, reftext[i])
-      if(reftext[i]=="") { refout <- c(refout, keys[j]); j <- j + 1 }
+    if(!file.exists(bibfile1)) warning("bibtex file CHNOSZ/doc/obigt.bib not found (CHNOSZ not installed with vignettes?)")
+    else {
+      bibentry1 <- bibtex::read.bib(bibfile1)
+      bibfile2 <- system.file("extdata/logKcalc.bib", package = "logKcalc")
+      bibentry2 <- bibtex::read.bib(bibfile2)
+      # use the current year for the logK_fit entry 20200623
+      bibentry2["logK_fit"]$year <- substr(date(), 21, 24)
+      bibentry <- c(bibentry1, bibentry2)
+      # check for missing entries
+      inbib <- keys %in% names(bibentry)
+      if(any(!inbib)) warning(paste("reference(s) not found in bibtex file:", paste(keys[!inbib], collapse = ", ")))
+      keys <- keys[inbib]
+      # format the printed references
+      op <- options(width = 90)
+      on.exit(options(op))
+      reftext <- utils::capture.output(print(bibentry[keys]))
+      # insert the reference keys before the references
+      keys <- paste0("[", keys, "]")
+      refout <- c("* References", "")
+      j <- 1
+      for(i in 1:length(reftext)) {
+        if(i==1) { refout <- c(refout, keys[j]); j <- j + 1 }
+        refout <- c(refout, reftext[i])
+        if(reftext[i]=="") { refout <- c(refout, keys[j]); j <- j + 1 }
+      }
+      out <- c(out, refout)
     }
-    out <- c(out, refout)
   }
 
   # write the output to file
