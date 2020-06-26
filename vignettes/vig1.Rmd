@@ -35,6 +35,36 @@ csl: elementa.csl
   }
 }
 </style>
+<script>
+function myFunction() {
+  // https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  // https://stackoverflow.com/questions/10671174/changing-button-text-onclick
+  // https://stackoverflow.com/questions/7035842/how-to-change-the-buttons-text-using-javascript
+  var elem = document.getElementById("myButton");
+  if (elem.innerText=="Hide results") elem.innerText = "Show results";
+  else elem.innerText = "Hide results";
+}
+function myFunction2() {
+  // https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+  var x = document.getElementById("myDIV2");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  // https://stackoverflow.com/questions/10671174/changing-button-text-onclick
+  // https://stackoverflow.com/questions/7035842/how-to-change-the-buttons-text-using-javascript
+  var elem = document.getElementById("myButton2");
+  if (elem.innerText=="Hide results") elem.innerText = "Show results";
+  else elem.innerText = "Hide results";
+}
+</script>
 
 ```{r setup, include=FALSE}
 library(logKcalc)
@@ -61,12 +91,12 @@ Both files have the same 24 elements (Ag, Al, As, Au, C, Ca, Cl, Cu, F, Fe, H, K
 
 The logKcomp function reads the reaction coefficients and log*K* values from the files and only considers species with the same dissociation reactions in both files.
 The plot titles indicate how many of these species have log*K* values that are not available (NA) at this particular temperature and pressure (indicated by a "500" in the GWB file).
-The function adds labels to points with a difference of greater that 1 log*K* unit.
+The function adds labels to points with a difference of greater than 1 log*K* unit.
 
 One type of species block can be selected for comparison (aqueous, mineral, gas); here we choose minerals.
 The coordinates are manually adjusted to exclude some points at extreme values, but no labels are lost; the line segments point to the points off the scale.
 
-```{r logKcomp1-1, fig.width = 12, fig.height = 6, out.width = "100%", out.extra='class="full-width"', pngquant = pngquant}
+```{r logKcomp1-1, eval = FALSE}
 file1 <- system.file("extdata/ThermoGWB_15_6_2020.tdat", package = "logKcalc")
 file2 <- system.file("extdata/thermo_24noredox.tdat", package = "logKcalc")
 lab1 <- "UNITHERM"
@@ -74,8 +104,13 @@ lab2 <- "thermo.tdat"
 plot1 <- logKcomp(file1, file2, "mineral", 2, lab1, lab2, c(-25, 200), c(-5, 10))
 ```
 
-The first plot is for 2nd *T*,*P* pair (25 °C); now we make one for the 8th (300 °C).
-This time the messages about unmatched species between the files are hidden.
+<button id="myButton" onclick="myFunction()">Show results</button>
+<div id="myDIV" style="display: none">
+```{r logKcomp1-1, echo = FALSE}
+```
+</div>
+
+The first plot is for 2nd *T*,*P* pair (25 °C); now we make a second plot for the 8th *T*,*P* pair (300 °C).
 
 ```{r logKcomp1-2, message = FALSE, results = "hide", fig.width = 12, fig.height = 6, out.width = "100%", out.extra='class="full-width"', pngquant = pngquant}
 plot2 <- logKcomp(file1, file2, "mineral", 8, lab1, lab2, c(-25, 100))
@@ -89,7 +124,7 @@ These differences may be associated with different estimation algorithms for the
 
 The `modOBIGT` command adds more minerals from the SUPCRT92 database, an entry for steam that has been removed from OBIGT, and a modified version of realgar to match the chemical formula used in UNITHERM.
 
-```{r logKcalc}
+```{r logKcalc, eval = FALSE}
 infile <- system.file("extdata/ThermoGWB_15_6_2020.tdat", package = "logKcalc")
 outfile <- file.path(tempdir(), "ThermoGWB_OBIGT.tdat")
 reset()
@@ -97,10 +132,16 @@ modOBIGT(c("addSUPCRT", "steam", "realgar*4"))
 logKcalc(infile, outfile)
 ```
 
-#### These plots compare the logK values in the K2GWB file and OBIGT.
+<button id="myButton2" onclick="myFunction2()">Show results</button>
+<div id="myDIV2" style="display: none">
+```{r logKcalc, echo = FALSE}
+```
+</div>
+
+#### These plots compare the log*K* values in the K2GWB file and OBIGT.
 
 Only species with the same name and dissociation reaction in both files are considered for the plot.
-Labels are added to points with a difference of greater that 1 log*K* unit.
+Labels are added to points with a difference of greater than 1 log*K* unit.
 
 ```{r logKcomp2, message = FALSE, results = "hide", fig.width = 12, fig.height = 6, out.width = "100%", out.extra='class="full-width"', pngquant = pngquant}
 lab2 <- "OBIGT"

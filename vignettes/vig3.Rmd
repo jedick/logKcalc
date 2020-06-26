@@ -1,10 +1,10 @@
 ---
-title: "Processing a GWB thermodynamic data file"
+title: "Changing T and P and adding species (gold solubility)"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{2 - Processing a GWB thermodyamic data file}
+  %\VignetteIndexEntry{3 - Changing T and P and adding species (gold solubility)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: logKcalc.bib
@@ -67,33 +67,44 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-#### This vignette shows the results from processing thermo_24elements.tdat.
+#### This vignette shows a worked example for gold solubility diagrams.
 
 This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
-The thermodynamic system is defined by `thermo_24elements.tdat`, which is a modfied version of GWB's `thermo.tdat` file reduced to 24 elements.
-First we use `modOBIGT` to add some minerals from SUPCRT92, an entry for steam that has been removed from OBIGT, and antigorite with a chemical formula to match the one used in thermo.tdat.
+To calculate the speciation and solubility of gold in hydrothermal solutions requires data over a large temperature range (e.g. 150--600 °C) for hydroxide, chloride, and sulfide complexes with Au [@WBM09].
+Here we add these species to a GWB thermodynamic data file and change the temperature and pressure for log*K* calculations.
+
+The thermodynamic system is defined by `thermo_12elements.tdat`, which is a modfied version of GWB's `thermo.tdat` file reduced to 12 elements.
+As described in the [previous vignette](vig2.html), we start by using `modOBIGT` to make some changes to OBIGT for the calculation.
+If OBIGT is missing any required basis species from the GWB file, they can be added using `addOBIGT` as described previously.
 
 ```{r modOBIGT, message = FALSE}
 reset()
 modOBIGT(c("addSUPCRT", "steam", "antigorite/2"))
 ```
 
-Some basis species used in the GWB file are not in the default OBIGT database.
-They can be added to OBIGT by fitting their thermodynamic parameters (Δ*G*°, *S*° and *C~p~*°) to the log*K* values for their dissociation reactions from a different GWB file where they have been swapped out of the basis.
+The `ispecies` argument can be used to identify other species from OBIGT that should be added to the output.
+Their dissociation reactions are written in terms of the available basis species in the GWB file.
+This example adds pyrrhotite and some aqueous Au complexes.
+Note that the input GWB file also has AuCl~2~^-^ and AuCl~4~^-^; the log*K* values for the former are recalculated for the given *T* and *P*, but the latter is excluded from the output because it is not available in OBIGT.
 
-```{r addOBIGT, message = FALSE}
-addOBIGT("As(OH)4-")
-addOBIGT("Sn++++")
+```{r ispecies, message = FALSE}
+ispecies <- info(c("pyrrhotite", "AuCl", "AuOH", "AuHS", "Au(HS)2-"))
 ```
 
-Here we set the file paths and perform the log*K* calculation.
-The `maxprint` argument is used to prevent the printing of long lists of species that can't be found in OBIGT.
+This sets up the temperature (8 equally-spaced values from 150 to 500 °C) and pressure (1000 bar)
+
+```{r TP, message = FALSE}
+T <- round(seq(150, 550, length.out = 8))
+P <- 1000
+```
+
+Now we perform the conversion.
 
 ```{r logKcalc, eval = FALSE}
 infile <- system.file("extdata/thermo_24elements.tdat", package = "logKcalc")
 outfile <- file.path(tempdir(), "thermo_OBIGT.tdat")
-logKcalc(infile, outfile, maxprint = 10)
+logKcalc(infile, outfile, T = T, P = P, ispecies = ispecies, maxprint = 10)
 ```
 
 <button id="myButton" onclick="myFunction()">Show results</button>
@@ -102,17 +113,7 @@ logKcalc(infile, outfile, maxprint = 10)
 ```
 </div>
 
-Note that species are removed if their log*K* values are all NA.
-This includes a few minerals taken from SUPCRT92, as well as pyrrhotite, whose chemical formula in the GWB file (Fe.875S) is different from that in OBIGT (FeS).
+Because it has a different chemical formula in the GWB file and in OBIGT, pyrrhotite is initially removed from the system.
+However, by listing it in `ispecies`, it is subsequently added with a dissociation reaction corresponding to its chemical formula and thermodynamic properties from OBIGT.
 
-#### Now we can make some plots to compare the log*K* values in the input and output files.
-
-Only species with the same name and dissociation reaction in both files are considered for the plot.
-The plot titles indicate how many of these species have log*K* values that are not available (NA) at this particular temperature and pressure (indicated by a "500" in the GWB file).
-Labels are added to points with a difference of greater than 1 log*K* unit.
-
-```{r logKcomp, message = FALSE, results = "hide", fig.width = 12, fig.height = 6, out.width = "100%", out.extra='class="full-width"', pngquant = pngquant}
-plot1 <- logKcomp(infile, outfile, iTP = 4, lab2 = "OBIGT")
-plot2 <- logKcomp(infile, outfile, type = "mineral", iTP = 4, lab2 = "OBIGT")
-gridExtra::grid.arrange(plot1, plot2, ncol = 2)
-```
+## References

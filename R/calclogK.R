@@ -178,7 +178,7 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       if(any(allisna)) {
         removed <- speciesGWB[allisna]
         message("Removing species with unavailable logKs:")
-        print(removed)
+        print(paste(removed, collapse = ", "))
         speciesGWB <- speciesGWB[!allisna]
         speciesOBIGT <- speciesOBIGT[!allisna]
         logKs <- logKs[!allisna]
