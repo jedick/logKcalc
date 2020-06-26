@@ -133,9 +133,9 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
           refline <- "* no references available"
           r1 <- LOGK$basis$ref1[ispecies]
           if(!is.na(r1)) {
-            refline <- paste("* reference:", r1)
+            refline <- paste0("* [", r1, "]")
             r2 <- LOGK$basis$ref2[ispecies]
-            if(!is.na(r2)) refline <- paste("* references: ", r1, ", ", r2, sep = "")
+            if(!is.na(r2)) refline <- paste0("* [", r1, ", ", r2, "]")
           }
         }
       }
@@ -231,9 +231,9 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
               refline <- "* no references available"
               r1 <- ref1[ispecies]
               if(!is.na(r1)) {
-                refline <- paste("* reference:", r1)
+                refline <- paste0("* [", r1, "]")
                 r2 <- ref2[ispecies]
-                if(!is.na(r2)) refline <- paste("* references: ", r1, ", ", r2, sep = "")
+                if(!is.na(r2)) refline <- paste0("* [", r1, ", ", r2, "]")
               }
             }
           } else outline <- ""

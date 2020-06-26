@@ -3,7 +3,7 @@ dataset format: jan19
 activity model: debye-huckel
 fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
-* File generated at Thu Jun 25 07:36:40 2020
+* File generated at Fri Jun 26 08:25:25 2020
 * by logKcalc 0.1.0 with CHNOSZ 1.3.6-9.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat
@@ -78,19 +78,19 @@ Au+
      charge=  1      ion size=  2.5 A      mole wt.=  196.9665 g
      1 elements in species
         1.000 Au      
-* reference: AZ01
+* [AZ01]
 
 Cl-
      charge= -1      ion size=  3.0 A      mole wt.=   35.4530 g
      1 elements in species
         1.000 Cl      
-* reference: SH88
+* [SH88]
 
 Fe++
      charge=  2      ion size=  6.0 A      mole wt.=   55.8470 g
      1 elements in species
         1.000 Fe      
-* reference: SSWS97
+* [SSWS97]
 
 H+
      charge=  1      ion size=  9.0 A      mole wt.=    1.0079 g
@@ -102,49 +102,49 @@ HCO3-
      charge= -1      ion size=  4.5 A      mole wt.=   61.0171 g
      3 elements in species
         1.000 C               1.000 H               3.000 O       
-* reference: SH88
+* [SH88]
 
 HPO4--
      charge= -2      ion size=  4.0 A      mole wt.=   95.9793 g
      3 elements in species
         1.000 H               4.000 O               1.000 P       
-* reference: SH88
+* [SH88]
 
 K+
      charge=  1      ion size=  3.0 A      mole wt.=   39.0983 g
      1 elements in species
         1.000 K       
-* reference: SH88
+* [SH88]
 
 Na+
      charge=  1      ion size=  4.0 A      mole wt.=   22.9898 g
      1 elements in species
         1.000 Na      
-* reference: SH88
+* [SH88]
 
 NO3-
      charge= -1      ion size=  3.0 A      mole wt.=   62.0049 g
      2 elements in species
         1.000 N               3.000 O       
-* reference: SH88
+* [SH88]
 
 O2(aq)
      charge=  0      ion size=  -.5 A      mole wt.=   31.9988 g
      1 elements in species
         2.000 O       
-* reference: SHS89
+* [SHS89]
 
 SiO2(aq)
      charge=  0      ion size=  -.5 A      mole wt.=   60.0843 g
      2 elements in species
         2.000 O               1.000 Si      
-* reference: SHS89
+* [SHS89]
 
 SO4--
      charge= -2      ion size=  4.0 A      mole wt.=   96.0576 g
      2 elements in species
         4.000 O               1.000 S       
-* reference: SH88
+* [SH88]
 
 -end-
 
@@ -157,7 +157,7 @@ Au+++
          .500 O2(aq)  
          3.4164      4.3506      5.4673      6.5301
          7.6423      8.6095      9.5090     10.4091
-* references: SSWS97, SH88
+* [SSWS97, SH88]
 
 CH3COO-
      charge= -1      ion size=  4.5 A      mole wt.=   59.0445 g
@@ -165,7 +165,7 @@ CH3COO-
         2.000 HCO3-           1.000 H+             -2.000 O2(aq)  
        160.5574    146.7494    130.5819    115.5180
        100.3508     88.0614     77.7942     68.9038
-* reference: Sho95
+* [Sho95]
 
 CH4(aq)
      charge=  0      ion size=  -.5 A      mole wt.=   16.0426 g
@@ -174,7 +174,7 @@ CH4(aq)
        -2.000 O2(aq)  
        157.9054    144.2101    128.1147    113.0651
         97.8553     85.4778     75.0822     66.0056
-* reference: PS01
+* [PS01]
 
 ClO4-
      charge= -1      ion size=  3.5 A      mole wt.=   99.4506 g
@@ -182,7 +182,7 @@ ClO4-
         1.000 Cl-             2.000 O2(aq)  
         16.7900     15.7091     14.6708     13.9062
         13.3466     13.0727     12.9985     13.1029
-* references: SSWS97, SH88
+* [SSWS97, SH88]
 
 Fe+++
      charge=  3      ion size=  9.0 A      mole wt.=   55.8470 g
@@ -191,7 +191,7 @@ Fe+++
          .250 O2(aq)  
        -10.0335     -8.4899     -6.6809     -4.9945
         -3.2874     -1.8842     -0.6820      0.3902
-* reference: SSWS97
+* [SSWS97]
 
 H2(aq)
      charge=  0      ion size=  -.5 A      mole wt.=    2.0158 g
@@ -199,7 +199,7 @@ H2(aq)
         1.000 H2O             -.500 O2(aq)  
         50.4784     46.1066     40.9717     36.1762
         31.3419     27.4263     24.1653     21.3650
-* reference: SHS89
+* [SHS89]
 
 HS-
      charge= -1      ion size=  3.5 A      mole wt.=   33.0679 g
@@ -207,7 +207,7 @@ HS-
         1.000 SO4--           1.000 H+             -2.000 O2(aq)  
        152.0993    138.3169    122.1371    107.0295
         91.7855     79.4025     69.0257     60.0062
-* reference: SH88
+* [SH88]
 
 N2(aq)
      charge=  0      ion size=  3.0 A      mole wt.=   28.0134 g
@@ -216,7 +216,7 @@ N2(aq)
        -2.500 O2(aq)  
          8.8995      7.7393      5.8410      3.5667
          0.7156     -2.1191     -4.9973     -8.1171
-* reference: SHS89
+* [SHS89]
 
 NH4+
      charge=  1      ion size=  2.5 A      mole wt.=   18.0383 g
@@ -225,7 +225,7 @@ NH4+
        -2.000 O2(aq)  
         58.1088     52.8591     46.5407     40.4987
         34.2478     29.0290     24.5195     20.4270
-* reference: SH88
+* [SH88]
 
 NO2-
      charge= -1      ion size=  3.0 A      mole wt.=   46.0055 g
@@ -233,7 +233,7 @@ NO2-
         1.000 NO3-            -.500 O2(aq)  
         16.7548     15.2348     13.4416     11.7580
         10.0504      8.6583      7.4916      6.4828
-* reference: SH88
+* [SH88]
 
 -end-
 
@@ -245,7 +245,7 @@ AuCl2-
         2.000 Cl-             1.000 Au+     
        -10.3823     -9.5562     -8.6807     -7.9976
         -7.4988     -7.3030     -7.3706     -7.7371
-* reference: AZ01
+* [AZ01]
 
 AuCl4-
      charge= -1      ion size=  4.0 A      mole wt.=  338.7785 g
@@ -253,7 +253,7 @@ AuCl4-
         4.000 Cl-             1.000 Au+++   
        -27.9009    -25.9915    -23.9939    -22.3475
        -20.9924    -20.2887    -20.2401    -21.0476
-* reference: logK_fit
+* [logK_fit]
 
 CO2(aq)
      charge=  0      ion size=  4.0 A      mole wt.=   44.0098 g
@@ -261,7 +261,7 @@ CO2(aq)
        -1.000 H2O             1.000 H+              1.000 HCO3-   
         -6.5677     -6.3447     -6.2574     -6.3539
         -6.6615     -7.1173     -7.7083     -8.4882
-* reference: PS01
+* [PS01]
 
 CO3--
      charge= -2      ion size=  4.5 A      mole wt.=   60.0092 g
@@ -269,7 +269,7 @@ CO3--
         1.000 HCO3-          -1.000 H+      
         10.6241     10.3288     10.1304     10.0836
         10.2003     10.4648     10.8707     11.4638
-* reference: SH88
+* [SH88]
 
 FeCH3COO+
      charge=  1      ion size=  4.0 A      mole wt.=  114.8915 g
@@ -277,7 +277,7 @@ FeCH3COO+
         1.000 CH3COO-         1.000 Fe++    
         -1.4284     -1.2901     -1.3225     -1.5167
         -1.8944     -2.3822     -2.9839     -3.7545
-* reference: SSH97
+* [SSH97]
 
 FeCl+
      charge=  1      ion size=  4.0 A      mole wt.=   91.3000 g
@@ -285,7 +285,7 @@ FeCl+
         1.000 Cl-             1.000 Fe++    
          0.1522      0.1605      0.0364     -0.2061
         -0.6047     -1.0921     -1.6835     -2.4419
-* reference: SSH97
+* [SSH97]
 
 FeCl++
      charge=  2      ion size=  5.0 A      mole wt.=   91.3000 g
@@ -293,7 +293,7 @@ FeCl++
         1.000 Cl-             1.000 Fe+++   
         -1.4655     -1.4799     -1.6152     -1.8550
         -2.2399     -2.7096     -3.2837     -4.0256
-* reference: SSH97
+* [SSH97]
 
 FeCl2
      charge=  0      ion size=  4.0 A      mole wt.=  126.7530 g
@@ -301,7 +301,7 @@ FeCl2
         2.000 Cl-             1.000 Fe++    
          9.6489      8.1716      6.2535      4.2845
          2.0690      0.0106     -2.0222     -4.2220
-* reference: SSH97
+* [SSH97]
 
 FeOH+
      charge=  1      ion size=  4.0 A      mole wt.=   72.8543 g
@@ -309,7 +309,7 @@ FeOH+
        -1.000 H+              1.000 Fe++            1.000 H2O     
         10.1319      9.3148      8.3650      7.4949
          6.6337      5.9419      5.3584      4.8384
-* reference: SSWS97
+* [SSWS97]
 
 FeOH++
      charge=  2      ion size=  5.0 A      mole wt.=   72.8543 g
@@ -317,7 +317,7 @@ FeOH++
        -1.000 H+              1.000 Fe+++           1.000 H2O     
          2.8954      2.2047      1.4285      0.7408
          0.0794     -0.4433     -0.8855     -1.2837
-* reference: SSWS97
+* [SSWS97]
 
 H2P2O7--
      charge= -2      ion size=  4.0 A      mole wt.=  175.9591 g
@@ -325,7 +325,7 @@ H2P2O7--
        -1.000 H2O             2.000 H+              2.000 HPO4--  
        -11.8902    -12.0709    -12.6291    -13.4703
        -14.6882    -16.0462    -17.5682    -19.3712
-* reference: SSWS97
+* [SSWS97]
 
 H2PO4-
      charge= -1      ion size=  4.0 A      mole wt.=   96.9872 g
@@ -333,7 +333,7 @@ H2PO4-
         1.000 HPO4--          1.000 H+      
         -7.3231     -7.2055     -7.1888     -7.2876
         -7.5259     -7.8671     -8.3189     -8.9357
-* reference: SH88
+* [SH88]
 
 H2S(aq)
      charge=  0      ion size=  4.0 A      mole wt.=   34.0758 g
@@ -341,7 +341,7 @@ H2S(aq)
         1.000 H+              1.000 HS-     
         -7.4159     -6.9878     -6.6467     -6.4827
         -6.4960     -6.6831     -7.0225     -7.5536
-* reference: SHS89
+* [SHS89]
 
 H3P2O7-
      charge= -1      ion size=  4.0 A      mole wt.=  176.9670 g
@@ -349,7 +349,7 @@ H3P2O7-
        -1.000 H2O             3.000 H+              2.000 HPO4--  
        -14.2299    -14.4166    -15.0276    -15.9654
        -17.3495    -18.9315    -20.7632    -23.0356
-* reference: SSWS97
+* [SSWS97]
 
 H3PO4
      charge=  0      ion size=  4.0 A      mole wt.=   97.9951 g
@@ -357,7 +357,7 @@ H3PO4
         1.000 HPO4--          2.000 H+      
         -9.3933     -9.3752     -9.5434     -9.8805
        -10.4425    -11.1429    -12.0169    -13.1928
-* reference: SHS89
+* [SHS89]
 
 H4P2O7
      charge=  0      ion size=  4.0 A      mole wt.=  177.9749 g
@@ -365,7 +365,7 @@ H4P2O7
        -1.000 H2O             4.000 H+              2.000 HPO4--  
        -15.6710    -15.9559    -16.7292    -17.8656
        -19.5151    -21.3956    -23.5932    -26.3870
-* reference: SSWS97
+* [SSWS97]
 
 HCH3COO
      charge=  0      ion size=  4.0 A      mole wt.=   60.0524 g
@@ -373,7 +373,7 @@ HCH3COO
         1.000 H+              1.000 CH3COO- 
         -4.7812     -4.7572     -4.8080     -4.9438
         -5.1953     -5.5241     -5.9419     -6.5094
-* reference: Sho95
+* [Sho95]
 
 HCl
      charge=  0      ion size=  4.0 A      mole wt.=   36.4609 g
@@ -381,7 +381,7 @@ HCl
         1.000 H+              1.000 Cl-     
          0.4554      0.7096      0.8519      0.8053
          0.5366      0.1018     -0.4733     -1.2196
-* reference: TZA97
+* [TZA97]
 
 HNO2
      charge=  0      ion size=  4.0 A      mole wt.=   47.0134 g
@@ -389,7 +389,7 @@ HNO2
         1.000 H+              1.000 NO2-    
         -3.4897     -3.2252     -2.9908     -2.8441
         -2.7852     -2.8365     -2.9999     -3.3278
-* reference: SSWS97
+* [SSWS97]
 
 HP2O7---
      charge= -3      ion size=  4.0 A      mole wt.=  174.9512 g
@@ -397,7 +397,7 @@ HP2O7---
        -1.000 H2O             1.000 H+              2.000 HPO4--  
         -5.2041     -5.4739     -6.0274     -6.7605
         -7.7412     -8.7662     -9.8471    -11.0415
-* reference: SSWS97
+* [SSWS97]
 
 HSO4-
      charge= -1      ion size=  4.0 A      mole wt.=   97.0655 g
@@ -405,7 +405,7 @@ HSO4-
         1.000 SO4--           1.000 H+      
         -1.7193     -1.9791     -2.4371     -3.0002
         -3.7234     -4.4683     -5.2633     -6.1799
-* reference: SH88
+* [SH88]
 
 KCl
      charge=  0      ion size=  4.0 A      mole wt.=   74.5513 g
@@ -413,7 +413,7 @@ KCl
         1.000 K+              1.000 Cl-     
          2.8401      2.5355      2.1412      1.7313
          1.2545      0.7846      0.2783     -0.3441
-* reference: SSH97
+* [SSH97]
 
 KOH
      charge=  0      ion size=  4.0 A      mole wt.=   56.1056 g
@@ -421,7 +421,7 @@ KOH
         1.000 K+              1.000 H2O            -1.000 H+      
         15.4984     14.4386     13.3143     12.3777
         11.5515     10.9778     10.5696     10.2671
-* reference: SSWS97
+* [SSWS97]
 
 KSO4-
      charge= -1      ion size=  4.0 A      mole wt.=  135.1559 g
@@ -429,7 +429,7 @@ KSO4-
         1.000 K+              1.000 SO4--   
         -0.8855     -0.8796     -0.9908     -1.1950
         -1.5212     -1.9206     -2.4186     -3.0896
-* reference: SSH97
+* [SSH97]
 
 NaCH3COO
      charge=  0      ion size=  4.0 A      mole wt.=   82.0343 g
@@ -437,7 +437,7 @@ NaCH3COO
         1.000 Na+             1.000 CH3COO- 
          0.0431      0.1034      0.0347     -0.1378
         -0.4282     -0.7835     -1.2196     -1.8010
-* reference: SK93
+* [SK93]
 
 NaCl
      charge=  0      ion size=  4.0 A      mole wt.=   58.4428 g
@@ -445,7 +445,7 @@ NaCl
         1.000 Na+             1.000 Cl-     
          0.8286      0.7770      0.6509      0.4730
          0.2140     -0.0932     -0.4777     -1.0126
-* reference: SSH97
+* [SSH97]
 
 NaOH
      charge=  0      ion size=  4.0 A      mole wt.=   39.9971 g
@@ -453,7 +453,7 @@ NaOH
         1.000 Na+             1.000 H2O            -1.000 H+      
         15.1315     14.2047     13.2097     12.3772
         11.6420     11.1304     10.7623     10.4801
-* reference: SSWS97
+* [SSWS97]
 
 NaSO4-
      charge= -1      ion size=  4.0 A      mole wt.=  119.0474 g
@@ -461,7 +461,7 @@ NaSO4-
         1.000 Na+             1.000 SO4--   
         -0.6765     -0.7000     -0.8416     -1.0629
         -1.3893     -1.7724     -2.2416     -2.8730
-* references: MS97, SLOP98
+* [MS97, SLOP98]
 
 NH3
      charge=  0      ion size=  4.0 A      mole wt.=   17.0304 g
@@ -469,7 +469,7 @@ NH3
         1.000 NH4+           -1.000 H+      
         10.0691      9.2410      8.2847      7.4010
          6.5156      5.7992      5.1995      4.6767
-* reference: SHS89
+* [SHS89]
 
 OH-
      charge= -1      ion size=  3.5 A      mole wt.=   17.0073 g
@@ -477,7 +477,7 @@ OH-
         1.000 H2O            -1.000 H+      
         14.9398     13.9951     13.0273     12.2551
         11.6308     11.2836     11.1675     11.3002
-* reference: SH88
+* [SH88]
 
 P2O7----
      charge= -4      ion size=  4.0 A      mole wt.=  173.9433 g
@@ -485,7 +485,7 @@ P2O7----
        -1.000 H2O             2.000 HPO4--  
          4.2851      3.8353      3.3291      2.8753
          2.4397      2.1086      1.8549      1.6602
-* reference: SSWS97
+* [SSWS97]
 
 PO4---
      charge= -3      ion size=  4.0 A      mole wt.=   94.9714 g
@@ -493,7 +493,7 @@ PO4---
        -1.000 H+              1.000 HPO4--  
         12.6143     12.3218     12.1389     12.1176
         12.2727     12.5798     13.0291     13.6570
-* references: SSWS97, SH88
+* [SSWS97, SH88]
 
 S2--
      charge= -2      ion size=  4.0 A      mole wt.=   64.1200 g
@@ -502,7 +502,7 @@ S2--
          .250 H+      
          1.3024      1.3119      1.3035      1.2703
          1.2035      1.1149      1.0042      0.8599
-* reference: SH88
+* [SH88]
 
 S3--
      charge= -2      ion size=  4.0 A      mole wt.=   96.1800 g
@@ -511,7 +511,7 @@ S3--
          .500 SO4--   
        -11.1079    -10.2331     -9.3819     -8.7614
         -8.3470     -8.2307     -8.3748     -8.8269
-* reference: SH88
+* [SH88]
 
 S4--
      charge= -2      ion size=  4.0 A      mole wt.=  128.2400 g
@@ -520,7 +520,7 @@ S4--
          .750 SO4--   
        -23.2802    -21.5582    -19.8682    -18.6130
        -17.7362    -17.4298    -17.6198    -18.3910
-* reference: SH88
+* [SH88]
 
 S5--
      charge= -2      ion size=  4.0 A      mole wt.=  160.3000 g
@@ -529,7 +529,7 @@ S5--
         1.000 SO4--   
        -35.2123    -32.6634    -30.1575    -28.2885
        -26.9695    -26.4888    -26.7374    -27.8389
-* reference: SH88
+* [SH88]
 
 glycinate
      charge= -1      ion size=  3.5 A      mole wt.=   74.0593 g
@@ -538,7 +538,7 @@ glycinate
        -3.500 O2(aq)       
        197.0600    180.0558    160.0040    141.1819
        122.0639    106.4001     93.1210     81.3504
-* references: Kit14, GKL02
+* [Kit14, GKL02]
 
 ethylene
      charge=  0      ion size= -0.5 A      mole wt.=   28.0538 g
@@ -546,7 +546,7 @@ ethylene
         2.000 H+              2.000 HCO3-          -3.000 O2(aq)       
        250.5281    228.6658    202.9667    178.9389
        154.6593    134.9032    118.3101    103.8211
-* reference: PS01
+* [PS01]
 
 AuCl
      charge=  0      ion size=  1.0 A      mole wt.=  232.4200 g
@@ -554,7 +554,7 @@ AuCl
         1.000 Au+             1.000 Cl-          
         -8.4246     -7.9201     -7.3728     -6.9090
         -6.5092     -6.2720     -6.1912     -6.3119
-* reference: AZ01
+* [AZ01]
 
 Au(OH)2-
      charge= -1      ion size=  3.5 A      mole wt.=  230.9817 g
@@ -562,7 +562,7 @@ Au(OH)2-
         2.000 H2O             1.000 Au+            -2.000 H+           
          5.5823      5.7339      6.0680      6.5402
          7.1987      7.8997      8.6364      9.4378
-* reference: AZ01
+* [AZ01]
 
 Au(HS)2-
      charge= -1      ion size=  3.5 A      mole wt.=  263.1029 g
@@ -571,7 +571,7 @@ Au(HS)2-
         2.000 SO4--        
        271.7081    246.4097    216.5410    188.5986
        160.3870    137.4367    118.1120    101.0953
-* reference: AZ10
+* [AZ10]
 
 -end-
 
@@ -596,7 +596,7 @@ Amrph^silica                       type= silica
         1.000 SiO2(aq)
         -3.1240     -2.7136     -2.4067     -2.1843
         -1.9796     -1.8190     -1.6928     -1.6042
-* reference: HDNB78
+* [HDNB78]
 
 Chalcedony                         type= silica
      formula= SiO2
@@ -605,7 +605,7 @@ Chalcedony                         type= silica
         1.000 SiO2(aq)
         -4.3359     -3.7281     -3.2307     -2.8615
         -2.5280     -2.2669     -2.0512     -1.8760
-* reference: HDNB78
+* [HDNB78]
 
 Cristobalite                       type= silica
      formula= SiO2
@@ -614,7 +614,7 @@ Cristobalite                       type= silica
         1.000 SiO2(aq)
         -4.0213     -3.4488     -2.9921     -2.6605
         -2.3644     -2.1326     -1.9402    500.0000
-* reference: HDNB78
+* [HDNB78]
 
 Fayalite                           type= olivine
      formula= Fe2SiO4
@@ -624,7 +624,7 @@ Fayalite                           type= olivine
         2.000 H2O     
         21.7492     19.3815     16.4588     13.7143
         10.9758      8.7691      6.8980      5.2043
-* reference: Ber88
+* [Ber88]
 
 FeO(c)                             type= 
      formula= 
@@ -633,7 +633,7 @@ FeO(c)                             type=
        -2.000 H+              1.000 Fe++            1.000 H2O     
         22.2516     20.4052     18.3075     16.4168
         14.5709     13.1069     11.8857     10.8065
-* reference: SSWS97
+* [SSWS97]
 
 Ferrosilite                        type= pyroxene
      formula= FeSiO3
@@ -643,7 +643,7 @@ Ferrosilite                        type= pyroxene
         1.000 H2O     
          8.6961      7.8180      6.6080      5.4235
          4.2250      3.2560      2.4317      1.6755
-* reference: Ber88
+* [Ber88]
 
 Goethite                           type= hydroxide
      formula= FeOOH
@@ -652,7 +652,7 @@ Goethite                           type= hydroxide
        -3.000 H+              1.000 Fe+++           2.000 H2O     
          1.2832      0.3155     -0.7979     -1.8121
        500.0000    500.0000    500.0000    500.0000
-* references: MGN03, MLS+03
+* [MGN03, MLS+03]
 
 Gold                               type= native
      formula= Au
@@ -662,7 +662,7 @@ Gold                               type= native
         -.250 O2(aq)  
         -7.8869     -7.0864     -6.1914     -5.3884
         -4.6116     -4.0133     -3.5487     -3.1974
-* reference: HDNB78
+* [HDNB78]
 
 Graphite                           type= native
      formula= C
@@ -672,7 +672,7 @@ Graphite                           type= native
          .500 HCO3-   
         -8.5769     -7.9315     -7.2009     -6.5512
         -5.9408     -5.4958     -5.1812     -4.9863
-* reference: HDNB78
+* [HDNB78]
 
 Greenalite                         type= serpentine
      formula= Fe3Si2O5(OH)4
@@ -682,7 +682,7 @@ Greenalite                         type= serpentine
         5.000 H2O     
         26.0472     23.5211     20.2478     17.1379
         14.0437     11.5642      9.4573      7.5150
-* reference: HDNB78
+* [HDNB78]
 
 Halite                             type= halide
      formula= NaCl
@@ -691,7 +691,7 @@ Halite                             type= halide
         1.000 Na+             1.000 Cl-     
          1.4920      1.5855      1.6176      1.5780
          1.4499      1.2422      0.9364      0.4683
-* reference: HDNB78
+* [HDNB78]
 
 Hematite                           type= oxide
      formula= Fe2O3
@@ -700,7 +700,7 @@ Hematite                           type= oxide
        -6.000 H+              2.000 Fe+++           3.000 H2O     
          2.4999      0.4100     -2.0106     -4.2302
         -6.4643     -8.3389    -10.0379    -11.6965
-* reference: Ber88
+* [Ber88]
 
 Jarosite-K                         type= sulfate
      formula= KFe3(SO4)2(OH)6
@@ -710,7 +710,7 @@ Jarosite-K                         type= sulfate
         1.000 K+             -6.000 H+      
         -9.1781    -11.1453    -13.8117    -16.6318
        -19.9666    -23.3117    -26.9369    -31.2361
-* reference: SAJ00
+* [SAJ00]
 
 Magnetite                          type= oxide
      formula= Fe3O4
@@ -720,7 +720,7 @@ Magnetite                          type= oxide
         2.000 Fe+++   
         14.0643     10.5942      6.5850      2.9171
         -0.7493     -3.7794     -6.4616     -9.0090
-* reference: Ber88
+* [Ber88]
 
 Melanterite                        type= sulfate
      formula= FeSO4:7H2O
@@ -729,7 +729,7 @@ Melanterite                        type= sulfate
         1.000 SO4--           1.000 Fe++            7.000 H2O     
         -2.1361     -2.0177     -1.7597     -1.3369
         -0.7224     -0.1280      0.3210      0.4429
-* reference: PK95
+* [PK95]
 
 Pyrite                             type= sulfide
      formula= FeS2
@@ -739,7 +739,7 @@ Pyrite                             type= sulfide
          .250 SO4--            .250 H+      
        -26.5030    -24.6534    -22.7519    -21.2342
        -20.0243    -19.3946    -19.2757    -19.7393
-* reference: HDNB78
+* [HDNB78]
 
 Quartz                             type= silica
      formula= SiO2
@@ -748,7 +748,7 @@ Quartz                             type= silica
         1.000 SiO2(aq)
         -4.6407     -4.0077     -3.4817     -3.0863
         -2.7270     -2.4455     -2.2132     -2.0242
-* reference: Ber88
+* [Ber88]
 
 Siderite                           type= carbonate
      formula= FeCO3
@@ -757,7 +757,7 @@ Siderite                           type= carbonate
         1.000 HCO3-           1.000 Fe++           -1.000 H+      
          0.2914     -0.1920     -0.8309     -1.4966
         -2.2680     -3.0227     -3.8214     -4.7582
-* references: HDNB78, Hel85
+* [HDNB78, Hel85]
 
 Sulfur-Rhmb                        type= native
      formula= S
@@ -767,7 +767,7 @@ Sulfur-Rhmb                        type= native
          .250 SO4--   
        -11.3158    -10.5188     -9.7335     -9.1479
         -8.7554     -8.6341     -8.7382     -9.1036
-* references: MS97, SLOP98
+* [MS97, SLOP98]
 
 Sylvite                            type= halide
      formula= KCl
@@ -776,7 +776,7 @@ Sylvite                            type= halide
         1.000 K+              1.000 Cl-     
          0.5252      0.8459      1.1224      1.2845
          1.3297      1.2382      1.0128      0.6044
-* reference: HDNB78
+* [HDNB78]
 
 pyrrhotite
      formula= FeS
@@ -785,7 +785,7 @@ pyrrhotite
         1.000 Fe++           -2.000 O2(aq)          1.000 SO4--        
        148.4642    134.5976    118.2200    102.8332
         87.1702     74.2657     63.2603     53.4258
-* reference: HDNB78
+* [HDNB78]
 
 -end-
 
@@ -799,7 +799,7 @@ CH4(g)
         1.000 CH4(aq) 
         -2.6698     -2.9191     -3.0928     -3.1403
         -3.0646     -2.8956     -2.6612     -2.3581
-* references: WEP+82, Kel60
+* [WEP+82, Kel60]
 
 CO2(g)
      mole wt.=   44.0098 g
@@ -809,7 +809,7 @@ CO2(g)
        -1.000 H2O             1.000 H+              1.000 HCO3-   
         -7.6765     -7.8136     -8.0527     -8.3574
         -8.7692     -9.2165     -9.7202    -10.3393
-* references: WEP+82, Kel60
+* [WEP+82, Kel60]
 
 H2(g)
      mole wt.=    2.0158 g
@@ -819,7 +819,7 @@ H2(g)
         1.000 H2(aq)  
         -3.0091     -3.1050     -3.1394     -3.0976
         -2.9766     -2.8101     -2.6133     -2.3841
-* references: WEP+82, Kel60
+* [WEP+82, Kel60]
 
 H2S(g)
      mole wt.=   34.0758 g
@@ -828,7 +828,7 @@ H2S(g)
         1.000 H+              1.000 HS-     
         -8.0781     -7.9758     -7.9295     -7.9572
         -8.0759     -8.2750     -8.5671     -9.0074
-* references: WEP+82, Kel60
+* [WEP+82, Kel60]
 
 N2(g)
      mole wt.=   28.0134 g
@@ -837,7 +837,7 @@ N2(g)
         1.000 N2(aq)  
         -2.9729     -3.1864     -3.3189     -3.3334
         -3.2324     -3.0499     -2.8103     -2.5103
-* references: WEP+82, Kel60
+* [WEP+82, Kel60]
 
 O2(g)
      mole wt.=   31.9988 g
@@ -846,7 +846,7 @@ O2(g)
         1.000 O2(aq)  
         -2.6567     -2.8983     -3.0633     -3.1076
         -3.0354     -2.8742     -2.6488     -2.3537
-* references: WEP+82, Kel60
+* [WEP+82, Kel60]
 
 S2(g)
      mole wt.=   64.1200 g
@@ -855,7 +855,7 @@ S2(g)
         1.500 HS-     
         -6.6787     -7.1449     -7.9330     -8.9055
        -10.1781    -11.5217    -12.9970    -14.7638
-* references: WEP+82, Kel60
+* [WEP+82, Kel60]
 
 Steam
      mole wt.=   18.0152 g
@@ -865,7 +865,7 @@ Steam
         1.000 H2O     
          2.2985      1.5854      0.7859      0.0791
         -0.5884     -1.0882     -1.4702     -1.7663
-* reference: Joh92
+* [Joh92]
 
 ammonia
      mole wt.=   17.0305 g
@@ -874,7 +874,7 @@ ammonia
        -2.000 O2(aq)       
         70.5512     63.8967     55.9822     48.5012
         40.8523     34.5428     29.1546     24.3303
-* references: WEP+82, Kel60
+* [WEP+82, Kel60]
 
 -end-
 

@@ -115,12 +115,12 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
     r1 <- sapply(strsplit(sapply(strsplit(r1, "\\."), "[", 1), " "), "[", 1)
     if(!is.na(r1)) {
       ADDS[[type]]$refs <- c(ADDS[[type]]$refs, r1)
-      refline <- paste("* reference:", r1)
+      refline <- paste0("* [", r1, "]")
       r2 <- CHNOSZ::info(ispecies[i], check.it = FALSE)$ref2
       r2 <- sapply(strsplit(sapply(strsplit(r2, "\\."), "[", 1), " "), "[", 1)
       if(!is.na(r2)) {
         ADDS[[type]]$refs <- c(ADDS[[type]]$refs, r2)
-        refline <- paste("* references: ", r1, ", ", r2, sep = "")
+        refline <- paste0("* [", r1, ", ", r2, "]")
       }
     }
     # Put together the lines for this species (including a blank line at the end)
