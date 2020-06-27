@@ -27,12 +27,12 @@ Read dissociation reactions from a thermodynamic data file for The Geochemist's 
 \details{
 
 This function reads the input GWB file and assembles lists of species in the file.
-Species names are then converted to those used in OBIGT, by automatically matching the species name or by looking in a mapping file (see first example).
+Species names are then converted to those used in OBIGT, by automatically matching the species name or by looking in a mapping file (see Names Mapping).
 Species that are not available in OBIGT are omitted from the output file.
 
-Species are also omitted if they available in OBIGT but their dissociation reactions in the GWB file are written in terms of some other species that are not available.
-Two particular examples are \samp{As(OH)4-} and \samp{Sn++++}, which are basis species in the default \samp{thermo.tdat} file as distributed with GWB.
-This means that \emph{no} As- or Sn-bearing species are available with the default file.
+Species are also omitted if they available in OBIGT but their dissociation reactions in the GWB file are written in terms of basis species or redox couples that are not available.
+Two examples are As(OH)\s4\S{-} and Sn\S{++++}, which are basis species in the \samp{thermo.tdat} file distributed with GWB but are not present in the default OBIGT database.
+\code{\link{addOBIGT}} can be used to add these species to OBIGT.
 
 By default, the function obtains values of \T from the input GWB file and calculates values of \P corresponding to \Psat (i.e. pressures corresponding to liquid-vapor saturation).
 This is done because some values of \P in existing files are slightly below \Psat, preventing calculation at those conditions.
@@ -41,7 +41,7 @@ To use any other values, provide 8 numeric values in \code{T} and/or \code{P}.
 
 Logarithms (base 10) of equilibrium constants are calculated for each of the following species types: redox, aqueous, electron, mineral, gas.
 The corresponding values for each species are inserted into the output GWB file.
-Any NA values (e.g. for temperatures above the melting point of a mineral) are represented by \samp{500} in the output file to indicate unavailable data (Bethke and Yeakel, 2010).
+Any NA values (e.g. for temperatures above the melting point of a mineral) are represented by \samp{500} in the output file to indicate unavailable data (Bethke and Farrell, 2020).
 
 The mass balance of dissociation reactions is checked (in CHNOSZ::\code{\link{subcrt}}) using the chemical formulas of species in OBIGT.
 To allow for rounding errors in fractional coefficients, reactions are considered unbalanced if the difference for any element exceeds 0.001.
@@ -60,7 +60,7 @@ Leading \samp{1-} are deleted (e.g. 1-pentanol becomes pentanol).
 
 The names of species in the GWB file, which correspond to chemical formulas for many aqueous species, are used for mapping.
 However, any chemical formulas that may be listed in addition to names of minerals or other species are not used for mapping.
-Both names and formulas of species in OBIGT are searched, but formulas are searched as-is, so formulas that differ from those used in CHNOSZ (e.g. CH3COOH instead of C2H4O2) aren't matched unless they are in the names mapping file.
+Both names and formulas of species in OBIGT are searched, but formulas are searched as-is, so formulas that differ from those used in CHNOSZ (e.g. CH{\s3}COOH instead of C{\s2}H{\s4}O{\s2}) aren't matched unless they are in the names mapping file.
 
 Species names that are not mapped after these steps are then searched in the names mapping file.
 This file was constructed by identifying unmapped species in \samp{thermo.tdat} and GWB files produced by K2GWB and DBCreate.
@@ -79,7 +79,7 @@ Species with the states \samp{aq}, \samp{cr}, and \samp{gas} in OBIGT are added 
 The molecular weight of species is calculated using \code{CHNOSZ::\link[CHNOSZ:util.formula]{mass}}, which likely does not correspond precisely to the element masses in the input GWB file.
 The default ion size parameter for added aqueous ions (\code{a0_ion}) is 4.5 \AA; this setting follows the behavior in UNITHERM for ions without a specified value (Shvarov and Bastrakov, 1999).
 
-The ion size parameter for neutral aqueous species (\code{a0_neutral}) has a special meaning in the GWB thermodynamic data file (Bethke and Yeakel, 2010).
+The ion size parameter for neutral aqueous species (\code{a0_neutral}) has a special meaning in the GWB thermodynamic data file (Bethke and Farrell, 2020).
 The default value of 0 corresponds to unit activity coefficient (the default in the UT2K converter used by K2GWB; Cleverley and Bastrakov, 2005).
 With a value of -0.5, the activity coefficient is equal to that of CO\s2 in an NaCl solution of the same ionic strength (this is used for B(OH)\s3, O\s2, SiO\s2, CH\s4, and H\s2 in \samp{thermo.tdat}).
 For values \le -1, the activity coefficient is calculated as the product of the \samp{bdot} parameter and the true ionic strength.
@@ -142,7 +142,7 @@ logKcalc(infile, outfile, ispecies = ispecies)
 }
 
 \references{
-Bethke, C. M. and Yeakel, S. (2010) The Geochemist's Workbench® Reference Manual (Release 8.0), Hydrogeology Program, University of Illinois.
+Bethke, C. M. and Farrell, B. (2020) The Geochemist's Workbench® Release 14 GWB Reference Manual, Aqeuous Solutions, LLC, Champaign, Illinois.
 
 Cleverley, J. S. and Bastrakov, E. N. (2005) K2GWB: Utility for generating thermodynamic data files for The Geochemist's Workbench® at 0-1000 °C and 1-5000 bar from UT2K and the UNITHERM database. \emph{Computers & Geosciences} \bold{31}, 756--767. \doi{10.1016/j.cageo.2005.01.007}
 

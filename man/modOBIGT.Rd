@@ -29,7 +29,7 @@ Use \code{modOBIGT("addSUPCRT")} to add the remaining minerals from SUPCRT92 tha
 \code{modOBIGT("allSUPCRT")} adds all minerals from SUPCRT92, possibly replacing the Berman ones.
 Either of these commands can be preceeded by \code{modOBIGT("noBerman")} to remove the Berman minerals from the database and generate a set of minerals that is mostly compatible with SUPCRT92.
 
-\code{modOBIGT("steam")} adds data for steam (H2O(g)) taken from the \samp{sprons92.dat} file of SUPCRT92, which is referenced there as \dQuote{Johnson, J.W., Personal calculation, Earth Sciences Dept., Lawrence Livermore National Lab., Livermore, CA. Parameters given provide smooth metastable extrapolation of one-bar steam properties predicted by the Haar et al. (1984) equation of state to temperatures < the saturation temperature (99.632 C).}
+\code{modOBIGT("steam")} adds data for steam (\H2O(g)) taken from the \samp{sprons92.dat} file of SUPCRT92, which is referenced there as \dQuote{Johnson, J.W., Personal calculation, Earth Sciences Dept., Lawrence Livermore National Lab., Livermore, CA. Parameters given provide smooth metastable extrapolation of one-bar steam properties predicted by the Haar et al. (1984) equation of state to temperatures < the saturation temperature (99.632 C).}
 This entry was removed in CHNOSZ 1.1.3 based on the issues raised by Zavarin et al. (2016, p. 6).
 However, many existing GWB files have an entry for steam, and the data are needed to include it in the output.
 
@@ -39,14 +39,14 @@ These changes are appropriate for the UNITHERM database in the HCh package (Shva
 If you require a redox, aqueous, or mineral species from a GWB file that is not present in OBIGT, \code{addOBIGT} can be used to add it.
 This function reads the equilibrium constants for the dissociation reaction of the species from the GWB file.
 Then, the standard Gibbs energy of the species is computed at each temperature from the \logK values and the Gibbs energies of the other species in the reaction, which must be available in OBIGT.
-The standard Gibbs energy of the species is fit using the thermodynamic parameters G, S, and Cp.
+The standard Gibbs energy of the species is fit using the thermodynamic parameters \emph{G}, \emph{S}, and \emph{Cp}.
 
 The species is then added to OBIGT; the upper temperature limit (corresponding to the \T range for the fitted \logK values) is set in the \samp{T} parameter for minerals or the \samp{abbrv} parameter for aqueous species; the latter is specially used by other functions in this package to assign NA values at appropriate places (i.e., \samp{500} in GWB data files).
-An attempt is made to convert GWB-style formulas (e.g. \samp{Sn++++}) to an acceptable format for OBIGT (\samp{Sn+4}) (see name mapping heuristics in \code{\link{logKcalc}}), but if there is any doubt, the \code{formula} should be given explicitly.
+An attempt is made to convert GWB-style formulas (e.g. Sn\S{++++}) to the format used in OBIGT (Sn\S{+4}) (see Names Mapping section in \code{\link{logKcalc}}), but if there is any doubt, the \code{formula} should be given explicitly.
 For adding minerals, a valid formula must be provided in the \code{formula} argument.
 
-Note that the equation assumes a constant Cp and no volume change, so has a limited validity associated with the \T and \P range of the \logK values available in the input GWB file.
-\code{\link{all.equal}} is used to test the equivalence of the input and calculated equilibrium constants; if the differences exceed \code{tol}, the code generates an error.
+Note that the equation assumes a constant heat capacity and no volume change, so in general does not perfectly fit the \logK values in the input GWB file and may be unsuitable for extrapolation beyond the original \T and \P range.
+\code{\link{all.equal}} is used to test the near equivalence of the input and calculated equilibrium constants; if the differences exceed \code{tol}, the code generates an error.
 
 }
 

@@ -29,8 +29,8 @@ Read values of logK from a data file, and make plots comparing equilibrium const
 
 \details{
 
-\code{readlogK} reads \logK values from the specified \code{file} and returns a list with elements named T, P, redox, aqueous, electron, mineral, gas.
-In this list, T and P are numeric values read from the file, and \logK values are listed for the different species types.
+\code{readlogK} reads \logK values from the specified \code{file} and returns a list with elements named \code{T}, \code{P}, \code{redox}, \code{aqueous}, \code{electron}, \code{mineral}, and \code{gas}.
+In this list, \T and \P are numeric values read from the file, and \logK values are listed for the different species types.
 
 \code{logKcomp} compares \logK values from two files.
 The values are read from \code{file1} and \code{file2}, and selected for the indicated \code{type} of species and pair of \T and \P values.
