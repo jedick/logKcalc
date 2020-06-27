@@ -29,7 +29,7 @@ O2 <- c(-70, -40, 500)
 
 # Calculate affinities for the mosaic diagram
 bases <- c("SO4-2", "HSO4-", "HS-", "H2S")
-m <- mosaic(bases, pH = pH, O2 = O2, T = 100, blend = FALSE)
+m <- mosaic(bases, pH = pH, O2 = O2, T = 100)
 
 # Make the diagram
 par(cex = 2.5, mar = c(2.8, 3, 1.4, 1))

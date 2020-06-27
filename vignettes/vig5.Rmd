@@ -49,6 +49,8 @@ knit_hooks$set(warning = color_block('magenta'), error = color_block('red'), mes
 knit_hooks$set(pngquant = hook_pngquant)
 pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
+## logK with a thin space 20200627
+logK <- "log&thinsp;<i>K</i>"
 ```
 
 #### This vignette shows how to use data for species from a GWB file in a diagram made with CHNOSZ.
@@ -64,13 +66,13 @@ See the [As_mosaic.R](As_mosaic.R) file in this directory for the script used to
 source("As_mosaic.R")
 ```
 
-In order to more closely reproduce the diagram from GWB, we can use `addOBIGT()` to fit thermodynamic parameters to the log*K* values of dissociation reactions of species from a GWB data file.
+In order to more closely reproduce the diagram from GWB, we can use `addOBIGT()` to fit thermodynamic parameters to the `r logK` values of dissociation reactions of species from a GWB data file.
 This function uses a specially modified version of GWB's `thermo.tdat` in which the basis species are all available in OBIGT (`thermo_24swapped.tdat`).
 The fitted parameters (Δ*G*°, *S*° and *C~p~*°) of the formed species are added to the OBIGT database, so they can be used in diagrams made in CHNOSZ.
 
 Here, we fit the parameters for minerals and aqueous species other than As(OH)~3~ (H~3~AsO~3~ in OBIGT), which is a basis species in `thermo_24swapped.tdat`.
 Although it has no stability field in the diagram, AsH~3~ is also updated because it appears in the dissociation reaction for realgar.
-Because it uses just three parameters, the fit may introduce some error, so we increase the tolerance (in log*K* units) for H~2~AsO~4~^-^ to allow the checks for this species to pass.
+Because it uses just three parameters, the fit may introduce some error, so we increase the tolerance (in `r logK` units) for H~2~AsO~4~^-^ to allow the checks for this species to pass.
 We run `reset()` first to make sure we are starting with the default OBIGT database.
 
 ```{r addOBIGT, message = FALSE}
@@ -102,7 +104,7 @@ Note that repeated '-' or '+' signs at the end of formulas are converted into e.
 
 Next we identify As-bearing species in the As-S-O-H system.
 We remove species with data from @NA03, as they may conflict with the GWB dataset.
-However, we explicitly include H~3~AsO~3~ here; although its thermodynamic parameters in OBIGT are still from @NA03, the parameters of the *other* species were made to be consistent with the log*K* values for the dissociation reactions in `thermo_24swapped.tdat` that involve H~3~AsO~3~ as a basis species.
+However, we explicitly include H~3~AsO~3~ here; although its thermodynamic parameters in OBIGT are still from @NA03, the parameters of the *other* species were made to be consistent with the `r logK` values for the dissociation reactions in `thermo_24swapped.tdat` that involve H~3~AsO~3~ as a basis species.
 
 ```{r species, message = FALSE}
 iaq <- retrieve("As", c("S", "O", "H"), "aq")

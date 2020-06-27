@@ -79,6 +79,8 @@ knit_hooks$set(warning = color_block('magenta'), error = color_block('red'), mes
 knit_hooks$set(pngquant = hook_pngquant)
 pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
+## logK with a thin space 20200627
+logK <- "log&thinsp;<i>K</i>"
 ```
 
 This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
@@ -89,9 +91,9 @@ The file `thermo_24noredox.tdat` was derived from the `thermo.tdat` file distrib
 The file `ThermoGWB_15_6_2020.tdat` was created in K2GWB [@CB05] using the same basis species.
 Both files have the same 24 elements (Ag, Al, As, Au, C, Ca, Cl, Cu, F, Fe, H, K, Mg, Mn, N, Na, O, P, Pb, S, Si, Sn, U, Zn).
 
-The logKcomp function reads the reaction coefficients and log*K* values from the files and only considers species with the same dissociation reactions in both files.
-The plot titles indicate how many of these species have log*K* values that are not available (NA) at this particular temperature and pressure (indicated by a "500" in the GWB file).
-The function adds labels to points with a difference of greater than 1 log*K* unit.
+The logKcomp function reads the reaction coefficients and `r logK` values from the files and only considers species with the same dissociation reactions in both files.
+The plot titles indicate how many of these species have `r logK` values that are not available (NA) at this particular temperature and pressure (indicated by a "500" in the GWB file).
+The function adds labels to points with a difference of greater than 1 `r logK` unit.
 
 One type of species block can be selected for comparison (aqueous, mineral, gas); here we choose minerals.
 The coordinates are manually adjusted to exclude some points at extreme values, but no labels are lost; the line segments point to the points off the scale.
@@ -117,10 +119,10 @@ plot2 <- logKcomp(file1, file2, "mineral", 8, lab1, lab2, c(-25, 100))
 gridExtra::grid.arrange(plot1, plot2, ncol = 2)
 ```
 
-The plots reveal systematic differences between the databases: most of the large differences correspond to higher log*K* values for the mineral dissociation reactions in `thermo.tdat`, which indicates overall lower stability of the minerals.
+The plots reveal systematic differences between the databases: most of the large differences correspond to higher `r logK` values for the mineral dissociation reactions in `thermo.tdat`, which indicates overall lower stability of the minerals.
 These differences may be associated with different estimation algorithms for thermodynamic parameters (e.g. extrapolation from high-temperature phase equilibrium data or derivation from primarily calorimetric measurements).
 
-#### Here are some recommended commands for processing the GWB data file created by K2GWB to recalculate the log*K* values using the [OBIGT database in CHNOSZ](../../CHNOSZ/doc/obigt.html).
+#### Here are some recommended commands for processing the GWB data file created by K2GWB to recalculate the `r logK` values using the [OBIGT database in CHNOSZ](../../CHNOSZ/doc/obigt.html).
 
 The `modOBIGT` command adds more minerals from the SUPCRT92 database, an entry for steam that has been removed from OBIGT, and a modified version of realgar to match the chemical formula used in UNITHERM.
 
@@ -138,10 +140,10 @@ logKcalc(infile, outfile)
 ```
 </div>
 
-#### These plots compare the log*K* values in the K2GWB file and OBIGT.
+#### These plots compare the `r logK` values in the K2GWB file and OBIGT.
 
 Only species with the same name and dissociation reaction in both files are considered for the plot.
-Labels are added to points with a difference of greater than 1 log*K* unit.
+Labels are added to points with a difference of greater than 1 `r logK` unit.
 
 ```{r logKcomp2, message = FALSE, results = "hide", fig.width = 12, fig.height = 6, out.width = "100%", out.extra='class="full-width"', pngquant = pngquant}
 lab2 <- "OBIGT"

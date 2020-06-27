@@ -65,6 +65,8 @@ knit_hooks$set(warning = color_block('magenta'), error = color_block('red'), mes
 knit_hooks$set(pngquant = hook_pngquant)
 pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
+## logK with a thin space 20200627
+logK <- "log&thinsp;<i>K</i>"
 ```
 
 #### This vignette shows the results from processing thermo_24elements.tdat.
@@ -80,14 +82,14 @@ modOBIGT(c("addSUPCRT", "steam", "antigorite/2"))
 ```
 
 Some basis species used in the GWB file are not in the default OBIGT database.
-They can be added to OBIGT by fitting their thermodynamic parameters (Δ*G*°, *S*° and *C~p~*°) to the log*K* values for their dissociation reactions from a different GWB file where they have been swapped out of the basis.
+They can be added to OBIGT by fitting their thermodynamic parameters (Δ*G*°, *S*° and *C~p~*°) to the `r logK` values for their dissociation reactions from a different GWB file where they have been swapped out of the basis.
 
 ```{r addOBIGT, message = FALSE}
 addOBIGT("As(OH)4-")
 addOBIGT("Sn++++")
 ```
 
-Here we set the file paths and perform the log*K* calculation.
+Here we set the file paths and perform the `r logK` calculation.
 The `maxprint` argument is used to prevent the printing of long lists of species that can't be found in OBIGT.
 
 ```{r logKcalc, eval = FALSE}
@@ -102,14 +104,14 @@ logKcalc(infile, outfile, maxprint = 10)
 ```
 </div>
 
-Note that species are removed if their log*K* values are all NA.
+Note that species are removed if their `r logK` values are all NA.
 This includes a few minerals taken from SUPCRT92, as well as pyrrhotite, whose chemical formula in the GWB file (Fe.875S) is different from that in OBIGT (FeS).
 
-#### Now we can make some plots to compare the log*K* values in the input and output files.
+#### Now we can make some plots to compare the `r logK` values in the input and output files.
 
 Only species with the same name and dissociation reaction in both files are considered for the plot.
-The plot titles indicate how many of these species have log*K* values that are not available (NA) at this particular temperature and pressure (indicated by a "500" in the GWB file).
-Labels are added to points with a difference of greater than 1 log*K* unit.
+The plot titles indicate how many of these species have `r logK` values that are not available (NA) at this particular temperature and pressure (indicated by a "500" in the GWB file).
+Labels are added to points with a difference of greater than 1 `r logK` unit.
 
 ```{r logKcomp, message = FALSE, results = "hide", fig.width = 12, fig.height = 6, out.width = "100%", out.extra='class="full-width"', pngquant = pngquant}
 plot1 <- logKcomp(infile, outfile, iTP = 4, lab2 = "OBIGT")

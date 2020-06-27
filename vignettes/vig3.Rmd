@@ -65,6 +65,8 @@ knit_hooks$set(warning = color_block('magenta'), error = color_block('red'), mes
 knit_hooks$set(pngquant = hook_pngquant)
 pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
+## logK with a thin space 20200627
+logK <- "log&thinsp;<i>K</i>"
 ```
 
 #### This vignette shows a worked example for gold speciation diagrams.
@@ -72,7 +74,7 @@ if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL
 This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
 To calculate the speciation and solubility of gold in hydrothermal solutions requires data over a large temperature range (e.g. 150--600 °C) for hydroxide, chloride, and sulfide complexes with Au [@WBM09].
-Here we add these species to a GWB thermodynamic data file and change the temperature and pressure for log*K* calculations.
+Here we add these species to a GWB thermodynamic data file and change the temperature and pressure for `r logK` calculations.
 
 The thermodynamic system is defined by `thermo_24elements.tdat`, which is a modfied version of GWB's `thermo.tdat` file reduced to 24 elements.
 As described in the [previous vignette](vig2.html), we start by using `modOBIGT` to make some changes to OBIGT for the calculation.
@@ -80,13 +82,14 @@ If OBIGT is missing any required basis species from the GWB file, they can be ad
 
 ```{r modOBIGT, message = FALSE}
 reset()
+modOBIGT("noBerman")
 modOBIGT(c("addSUPCRT", "steam", "antigorite/2"))
 ```
 
 The `ispecies` argument can be used to identify other species from OBIGT that should be added to the output.
 Their dissociation reactions are written in terms of the available basis species in the GWB file.
 This example adds pyrrhotite and some aqueous Au complexes.
-Note that the input GWB file also has AuCl~2~^-^ and AuCl~4~^-^; the log*K* values for the former are recalculated for the given *T* and *P*, but the latter is excluded from the output because it is not available in OBIGT.
+Note that the input GWB file also has AuCl~2~^-^ and AuCl~4~^-^; the `r logK` values for the former are recalculated for the given *T* and *P*, but the latter is excluded from the output because it is not available in OBIGT.
 
 ```{r ispecies, message = FALSE}
 ispecies <- info(c("pyrrhotite", "AuCl", "AuOH", "AuHS", "Au(HS)2-"))
@@ -119,9 +122,9 @@ However, by listing it in `ispecies`, it is subsequently added with a dissociati
 #### Scripts and output of GWB runs.
 
 Figure 2 of @WBM09 shows two speciation diagrams for Au as a function of temperature.
-Both diagrams are made for a solution with 1.5 m NaCl and 0.5 m KCl and with pH set by the quartz--muscovite--K-feldspar (QMK) buffer.
-To perform the calculation in GWB, we first run [this script](QMK.rea) for the React program, which uses the thermodynamic data file created above.
-The first plot below shows that the minerals in the buffer are supersaturated (i.e., remain in excess) at all temperatures; the second plot shows the values of pH in the QMK buffer.
+Both diagrams are made for a solution with 1.5 m NaCl and 0.5 m KCl; the ratio *a*~K^+^~/*a*~H^+^~ (and therefore pH for a given activity of K^+^) is set by the quartz--muscovite--K-feldspar (QMK) buffer.
+To perform the buffer calculation in GWB, we run [this script](QMK.rea) for the React program, which uses the thermodynamic data file created above.
+The first plot below shows that the minerals in the buffer are supersaturated (i.e., remain in excess) at all temperatures; the second plot shows the values of pH in the QMK buffer with an initial molality of K^+^ equal to 0.5.
 
 ```{r QMK, echo = FALSE, out.width = "100%", out.extra='class="full-width"'}
 include_graphics("QMK.png")
