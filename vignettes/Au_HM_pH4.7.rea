@@ -1,0 +1,19 @@
+# React script, saved Fri Jun 26 2020 by You
+data = Documents\thermo_OBIGT.tdat verify
+conductivity = conductivity-USGS.dat
+temperature initial = 150 C, final = 550 C
+H2O          = 1 free kg
+Na+          = 1.5 molal
+K+           = .5 molal
+balance on Cl-
+pH           = 4.7
+swap Magnetite for O2(aq)
+Magnetite    = 1000 free g
+swap Hematite for Fe++
+Hematite     = 20 free g
+swap H2S(aq) for SO4--
+H2S(aq)      = .01 molal
+swap Gold for Au+
+Gold         = 1 free g
+fix pH
+suppress  Pyrite pyrrhotite

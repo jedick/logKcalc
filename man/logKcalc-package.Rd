@@ -8,12 +8,11 @@
 The thermodynamic data files for The Geochemist's Workbench® (Bethke et al., 2020) are part of a family of datasets for geochemical modeling programs that store reaction properties as logarithms of equilibrium constants (\logK values) for specified temperatures (\T) and pressures (\P) (see Hörbrand et al., 2018 for an overview).
 Users of GWB may want to add species to a data file, or change the temperature range, which is 0--300 \degC for the data files distributed with GWB.
 Therefore, there is a need for programs to update GWB data files with \logK values calculated from thermodynamic databases.
-Two previous packages, K2GWB (Cleverley and Bastrakov, 2005) and DBCreate (Kong et al., 2013), have been described that do this.
+Two previously previously programs that do this are K2GWB (Cleverley and Bastrakov, 2005) and DBCreate (Kong et al., 2013).
 
-The aim of this package is to bring this functionality to a broader audience in an open-source R package.
-\pkg{logKcalc} updates GWB thermodynamic data files using equilibrium constants of reactions calculated from the OBIGT database in \pkg{CHNOSZ}.
-
-The main function is \code{\link{logKcalc}}, which requires an existing GWB data file as input and creates a new output file with the calculated equilibrium constants.
+The aim of \pkg{logKcalc} is to make this functionality available in a free R package and provide additional features such as listing data references and comparison of \logK values from different files.
+The main function is \code{\link{logKcalc}}, which requires an existing GWB data file as input and creates an output file with the equilibrium constants of dissociation reactions recalculated using the OBIGT database in \pkg{CHNOSZ}.
+There are accessory functions to add missing species to OBIGT and to add other species from OBIGT to the output.
 Another function, \code{\link{logKcomp}}, makes plots to compare equilibrium constants from two files.
 
 }

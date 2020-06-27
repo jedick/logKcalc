@@ -1,10 +1,10 @@
 ---
-title: "Changing T and P and adding species (gold solubility)"
+title: "Changing T and P and adding species (Au complexes)"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{3 - Changing T and P and adding species (gold solubility)}
+  %\VignetteIndexEntry{3 - Changing T and P and adding species (Au complexes)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: logKcalc.bib
@@ -67,14 +67,14 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-#### This vignette shows a worked example for gold solubility diagrams.
+#### This vignette shows a worked example for gold speciation diagrams.
 
 This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
 To calculate the speciation and solubility of gold in hydrothermal solutions requires data over a large temperature range (e.g. 150--600 °C) for hydroxide, chloride, and sulfide complexes with Au [@WBM09].
 Here we add these species to a GWB thermodynamic data file and change the temperature and pressure for log*K* calculations.
 
-The thermodynamic system is defined by `thermo_12elements.tdat`, which is a modfied version of GWB's `thermo.tdat` file reduced to 12 elements.
+The thermodynamic system is defined by `thermo_24elements.tdat`, which is a modfied version of GWB's `thermo.tdat` file reduced to 24 elements.
 As described in the [previous vignette](vig2.html), we start by using `modOBIGT` to make some changes to OBIGT for the calculation.
 If OBIGT is missing any required basis species from the GWB file, they can be added using `addOBIGT` as described previously.
 
@@ -115,5 +115,25 @@ logKcalc(infile, outfile, T = T, P = P, ispecies = ispecies, maxprint = 10)
 
 Because it has a different chemical formula in the GWB file and in OBIGT, pyrrhotite is initially removed from the system.
 However, by listing it in `ispecies`, it is subsequently added with a dissociation reaction corresponding to its chemical formula and thermodynamic properties from OBIGT.
+
+#### Scripts and output of GWB runs.
+
+Figure 2 of @WBM09 shows two speciation diagrams for Au as a function of temperature.
+Both diagrams are made for a solution with 1.5 m NaCl and 0.5 m KCl and with pH set by the quartz--muscovite--K-feldspar (QMK) buffer.
+To perform the calculation in GWB, we first run [this script](QMK.rea) for the React program, which uses the thermodynamic data file created above.
+The first plot below shows that the minerals in the buffer are supersaturated (i.e., remain in excess) at all temperatures; the second plot shows the values of pH in the QMK buffer.
+
+```{r QMK, echo = FALSE, out.width = "100%", out.extra='class="full-width"'}
+include_graphics("QMK.png")
+```
+
+Based on this plot, we choose pH = 4.7 as a representative value to make the following diagrams.
+The [React script for the first diagram](Au_HM_pH4.7.rea) sets up the hematite--magnetite (HM) oxygen fugacity (*f*O~2~) buffer and adds 0.01 mol S to the system.
+The [React script for the second diagram](Au_PPM_pH4.7.rea) sets up the pyrite--pyrrhotite--magnetite (PPM) buffer, which defines both *f*O~2~ and sulfur fugacity (*f*S~2~).
+The mineral abundances are chosen so that all of the minerals in the buffers are supersaturated at all temperatures; for the HM calculation the formation of pyrite and pyrrhotite is suppressed.
+
+```{r Au, echo = FALSE, out.width = "100%", out.extra='class="full-width"'}
+include_graphics("Au_pH4.7.png")
+```
 
 ## References
