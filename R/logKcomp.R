@@ -27,6 +27,26 @@ logKcomp <- function(file1, file2, type = "aqueous", iTP = 2,
   # get the matching indexes for the names
   i1 <- match(names, names(logK1))
   i2 <- match(names, names(logK2))
+  # get *mapped* names of species that are present in both files 20200627
+  map1 <- mapnames(names(logK1))$OBIGT
+  map2 <- mapnames(names(logK2))$OBIGT
+  mappednames <- stats::na.omit(intersect(map1, map2))
+  j1 <- match(mappednames, map1)
+  j2 <- match(mappednames, map2)
+  # remove matching mapped names that already have matching *un*mapped names
+  itxt <- paste(i1,i2)
+  jtxt <- paste(j1,j2)
+  inotmatched <- !jtxt %in% itxt
+  if(any(inotmatched)) {
+    j1 <- j1[inotmatched]
+    j2 <- j2[inotmatched]
+    # add these to the matching index and print update
+    i1 <- c(i1, j1)
+    i2 <- c(i2, j2)
+    for(k in 1:length(j1)) {
+      message(paste(names(logK1)[j1][k], "in file1 matches", names(logK2)[j2][k], "in file2 via mapped name", map1[j1][k]))
+    }
+  }
   # print names of unmatched species 20200616
   not1 <- names(logK1)[-i1]
   if(length(not1) > 0) {

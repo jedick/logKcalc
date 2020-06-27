@@ -42,7 +42,7 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
   if(is.null(ispecies)) return(ADDS)
   if(length(ispecies) == 0) return(ADDS)
   # Set basis species (default logact is 0)
-  CHNOSZ::basis(LOGK$basis$map$CHNOSZ)
+  CHNOSZ::basis(LOGK$basis$map$OBIGT)
   on.exit(CHNOSZ::basis(delete = TRUE))
   # Load species (set logact to 0!)
   CHNOSZ::species(ispecies, 0)

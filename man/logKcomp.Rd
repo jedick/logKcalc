@@ -36,7 +36,7 @@ In this list, \T and \P are numeric values read from the file, and \logK values 
 The values are read from \code{file1} and \code{file2}, and selected for the indicated \code{type} of species and pair of \T and \P values.
 The default for \code{iTP} corresponds to 25 \degC and 1 bar for commonly used data files.
 
-The function prints the names of non-matching species between the two files.
+The function includes only those species that have the same names in both files, or whose \emph{mapped} names (see \code{\link{logKcalc}}) are the same.
 Species are also excluded from the plot (or the returned data frame) if their dissociation reactions are not identical in the two files.
 
 A scatterplot is made by plotting values from \code{file1} on the x axis and the difference between values in \code{file1} and \code{file2} on the y axis.

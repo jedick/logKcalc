@@ -81,5 +81,5 @@ mapnames <- function(GWBnames, type = NULL, na.omit = FALSE, return.processed.na
   }
 
   # return the mapping
-  list(GWB = GWBnames, CHNOSZ = OBIGTnames)
+  list(GWB = GWBnames, OBIGT = OBIGTnames)
 }

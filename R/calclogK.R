@@ -74,7 +74,7 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
     if(type=="redox") {
       # first set the basis species
       OUT$basis$map <- mapnames(LINES[HEAD$ispecies$basis], type = "basis", na.omit = TRUE)
-      basis <- CHNOSZ::basis(OUT$basis$map$CHNOSZ)
+      basis <- CHNOSZ::basis(OUT$basis$map$OBIGT)
       message(paste("The basis has", nrow(basis), "elements:"))
       print(paste(colnames(basis)[1:nrow(basis)], collapse=", "))
       OUT$basis$nNA <- length(HEAD$ispecies$basis) - nrow(basis)
@@ -133,7 +133,7 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
     if(length(speciesOBIGT) > 0) {
       #print(paste("calculating logKs for", length(speciesOBIGT), type, "species ..."))
       logKs <- lapply(1:length(speciesOBIGT), function(i) {
-        rxnCHNOSZ <- mapnames(rxnGWB[[i]]$species)$CHNOSZ
+        rxnCHNOSZ <- mapnames(rxnGWB[[i]]$species)$OBIGT
         coeff <- c(-1, rxnGWB[[i]]$coeff)
         species <- c(speciesOBIGT[i], rxnCHNOSZ)
         # print NA species names for debugging mapping problems

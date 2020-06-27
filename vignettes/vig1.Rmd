@@ -85,7 +85,7 @@ logK <- "log&thinsp;<i>K</i>"
 
 This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
-#### These plots compare the logK values in thermodynamic data files from GWB and K2GWB.
+#### These plots compare the \logK values in thermodynamic data files from GWB and K2GWB.
 
 The file `thermo_24noredox.tdat` was derived from the `thermo.tdat` file distributed with The Geochemist's Workbench® to write all dissociation reactions in terms of the basis species, not with redox couples.
 The file `ThermoGWB_15_6_2020.tdat` was created in K2GWB [@CB05] using the same basis species.
@@ -103,7 +103,7 @@ file1 <- system.file("extdata/ThermoGWB_15_6_2020.tdat", package = "logKcalc")
 file2 <- system.file("extdata/thermo_24noredox.tdat", package = "logKcalc")
 lab1 <- "UNITHERM"
 lab2 <- "thermo.tdat"
-plot1 <- logKcomp(file1, file2, "mineral", 2, lab1, lab2, c(-25, 200), c(-5, 10))
+plot1 <- logKcomp(file1, file2, "mineral", 2, lab1, lab2, c(-25, 150), c(-5, 10))
 ```
 
 <button id="myButton" onclick="myFunction()">Show results</button>
@@ -115,7 +115,7 @@ plot1 <- logKcomp(file1, file2, "mineral", 2, lab1, lab2, c(-25, 200), c(-5, 10)
 The first plot is for 2nd *T*,*P* pair (25 °C); now we make a second plot for the 8th *T*,*P* pair (300 °C).
 
 ```{r logKcomp1-2, message = FALSE, results = "hide", fig.width = 12, fig.height = 6, out.width = "100%", out.extra='class="full-width"', pngquant = pngquant}
-plot2 <- logKcomp(file1, file2, "mineral", 8, lab1, lab2, c(-25, 100))
+plot2 <- logKcomp(file1, file2, "mineral", 8, lab1, lab2, c(-25, 50))
 gridExtra::grid.arrange(plot1, plot2, ncol = 2)
 ```
 

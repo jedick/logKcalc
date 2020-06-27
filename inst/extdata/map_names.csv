@@ -22,7 +22,7 @@ Cordier^anhy,"cordierite,dry"
 Cordier^hydr,"cordierite,hydrous"
 FeO(c),FeO
 Jarosite-K,jarosite
-"Maximum Microcline","microcline,maximum"
+"Maximum Microcline","K-feldspar,low"
 "Sanidine high","sanidine,high"
 Sulfur-Rhmb,sulfur
 As(OH)3,H3AsO3
@@ -56,7 +56,7 @@ Daphnite-7A,"daphnite,7A"
 Dolomite-ord,"dolomite,ordered"
 Epidote-ord,"epidote,ordered"
 K-Feldspar,K-feldspar
-Maximum_Microcline,"microcline,maximum"
+Maximum_Microcline,"K-feldspar,low"
 Sanidine_high,"sanidine,high"
 SiO2(am),"amorphous silica"
 CO(g),"carbon monoxide"

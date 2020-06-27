@@ -16,6 +16,7 @@
 #source("writedat.R")
 #source("addspecies.R")
 #source("nonideal.R")
+#source("readlogK.R")
 
 logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
   T = NULL, P = "Psat", ispecies = NULL, a0_ion = NULL, a0_neutral = 0,

@@ -120,7 +120,7 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
   # logK gives input values for ΔG°r of the reaction
   Grin <- CHNOSZ::convert(logK, "G", TK)
   # Calculate ΔG°r of the dissociation reaction without the reactant species
-  rxnspecies <- mapnames(rxn$species)$CHNOSZ
+  rxnspecies <- mapnames(rxn$species)$OBIGT
   rxncoeff <- rxn$coeff
   Grout <- suppressWarnings(suppressMessages(CHNOSZ::subcrt(rxnspecies, rxncoeff, T = T)$out$G))
   # Calculate ΔG°f of the reactant species
