@@ -7,6 +7,7 @@ readlogK <- function(file, quiet = FALSE) {
   # read the GWB data file
   message(paste("Reading file", file))
   LINES <- readLines(file)
+  LINES <- cleanUTF8(LINES, file)
   # get the header data
   HEAD <- readhead(LINES, quiet = quiet)
   # make a list to hold information on the different types of species

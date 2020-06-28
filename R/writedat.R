@@ -95,6 +95,9 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
         for(nf in 0:1) {
           nspecies <- suppressWarnings(as.numeric(gsub(" ", "", gsub("elements in species", "", LINES[i + 2 + nf]))))
           if(!is.na(nspecies)) break
+          # also look for "element in species" (for gwb_thermoddem_lvl2_no-org_06jun17.txt) 20200628
+          nspecies <- suppressWarnings(as.numeric(gsub(" ", "", gsub("element in species", "", LINES[i + 2 + nf]))))
+          if(!is.na(nspecies)) break
         }
         if(is.na(nspecies)) stop("can't find number of elements in species for ", LINES[i])
         # calculate the line number *after* all the element lines

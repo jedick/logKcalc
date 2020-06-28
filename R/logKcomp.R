@@ -63,8 +63,8 @@ logKcomp <- function(file1, file2, type = "aqueous", iTP = 2,
   logK2 <- logK2[i2]
 
   # check for reaction balance 20200616
-  LINES1 <- readLines(file1)
-  LINES2 <- readLines(file2)
+  LINES1 <- cleanUTF8(readLines(file1), file1)
+  LINES2 <- cleanUTF8(readLines(file2), file2)
   HEAD1 <- readhead(LINES1, quiet = TRUE)
   HEAD2 <- readhead(LINES2, quiet = TRUE)
   ispecies1 <- HEAD1$ispecies[[type]]

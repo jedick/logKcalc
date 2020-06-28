@@ -60,8 +60,8 @@ readrxn <- function(LINES, ihead, i) {
 # also remove formula= (occurs in thermo.com.V8.R6+.tdat) 20200623
 # used in calclogK, modOBIGT, readlogK, writedat
 line2name <- function(LINE) {
-  LINE <- gsub("\ *type=.*", "", LINE)
-  LINE <- gsub("\ *formula=.*", "", LINE)
+  LINE <- gsub("\\ *type=.*", "", LINE)
+  LINE <- gsub("\\ *formula=.*", "", LINE)
   LINE
 }
 
@@ -77,3 +77,13 @@ formatline <- function(values, iline, na.500 = FALSE, ndec = 4) {
   line
 }
 
+# remove lines that have non-UTF8 characters 20200628
+# (needed for gwb_thermoddem_lvl2_no-org_06jun17.txt)
+cleanUTF8 <- function(LINES, file) {
+  LINES <- iconv(LINES, "UTF8", "UTF8")
+  if(any(is.na(LINES))) {
+    warning(paste("removing", sum(is.na(LINES)), "lines from", file, "with non-UTF8 characters"))
+    LINES <- stats::na.omit(LINES)
+  }
+  LINES
+}

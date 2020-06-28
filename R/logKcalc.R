@@ -30,6 +30,7 @@ logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
   if(!file.exists(infile)) stop("file specified by 'infile' doesn't exist")
   # read the GWB data file
   LINES <- readLines(infile)
+  LINES <- cleanUTF8(LINES, infile)
   # get the header data
   HEAD <- readhead(LINES)
   # calculate the logK values for available species

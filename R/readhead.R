@@ -26,11 +26,11 @@ readblock <- function(LINES, ihead, i) {
 
 readhead <- function(LINES, quiet = FALSE) {
   # find header lines before data blocks
-  iT <- grep("^\\*\ temperatures\\s*$", LINES)
-  iP <- grep("^\\*\ pressures\\s*$", LINES)
-  iadh <- grep("^\\*\ debye.*adh", LINES)
-  ibdh <- grep("^\\*\ debye.*bdh", LINES)
-  ibdot <- grep("^\\*\ bdot\\s*$", LINES)
+  iT <- grep("^\\*\\ temperatures\\s*$", LINES)
+  iP <- grep("^\\*\\ pressures\\s*$", LINES)
+  iadh <- grep("^\\*\\ debye.*adh", LINES)
+  ibdh <- grep("^\\*\\ debye.*bdh", LINES)
+  ibdot <- grep("^\\*\\ bdot\\s*$", LINES)
   ico2_1 <- grep("* c co2 1", LINES, fixed = TRUE)
   ico2_2 <- grep("* c co2 2", LINES, fixed = TRUE)
   ico2_3 <- grep("* c co2 3", LINES, fixed = TRUE)
@@ -42,13 +42,15 @@ readhead <- function(LINES, quiet = FALSE) {
   ieh <- grep("* log k for eh reaction", LINES, fixed = TRUE)
   io2 <- grep("* log k for o2 gas solubility", LINES, fixed = TRUE)
   # find header lines before sections
-  jbasis <- grep("basis species$", LINES)
-  jredox <- grep("redox couples$", LINES)
-  jaqueous <- grep("aqueous species$", LINES)
-  jelectron <- grep("free electron$", LINES)
-  jmineral <- grep("minerals$", LINES)
-  jgas <- grep("gases$", LINES)
-  joxide <- grep("oxides$", LINES)
+  # use first match because "minerals$" matches a reference
+  # in gwb_thermoddem_lvl2_no-org_06jun17.txt 20200628
+  jbasis <- grep("basis species$", LINES)[1]
+  jredox <- grep("redox couples$", LINES)[1]
+  jaqueous <- grep("aqueous species$", LINES)[1]
+  jelectron <- grep("free electron$", LINES)[1]
+  jmineral <- grep("minerals$", LINES)[1]
+  jgas <- grep("gases$", LINES)[1]
+  joxide <- grep("oxides$", LINES)[1]
   # find -end- markers
   iend <- grep("^-end-$", LINES)
   # --- find header lines ---
@@ -65,9 +67,12 @@ readhead <- function(LINES, quiet = FALSE) {
   ibasis <- iname[iname > jbasis & iname < jredox]
   iredox <- iname[iname > jredox & iname < jaqueous]
   iaqueous <- iname[iname > jaqueous & iname < jelectron]
-  # in case there is no electron block (as in K2GWB output - dataset format: oct94) 20200610
-  if(length(iaqueous)==0) iaqueous <- iname[iname > jaqueous & iname < jmineral]
   ielectron <- iname[iname > jelectron & iname < jmineral]
+  # in case there is no electron block (as in K2GWB output - dataset format: oct94) 20200610
+  if(is.na(jelectron)) {
+    iaqueous <- iname[iname > jaqueous & iname < jmineral]
+    jelectron <- ielectron <- integer()
+  }
   imineral <- iname[iname > jmineral & iname < jgas]
   igas <- iname[iname > jgas & iname < joxide]
   ioxide <- iname[iname > joxide & iname < utils::tail(iend, 1)]
