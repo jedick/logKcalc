@@ -64,7 +64,7 @@ Both names and formulas of species in OBIGT are searched, but formulas are searc
 
 Species names that are not mapped after these steps are then searched in the names mapping file.
 This file was constructed by identifying unmapped species in \samp{thermo.tdat} and GWB files produced by K2GWB and DBCreate.
-Some of the mapped names are for SUPCRT92 minerals that are not in the default database, so they won't be mapped to the output file unless \code{modOBIGT} is used add these minerals.
+Some names (for feldspars in particular) have multiple entries in this file, to allow mapping to names used in the Berman or SUPCRT92 datasets, which can be selected using \code{\link{modOBIGT}}.
 
 }
 

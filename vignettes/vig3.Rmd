@@ -77,13 +77,13 @@ To calculate the speciation and solubility of gold in hydrothermal solutions req
 Here we add these species to a GWB thermodynamic data file and change the temperature and pressure for `r logK` calculations.
 
 The thermodynamic system is defined by `thermo_12elements.tdat`, which is a modfied version of GWB's `thermo.tdat` file reduced to 12 elements (Al, Au, C, Cl, Fe, H, K, N, Na, O, S, and Si).
-As described in the [previous vignette](vig2.html), we start by using `modOBIGT` to make some changes to OBIGT for the calculation.
-If OBIGT is missing any required basis species from the GWB file, they can be added using `addOBIGT` as described previously.
+As described in the [previous vignette](vig2.html), we start by using `modOBIGT` to include data for steam and additional minerals from SUPCRT92 that are not in the default database.
+If you want to use the SUPCRT92 versions of data for quartz, muscovite, and K-feldspar (and other minerals), use the command with `"noBerman"` instead.
 
 ```{r modOBIGT, message = FALSE}
 reset()
-modOBIGT("noBerman")
 modOBIGT(c("addSUPCRT", "steam"))
+# modOBIGT(c("noBerman", "allSUPCRT", "steam"))
 ```
 
 The `ispecies` argument can be used to identify other species from OBIGT that should be added to the output.

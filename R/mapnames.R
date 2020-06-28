@@ -57,14 +57,19 @@ mapnames <- function(GWBnames, type = NULL, na.omit = FALSE, return.processed.na
     map$OBIGT <- gsub("7A$", "7a", map$OBIGT)
     map$OBIGT <- gsub("14A$", "14a", map$OBIGT)
   }
-  imap <- match(GWBnames, map$GWB)
-  # get the names of the mapped species
-  iimap <- !is.na(imap)
-  mappednames <- map$OBIGT[imap[iimap]]
-  # check that they're actually present in OBIGT 20200614
-  infonames <- suppressMessages(CHNOSZ::info(mappednames))
-  iimap[iimap][is.na(infonames)] <- FALSE
-  OBIGTnames[iimap] <- map$OBIGT[imap[iimap]]
+  # loop over names to deal with multiple matches (Berman/SUPCRT options) 20200628
+  for(i in 1:length(GWBnames)) {
+    imap <- GWBnames[i]==map$GWB
+    if(any(imap)) {
+      # get the names of the mapped species
+      mappednames <- map$OBIGT[imap]
+      # check that they're actually present in OBIGT 20200614
+      infonames <- suppressMessages(CHNOSZ::info(mappednames))
+      # take the first available one
+      mname <- mappednames[!is.na(infonames)][1]
+      OBIGTnames[i] <- mname
+    }
+  }
 
   if(na.omit) {
     # remove species that are NA in CHNOSZ
