@@ -1,31 +1,6 @@
 # logKcalc/addspecies.R
 # Create entries for one or more new species 20200619
 
-# Function to create reaction lines 20200620
-rxnlines <- function(stoich) {
-  # remove species with 0 coefficient
-  stoich <- stoich[, stoich != 0]
-  # create reaction header line
-  rhead <- paste0("     ", ncol(stoich), " species in reaction")
-  # intialize reaction species lines
-  rlines <- character()
-  k <- 0
-  # loop over species
-  for(j in 1:ncol(stoich)) {
-    # start a newline for every three species
-    if((j-1) %% 3 == 0) {
-      k <- k + 1
-      rlines[k] <- "     "
-    }
-    # add coefficient and species name
-    coeff <- sprintf("%8.3f", stoich[, j])
-    sname <- sprintf("%-12s", names(stoich)[j])
-    rlines[k] <- paste0(rlines[k], coeff, " ", sname, " ")
-  }
-  # return header and species lines
-  c(rhead, rlines)
-}
-
 # ispecies: species index in thermo()$obigt
 addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
   # set defaults for a0_ion

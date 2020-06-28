@@ -5,18 +5,18 @@
 # 20200422 jmd first version - calculate logK for redox species
 # 20200429 output logK for redox species
 # 20200503 calculate and output logK for aqueous species
-# 20200523 split out functions readhead, calclogK
+# 2020052u3 split out functions readhead, calclogK
 # 20200524 split out functions mapnames, writedat
 # 20200525 new functions readlogK and logKcomp
 
 ## for debugging:
+#source("utils.R")
 #source("mapnames.R")
 #source("readhead.R")
 #source("calclogK.R")
-#source("writedat.R")
 #source("addspecies.R")
 #source("nonideal.R")
-#source("readlogK.R")
+#source("writedat.R")
 
 logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
   T = NULL, P = "Psat", ispecies = NULL, a0_ion = NULL, a0_neutral = 0,

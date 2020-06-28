@@ -2,34 +2,6 @@
 # calculate logK values for inclusion in data file for GWB
 # 20200525 jmd initial version
 
-# a function to read the *reaction* coefficients and species
-readrxn <- function(LINES, ihead, i) {
-  # find the next header line after this one
-  # skip at least one line for "*    formula=" after the name 20200611
-  j <- min(ihead[ihead > i + 1])
-  # get all lines between lines i and j
-  k <- (i + 1):(j - 1)
-  thisdat <- LINES[k]
-  # find the line describing the reaction
-  jrxn <- grep("in\\ reaction", thisdat)
-  # get the number of species in the reaction
-  desc <- strsplit(thisdat[jrxn], " ")[[1]]
-  desc <- desc[! desc == ""]
-  nspecies <- as.numeric(desc[1])
-  # calculate the lines of data for the reaction
-  nlines <- ceiling(nspecies / 3)
-  irxn <- jrxn + 1:nlines
-  # parse the reaction data
-  rxn <- thisdat[irxn]
-  rxn <- strsplit(rxn, " ")
-  rxn <- lapply(rxn, function(x) x[nzchar(x)])
-  rxn <- unlist(rxn)
-  # odd values are coefficients, even are species
-  coeff <- as.numeric(rxn[c(TRUE, FALSE)])
-  species <- rxn[c(FALSE, TRUE)]
-  list(coeff = coeff, species = species)
-}
-
 # a function to print messages about unavailable species,
 # and possibly the species names themselves 20200615
 printNA <- function(start, end, type, species, maxprint) {

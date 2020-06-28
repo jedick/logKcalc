@@ -2,17 +2,6 @@
 # write a GWB data file with updated logK values
 # 20200524
 
-# a function to format values on separate lines 20200610
-formatline <- function(values, iline, na.500 = FALSE, ndec = 4) {
-  if(iline==1) values <- values[1:4]
-  if(iline==2) values <- values[5:8]
-  # use 500 for NA 20200526
-  if(na.500) values[is.na(values)] <- 500
-  if(ndec == 4) line <- paste0("   ", paste(sprintf("%12.4f", values), collapse = ""))
-  if(ndec == 6) line <- paste0("   ", paste(sprintf("%12.6f", values), collapse = ""))
-  line
-}
-
 writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion = NULL) {
   # put together the output
   # start with empty lines
