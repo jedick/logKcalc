@@ -76,14 +76,14 @@ This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$V
 To calculate the speciation and solubility of gold in hydrothermal solutions requires data over a large temperature range (e.g. 150--600 °C) for hydroxide, chloride, and sulfide complexes with Au [@WBM09].
 Here we add these species to a GWB thermodynamic data file and change the temperature and pressure for `r logK` calculations.
 
-The thermodynamic system is defined by `thermo_24elements.tdat`, which is a modfied version of GWB's `thermo.tdat` file reduced to 24 elements.
+The thermodynamic system is defined by `thermo_12elements.tdat`, which is a modfied version of GWB's `thermo.tdat` file reduced to 12 elements (Al, Au, C, Cl, Fe, H, K, N, Na, O, S, and Si).
 As described in the [previous vignette](vig2.html), we start by using `modOBIGT` to make some changes to OBIGT for the calculation.
 If OBIGT is missing any required basis species from the GWB file, they can be added using `addOBIGT` as described previously.
 
 ```{r modOBIGT, message = FALSE}
 reset()
 modOBIGT("noBerman")
-modOBIGT(c("addSUPCRT", "steam", "antigorite/2"))
+modOBIGT(c("addSUPCRT", "steam"))
 ```
 
 The `ispecies` argument can be used to identify other species from OBIGT that should be added to the output.
@@ -105,7 +105,7 @@ P <- 1000
 Now we perform the conversion.
 
 ```{r logKcalc, eval = FALSE}
-infile <- system.file("extdata/thermo_24elements.tdat", package = "logKcalc")
+infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
 outfile <- file.path(tempdir(), "thermo_OBIGT.tdat")
 logKcalc(infile, outfile, T = T, P = P, ispecies = ispecies, maxprint = 10)
 ```

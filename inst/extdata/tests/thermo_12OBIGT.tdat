@@ -3,11 +3,11 @@ dataset format: jan19
 activity model: debye-huckel
 fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
-* File generated at Sat Jun 27 07:39:08 2020
+* File generated at Sun Jun 28 06:47:31 2020
 * by logKcalc 0.1.0 with CHNOSZ 1.3.6-9.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat
-* with 7 added and 77 unavailable species.
+* with 7 added and 92 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -51,6 +51,7 @@ fugacity model: tsonopoulos
 
    12 elements
 
+Aluminum        (Al)          mole wt.=   26.9815 g
 Gold            (Au)          mole wt.=  196.9665 g
 Carbon          (C )          mole wt.=   12.0110 g
 Chlorine        (Cl)          mole wt.=   35.4530 g
@@ -60,7 +61,6 @@ Potassium       (K )          mole wt.=   39.0983 g
 Nitrogen        (N )          mole wt.=   14.0067 g
 Sodium          (Na)          mole wt.=   22.9898 g
 Oxygen          (O )          mole wt.=   15.9994 g
-Phosphorus      (P )          mole wt.=   30.9738 g
 Sulfur          (S )          mole wt.=   32.0600 g
 Silicon         (Si)          mole wt.=   28.0850 g
 
@@ -73,6 +73,12 @@ H2O
      2 elements in species
         2.000 H               1.000 O       
 * [HGK84, JOH92]
+
+Al+++
+     charge=  3      ion size=  9.0 A      mole wt.=   26.9815 g
+     1 elements in species
+        1.000 Al      
+* [TS01]
 
 Au+
      charge=  1      ion size=  2.5 A      mole wt.=  196.9665 g
@@ -102,12 +108,6 @@ HCO3-
      charge= -1      ion size=  4.5 A      mole wt.=   61.0171 g
      3 elements in species
         1.000 C               1.000 H               3.000 O       
-* [SH88]
-
-HPO4--
-     charge= -2      ion size=  4.0 A      mole wt.=   95.9793 g
-     3 elements in species
-        1.000 H               4.000 O               1.000 P       
 * [SH88]
 
 K+
@@ -237,7 +237,47 @@ NO2-
 
 -end-
 
-   41 aqueous species
+   38 aqueous species
+
+Al(OH)2+
+     charge=  1      ion size=  4.0 A      mole wt.=   60.9961 g
+     3 species in reaction
+       -2.000 H+              1.000 Al+++           2.000 H2O     
+        12.7368     10.9206      8.8284      6.9240
+         5.0452      3.5342      2.2543      1.1175
+* [TS01]
+
+Al(OH)3
+     charge=  0      ion size=  4.0 A      mole wt.=   78.0034 g
+     3 species in reaction
+       -3.000 H+              1.000 Al+++           3.000 H2O     
+        19.5033     17.0440     14.2222     11.6680
+         9.1680      7.1774      5.5082      4.0333
+* [TS01]
+
+Al(OH)4-
+     charge= -1      ion size=  4.0 A      mole wt.=   95.0107 g
+     3 species in reaction
+       -4.000 H+              1.000 Al+++           4.000 H2O     
+        25.7420     22.8506     19.5763     16.6250
+        13.7468     11.4826      9.6454      8.1492
+* [TS01]
+
+AlOH++
+     charge=  2      ion size=  5.0 A      mole wt.=   43.9888 g
+     3 species in reaction
+       -1.000 H+              1.000 Al+++           1.000 H2O     
+         5.8388      4.9644      3.9560      3.0372
+         2.1289      1.3962      0.7732      0.2197
+* [TS01]
+
+AlSO4+
+     charge=  1      ion size=  4.0 A      mole wt.=  123.0391 g
+     2 species in reaction
+        1.000 Al+++           1.000 SO4--   
+        -3.0543     -3.1659     -3.7526     -4.6975
+        -6.0828     -7.6248     -9.3615    -11.5089
+* [TS01]
 
 AuCl2-
      charge= -1      ion size=  4.0 A      mole wt.=  267.8725 g
@@ -319,22 +359,6 @@ FeOH++
          0.0794     -0.4433     -0.8855     -1.2837
 * [SSWS97]
 
-H2P2O7--
-     charge= -2      ion size=  4.0 A      mole wt.=  175.9591 g
-     3 species in reaction
-       -1.000 H2O             2.000 H+              2.000 HPO4--  
-       -11.8902    -12.0709    -12.6291    -13.4703
-       -14.6882    -16.0462    -17.5682    -19.3712
-* [SSWS97]
-
-H2PO4-
-     charge= -1      ion size=  4.0 A      mole wt.=   96.9872 g
-     2 species in reaction
-        1.000 HPO4--          1.000 H+      
-        -7.3231     -7.2055     -7.1888     -7.2876
-        -7.5259     -7.8671     -8.3189     -8.9357
-* [SH88]
-
 H2S(aq)
      charge=  0      ion size=  4.0 A      mole wt.=   34.0758 g
      2 species in reaction
@@ -342,30 +366,6 @@ H2S(aq)
         -7.4159     -6.9878     -6.6467     -6.4827
         -6.4960     -6.6831     -7.0225     -7.5536
 * [SHS89]
-
-H3P2O7-
-     charge= -1      ion size=  4.0 A      mole wt.=  176.9670 g
-     3 species in reaction
-       -1.000 H2O             3.000 H+              2.000 HPO4--  
-       -14.2299    -14.4166    -15.0276    -15.9654
-       -17.3495    -18.9315    -20.7632    -23.0356
-* [SSWS97]
-
-H3PO4
-     charge=  0      ion size=  4.0 A      mole wt.=   97.9951 g
-     2 species in reaction
-        1.000 HPO4--          2.000 H+      
-        -9.3933     -9.3752     -9.5434     -9.8805
-       -10.4425    -11.1429    -12.0169    -13.1928
-* [SHS89]
-
-H4P2O7
-     charge=  0      ion size=  4.0 A      mole wt.=  177.9749 g
-     3 species in reaction
-       -1.000 H2O             4.000 H+              2.000 HPO4--  
-       -15.6710    -15.9559    -16.7292    -17.8656
-       -19.5151    -21.3956    -23.5932    -26.3870
-* [SSWS97]
 
 HCH3COO
      charge=  0      ion size=  4.0 A      mole wt.=   60.0524 g
@@ -389,14 +389,6 @@ HNO2
         1.000 H+              1.000 NO2-    
         -3.4897     -3.2252     -2.9908     -2.8441
         -2.7852     -2.8365     -2.9999     -3.3278
-* [SSWS97]
-
-HP2O7---
-     charge= -3      ion size=  4.0 A      mole wt.=  174.9512 g
-     3 species in reaction
-       -1.000 H2O             1.000 H+              2.000 HPO4--  
-        -5.2041     -5.4739     -6.0274     -6.7605
-        -7.7412     -8.7662     -9.8471    -11.0415
 * [SSWS97]
 
 HSO4-
@@ -478,22 +470,6 @@ OH-
         14.9398     13.9951     13.0273     12.2551
         11.6308     11.2836     11.1675     11.3002
 * [SH88]
-
-P2O7----
-     charge= -4      ion size=  4.0 A      mole wt.=  173.9433 g
-     2 species in reaction
-       -1.000 H2O             2.000 HPO4--  
-         4.2851      3.8353      3.3291      2.8753
-         2.4397      2.1086      1.8549      1.6602
-* [SSWS97]
-
-PO4---
-     charge= -3      ion size=  4.0 A      mole wt.=   94.9714 g
-     2 species in reaction
-       -1.000 H+              1.000 HPO4--  
-        12.6143     12.3218     12.1389     12.1176
-        12.2727     12.5798     13.0291     13.6570
-* [SSWS97, SH88]
 
 S2--
      charge= -2      ion size=  4.0 A      mole wt.=   64.1200 g
@@ -587,7 +563,27 @@ e-
 
 -end-
 
-   21 minerals
+   44 minerals
+
+Albite                             type= feldspar
+     formula= NaAlSi3O8
+     mole vol.=  100.2500 cc      mole wt.=  262.2230 g
+     5 species in reaction
+        2.000 H2O             1.000 Na+             1.000 Al+++   
+        3.000 SiO2(aq)       -4.000 H+      
+         1.3042      0.9502     -0.0617     -1.2246
+        -2.4563     -3.4690     -4.3565     -5.2264
+* [Ber88, SHD91]
+
+Alunite                            type= sulfate
+     formula= KAl3(OH)6(SO4)2
+     mole vol.=  293.6000 cc      mole wt.=  414.2019 g
+     5 species in reaction
+        6.000 H2O             1.000 K+              3.000 Al+++   
+       -6.000 H+              2.000 SO4--   
+         3.1091     -0.4205     -4.9307     -9.4774
+       -14.5454    -19.2775    -24.0211    -29.2060
+* [HDNB78]
 
 Amrph^silica                       type= silica
      formula= SiO2
@@ -598,6 +594,45 @@ Amrph^silica                       type= silica
         -1.9796     -1.8190     -1.6928     -1.6042
 * [HDNB78]
 
+Analcime                           type= zeolite
+     formula= NaAlSi2O6:H2O
+     mole vol.=   97.1000 cc      mole wt.=  220.1539 g
+     5 species in reaction
+        3.000 H2O             1.000 Na+             1.000 Al+++   
+        2.000 SiO2(aq)       -4.000 H+      
+         8.0883      6.9241      5.1955      3.4774
+         1.7455      0.3550     -0.8300     -1.9316
+* [HDNB78]
+
+Andalusite                         type= 
+     formula= Al2SiO5
+     mole vol.=   51.5300 cc      mole wt.=  162.0456 g
+     4 species in reaction
+        3.000 H2O             2.000 Al+++           1.000 SiO2(aq)
+       -6.000 H+      
+        17.1181     13.6784      9.4740      5.5131
+         1.5061     -1.7953     -4.6669     -7.3100
+* [Ber88]
+
+Annite                             type= mica
+     formula= KFe3AlSi3O10(OH)2
+     mole vol.=  154.3000 cc      mole wt.=  511.8859 g
+     6 species in reaction
+      -10.000 H+              3.000 Fe++            3.000 SiO2(aq)
+        1.000 Al+++           6.000 H2O             1.000 K+      
+        33.3717     29.4257     24.2884     19.3723
+        14.4312     10.4205      6.9688      3.7630
+* [Ber90, SHD91]
+
+Boehmite                           type= hydroxide
+     formula= AlOOH
+     mole vol.=   19.5350 cc      mole wt.=   59.9882 g
+     3 species in reaction
+        2.000 H2O             1.000 Al+++          -3.000 H+      
+         9.4300      7.6105      5.5065      3.5803
+         1.6597      0.0873     -1.2780     -2.5328
+* [HRA91, ZZL+16]
+
 Chalcedony                         type= silica
      formula= SiO2
      mole vol.=   22.6880 cc      mole wt.=   60.0843 g
@@ -607,6 +642,15 @@ Chalcedony                         type= silica
         -2.5280     -2.2669     -2.0512     -1.8760
 * [HDNB78]
 
+Corundum                           type= oxide
+     formula= Al2O3
+     mole vol.=   25.5750 cc      mole wt.=  101.9613 g
+     3 species in reaction
+        3.000 H2O             2.000 Al+++          -6.000 H+      
+        22.3975     18.2677     13.4713      9.0545
+         4.6283      0.9973     -2.1460     -5.0118
+* [Ber88]
+
 Cristobalite                       type= silica
      formula= SiO2
      mole vol.=   25.7400 cc      mole wt.=   60.0843 g
@@ -615,6 +659,35 @@ Cristobalite                       type= silica
         -4.0213     -3.4488     -2.9921     -2.6605
         -2.3644     -2.1326     -1.9402    500.0000
 * [HDNB78]
+
+Daphnite-14A                       type= chlorite
+     formula= Fe5Al2Si3O10(OH)8
+     mole vol.=    0.0000 cc      mole wt.=  713.5070 g
+     5 species in reaction
+      -16.000 H+              5.000 Fe++            3.000 SiO2(aq)
+        2.000 Al+++          12.000 H2O     
+        58.9740     51.0983     41.4453     32.4191
+        23.4095     16.0995      9.8117      4.0153
+* [HDNB78, SLOP98]
+
+Dawsonite                          type= carbonate
+     formula= NaAlCO3(OH)2
+     mole vol.=   59.3000 cc      mole wt.=  143.9951 g
+     5 species in reaction
+       -3.000 H+              1.000 Na+             1.000 Al+++   
+        1.000 HCO3-           2.000 H2O     
+         6.2554      4.9687      3.4287      1.9752
+         0.4576     -0.8833     -2.1845     -3.5892
+* [ZZL+16, RH95]
+
+Diaspore                           type= hydroxide
+     formula= AlHO2
+     mole vol.=   17.7600 cc      mole wt.=   59.9882 g
+     3 species in reaction
+        2.000 H2O             1.000 Al+++          -3.000 H+      
+         8.9585      7.1865      5.1378      3.2630
+         1.3940     -0.1369     -1.4684     -2.6952
+* [Ber88]
 
 Fayalite                           type= olivine
      formula= Fe2SiO4
@@ -644,6 +717,15 @@ Ferrosilite                        type= pyroxene
          8.6961      7.8180      6.6080      5.4235
          4.2250      3.2560      2.4317      1.6755
 * [Ber88]
+
+Gibbsite                           type= hydroxide
+     formula= Al(OH)3
+     mole vol.=   31.9560 cc      mole wt.=   78.0034 g
+     3 species in reaction
+        3.000 H2O             1.000 Al+++          -3.000 H+      
+         9.3858      7.7318      5.8388      4.1266
+         2.4361      1.0570     -0.1482     -1.2733
+* [RHF78, ZZL+16]
 
 Goethite                           type= hydroxide
      formula= FeOOH
@@ -702,6 +784,16 @@ Hematite                           type= oxide
         -6.4643     -8.3389    -10.0379    -11.6965
 * [Ber88]
 
+Jadeite                            type= pyroxene
+     formula= NaAl(SiO3)2
+     mole vol.=   60.4000 cc      mole wt.=  202.1387 g
+     5 species in reaction
+        2.000 H2O             1.000 Na+             1.000 Al+++   
+        2.000 SiO2(aq)       -4.000 H+      
+         7.5006      6.5250      5.0003      3.4541
+         1.8736      0.5852     -0.5333     -1.5958
+* [Ber88, SHD91]
+
 Jarosite-K                         type= sulfate
      formula= KFe3(SO4)2(OH)6
      mole vol.=  153.2000 cc      mole wt.=  500.7983 g
@@ -711,6 +803,46 @@ Jarosite-K                         type= sulfate
         -9.1781    -11.1453    -13.8117    -16.6318
        -19.9666    -23.3117    -26.9369    -31.2361
 * [SAJ00]
+
+K-feldspar                         type= feldspar
+     formula= KAlSi3O8
+     mole vol.=  108.8700 cc      mole wt.=  278.3315 g
+     5 species in reaction
+        2.000 H2O             1.000 K+              1.000 Al+++   
+        3.000 SiO2(aq)       -4.000 H+      
+        -1.3602     -1.3290     -1.9137     -2.7076
+        -3.6034     -4.3760     -5.0880     -5.8251
+* [Ber88, SHD91]
+
+Kalsilite                          type= feldspathoid
+     formula= KAlSiO4
+     mole vol.=   59.8900 cc      mole wt.=  158.1629 g
+     5 species in reaction
+        2.000 H2O             1.000 K+              1.000 Al+++   
+        1.000 SiO2(aq)       -4.000 H+      
+        12.5008     10.8745      8.7847      6.7834
+         4.7570      3.0963      1.6577      0.3268
+* [HDNB78]
+
+Kaolinite                          type= 7a-clay
+     formula= Al2Si2O5(OH)4
+     mole vol.=   99.5200 cc      mole wt.=  258.1603 g
+     4 species in reaction
+        5.000 H2O             2.000 Al+++           2.000 SiO2(aq)
+       -6.000 H+      
+         6.9402      4.8858      2.1113     -0.5851
+        -3.3283     -5.5923     -7.5861     -9.4784
+* [Ber88]
+
+Kyanite                            type= 
+     formula= Al2SiO5
+     mole vol.=   44.0900 cc      mole wt.=  162.0456 g
+     4 species in reaction
+        3.000 H2O             2.000 Al+++           1.000 SiO2(aq)
+       -6.000 H+      
+        16.7765     13.4045      9.2786      5.3895
+         1.4528     -1.7939     -4.6222     -7.2313
+* [Ber88]
 
 Magnetite                          type= oxide
      formula= Fe3O4
@@ -722,6 +854,16 @@ Magnetite                          type= oxide
         -0.7493     -3.7794     -6.4616     -9.0090
 * [Ber88]
 
+Maximum Microcline                 type= feldspar
+     formula= KAlSi3O8
+     mole vol.=  108.7400 cc      mole wt.=  278.3315 g
+     5 species in reaction
+        2.000 H2O             1.000 K+              1.000 Al+++   
+        3.000 SiO2(aq)       -4.000 H+      
+        -1.3602     -1.3290     -1.9134     -2.7055
+        -3.5957     -4.3586     -5.0573     -5.7782
+* [Ber88, SHD91]
+
 Melanterite                        type= sulfate
      formula= FeSO4:7H2O
      mole vol.=  613.1000 cc      mole wt.=  278.0110 g
@@ -730,6 +872,36 @@ Melanterite                        type= sulfate
         -2.1361     -2.0177     -1.7597     -1.3369
         -0.7224     -0.1280      0.3210      0.4429
 * [PK95]
+
+Muscovite                          type= mica
+     formula= KAl3Si3O10(OH)2
+     mole vol.=  140.7100 cc      mole wt.=  398.3080 g
+     5 species in reaction
+        6.000 H2O             1.000 K+              3.000 Al+++   
+        3.000 SiO2(aq)      -10.000 H+      
+        14.7400     11.3452      6.7915      2.3573
+        -2.1772     -5.9395     -9.2604    -12.4095
+* [Ber88, SHD91]
+
+Nepheline                          type= feldspathoid
+     formula= NaAlSiO4
+     mole vol.=   54.1600 cc      mole wt.=  142.0544 g
+     5 species in reaction
+        2.000 H2O             1.000 Na+             1.000 Al+++   
+        1.000 SiO2(aq)       -4.000 H+      
+        15.8340     13.7764     11.2053      8.7832
+         6.3654      4.4151      2.7558      1.2504
+* [HDNB78]
+
+Paragonite                         type= mica
+     formula= NaAl3Si3O10(OH)2
+     mole vol.=  132.5300 cc      mole wt.=  382.1995 g
+     5 species in reaction
+        6.000 H2O             1.000 Na+             3.000 Al+++   
+        3.000 SiO2(aq)      -10.000 H+      
+        17.2584     13.5284      8.6069      3.8602
+        -0.9536     -4.9132     -8.3780    -11.6373
+* [Ber88, SHD91]
 
 Pyrite                             type= sulfide
      formula= FeS2
@@ -741,6 +913,16 @@ Pyrite                             type= sulfide
        -20.0243    -19.3946    -19.2757    -19.7393
 * [HDNB78]
 
+Pyrophyllite                       type= mica
+     formula= Al2Si4O10(OH)2
+     mole vol.=  126.6000 cc      mole wt.=  360.3137 g
+     4 species in reaction
+        4.000 H2O             2.000 Al+++           4.000 SiO2(aq)
+       -6.000 H+      
+        -0.6530     -1.6759     -3.6859     -5.8743
+        -8.1999    -10.1582    -11.9123    -13.6267
+* [Ber88]
+
 Quartz                             type= silica
      formula= SiO2
      mole vol.=   22.6880 cc      mole wt.=   60.0843 g
@@ -750,6 +932,16 @@ Quartz                             type= silica
         -2.7270     -2.4455     -2.2132     -2.0242
 * [Ber88]
 
+Sanidine high                      type= feldspar
+     formula= KAlSi3O8
+     mole vol.=  109.0000 cc      mole wt.=  278.3315 g
+     5 species in reaction
+        2.000 H2O             1.000 K+              1.000 Al+++   
+        3.000 SiO2(aq)       -4.000 H+      
+         1.1398      0.8997      0.0037     -1.0756
+        -2.2530     -3.2463     -4.1341     -5.0128
+* [HDNB78]
+
 Siderite                           type= carbonate
      formula= FeCO3
      mole vol.=   28.6300 cc      mole wt.=  115.8562 g
@@ -758,6 +950,16 @@ Siderite                           type= carbonate
          0.2914     -0.1920     -0.8309     -1.4966
         -2.2680     -3.0227     -3.8214     -4.7582
 * [HDNB78, Hel85]
+
+Sillimanite                        type= 
+     formula= Al2SiO5
+     mole vol.=   49.9000 cc      mole wt.=  162.0456 g
+     4 species in reaction
+        3.000 H2O             2.000 Al+++           1.000 SiO2(aq)
+       -6.000 H+      
+        17.6253     14.1235      9.8476      5.8216
+         1.7513     -1.5994     -4.5099     -7.1847
+* [Ber88]
 
 Sulfur-Rhmb                        type= native
      formula= S
@@ -880,6 +1082,11 @@ ammonia
 
    8 oxides
 
+Al2O3
+     mole wt.=  101.9616 g
+     3 species in reaction
+       -6.000 H+              2.000 Al+++           3.000 H2O     
+
 Fe2O3
      mole wt.=  159.6923 g
      3 species in reaction
@@ -904,11 +1111,6 @@ Na2O
      mole wt.=   61.9810 g
      3 species in reaction
        -2.000 H+              2.000 Na+             1.000 H2O     
-
-P2O5
-     mole wt.=  141.9430 g
-     3 species in reaction
-       -3.000 H2O             2.000 HPO4--          4.000 H+      
 
 SiO2
      mole wt.=   60.0836 g
@@ -943,6 +1145,11 @@ Na$_2$O-K$_2$O-CaO-MgO-FeO-Fe$_2$O$_3$-Al$_2$O$_3$-SiO$_2$-TiO$_2$-H$_2$O-CO$_2$
 _Journal of Petrology_, *29*(2), 445-522. doi: 10.1093/petrology/29.2.445 (URL:
 https://doi.org/10.1093/petrology/29.2.445).
 
+[Ber90]
+Berman RG (1990). “Mixing properties of Ca-Mg-Fe-Mn garnets.” _American
+Mineralogist_, *75*(3-4), 328-344. ISSN 0003-004X, <URL:
+http://ammin.geoscienceworld.org/content/75/3-4/328>.
+
 [GKL02]
 Goldberg RN, Kishore N, Lennen RM (2002). “Thermodynamic quantities for the
 ionization reactions of buffers.” _Journal of Physical and Chemical Reference
@@ -959,6 +1166,12 @@ Haar L, Gallagher JS, Kell GS (1984). _NBS/NRC Steam Tables: Thermodynamic and
 Transport Properties and Computer Programs for Vapor and Liquid States of Water
 in SI Units_. Hemisphere Publishing Corporation, Washington, D. C. <URL:
 http://www.worldcat.org/oclc/858456124>.
+
+[HRA91]
+Hemingway BS, Robie RA, Apps JA (1991). “Revised values for the thermodynamic
+properties of boehmite, AlO(OH) , and related species and phases in the system
+Al-H-O.” _American Mineralogist_, *76*(3-4), 445-457. <URL:
+https://pubs.er.usgs.gov/publication/70016664>.
 
 [Hel85]
 Helgeson HC (1985). “Errata. II. Thermodynamics of minerals, reactions, and
@@ -1026,6 +1239,18 @@ nonelectrolytes.” _Geochimica et Cosmochimica Acta_, *65*(21), 3879-3900. doi:
 10.1016/S0016-7037(01)00678-0 (URL:
 https://doi.org/10.1016/S0016-7037(01)00678-0).
 
+[RH95]
+Robie RA, Hemingway BS (1995). _Thermodynamic Properties of Minerals and Related
+Substances at 298.15 K and 1 Bar (10\textsuperscript{5} Pascals) Pressure and at
+Higher Temperatures_, series Bulletin 2131. U. S. Geological Survey, Washington,
+D. C. doi: 10.3133/b2131 (URL: https://doi.org/10.3133/b2131).
+
+[RHF78]
+Robie RA, Hemingway BS, Fisher JR (1978). _Thermodynamic Properties of Minerals
+and Related Substances at 298.15 K and 1 Bar ($10^5$ Pascals) Pressure and at
+Higher Temperatures_, series Bulletin 1452. U. S. Geological Surv. <URL:
+https://pubs.er.usgs.gov/publication/b1452>.
+
 [SAJ00]
 Stoffregen RE, Alpers CN, Jambor JL (2000). “Alunite-jarosite crystallography,
 thermodynamics, and geochronology.” In _Sulfate Minerals: Crystallography,
@@ -1040,6 +1265,12 @@ algorithms for ionic species and equation of state predictions to 5 kb and
 1000°C.” _Geochimica et Cosmochimica Acta_, *52*(8), 2009-2036. doi:
 10.1016/0016-7037(88)90181-0 (URL:
 https://doi.org/10.1016/0016-7037(88)90181-0).
+
+[SHD91]
+Sverjensky DA, Hemley JJ, D'Angelo WM (1991). “Thermodynamic assessment of
+hydrothermal alkali feldspar-mica-aluminosilicate equilibria.” _Geochimica et
+Cosmochimica Acta_, *55*(4), 989-1004. doi: 10.1016/0016-7037(91)90157-Z (URL:
+https://doi.org/10.1016/0016-7037(91)90157-Z).
 
 [SHS89]
 Shock EL, Helgeson HC, Sverjensky DA (1989). “Calculation of the thermodynamic
@@ -1080,6 +1311,12 @@ constants at high temperatures and pressures.” _American Journal of Science_,
 *295*(5), 496-580. doi: 10.2475/ajs.295.5.496 (URL:
 https://doi.org/10.2475/ajs.295.5.496).
 
+[TS01]
+Tagirov B, Schott J (2001). “Aluminum speciation in crustal fluids revisited.”
+_Geochimica et Cosmochimica Acta_, *65*(21), 3965-3992. doi:
+10.1016/S0016-7037(01)00705-0 (URL:
+https://doi.org/10.1016/S0016-7037(01)00705-0).
+
 [TZA97]
 Tagirov BR, Zotov AV, Akinfiev NN (1997). “Experimental study of dissociation of
 HCl from 350 to 500°C and from 500 to 2500 bars: Thermodynamic properties of
@@ -1093,6 +1330,12 @@ Nuttall RL (1982). “The NBS tables of chemical thermodynamic properties.
 Selected values for inorganic and C$_1$ and C$_2$ organic substances in SI
 units.” _Journal of Physical and Chemical Reference Data_, *11*(Suppl. 2),
 1-392. <URL: https://srd.nist.gov/JPCRD/jpcrdS2Vol11.pdf>.
+
+[ZZL+16]
+Zimmer K, Zhang Y, Lu P, Chen Y, Zhang G, Dalkilic M, Zhu C (2016). “SUPCRTBL: A
+revised and extended thermodynamic dataset and software package of SUPCRT92.”
+_Computers \& Geosciences_, *90*, 97-111. ISSN 0098-3004, doi:
+10.1016/j.cageo.2016.02.013 (URL: https://doi.org/10.1016/j.cageo.2016.02.013).
 
 [electron]
 OBIGT (2006). “Non-zero entropy of the electron based on the hydrogen-ion
