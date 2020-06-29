@@ -51,6 +51,8 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ## logK with a thin space 20200627
 logK <- "log&thinsp;<i>K</i>"
+## run reset() here so we don't use the DEW model (from vig4.Rmd)
+reset()
 ```
 
 #### This vignette shows how to use data for species from a GWB file in a diagram made with CHNOSZ.
