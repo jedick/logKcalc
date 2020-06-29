@@ -61,8 +61,8 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       ref1 <- iinfo$ref1
       ref2 <- iinfo$ref2
       # remove suffixes
-      OUT$basis$ref1 <- sapply(strsplit(sapply(strsplit(ref1, "\\."), "[", 1), " "), "[", 1)
-      OUT$basis$ref2 <- sapply(strsplit(sapply(strsplit(ref2, "\\."), "[", 1), " "), "[", 1)
+      OUT$basis$ref1 <- sapply(strsplit(sapply(strsplit(ref1, "\\.[0-9]+"), "[", 1), " "), "[", 1)
+      OUT$basis$ref2 <- sapply(strsplit(sapply(strsplit(ref2, "\\.[0-9]+"), "[", 1), " "), "[", 1)
       # remove the basis species so that incorrect reactions for other
       # types of species are not automatically balanced 20200611
       CHNOSZ::basis(delete = TRUE)
@@ -168,8 +168,8 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       ref1 <- iinfo$ref1
       ref2 <- iinfo$ref2
       # remove suffixes
-      ref1 <- sapply(strsplit(sapply(strsplit(ref1, "\\."), "[", 1), " "), "[", 1)
-      ref2 <- sapply(strsplit(sapply(strsplit(ref2, "\\."), "[", 1), " "), "[", 1)
+      ref1 <- sapply(strsplit(sapply(strsplit(ref1, "\\.[0-9]+"), "[", 1), " "), "[", 1)
+      ref2 <- sapply(strsplit(sapply(strsplit(ref2, "\\.[0-9]+"), "[", 1), " "), "[", 1)
       names(logKs) <- speciesGWB
     } else ref1 <- ref2 <- logKs <- NULL
     # get number of unavailable species

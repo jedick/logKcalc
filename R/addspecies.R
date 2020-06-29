@@ -87,12 +87,12 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
     refline <- "* no references available"
     r1 <- CHNOSZ::info(ispecies[i], check.it = FALSE)$ref1
     # remove suffixes
-    r1 <- sapply(strsplit(sapply(strsplit(r1, "\\."), "[", 1), " "), "[", 1)
+    r1 <- sapply(strsplit(sapply(strsplit(r1, "\\.[0-9]+"), "[", 1), " "), "[", 1)
     if(!is.na(r1)) {
       ADDS[[type]]$refs <- c(ADDS[[type]]$refs, r1)
       refline <- paste0("* [", r1, "]")
       r2 <- CHNOSZ::info(ispecies[i], check.it = FALSE)$ref2
-      r2 <- sapply(strsplit(sapply(strsplit(r2, "\\."), "[", 1), " "), "[", 1)
+      r2 <- sapply(strsplit(sapply(strsplit(r2, "\\.[0-9]+"), "[", 1), " "), "[", 1)
       if(!is.na(r2)) {
         ADDS[[type]]$refs <- c(ADDS[[type]]$refs, r2)
         refline <- paste0("* [", r1, ", ", r2, "]")

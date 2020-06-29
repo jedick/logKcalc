@@ -32,7 +32,7 @@ getlines <- function(file, do.rm = FALSE) {
     }
   }
   # exclude lines with the timestamp and package versions
-  lines[-(5:7)]
+  lines[-(7:9)]
 }
 
 test_that("Adding duplicate species produces an error", {
@@ -62,7 +62,7 @@ test_that("Modifying the database and adding species to the output work as expec
   expect_identical(outlines, reflines)
 })
 
-test_that("Changing the temperature and Debye-Hückel method work as expected", {
+test_that("Changing the temperature, water model, and Debye-Hückel method work as expected", {
   # process the thermo_12elements.tdat file
   infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
   outfile <- file.path(tempdir(), "thermo_12OBIGT_bgamma.tdat")
@@ -72,7 +72,8 @@ test_that("Changing the temperature and Debye-Hückel method work as expected", 
   addOBIGT("AuCl4-")
   # add a selection of aqueous, mineral and gas species
   ispecies <- info(c("glycinate", "C2H4", "AuCl", "Au(OH)2-", "Au(HS)2-", "pyrrhotite", "ammonia"))
-  # set T and P
+  # set T and P (1000 bar is the minimum pressure for the DEW model in CHNOSZ)
+  water("DEW")
   T <- seq(300, 650, 50)
   P <- 1000
   logKcalc(infile, outfile, T, P, ispecies = ispecies, DH.method = "bgamma")

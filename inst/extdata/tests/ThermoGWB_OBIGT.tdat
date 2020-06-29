@@ -2,8 +2,10 @@ dataset of thermodynamic data for gwb programs
 dataset format: oct94
 activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
-* File generated at Sat Jun 27 07:41:43 2020
-* by logKcalc 0.1.0 with CHNOSZ 1.3.6-9.
+* Water model: SUPCRT92
+* Debye-Hückel extended term: bdot
+* File generated at Mon Jun 29 10:50:32 2020
+* by logKcalc 0.1.0 with CHNOSZ 1.3.6-10.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
 * with 0 added and 96 unavailable species.

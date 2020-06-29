@@ -105,7 +105,7 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
     species <- formula
     # For aqueous species, use abbrv to store the Tmax
     # Explicitly set all parameters in case this species already exists in OBIGT 20200624
-    moargs <- list(name = species, formula = formula, state = "aq", ref1 = "logK_fit",
+    moargs <- list(name = species, formula = formula, state = "aq", ref1 = "logK_fit", ref2 = basename(file),
       G = G, S = S, c1 = Cp, abbrv = Tmax,
       H = NA, V = NA, a1 = NA, a2 = NA, a3 = NA, a4 = NA, c2 = NA, omega = NA
     )
@@ -117,7 +117,7 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
     # Make a mineral 20200624
     # Nudge the Tmax to allow calculation at exactly that temperture 20200625
     if(utils::packageVersion("CHNOSZ") < "1.3.4") Tmax <- Tmax + 0.01
-    moargs <- list(species, formula = formula, state = "cr", ref1 = "logK_fit",
+    moargs <- list(species, formula = formula, state = "cr", ref1 = "logK_fit", ref2 = basename(file),
       G = G, S = S, Cp = Cp, T = CHNOSZ::convert(Tmax, "K"),
       H = NA, V = NA, a = NA, b = NA, c = NA, d = NA, e = NA, f = NA, lambda = NA)
     if(utils::packageVersion("CHNOSZ") >= "1.3.3") moargs <- c(moargs, list(E_units = "cal"))
