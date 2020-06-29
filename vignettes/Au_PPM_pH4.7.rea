@@ -1,5 +1,5 @@
 # React script, saved Fri Jun 26 2020 by You
-data = thermo_OBIGT.tdat verify
+data = logKcalc_vig3.tdat verify
 conductivity = conductivity-USGS.dat
 temperature initial = 150 C, final = 550 C
 H2O          = 1 free kg

@@ -16,6 +16,11 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
   ADDS <- list(redox = init, aqueous = init, electron = init, mineral = init, gas = init, oxide = init)
   if(is.null(ispecies)) return(ADDS)
   if(length(ispecies) == 0) return(ADDS)
+  # Remove NA values 20200629
+  if(any(is.na(ispecies))) {
+    warning(paste("removing", sum(is.na(ispecies)), "NA values from ispecies"))
+    ispecies <- stats::na.omit(ispecies)
+  }
   # Set basis species (default logact is 0)
   CHNOSZ::basis(LOGK$basis$map$OBIGT)
   on.exit(CHNOSZ::basis(delete = TRUE))

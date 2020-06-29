@@ -5,8 +5,8 @@ fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: DEW
 * Debye-Hückel extended term: bgamma
-* File generated at Mon Jun 29 10:48:39 2020
-* by logKcalc 0.1.0 with CHNOSZ 1.3.6-10.
+* File generated at Mon Jun 29 18:01:05 2020
+* by logKcalc 0.1.0 with CHNOSZ 1.3.6-11.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat
 * with 7 added and 94 unavailable species.
@@ -1232,8 +1232,8 @@ https://doi.org/10.1016/0016-7037(88)90181-0).
 [SHA14]
 Sverjensky DA, Harrison B, Azzolini D (2014). “Water in the deep Earth: The
 dielectric constant and the solubilities of quartz and corundum to 60 kb and
-1,200 °C.” _Geochimica et Cosmochimica Acta_, *129*, 125-145. ISSN 0016-7037,
-doi: 10.1016/j.gca.2013.12.019 (URL: https://doi.org/10.1016/j.gca.2013.12.019).
+1,200 °C.” _Geochimica et Cosmochimica Acta_, *129*, 125-145. doi:
+10.1016/j.gca.2013.12.019 (URL: https://doi.org/10.1016/j.gca.2013.12.019).
 
 [SHD91]
 Sverjensky DA, Hemley JJ, D'Angelo WM (1991). “Thermodynamic assessment of

@@ -1,0 +1,15 @@
+# Act2 script, saved Sun Jun 28 2020 by You
+data = logKcalc_vig4.tdat verify
+temperature = 600 C
+pressure = 5000 bar
+diagram HCO3-
+activity main = .03
+diagram x = pH
+swap O2(g) for O2(aq)
+diagram y = O2(g)
+x-axis from 0 to 12 increment 2
+y-axis from -24 to -12 increment 2
+suppress  formate propanoate
+minerals = off
+gases = off
+water_limits = off

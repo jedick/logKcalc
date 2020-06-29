@@ -4,8 +4,8 @@ activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Mon Jun 29 10:50:32 2020
-* by logKcalc 0.1.0 with CHNOSZ 1.3.6-10.
+* File generated at Mon Jun 29 18:02:01 2020
+* by logKcalc 0.1.0 with CHNOSZ 1.3.6-11.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
 * with 0 added and 96 unavailable species.
@@ -2203,7 +2203,7 @@ s[ubstances].dat; datafile used by PROGRAM supcrt91.” Included with the SUPCRT
 package (Johnson et al., 1992). Last updated on 1991-02-15.
 
 [SSB97]
-Shock EL, Sassani DC, Betz H (1997b). “Uranium in geologic fluids: Estimates of
+Shock EL, Sassani DC, Betz H (1997). “Uranium in geologic fluids: Estimates of
 standard partial molal properties, oxidation potentials, and hydrolysis
 constants at high temperatures and pressures.” _Geochimica et Cosmochimica
 Acta_, *61*(20), 4245-4266. doi: 10.1016/S0016-7037(97)00240-8 (URL:

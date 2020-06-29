@@ -106,7 +106,7 @@ Now we perform the conversion.
 
 ```{r logKcalc, eval = FALSE}
 infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
-outfile <- file.path(tempdir(), "thermo_OBIGT.tdat")
+outfile <- file.path(tempdir(), "logKcalc_vig3.tdat")
 logKcalc(infile, outfile, T = T, P = P, ispecies = ispecies, maxprint = 10)
 ```
 

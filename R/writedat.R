@@ -5,7 +5,8 @@
 writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion = NULL) {
   # put together the output
   # start with empty lines
-  out <- rep(NA, length(LINES))
+  # make this very large, in case a future user wants to add lots of species 20200629
+  out <- rep(NA, max(2*length(LINES), 100000))
   # initialize a counter for the line of the output file
   j <- 1
   # flag to indicate whether to include the current basis species
