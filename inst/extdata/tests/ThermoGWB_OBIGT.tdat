@@ -4,7 +4,7 @@ activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Mon Jun 29 18:02:01 2020
+* File generated at Tue Jun 30 21:00:33 2020
 * by logKcalc 0.1.0 with CHNOSZ 1.3.6-11.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
@@ -2019,12 +2019,12 @@ https://doi.org/10.1093/petrology/29.2.445).
 
 [Ber90]
 Berman RG (1990). “Mixing properties of Ca-Mg-Fe-Mn garnets.” _American
-Mineralogist_, *75*(3-4), 328-344. ISSN 0003-004X, <URL:
+Mineralogist_, *75*(3-4), 328-344. <URL:
 http://ammin.geoscienceworld.org/content/75/3-4/328>.
 
 [Eva90]
 Evans BW (1990). “Phase relations of epidote-blueschists.” _Lithos_, *25*(1),
-3-23. ISSN 0024-4937, doi: 10.1016/0024-4937(90)90003-J (URL:
+3-23. doi: 10.1016/0024-4937(90)90003-J (URL:
 https://doi.org/10.1016/0024-4937(90)90003-J), Third International Eclogite
 Conference.
 
@@ -2032,8 +2032,8 @@ Conference.
 Facq S, Daniel I, Montagnac G, Cardon H, Sverjensky DA (2014). “_In situ_ Raman
 study and thermodynamic model of aqueous carbonate speciation in equilibrium
 with aragonite under subduction zone conditions.” _Geochimica et Cosmochimica
-Acta_, *132*(Supplement C), 375-390. ISSN 0016-7037, doi:
-10.1016/j.gca.2014.01.030 (URL: https://doi.org/10.1016/j.gca.2014.01.030).
+Acta_, *132*(Supplement C), 375-390. doi: 10.1016/j.gca.2014.01.030 (URL:
+https://doi.org/10.1016/j.gca.2014.01.030).
 
 [Got04]
 Gottschalk M (2004). “Thermodynamic properties of zoisite, clinozoisite and
@@ -2099,16 +2099,16 @@ http://www.worldcat.org/oclc/693388901>.
 Majzlan J, Grevel K, Navrotsky A (2003). “Thermodynamics of Fe oxides: Part II.
 Enthalpies of formation and relative stability of goethite ($\alpha$-FeOOH),
 lepidocrocite ($\gamma$-FeOOH), and maghemite ($\gamma$-Fe$_2$O$_3$).” _American
-Mineralogist_, *88*(5-6), 855-859. ISSN 0003-004X, doi: 10.2138/am-2003-5-614
-(URL: https://doi.org/10.2138/am-2003-5-614).
+Mineralogist_, *88*(5-6), 855-859. doi: 10.2138/am-2003-5-614 (URL:
+https://doi.org/10.2138/am-2003-5-614).
 
 [MLS+03]
 Majzlan J, Lang BE, Stevens R, Navrotsky A, Woodfield BF, Boerio-Goates J
 (2003). “Thermodynamics of Fe oxides: Part I. Entropy at standard temperature
 and pressure and heat capacity of goethite ($\alpha$-FeOOH), lepidocrocite
 ($\gamma$-FeOOH), and maghemite ($\gamma$-Fe$_2$O$_3$).” _American
-Mineralogist_, *88*(5-6), 846-854. ISSN 0003-004X, doi: 10.2138/am-2003-5-613
-(URL: https://doi.org/10.2138/am-2003-5-613).
+Mineralogist_, *88*(5-6), 846-854. doi: 10.2138/am-2003-5-613 (URL:
+https://doi.org/10.2138/am-2003-5-613).
 
 [MS97]
 McCollom TM, Shock EL (1997). “Geochemical constraints on chemolithoautotrophic
@@ -2132,7 +2132,7 @@ https://trove.nla.gov.au/work/22192707>.
 Pokrovski GS, Akinfiev NN, Borisova AY, Zotov AV, Kouzmanov K (2014). “Gold
 speciation and transport in geological fluids: insights from experiments and
 physical-chemical modelling.” _Geological Society, London, Special
-Publications_, *402*(1), 9-70. ISSN 0305-8719, doi: 10.1144/SP402.4 (URL:
+Publications_, *402*(1), 9-70. doi: 10.1144/SP402.4 (URL:
 https://doi.org/10.1144/SP402.4).
 
 [PK70]
@@ -2252,8 +2252,8 @@ units.” _Journal of Physical and Chemical Reference Data_, *11*(Suppl. 2),
 [ZZL+16]
 Zimmer K, Zhang Y, Lu P, Chen Y, Zhang G, Dalkilic M, Zhu C (2016). “SUPCRTBL: A
 revised and extended thermodynamic dataset and software package of SUPCRT92.”
-_Computers \& Geosciences_, *90*, 97-111. ISSN 0098-3004, doi:
-10.1016/j.cageo.2016.02.013 (URL: https://doi.org/10.1016/j.cageo.2016.02.013).
+_Computers \& Geosciences_, *90*, 97-111. doi: 10.1016/j.cageo.2016.02.013 (URL:
+https://doi.org/10.1016/j.cageo.2016.02.013).
 
 [proton]
 OBIGT (1997). “Hydrogen-ion convention.” OBIGT database in CHNOSZ. "The

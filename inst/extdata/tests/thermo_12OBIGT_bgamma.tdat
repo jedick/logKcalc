@@ -5,7 +5,7 @@ fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: DEW
 * Debye-Hückel extended term: bgamma
-* File generated at Mon Jun 29 18:01:05 2020
+* File generated at Tue Jun 30 21:00:04 2020
 * by logKcalc 0.1.0 with CHNOSZ 1.3.6-11.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat
@@ -1131,7 +1131,7 @@ https://doi.org/10.1093/petrology/29.2.445).
 
 [Ber90]
 Berman RG (1990). “Mixing properties of Ca-Mg-Fe-Mn garnets.” _American
-Mineralogist_, *75*(3-4), 328-344. ISSN 0003-004X, <URL:
+Mineralogist_, *75*(3-4), 328-344. <URL:
 http://ammin.geoscienceworld.org/content/75/3-4/328>.
 
 [GKL02]
@@ -1180,7 +1180,7 @@ http://www.worldcat.org/oclc/693388901>.
 [Kit14]
 Kitadai N (2014). “Thermodynamic prediction of glycine polymerization as a
 function of temperature and pH consistent with experimentally obtained results.”
-_Journal of Molecular Evolution_, *78*(3-4), 171-187. ISSN 0022-2844, doi:
+_Journal of Molecular Evolution_, *78*(3-4), 171-187. doi:
 10.1007/s00239-014-9616-1 (URL: https://doi.org/10.1007/s00239-014-9616-1).
 
 [MS97]
@@ -1192,8 +1192,8 @@ Cosmochimica Acta_, *61*(20), 4375-4391. doi: 10.1016/S0016-7037(97)00241-X
 [PK95]
 Parker VB, Khodakovskii IL (1995). “Thermodynamic properties of the aqueous ions
 (2+ and 3+) of iron and the key compounds of iron.” _Journal of Physical and
-Chemical Reference Data_, *24*(5), 1699-1745. ISSN 0047-2689, doi:
-10.1063/1.555964 (URL: https://doi.org/10.1063/1.555964).
+Chemical Reference Data_, *24*(5), 1699-1745. doi: 10.1063/1.555964 (URL:
+https://doi.org/10.1063/1.555964).
 
 [PS01]
 Plyasunov AV, Shock EL (2001). “Correlation strategy for determining the
@@ -1303,8 +1303,8 @@ units.” _Journal of Physical and Chemical Reference Data_, *11*(Suppl. 2),
 [ZZL+16]
 Zimmer K, Zhang Y, Lu P, Chen Y, Zhang G, Dalkilic M, Zhu C (2016). “SUPCRTBL: A
 revised and extended thermodynamic dataset and software package of SUPCRT92.”
-_Computers \& Geosciences_, *90*, 97-111. ISSN 0098-3004, doi:
-10.1016/j.cageo.2016.02.013 (URL: https://doi.org/10.1016/j.cageo.2016.02.013).
+_Computers \& Geosciences_, *90*, 97-111. doi: 10.1016/j.cageo.2016.02.013 (URL:
+https://doi.org/10.1016/j.cageo.2016.02.013).
 
 [electron]
 OBIGT (2006). “Non-zero entropy of the electron based on the hydrogen-ion
