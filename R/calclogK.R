@@ -46,17 +46,18 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
     if(type=="redox") {
       # first set the basis species
       OUT$basis$map <- mapnames(LINES[HEAD$ispecies$basis], type = "basis", na.omit = TRUE)
-      basis <- CHNOSZ::basis(OUT$basis$map$OBIGT)
-      message(paste("The basis has", nrow(basis), "elements:"))
-      print(paste(colnames(basis)[1:nrow(basis)], collapse=", "))
-      OUT$basis$nNA <- length(HEAD$ispecies$basis) - nrow(basis)
+      # print list of elements without using CHNOSZ::basis() 20200701
+      ispecies <- suppressMessages(CHNOSZ::info(OUT$basis$map$OBIGT))
+      elements <- names(CHNOSZ::makeup(ispecies, sum = TRUE))
+      message(paste("The", length(ispecies), "available basis species have", length(elements), "elements:"))
+      print(paste(elements, collapse=", "))
+      OUT$basis$nNA <- length(HEAD$ispecies$basis) - length(ispecies)
       # check if basis species are available for dissociation reactions for the redox species
       inbasis <- sapply(rxnGWB, function(x) all(x$species %in% OUT$basis$map$GWB))
       if(!all(inbasis)) {
         printNA("The basis species for", "species are not available", type, speciesGWB[!inbasis], maxprint)
       }
       # get references 20200618
-      ispecies <- basis$ispecies
       iinfo <- suppressMessages(CHNOSZ::info(ispecies, check.it = FALSE))
       ref1 <- iinfo$ref1
       ref2 <- iinfo$ref2
@@ -65,9 +66,6 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       OUT$basis$ref2 <- sapply(strsplit(sapply(strsplit(ref2, "\\.[0-9]+"), "[", 1), " "), "[", 1)
       # get formulas 20200701
       OUT$basis$formula <- iinfo$formula
-      # remove the basis species so that incorrect reactions for other
-      # types of species are not automatically balanced 20200611
-      CHNOSZ::basis(delete = TRUE)
     } else {
       # add O2(g) here, needed for the free electron in thermo.tdat 20200526
       inbasis <- sapply(rxnGWB, function(x) all(x$species %in% c(OUT$basis$map$GWB, names(OUT$redox$logKs), "O2(g)")))
@@ -76,11 +74,7 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       }
     }
     # skip types with no species 20200609
-    if(length(inames)==0) {
-      # don't forget to remove basis species 20200614
-      if(type == "redox") basis(delete = TRUE)
-      next
-    }
+    if(length(inames)==0) next
     # remove species with missing basis species
     speciesGWB <- speciesGWB[inbasis]
     rxnGWB <- rxnGWB[inbasis]
@@ -175,7 +169,10 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       names(logKs) <- speciesGWB
       # get formula 20200701
       formula <- iinfo$formula
-    } else ref1 <- ref2 <- logKs <- NULL
+    } else {
+      ref1 <- ref2 <- logKs <- NULL
+      allisna <- logical()
+    }
     # get number of unavailable species
     nNA <- sum(!inbasis) + length(speciesNA) + sum(allisna)
     # save the information

@@ -1,0 +1,9 @@
+# Act2 script, saved Tue Jun 30 2020 by You
+data = thermo.tdat verify
+temperature = 100 C
+diagram Al+++
+diagram y = Al+++
+swap Quartz for SiO2(aq)
+diagram x = pH
+x-axis from 2 to 8 increment 1
+y-axis from -10 to -5 increment 1

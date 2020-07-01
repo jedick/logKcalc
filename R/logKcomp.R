@@ -108,7 +108,7 @@ logKcomp <- function(file1, file2, type = "aqueous", iTP = 2,
   # get labels for outliers and plot title
   labels <- rownames(xy)
   labels[!iout] <- ""
-  title <- bquote(log*italic(K)~of~.(type)~species~at~.(LOGK1$T[iTP])~"\u00BAC"~and~.(LOGK1$P[iTP])~bar)
+  title <- bquote(log~italic(K)~of~.(type)~species~at~.(LOGK1$T[iTP])~"\u00BAC"~and~.(LOGK1$P[iTP])~bar)
   subtitle <- paste0("NA values: ", sum(is.na(logK_1)), " in ", lab1, ", ", sum(is.na(logK_2)), " in ", lab2)
   x <- y <- NULL
   ggplot2::ggplot(xy, ggplot2::aes(x, y, label = labels)) +

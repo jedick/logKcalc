@@ -26,21 +26,22 @@ readblock <- function(LINES, ihead, i) {
 
 readhead <- function(LINES, quiet = FALSE) {
   # find header lines before data blocks
-  iT <- grep("^\\*\\ temperatures\\s*$", LINES)
-  iP <- grep("^\\*\\ pressures\\s*$", LINES)
-  iadh <- grep("^\\*\\ debye.*adh", LINES)
-  ibdh <- grep("^\\*\\ debye.*bdh", LINES)
-  ibdot <- grep("^\\*\\ bdot\\s*$", LINES)
-  ico2_1 <- grep("* c co2 1", LINES, fixed = TRUE)
-  ico2_2 <- grep("* c co2 2", LINES, fixed = TRUE)
-  ico2_3 <- grep("* c co2 3", LINES, fixed = TRUE)
-  ico2_4 <- grep("* c co2 4", LINES, fixed = TRUE)
-  ih2o_1 <- grep("* c h2o 1", LINES, fixed = TRUE)
-  ih2o_2 <- grep("* c h2o 2", LINES, fixed = TRUE)
-  ih2o_3 <- grep("* c h2o 3", LINES, fixed = TRUE)
-  ih2o_4 <- grep("* c h2o 4", LINES, fixed = TRUE)
-  ieh <- grep("* log k for eh reaction", LINES, fixed = TRUE)
-  io2 <- grep("* log k for o2 gas solubility", LINES, fixed = TRUE)
+  # use first match because temperatures block is repeated in thermo_ymp.R2.tdat 20200701
+  iT <- grep("^\\*\\ temperatures\\s*$", LINES)[1]
+  iP <- grep("^\\*\\ pressures\\s*$", LINES)[1]
+  iadh <- grep("^\\*\\ debye.*adh", LINES)[1]
+  ibdh <- grep("^\\*\\ debye.*bdh", LINES)[1]
+  ibdot <- grep("^\\*\\ bdot\\s*$", LINES)[1]
+  ico2_1 <- grep("* c co2 1", LINES, fixed = TRUE)[1]
+  ico2_2 <- grep("* c co2 2", LINES, fixed = TRUE)[1]
+  ico2_3 <- grep("* c co2 3", LINES, fixed = TRUE)[1]
+  ico2_4 <- grep("* c co2 4", LINES, fixed = TRUE)[1]
+  ih2o_1 <- grep("* c h2o 1", LINES, fixed = TRUE)[1]
+  ih2o_2 <- grep("* c h2o 2", LINES, fixed = TRUE)[1]
+  ih2o_3 <- grep("* c h2o 3", LINES, fixed = TRUE)[1]
+  ih2o_4 <- grep("* c h2o 4", LINES, fixed = TRUE)[1]
+  ieh <- grep("* log k for eh reaction", LINES, fixed = TRUE)[1]
+  io2 <- grep("* log k for o2 gas solubility", LINES, fixed = TRUE)[1]
   # find header lines before sections
   # use first match because "minerals$" matches a reference
   # in gwb_thermoddem_lvl2_no-org_06jun17.txt 20200628
