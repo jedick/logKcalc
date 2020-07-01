@@ -2,7 +2,7 @@
 # Create entries for one or more new species 20200619
 
 # ispecies: species index in thermo()$obigt
-addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
+addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, update.formulas, DH.method) {
   # set defaults for a0_ion
   if(is.null(a0_ion)) {
     if(identical(DH.method, "bdot")) a0_ion <- 4.5
@@ -35,7 +35,7 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
   extramsg <- character()
   for(i in 1:length(ispecies)) {
     # Get species name and state
-    name <- a$species$name[i]
+    nameonly <- name <- a$species$name[i]
     state <- a$species$state[i]
     # Create header lines depending on state
     # TODO: use element mole wt. from GWB file
@@ -59,6 +59,11 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
       head1 <- paste0("     charge=", Z, "      ion size=", a0, " A      mole wt.=", mw, " g")
       # there's no second header line
       head2 <- character()
+      if(update.formulas) {
+        # add formula after name 20200701
+        formula <- CHNOSZ::info(ispecies[i], check.it = FALSE)$formula
+        name <- paste0(sprintf("%-32s", name), "formula= ", formula)
+      }
     } else if(state == "cr") {
       type <- "mineral"
       # first header line: formula
@@ -76,8 +81,8 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, DH.method) {
     } else stop(paste("can't handle", state, "species"))
     # Don't allow duplicated species -- check both existing GWB and OBIGT names
     existing <- c(names(LOGK[[type]]$logKs), LOGK[[type]]$speciesOBIGT)
-    if(name %in% existing) stop(paste(name, "is a duplicated", type, "species"))
-    message("Adding ", type, " species ", name, extramsg)
+    if(nameonly %in% existing) stop(paste(nameonly, "is a duplicated", type, "species"))
+    message("Adding ", type, " species ", nameonly, extramsg)
     # Get reaction stoichiometry
     stoich <- a$species[i, 1:nrow(a$basis)]
     # Use GWB names in reaction

@@ -2,7 +2,7 @@
 # write a GWB data file with updated logK values
 # 20200524
 
-writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion = NULL) {
+writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, update.formulas, DH.method, a0_ion = NULL) {
   # put together the output
   # start with empty lines
   # make this very large, in case a future user wants to add lots of species 20200629
@@ -13,8 +13,9 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
   okbasis <- FALSE
   # line number with the name of the current species
   icurrent <- NA
-  # content for reference line
+  # content for reference and formula lines
   refline <- NA
+  formline <- NA
   # calculate Debye-Hückel coefficients 20200622
   DH <- dh(LOGK$T, LOGK$P, DH.method)
   if(!is.null(a0_ion)) a0 <- sprintf("%5.2f", a0_ion)
@@ -90,8 +91,6 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
         # update the output flag
         if(LINES[i] %in% LOGK$basis$map$GWB) okbasis <- TRUE else okbasis <- FALSE
         icurrent <- i
-        # include -end- marker
-        if(i %in% HEAD$iend) okbasis <- TRUE
         # get the number of elements in the species 20200617
         for(nf in 0:1) {
           nspecies <- suppressWarnings(as.numeric(gsub(" ", "", gsub("elements in species", "", LINES[i + 2 + nf]))))
@@ -103,6 +102,24 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
         if(is.na(nspecies)) stop("can't find number of elements in species for ", LINES[i])
         # calculate the line number *after* all the element lines
         iafter <- i + 2 + ceiling(nspecies/3) + nf
+        ispecies <- match(line2name(LINES[icurrent]), LOGK$basis$map$GWB)
+        # add formula 20200701
+        if(update.formulas) {
+          formula <- LOGK$basis$formula[ispecies]
+          if(grepl("formula=", LINES[i])) {
+            # replace an existing formula
+            start <- paste0(strsplit(LINES[i], "formula=", fixed = TRUE)[[1]][1], "formula= ")
+            LINES[i] <- paste0(start, formula)
+          } else {
+            start <- sprintf("%-32s", LINES[i])
+            LINES[i] <- paste0(start, "formula= ", formula)
+          }
+        }
+      } else if(i %in% HEAD$iend) {
+        # include -end- marker
+        # (this needs to be here in case the last basis species isn't in OBIGT -
+        # for thermo.com.V8.R6+.tdat 20200701)
+        okbasis <- TRUE
       }
       # copy the line from the input file
       if(okbasis) {
@@ -122,7 +139,6 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
         }
         # add reference line 20200618
         if(i == iafter) {
-          ispecies <- match(line2name(LINES[icurrent]), LOGK$basis$map$GWB)
           refline <- "* no references available"
           r1 <- LOGK$basis$ref1[ispecies]
           if(!is.na(r1)) {
@@ -178,6 +194,24 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
           ilogK1 <- i + nrxnlines + 3 + nf
           ilogK2 <- i + nrxnlines + 4 + nf
           icurrent <- i
+          # get the species number in the logK list (for creating formula and reference lines)
+          ispecies <- match(line2name(LINES[icurrent]), names(logKs))
+          # add a formula line for minerals 20200701
+          if(update.formulas) {
+            formula <- LOGK[[type]]$formula[ispecies]
+            if(type == "mineral") formline <- paste0("     formula= ", formula)
+            # add a formula to redox and aqueous species
+            if(type %in% c("redox", "aqueous")) {
+              if(grepl("formula=", LINES[i])) {
+                # replace an existing formula
+                start <- paste0(strsplit(LINES[i], "formula=", fixed = TRUE)[[1]][1], "formula= ")
+                LINES[i] <- paste0(start, formula)
+              } else {
+                start <- sprintf("%-32s", LINES[i])
+                LINES[i] <- paste0(start, "formula= ", formula)
+              }
+            }
+          }
         }
       }
 
@@ -195,14 +229,17 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
           if(!is.na(icurrent)) {
             # don't copy comment lines from input file 20200617
             if(!grepl("^\\*", LINES[i])) {
-              outline <- LINES[i]
-              # adjust a0 parameter for bgamma DH method 20200623
-              if(!is.null(a0_ion)) {
-                if(grepl("ion size", outline, fixed = TRUE)) {
-                  if(!grepl("charge=\\s*0", outline)) {
-                    start <- paste0(strsplit(outline, "ion size=", fixed = TRUE)[[1]][1], "ion size=")
-                    end <- paste0(" A", strsplit(outline, "A", fixed = TRUE)[[1]][2])
-                    outline <- paste0(start, a0, end)
+              # if we are updating formulas, don't copy formula lines for minerals from input file 20200701
+              if(!update.formulas | type != "mineral" | !grepl("\\s*formula", LINES[i])) {
+                outline <- LINES[i]
+                # adjust a0 parameter for bgamma DH method 20200623
+                if(!is.null(a0_ion)) {
+                  if(grepl("ion size", outline, fixed = TRUE)) {
+                    if(!grepl("charge=\\s*0", outline)) {
+                      start <- paste0(strsplit(outline, "ion size=", fixed = TRUE)[[1]][1], "ion size=")
+                      end <- paste0(" A", strsplit(outline, "A", fixed = TRUE)[[1]][2])
+                      outline <- paste0(start, a0, end)
+                    }
                   }
                 }
               }
@@ -213,7 +250,6 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
           # don't attempt to insert logK for oxide species 20200528
           if(i < HEAD$ioxide) {
             # get calculated logK values
-            ispecies <- match(line2name(LINES[icurrent]), names(logKs))
             values <- logKs[[ispecies]]
             # insert calculated logK values
             if(i == ilogK1) iline <- 1
@@ -255,6 +291,12 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion
       out[j] <- refline
       j <- j + 1
       refline <- NA
+    }
+    # add the formula line to the output 20200701
+    if(!is.na(formline)) {
+      out[j] <- formline
+      j <- j + 1
+      formline <- NA
     }
     # insert comment block at top of file 20200621
     if(i == HEAD$iT - 2) {

@@ -20,7 +20,7 @@
 
 logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
   T = NULL, P = "Psat", ispecies = NULL, a0_ion = NULL, a0_neutral = 0,
-  DH.method = "bdot", maxprint = Inf) {
+  update.formulas = TRUE, DH.method = "bdot", maxprint = Inf) {
   # set defaults for a0_ion
   if(missing(a0_ion)) {
     if(identical(DH.method, "bdot")) a0_ion <- 4.5
@@ -36,8 +36,8 @@ logKcalc <- function(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
   # calculate the logK values for available species
   LOGK <- calclogK(LINES, HEAD, T, P, maxprint)
   # get lines for added species
-  ADDS <- addspecies(LOGK, ispecies, a0_ion, a0_neutral, DH.method)
+  ADDS <- addspecies(LOGK, ispecies, a0_ion, a0_neutral, update.formulas, DH.method)
   # write the new file
-  if(DH.method=="bdot") writedat(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method)
-  if(DH.method=="bgamma") writedat(outfile, LINES, HEAD, LOGK, ADDS, infile, DH.method, a0_ion)
+  if(DH.method=="bdot") writedat(outfile, LINES, HEAD, LOGK, ADDS, infile, update.formulas, DH.method)
+  if(DH.method=="bgamma") writedat(outfile, LINES, HEAD, LOGK, ADDS, infile, update.formulas, DH.method, a0_ion)
 }

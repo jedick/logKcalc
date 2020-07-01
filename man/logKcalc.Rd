@@ -9,7 +9,7 @@ Read dissociation reactions from a thermodynamic data file for The Geochemist's 
 \usage{
   logKcalc(infile = "thermo.tdat", outfile = "thermo_OBIGT.tdat",
     T = NULL, P = "Psat", ispecies = NULL, a0_ion = NULL, a0_neutral = 0,
-    DH.method = "bdot", maxprint = Inf)
+    update.formulas = TRUE, DH.method = "bdot", maxprint = Inf)
 }
 
 \arguments{
@@ -20,6 +20,7 @@ Read dissociation reactions from a thermodynamic data file for The Geochemist's 
   \item{ispecies}{Species index of specie(s) to add to the data file}
   \item{a0_ion}{Ion size parameter for added aqueous ions}
   \item{a0_neutral}{Ion size parameter for added aqueous neutral species}
+  \item{update.formulas}{Should formulas for aqueous species and minerals be updated?}
   \item{DH.method}{Method for generating Debye-Hückel parameters, \samp{bdot} or \samp{bgamma}}
   \item{maxprint}{Maximum number of missing species to show in print statements}
 }
@@ -34,7 +35,7 @@ Species are also omitted if they available in OBIGT but their dissociation react
 Two examples are As(OH)\s4\S{-} and Sn\S{++++}, which are basis species in the \samp{thermo.tdat} file distributed with GWB but are not present in the default OBIGT database.
 \code{\link{addOBIGT}} can be used to add these species to OBIGT.
 
-By default, the function obtains values of \T from the input GWB file and calculates values of \P corresponding to \Psat (i.e. pressures corresponding to liquid-vapor saturation).
+Normally, the function obtains values of \T from the input GWB file and calculates values of \P corresponding to \Psat (i.e. pressures corresponding to liquid-vapor saturation).
 This is done because some values of \P in existing files are slightly below \Psat, preventing calculation at those conditions.
 To use values of \P taken from the input file, set \code{P} to NULL.
 To use any other values, provide 8 numeric values in \code{T} and/or \code{P}.
@@ -42,6 +43,16 @@ To use any other values, provide 8 numeric values in \code{T} and/or \code{P}.
 Logarithms (base 10) of equilibrium constants are calculated for each of the following species types: redox, aqueous, electron, mineral, gas.
 The corresponding values for each species are inserted into the output GWB file.
 Any NA values (e.g. for temperatures above the melting point of a mineral) are represented by \samp{500} in the output file to indicate unavailable data (Bethke and Farrell, 2020).
+
+}
+
+\section{Chemical formulas and reactions}{
+
+By default, the stoichiometric formulas in OBIGT are added to the \samp{formula} field in the output for aqueous species and minerals.
+These formulas may be formatted differently from formulas in existing GWB data files, especially for charged species.
+Set \code{update.formulas} to FALSE to not add or update formulas, but retain any formulas that may be present in the input file.
+This might be required for dataset formats \samp{oct13} or earlier, which do not have formulas for the aqueous species (Bethke and Farrell, 2020).
+Note that the \emph{names} of aqueous species, which may also be formulas, are never changed from the input file.
 
 The mass balance of dissociation reactions is checked (in CHNOSZ::\code{\link{subcrt}}) using the chemical formulas of species in OBIGT.
 To allow for rounding errors in fractional coefficients, reactions are considered unbalanced if the difference for any element exceeds 0.001.

@@ -63,6 +63,8 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       # remove suffixes
       OUT$basis$ref1 <- sapply(strsplit(sapply(strsplit(ref1, "\\.[0-9]+"), "[", 1), " "), "[", 1)
       OUT$basis$ref2 <- sapply(strsplit(sapply(strsplit(ref2, "\\.[0-9]+"), "[", 1), " "), "[", 1)
+      # get formulas 20200701
+      OUT$basis$formula <- iinfo$formula
       # remove the basis species so that incorrect reactions for other
       # types of species are not automatically balanced 20200611
       CHNOSZ::basis(delete = TRUE)
@@ -171,11 +173,13 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       ref1 <- sapply(strsplit(sapply(strsplit(ref1, "\\.[0-9]+"), "[", 1), " "), "[", 1)
       ref2 <- sapply(strsplit(sapply(strsplit(ref2, "\\.[0-9]+"), "[", 1), " "), "[", 1)
       names(logKs) <- speciesGWB
+      # get formula 20200701
+      formula <- iinfo$formula
     } else ref1 <- ref2 <- logKs <- NULL
     # get number of unavailable species
     nNA <- sum(!inbasis) + length(speciesNA) + sum(allisna)
     # save the information
-    OUT[[type]] <- list(logKs = logKs, ref1 = ref1, ref2 = ref2, speciesOBIGT = speciesOBIGT, nNA = nNA)
+    OUT[[type]] <- list(logKs = logKs, ref1 = ref1, ref2 = ref2, speciesOBIGT = speciesOBIGT, formula = formula, nNA = nNA)
   }
   OUT
 }

@@ -4,8 +4,8 @@ activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Tue Jun 30 21:00:33 2020
-* by logKcalc 0.1.0 with CHNOSZ 1.3.6-11.
+* File generated at Wed Jul  1 08:04:22 2020
+* by logKcalc 0.1.0 with CHNOSZ 1.3.6-12.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
 * with 0 added and 96 unavailable species.
@@ -93,151 +93,151 @@ Zinc            (Zn)          mole wt.=   65.3900
 
    25 basis species
 
-H2O
+H2O                             formula= H2O
      charge=  0.0      ion size=  0.0 A      mole wt.=   18.0150 g
      2 elements in species
   2.0000 H  1.0000 O  
 * [HGK84, JOH92]
 
-H+
+H+                              formula= H+
      charge=  1.0      ion size=  9.0 A      mole wt.=   1.0080 g
      1 elements in species
   1.0000 H    
 * [proton]
 
-HCO3-
+HCO3-                           formula= HCO3-
      charge=  -1.0      ion size=  4.0 A      mole wt.=   61.0170 g
      3 elements in species
   1.0000 C  1.0000 H  3.0000 O
 * [SH88]
 
-SiO2(aq)
+SiO2(aq)                        formula= SiO2
      charge=  0.0      ion size=  0.0 A      mole wt.=   60.0840 g
      2 elements in species
   2.0000 O  1.0000 Si  
 * [SHS89]
 
-NO3-
+NO3-                            formula= NO3-
      charge=  -1.0      ion size=  3.0 A      mole wt.=   62.0050 g
      2 elements in species
   1.0000 N  3.0000 O  
 * [SH88]
 
-HPO4--
+HPO4--                          formula= HPO4-2
      charge=  -2.0      ion size=  4.0 A      mole wt.=   95.9790 g
      3 elements in species
   1.0000 H  4.0000 O  1.0000 P
 * [SH88]
 
-As(OH)3
+As(OH)3                         formula= H3AsO3
      charge=  0.0      ion size=  0.0 A      mole wt.=   125.9440 g
      3 elements in species
   1.0000 As  3.0000 H  3.0000 O
 * [NA03]
 
-O2(aq)
+O2(aq)                          formula= O2
      charge=  0.0      ion size=  0.0 A      mole wt.=   31.9990 g
      1 elements in species
   2.0000 O    
 * [SHS89]
 
-SO4--
+SO4--                           formula= SO4-2
      charge=  -2.0      ion size=  4.5 A      mole wt.=   96.0640 g
      2 elements in species
   4.0000 O  1.0000 S  
 * [SH88]
 
-F-
+F-                              formula= F-
      charge=  -1.0      ion size=  3.5 A      mole wt.=   18.9980 g
      1 elements in species
   1.0000 F    
 * [SH88]
 
-Cl-
+Cl-                             formula= Cl-
      charge=  -1.0      ion size=  3.0 A      mole wt.=   35.4530 g
      1 elements in species
   1.0000 Cl    
 * [SH88]
 
-Na+
+Na+                             formula= Na+
      charge=  1.0      ion size=  4.0 A      mole wt.=   22.9900 g
      1 elements in species
   1.0000 Na    
 * [SH88]
 
-K+
+K+                              formula= K+
      charge=  1.0      ion size=  3.0 A      mole wt.=   39.0980 g
      1 elements in species
   1.0000 K    
 * [SH88]
 
-Mg++
+Mg++                            formula= Mg+2
      charge=  2.0      ion size=  8.0 A      mole wt.=   24.3050 g
      1 elements in species
   1.0000 Mg    
 * [SH88]
 
-Ca++
+Ca++                            formula= Ca+2
      charge=  2.0      ion size=  6.0 A      mole wt.=   40.0780 g
      1 elements in species
   1.0000 Ca    
 * [SH88]
 
-Al+++
+Al+++                           formula= Al+3
      charge=  3.0      ion size=  9.0 A      mole wt.=   26.9820 g
      1 elements in species
   1.0000 Al    
 * [TS01]
 
-Cu+
+Cu+                             formula= Cu+
      charge=  1.0      ion size=  4.5 A      mole wt.=   63.5460 g
      1 elements in species
   1.0000 Cu    
 * [AZ01]
 
-Zn++
+Zn++                            formula= Zn+2
      charge=  2.0      ion size=  6.0 A      mole wt.=   65.3900 g
      1 elements in species
   1.0000 Zn    
 * [AT14]
 
-Pb++
+Pb++                            formula= Pb+2
      charge=  2.0      ion size=  4.5 A      mole wt.=   207.2000 g
      1 elements in species
   1.0000 Pb    
 * [SH88]
 
-Ag+
+Ag+                             formula= Ag+
      charge=  1.0      ion size=  2.5 A      mole wt.=   107.8680 g
      1 elements in species
   1.0000 Ag    
 * [AZ01]
 
-Sn++
+Sn++                            formula= Sn+2
      charge=  2.0      ion size=  6.0 A      mole wt.=   118.7100 g
      1 elements in species
   1.0000 Sn    
 * [SSWS97]
 
-Au+
+Au+                             formula= Au+
      charge=  1.0      ion size=  4.5 A      mole wt.=   196.9670 g
      1 elements in species
   1.0000 Au    
 * [AZ01]
 
-Mn++
+Mn++                            formula= Mn+2
      charge=  2.0      ion size=  6.0 A      mole wt.=   54.9380 g
      1 elements in species
   1.0000 Mn    
 * [SSWS97]
 
-Fe++
+Fe++                            formula= Fe+2
      charge=  2.0      ion size=  6.0 A      mole wt.=   55.8470 g
      1 elements in species
   1.0000 Fe    
 * [SSWS97]
 
-UO2++
+UO2++                           formula= UO2+2
      charge=  2.0      ion size=  4.5 A      mole wt.=   270.0280 g
      2 elements in species
   2.0000 O  1.0000 U  
@@ -251,7 +251,7 @@ UO2++
 
    101 aqueous species
 
-OH-
+OH-                             formula= OH-
      charge= -1.0      ion size=  3.5 A      mole wt.=  17.0070 g
      2 species in reaction
     1.000  H2O   -1.000  H+  
@@ -259,7 +259,7 @@ OH-
         11.6308     11.2836     11.1675     11.3002
 * [SH88]
 
-CO2(aq)
+CO2(aq)                         formula= CO2
      charge= 0.0      ion size=  0.0 A      mole wt.=  44.0100 g
      3 species in reaction
    -1.000  H2O    1.000  H+    1.000  HCO3-
@@ -267,7 +267,7 @@ CO2(aq)
         -6.6615     -7.1173     -7.7083     -8.4882
 * [PS01]
 
-CO3--
+CO3--                           formula= CO3-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  60.0090 g
      2 species in reaction
    -1.000  H+    1.000  HCO3-  
@@ -275,7 +275,7 @@ CO3--
         10.2003     10.4648     10.8707     11.4638
 * [SH88]
 
-SiF6--
+SiF6--                          formula= SiF6-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  142.0760 g
      4 species in reaction
    -2.000  H2O    4.000  H+    1.000  SiO2(aq)
@@ -284,7 +284,7 @@ SiF6--
        -24.5343    -24.9194    -25.8185    -27.4359
 * [SH88]
 
-NO2-
+NO2-                            formula= NO2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  46.0060 g
      2 species in reaction
     1.000  NO3-   -0.500  O2(aq)  
@@ -292,7 +292,7 @@ NO2-
         10.0504      8.6583      7.4916      6.4828
 * [SH88]
 
-N2(aq)
+N2(aq)                          formula= N2
      charge= 0.0      ion size=  0.0 A      mole wt.=  28.0130 g
      4 species in reaction
    -1.000  H2O    2.000  H+    2.000  NO3-
@@ -301,7 +301,7 @@ N2(aq)
          0.7156     -2.1191     -4.9973     -8.1171
 * [SHS89]
 
-NH3(aq)
+NH3(aq)                         formula= NH3
      charge= 0.0      ion size=  0.0 A      mole wt.=  17.0310 g
      4 species in reaction
     1.000  H2O    1.000  H+    1.000  NO3-
@@ -310,7 +310,7 @@ NH3(aq)
         40.7634     34.8282     29.7190     25.1037
 * [SHS89]
 
-PO4---
+PO4---                          formula= PO4-3
      charge= -3.0      ion size=  4.0 A      mole wt.=  94.9710 g
      2 species in reaction
    -1.000  H+    1.000  HPO4--  
@@ -318,7 +318,7 @@ PO4---
         12.2727     12.5798     13.0291     13.6570
 * [SSWS97, SH88]
 
-H2PO4-
+H2PO4-                          formula= H2PO4-
      charge= -1.0      ion size=  4.0 A      mole wt.=  96.9870 g
      2 species in reaction
     1.000  H+    1.000  HPO4--  
@@ -326,7 +326,7 @@ H2PO4-
         -7.5259     -7.8671     -8.3189     -8.9357
 * [SH88]
 
-H3PO4(aq)
+H3PO4(aq)                       formula= H3PO4
      charge= 0.0      ion size=  0.0 A      mole wt.=  97.9950 g
      2 species in reaction
     2.000  H+    1.000  HPO4--  
@@ -334,7 +334,7 @@ H3PO4(aq)
        -10.4425    -11.1429    -12.0169    -13.1928
 * [SHS89]
 
-HAsO3--
+HAsO3--                         formula= HAsO3-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  123.9280 g
      2 species in reaction
    -2.000  H+    1.000  As(OH)3  
@@ -342,7 +342,7 @@ HAsO3--
        500.0000    500.0000    500.0000    500.0000
 * [NA03]
 
-H2(aq)
+H2(aq)                          formula= H2
      charge= 0.0      ion size=  0.0 A      mole wt.=  2.0160 g
      2 species in reaction
     1.000  H2O   -0.500  O2(aq)  
@@ -350,7 +350,7 @@ H2(aq)
         31.3419     27.4263     24.1653     21.3650
 * [SHS89]
 
-H2S(aq)
+H2S(aq)                         formula= H2S
      charge= 0.0      ion size=  0.0 A      mole wt.=  34.0820 g
      3 species in reaction
     2.000  H+   -2.000  O2(aq)    1.000  SO4--
@@ -358,7 +358,7 @@ H2S(aq)
         85.2895     72.7194     62.0032     52.4526
 * [SHS89]
 
-HS-
+HS-                             formula= HS-
      charge= -1.0      ion size=  3.5 A      mole wt.=  33.0740 g
      3 species in reaction
     1.000  H+   -2.000  O2(aq)    1.000  SO4--
@@ -366,7 +366,7 @@ HS-
         91.7855     79.4025     69.0257     60.0062
 * [SH88]
 
-S2--
+S2--                            formula= S2-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  64.1320 g
      4 species in reaction
    -1.000  H2O    2.000  H+   -3.500  O2(aq)
@@ -375,7 +375,7 @@ S2--
        161.8282    140.0692    121.7991    105.8708
 * [SH88]
 
-S2O3--
+S2O3--                          formula= S2O3-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  112.1300 g
      4 species in reaction
    -1.000  H2O    2.000  H+   -2.000  O2(aq)
@@ -384,7 +384,7 @@ S2O3--
         87.1597     74.5811     63.8892     54.3875
 * [SH88]
 
-SO2(aq)
+SO2(aq)                         formula= SO2
      charge= 0.0      ion size=  0.0 A      mole wt.=  64.0650 g
      4 species in reaction
    -1.000  H2O    2.000  H+   -0.500  O2(aq)
@@ -393,7 +393,7 @@ SO2(aq)
         20.7220     15.7589     11.3131      7.0700
 * [SHS89]
 
-SO3--
+SO3--                           formula= SO3-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  80.0640 g
      2 species in reaction
    -0.500  O2(aq)    1.000  SO4--  
@@ -401,7 +401,7 @@ SO3--
         32.5263     28.8889     25.9079     23.4000
 * [SSWS97, SH88]
 
-HSO3-
+HSO3-                           formula= HSO3-
      charge= -1.0      ion size=  4.0 A      mole wt.=  81.0720 g
      3 species in reaction
     1.000  H+   -0.500  O2(aq)    1.000  SO4--
@@ -409,7 +409,7 @@ HSO3-
         24.1593     19.9120     16.2346     12.8796
 * [SH88]
 
-HSO4-
+HSO4-                           formula= HSO4-
      charge= -1.0      ion size=  4.5 A      mole wt.=  97.0720 g
      2 species in reaction
     1.000  H+    1.000  SO4--  
@@ -417,7 +417,7 @@ HSO4-
         -3.7234     -4.4683     -5.2633     -6.1799
 * [SH88]
 
-HF(aq)
+HF(aq)                          formula= HF
      charge= 0.0      ion size=  0.0 A      mole wt.=  20.0060 g
      2 species in reaction
     1.000  H+    1.000  F-  
@@ -425,7 +425,7 @@ HF(aq)
         -4.3381     -4.8589     -5.4367     -6.1354
 * [SHS89]
 
-HF2-
+HF2-                            formula= HF2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  39.0050 g
      2 species in reaction
     1.000  H+    2.000  F-  
@@ -433,7 +433,7 @@ HF2-
         -3.8802     -4.3743     -4.9146     -5.5779
 * [SH88]
 
-HCl(aq)
+HCl(aq)                         formula= HCl
      charge= 0.0      ion size=  0.0 A      mole wt.=  36.4610 g
      2 species in reaction
     1.000  H+    1.000  Cl-  
@@ -441,7 +441,7 @@ HCl(aq)
          0.5366      0.1018     -0.4733     -1.2196
 * [TZA97]
 
-ClO4-
+ClO4-                           formula= ClO4-
      charge= -1.0      ion size=  4.5 A      mole wt.=  99.4500 g
      2 species in reaction
     2.000  O2(aq)    1.000  Cl-  
@@ -449,7 +449,7 @@ ClO4-
         13.3466     13.0727     12.9985     13.1029
 * [SSWS97, SH88]
 
-NaOH(aq)
+NaOH(aq)                        formula= NaOH
      charge= 0.0      ion size=  0.0 A      mole wt.=  39.9970 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  Na+
@@ -457,7 +457,7 @@ NaOH(aq)
         11.6420     11.1304     10.7623     10.4801
 * [SSWS97]
 
-NaSO4-
+NaSO4-                          formula= NaSO4-
      charge= -1.0      ion size=  4.5 A      mole wt.=  119.0530 g
      2 species in reaction
     1.000  SO4--    1.000  Na+  
@@ -465,7 +465,7 @@ NaSO4-
         -1.3893     -1.7724     -2.2416     -2.8730
 * [MS97, SLOP98]
 
-NaF(aq)
+NaF(aq)                         formula= NaF
      charge= 0.0      ion size=  0.0 A      mole wt.=  41.9880 g
      2 species in reaction
     1.000  F-    1.000  Na+  
@@ -473,7 +473,7 @@ NaF(aq)
          0.3376      0.0096     -0.3965     -0.9574
 * [SSH97]
 
-NaCl(aq)
+NaCl(aq)                        formula= NaCl
      charge= 0.0      ion size=  0.0 A      mole wt.=  58.4420 g
      2 species in reaction
     1.000  Cl-    1.000  Na+  
@@ -481,7 +481,7 @@ NaCl(aq)
          0.2140     -0.0932     -0.4777     -1.0126
 * [SSH97]
 
-KOH(aq)
+KOH(aq)                         formula= KOH
      charge= 0.0      ion size=  0.0 A      mole wt.=  56.1060 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  K+
@@ -489,7 +489,7 @@ KOH(aq)
         11.5515     10.9778     10.5696     10.2671
 * [SSWS97]
 
-KSO4-
+KSO4-                           formula= KSO4-
      charge= -1.0      ion size=  4.5 A      mole wt.=  135.1620 g
      2 species in reaction
     1.000  SO4--    1.000  K+  
@@ -497,7 +497,7 @@ KSO4-
         -1.5212     -1.9206     -2.4186     -3.0896
 * [SSH97]
 
-KHSO4(aq)
+KHSO4(aq)                       formula= KHSO4
      charge= 0.0      ion size=  0.0 A      mole wt.=  136.1700 g
      3 species in reaction
     1.000  H+    1.000  SO4--    1.000  K+
@@ -505,7 +505,7 @@ KHSO4(aq)
         -1.8165     -3.1720     -4.6006     -6.2423
 * [SSH97]
 
-KCl(aq)
+KCl(aq)                         formula= KCl
      charge= 0.0      ion size=  0.0 A      mole wt.=  74.5510 g
      2 species in reaction
     1.000  Cl-    1.000  K+  
@@ -513,7 +513,7 @@ KCl(aq)
          1.2545      0.7846      0.2783     -0.3441
 * [SSH97]
 
-MgOH+
+MgOH+                           formula= MgOH+
      charge= 1.0      ion size=  4.5 A      mole wt.=  41.3120 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  Mg++
@@ -521,7 +521,7 @@ MgOH+
          8.2907      7.3921      6.6344      5.9667
 * [SSWS97]
 
-MgCO3(aq)
+MgCO3(aq)                       formula= MgCO3
      charge= 0.0      ion size=  0.0 A      mole wt.=  84.3140 g
      3 species in reaction
    -1.000  H+    1.000  HCO3-    1.000  Mg++
@@ -529,7 +529,7 @@ MgCO3(aq)
          6.2284      5.9109      5.5428      5.0193
 * [SSH97]
 
-MgSO4(aq)
+MgSO4(aq)                       formula= MgSO4
      charge= 0.0      ion size=  0.0 A      mole wt.=  120.3690 g
      2 species in reaction
     1.000  SO4--    1.000  Mg++  
@@ -537,7 +537,7 @@ MgSO4(aq)
         -3.0307     -3.5393     -4.2363     -5.2713
 * [MS97, SLOP98]
 
-MgF+
+MgF+                            formula= MgF+
      charge= 1.0      ion size=  4.5 A      mole wt.=  43.3030 g
      2 species in reaction
     1.000  F-    1.000  Mg++  
@@ -545,7 +545,7 @@ MgF+
         -2.1692     -2.6911     -3.3210     -4.1254
 * [SSH97]
 
-MgCl+
+MgCl+                           formula= MgCl+
      charge= 1.0      ion size=  4.5 A      mole wt.=  59.7580 g
      2 species in reaction
     1.000  Cl-    1.000  Mg++  
@@ -553,7 +553,7 @@ MgCl+
         -0.5372     -0.9915     -1.5500     -2.2762
 * [SSH97]
 
-CaOH+
+CaOH+                           formula= CaOH+
      charge= 1.0      ion size=  4.5 A      mole wt.=  57.0850 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  Ca++
@@ -561,7 +561,7 @@ CaOH+
          8.9034      7.9283      7.1264      6.4342
 * [SSWS97]
 
-CaCO3(aq)
+CaCO3(aq)                       formula= CaCO3
      charge= 0.0      ion size=  0.0 A      mole wt.=  100.0870 g
      3 species in reaction
    -1.000  H+    1.000  HCO3-    1.000  Ca++
@@ -569,7 +569,7 @@ CaCO3(aq)
          5.4924      5.0570      4.5885      3.9784
 * [SSH97]
 
-CaSO4(aq)
+CaSO4(aq)                       formula= CaSO4
      charge= 0.0      ion size=  0.0 A      mole wt.=  136.1420 g
      2 species in reaction
     1.000  SO4--    1.000  Ca++  
@@ -577,7 +577,7 @@ CaSO4(aq)
         -2.9102     -3.4333     -4.1436     -5.1876
 * [SSH97]
 
-CaF+
+CaF+                            formula= CaF+
      charge= 1.0      ion size=  4.5 A      mole wt.=  59.0760 g
      2 species in reaction
     1.000  F-    1.000  Ca++  
@@ -585,7 +585,7 @@ CaF+
         -1.6504     -2.2173     -2.8881     -3.7282
 * [SSH97]
 
-CaCl+
+CaCl+                           formula= CaCl+
      charge= 1.0      ion size=  4.5 A      mole wt.=  75.5310 g
      2 species in reaction
     1.000  Cl-    1.000  Ca++  
@@ -593,7 +593,7 @@ CaCl+
         -0.6820     -1.2274     -1.8704     -2.6767
 * [SSH97]
 
-CaCl2(aq)
+CaCl2(aq)                       formula= CaCl2
      charge= 0.0      ion size=  0.0 A      mole wt.=  110.9830 g
      2 species in reaction
     2.000  Cl-    1.000  Ca++  
@@ -601,7 +601,7 @@ CaCl2(aq)
         -0.1175     -0.8435     -1.8016     -3.1158
 * [SSH97]
 
-AlOH++
+AlOH++                          formula= AlOH+2
      charge= 2.0      ion size=  4.5 A      mole wt.=  43.9890 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  Al+++
@@ -609,7 +609,7 @@ AlOH++
          2.1289      1.3962      0.7732      0.2197
 * [TS01]
 
-Al(OH)2+
+Al(OH)2+                        formula= Al(OH)2+
      charge= 1.0      ion size=  4.5 A      mole wt.=  60.9960 g
      3 species in reaction
     2.000  H2O   -2.000  H+    1.000  Al+++
@@ -617,7 +617,7 @@ Al(OH)2+
          5.0452      3.5342      2.2543      1.1175
 * [TS01]
 
-Al(OH)3(aq)
+Al(OH)3(aq)                     formula= Al(OH)3
      charge= 0.0      ion size=  0.0 A      mole wt.=  78.0040 g
      3 species in reaction
     3.000  H2O   -3.000  H+    1.000  Al+++
@@ -625,7 +625,7 @@ Al(OH)3(aq)
          9.1680      7.1774      5.5082      4.0333
 * [TS01]
 
-Al(OH)4-
+Al(OH)4-                        formula= Al(OH)4-
      charge= -1.0      ion size=  4.5 A      mole wt.=  95.0110 g
      3 species in reaction
     4.000  H2O   -4.000  H+    1.000  Al+++
@@ -633,7 +633,7 @@ Al(OH)4-
         13.7468     11.4826      9.6454      8.1492
 * [TS01]
 
-AlF++
+AlF++                           formula= AlF+2
      charge= 2.0      ion size=  4.5 A      mole wt.=  45.9800 g
      2 species in reaction
     1.000  F-    1.000  Al+++  
@@ -641,7 +641,7 @@ AlF++
         -7.5219     -7.9305     -8.4556     -9.1592
 * [TS01]
 
-AlF2+
+AlF2+                           formula= AlF2+
      charge= 1.0      ion size=  4.5 A      mole wt.=  64.9780 g
      2 species in reaction
     2.000  F-    1.000  Al+++  
@@ -649,7 +649,7 @@ AlF2+
        -13.6765    -14.4900    -15.5370    -16.9413
 * [TS01]
 
-AlF3(aq)
+AlF3(aq)                        formula= AlF3
      charge= 0.0      ion size=  0.0 A      mole wt.=  83.9770 g
      2 species in reaction
     3.000  F-    1.000  Al+++  
@@ -657,7 +657,7 @@ AlF3(aq)
        -18.2183    -19.4134    -20.9600    -23.0427
 * [TS01]
 
-AlF4-
+AlF4-                           formula= AlF4-
      charge= -1.0      ion size=  4.5 A      mole wt.=  102.9750 g
      2 species in reaction
     4.000  F-    1.000  Al+++  
@@ -665,7 +665,7 @@ AlF4-
        -20.8793    -22.2396    -23.9549    -26.2029
 * [TS01]
 
-AlOHF2(aq)
+AlOHF2(aq)                      formula= AlOHF2
      charge= 0.0      ion size=  0.0 A      mole wt.=  81.9860 g
      4 species in reaction
     1.000  H2O   -1.000  H+    2.000  F-
@@ -674,7 +674,7 @@ AlOHF2(aq)
         -8.2238    -10.7288    -13.1373    -15.6771
 * [TS01]
 
-Al(OH)2F(aq)
+Al(OH)2F(aq)                    formula= Al(OH)2F
      charge= 0.0      ion size=  0.0 A      mole wt.=  79.9950 g
      4 species in reaction
     2.000  H2O   -2.000  H+    1.000  F-
@@ -683,7 +683,7 @@ Al(OH)2F(aq)
         -2.3033     -4.1905     -5.9377     -7.7043
 * [TS01]
 
-CuOH(aq)
+CuOH(aq)                        formula= CuOH
      charge= 0.0      ion size=  0.0 A      mole wt.=  80.5530 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  Cu+
@@ -691,7 +691,7 @@ CuOH(aq)
          7.6397      6.9335      6.2851      5.6687
 * [AZ01]
 
-Cu(HS)2-
+Cu(HS)2-                        formula= Cu(HS)2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  129.6940 g
      4 species in reaction
     2.000  H+   -4.000  O2(aq)    2.000  SO4--
@@ -700,7 +700,7 @@ Cu(HS)2-
        171.1400    147.3791    127.2642    109.4768
 * [AZ10]
 
-CuCl(aq)
+CuCl(aq)                        formula= CuCl
      charge= 0.0      ion size=  0.0 A      mole wt.=  98.9990 g
      2 species in reaction
     1.000  Cl-    1.000  Cu+  
@@ -708,7 +708,7 @@ CuCl(aq)
         -2.8902     -2.8066     -2.8656     -3.1218
 * [AZ01]
 
-CuCl2-
+CuCl2-                          formula= CuCl2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  134.4510 g
      2 species in reaction
     2.000  Cl-    1.000  Cu+  
@@ -716,7 +716,7 @@ CuCl2-
         -4.7979     -4.9808     -5.3141     -5.8760
 * [AZ01]
 
-CuCl3--
+CuCl3--                         formula= CuCl3-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  169.9040 g
      2 species in reaction
     3.000  Cl-    1.000  Cu+  
@@ -724,7 +724,7 @@ CuCl3--
         -3.1781     -3.1075     -3.3451     -3.8845
 * [SSH97]
 
-Cu++
+Cu++                            formula= Cu+2
      charge= 2.0      ion size=  6.0 A      mole wt.=  63.5460 g
      4 species in reaction
    -0.500  H2O    1.000  H+    0.250  O2(aq)
@@ -733,7 +733,7 @@ Cu++
        -10.6549     -8.5450     -6.7814     -5.2481
 * [SH88]
 
-ZnOH+
+ZnOH+                           formula= ZnOH+
      charge= 1.0      ion size=  4.5 A      mole wt.=  82.3970 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  Zn++
@@ -741,7 +741,7 @@ ZnOH+
          6.0771      5.3124      4.6252      3.9820
 * [AT14]
 
-Zn(HS)2(aq)
+Zn(HS)2(aq)                     formula= Zn(HS)2
      charge= 0.0      ion size=  0.0 A      mole wt.=  131.5380 g
      4 species in reaction
     2.000  H+   -4.000  O2(aq)    2.000  SO4--
@@ -750,7 +750,7 @@ Zn(HS)2(aq)
        173.8287    148.3854    126.6402    107.2006
 * [AT14]
 
-ZnCl+
+ZnCl+                           formula= ZnCl+
      charge= 1.0      ion size=  4.5 A      mole wt.=  100.8430 g
      2 species in reaction
     1.000  Cl-    1.000  Zn++  
@@ -758,7 +758,7 @@ ZnCl+
         -1.8125     -2.5160     -3.3101     -4.2611
 * [AT14]
 
-ZnCl2(aq)
+ZnCl2(aq)                       formula= ZnCl2
      charge= 0.0      ion size=  0.0 A      mole wt.=  136.2950 g
      2 species in reaction
     2.000  Cl-    1.000  Zn++  
@@ -766,7 +766,7 @@ ZnCl2(aq)
         -2.9742     -4.1479     -5.4692     -7.0817
 * [AT14]
 
-ZnCl3-
+ZnCl3-                          formula= ZnCl3-
      charge= -1.0      ion size=  4.5 A      mole wt.=  171.7480 g
      2 species in reaction
     3.000  Cl-    1.000  Zn++  
@@ -774,7 +774,7 @@ ZnCl3-
         -3.3587     -4.8448     -6.5333     -8.5612
 * [AT14]
 
-ZnCl4--
+ZnCl4--                         formula= ZnCl4-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  207.2010 g
      2 species in reaction
     4.000  Cl-    1.000  Zn++  
@@ -782,7 +782,7 @@ ZnCl4--
         -2.9237     -4.6449     -6.5641     -8.8089
 * [AT14]
 
-PbOH+
+PbOH+                           formula= PbOH+
      charge= 1.0      ion size=  4.5 A      mole wt.=  224.2070 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  Pb++
@@ -790,7 +790,7 @@ PbOH+
          6.6339      6.8488      7.0557      7.2388
 * [SSWS97]
 
-Pb(HS)2(aq)
+Pb(HS)2(aq)                     formula= Pb(HS)2
      charge= 0.0      ion size=  0.0 A      mole wt.=  273.3480 g
      4 species in reaction
     2.000  H+   -4.000  O2(aq)    2.000  SO4--
@@ -799,7 +799,7 @@ Pb(HS)2(aq)
        171.2105    146.5608    125.5636    106.8308
 * [SSH97]
 
-PbCl+
+PbCl+                           formula= PbCl+
      charge= 1.0      ion size=  4.5 A      mole wt.=  242.6530 g
      2 species in reaction
     1.000  Cl-    1.000  Pb++  
@@ -807,7 +807,7 @@ PbCl+
         -2.1855     -2.6398     -3.2005     -3.9407
 * [SSH97]
 
-PbCl2(aq)
+PbCl2(aq)                       formula= PbCl2
      charge= 0.0      ion size=  0.0 A      mole wt.=  278.1050 g
      2 species in reaction
     2.000  Cl-    1.000  Pb++  
@@ -815,7 +815,7 @@ PbCl2(aq)
         -3.2319     -3.9707     -4.8915     -6.1339
 * [SSH97]
 
-PbCl3-
+PbCl3-                          formula= PbCl3-
      charge= -1.0      ion size=  4.5 A      mole wt.=  313.5580 g
      2 species in reaction
     3.000  Cl-    1.000  Pb++  
@@ -823,7 +823,7 @@ PbCl3-
         -3.0773     -3.9398     -5.0173     -6.4673
 * [SSH97]
 
-PbCl4--
+PbCl4--                         formula= PbCl4-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  349.0110 g
      2 species in reaction
     4.000  Cl-    1.000  Pb++  
@@ -831,7 +831,7 @@ PbCl4--
         -2.5322     -3.3424     -4.3805     -5.7890
 * [SSH97]
 
-Ag(HS)2-
+Ag(HS)2-                        formula= Ag(HS)2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  174.0160 g
      4 species in reaction
     2.000  H+   -4.000  O2(aq)    2.000  SO4--
@@ -840,7 +840,7 @@ Ag(HS)2-
        170.9498    147.2163    127.1292    109.3602
 * [AZ10]
 
-AgCl(aq)
+AgCl(aq)                        formula= AgCl
      charge= 0.0      ion size=  0.0 A      mole wt.=  143.3210 g
      2 species in reaction
     1.000  Cl-    1.000  Ag+  
@@ -848,7 +848,7 @@ AgCl(aq)
         -2.5236     -2.4437     -2.4853     -2.7055
 * [AZ01]
 
-AgCl2-
+AgCl2-                          formula= AgCl2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  178.7740 g
      2 species in reaction
     2.000  Cl-    1.000  Ag+  
@@ -856,7 +856,7 @@ AgCl2-
         -4.3393     -4.3515     -4.5417     -4.9870
 * [AZ01]
 
-AgCl3--
+AgCl3--                         formula= AgCl3-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  214.2260 g
      2 species in reaction
     3.000  Cl-    1.000  Ag+  
@@ -864,7 +864,7 @@ AgCl3--
         -3.5098     -3.4292     -3.5620     -3.9414
 * [AVZP06]
 
-AgCl4---
+AgCl4---                        formula= AgCl4-3
      charge= -3.0      ion size=  4.5 A      mole wt.=  249.6790 g
      2 species in reaction
     4.000  Cl-    1.000  Ag+  
@@ -872,7 +872,7 @@ AgCl4---
         -1.5195     -1.4335     -1.6211     -2.0825
 * [SSH97]
 
-AuOH(aq)
+AuOH(aq)                        formula= AuOH
      charge= 0.0      ion size=  0.0 A      mole wt.=  213.9740 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  Au+
@@ -880,7 +880,7 @@ AuOH(aq)
         -6.6926     -5.4655     -4.4191     -3.5176
 * [AZ01]
 
-Au(OH)2-
+Au(OH)2-                        formula= Au(OH)2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  230.9810 g
      3 species in reaction
     2.000  H2O   -2.000  H+    1.000  Au+
@@ -888,7 +888,7 @@ Au(OH)2-
          7.1987      7.8997      8.6364      9.4378
 * [AZ01]
 
-AuHS(aq)
+AuHS(aq)                        formula= AuHS
      charge= 0.0      ion size=  0.0 A      mole wt.=  230.0400 g
      4 species in reaction
     1.000  H+   -2.000  O2(aq)    1.000  SO4--
@@ -897,7 +897,7 @@ AuHS(aq)
         73.3358     62.5403     53.4230     45.3304
 * [AZ10, PAB+14]
 
-Au(HS)2-
+Au(HS)2-                        formula= Au(HS)2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  263.1140 g
      4 species in reaction
     2.000  H+   -4.000  O2(aq)    2.000  SO4--
@@ -906,7 +906,7 @@ Au(HS)2-
        160.3870    137.4367    118.1120    101.0953
 * [AZ10]
 
-AuCl2-
+AuCl2-                          formula= AuCl2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  267.8720 g
      2 species in reaction
     2.000  Cl-    1.000  Au+  
@@ -914,7 +914,7 @@ AuCl2-
         -7.4988     -7.3030     -7.3706     -7.7371
 * [AZ01]
 
-Au+++
+Au+++                           formula= Au+3
      charge= 3.0      ion size=  4.5 A      mole wt.=  196.9670 g
      4 species in reaction
    -1.000  H2O    2.000  H+    0.500  O2(aq)
@@ -923,7 +923,7 @@ Au+++
          7.6423      8.6095      9.5090     10.4091
 * [SSWS97, SH88]
 
-MnOH+
+MnOH+                           formula= MnOH+
      charge= 1.0      ion size=  4.5 A      mole wt.=  71.9450 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  Mn++
@@ -931,7 +931,7 @@ MnOH+
          7.5681      6.8134      6.1883      5.6401
 * [SSWS97]
 
-MnSO4(aq)
+MnSO4(aq)                       formula= MnSO4
      charge= 0.0      ion size=  0.0 A      mole wt.=  151.0020 g
      2 species in reaction
     1.000  SO4--    1.000  Mn++  
@@ -939,7 +939,7 @@ MnSO4(aq)
         -2.9347     -3.5085     -4.2616     -5.3465
 * [SSH97]
 
-MnCl+
+MnCl+                           formula= MnCl+
      charge= 1.0      ion size=  4.5 A      mole wt.=  90.3910 g
      2 species in reaction
     1.000  Cl-    1.000  Mn++  
@@ -947,7 +947,7 @@ MnCl+
         -1.4713     -2.1854     -2.9731     -3.9090
 * [SSH97]
 
-MnO4-
+MnO4-                           formula= MnO4-
      charge= -1.0      ion size=  3.5 A      mole wt.=  118.9360 g
      4 species in reaction
     1.500  H2O   -3.000  H+    1.250  O2(aq)
@@ -956,7 +956,7 @@ MnO4-
         14.9330     14.0127     13.4664     13.2508
 * [SSWS97]
 
-MnO4--
+MnO4--                          formula= MnO4-2
      charge= -2.0      ion size=  4.5 A      mole wt.=  118.9360 g
      4 species in reaction
     2.000  H2O   -4.000  H+    1.000  O2(aq)
@@ -965,7 +965,7 @@ MnO4--
         26.2203     25.3872     25.1034     25.3664
 * [SSWS97]
 
-FeOH+
+FeOH+                           formula= FeOH+
      charge= 1.0      ion size=  4.5 A      mole wt.=  72.8540 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  Fe++
@@ -973,7 +973,7 @@ FeOH+
          6.6337      5.9419      5.3584      4.8384
 * [SSWS97]
 
-FeCl+
+FeCl+                           formula= FeCl+
      charge= 1.0      ion size=  4.5 A      mole wt.=  91.3000 g
      2 species in reaction
     1.000  Cl-    1.000  Fe++  
@@ -981,7 +981,7 @@ FeCl+
         -0.6047     -1.0921     -1.6835     -2.4419
 * [SSH97]
 
-FeCl2(aq)
+FeCl2(aq)                       formula= FeCl2
      charge= 0.0      ion size=  0.0 A      mole wt.=  126.7520 g
      2 species in reaction
     2.000  Cl-    1.000  Fe++  
@@ -989,7 +989,7 @@ FeCl2(aq)
          2.0690      0.0106     -2.0222     -4.2220
 * [SSH97]
 
-Fe+++
+Fe+++                           formula= Fe+3
      charge= 3.0      ion size=  4.5 A      mole wt.=  55.8470 g
      4 species in reaction
    -0.500  H2O    1.000  H+    0.250  O2(aq)
@@ -998,7 +998,7 @@ Fe+++
         -3.2874     -1.8842     -0.6820      0.3902
 * [SSWS97]
 
-FeOH++
+FeOH++                          formula= FeOH+2
      charge= 2.0      ion size=  4.5 A      mole wt.=  72.8540 g
      3 species in reaction
     0.500  H2O    0.250  O2(aq)    1.000  Fe++
@@ -1006,7 +1006,7 @@ FeOH++
         -3.2080     -2.3274     -1.5675     -0.8935
 * [SSWS97]
 
-FeF++
+FeF++                           formula= FeF+2
      charge= 2.0      ion size=  4.5 A      mole wt.=  74.8450 g
      5 species in reaction
    -0.500  H2O    1.000  H+    0.250  O2(aq)
@@ -1015,7 +1015,7 @@ FeF++
        -10.8983    -10.1905     -9.7605     -9.6106
 * [SSH97]
 
-FeCl++
+FeCl++                          formula= FeCl+2
      charge= 2.0      ion size=  4.5 A      mole wt.=  91.3000 g
      5 species in reaction
    -0.500  H2O    1.000  H+    0.250  O2(aq)
@@ -1024,7 +1024,7 @@ FeCl++
         -5.5273     -4.5938     -3.9657     -3.6354
 * [SSH97]
 
-UO2OH+
+UO2OH+                          formula= UO2OH+
      charge= 1.0      ion size=  4.5 A      mole wt.=  287.0350 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  UO2++
@@ -1032,7 +1032,7 @@ UO2OH+
          3.1893      2.7386      2.3762      2.0587
 * [SSB97]
 
-CH4(aq)
+CH4(aq)                         formula= CH4
      charge= 0.0      ion size=  0.0 A      mole wt.=  16.0430 g
      4 species in reaction
     1.000  H2O    1.000  H+    1.000  HCO3-
@@ -1041,7 +1041,7 @@ CH4(aq)
         97.8553     85.4778     75.0822     66.0056
 * [PS01]
 
-C2H6(aq)
+C2H6(aq)                        formula= C2H6
      charge= 0.0      ion size=  0.0 A      mole wt.=  30.0700 g
      4 species in reaction
     1.000  H2O    2.000  H+    2.000  HCO3-
@@ -1050,7 +1050,7 @@ C2H6(aq)
        172.9855    151.2454    132.9988    117.0802
 * [SH90]
 
-HCOOH(aq)
+HCOOH(aq)                       formula= H2CO2
      charge= 0.0      ion size=  0.0 A      mole wt.=  46.0260 g
      3 species in reaction
     1.000  H+    1.000  HCO3-   -0.500  O2(aq)
@@ -1058,7 +1058,7 @@ HCOOH(aq)
         24.9992     21.1238     17.7741     14.7042
 * [Sho95]
 
-HCOO-
+HCOO-                           formula= HCO2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  45.0180 g
      2 species in reaction
     1.000  HCO3-   -0.500  O2(aq)  
@@ -1066,7 +1066,7 @@ HCOO-
         29.1973     25.6494     22.7195     20.2358
 * [Sho95]
 
-CH3COOH(aq)
+CH3COOH(aq)                     formula= C2H4O2
      charge= 0.0      ion size=  0.0 A      mole wt.=  60.0530 g
      3 species in reaction
     2.000  H+    2.000  HCO3-   -2.000  O2(aq)
@@ -1074,7 +1074,7 @@ CH3COOH(aq)
         95.1555     82.5373     71.8523     62.3944
 * [Sho95]
 
-CH3COO-
+CH3COO-                         formula= C2H3O2-
      charge= -1.0      ion size=  4.5 A      mole wt.=  59.0450 g
      3 species in reaction
     1.000  H+    2.000  HCO3-   -2.000  O2(aq)
@@ -1087,7 +1087,7 @@ CH3COO-
    84 minerals
 
 Sulphur                        type=
-     formula= S1
+     formula= S
      mole vol.=   15.5110 cc      mole wt.=  32.0660 g
      4 species in reaction
    -1.000  H2O    2.000  H+   -1.500  O2(aq)
@@ -1097,7 +1097,7 @@ Sulphur                        type=
 * [MS97, SLOP98]
 
 Iron                        type=
-     formula= Fe1
+     formula= Fe
      mole vol.=   7.0920 cc      mole wt.=  55.8470 g
      4 species in reaction
     1.000  H2O   -2.000  H+   -0.500  O2(aq)
@@ -1107,7 +1107,7 @@ Iron                        type=
 * [RHF78, Kel60]
 
 Copper                        type=
-     formula= Cu1
+     formula= Cu
      mole vol.=   7.1130 cc      mole wt.=  63.5460 g
      4 species in reaction
     0.500  H2O   -1.000  H+   -0.250  O2(aq)
@@ -1117,7 +1117,7 @@ Copper                        type=
 * [HDNB78]
 
 Silver                        type=
-     formula= Ag1
+     formula= Ag
      mole vol.=   10.2720 cc      mole wt.=  107.8680 g
      4 species in reaction
     0.500  H2O   -1.000  H+   -0.250  O2(aq)
@@ -1127,7 +1127,7 @@ Silver                        type=
 * [HDNB78]
 
 Gold                        type=
-     formula= Au1
+     formula= Au
      mole vol.=   10.2150 cc      mole wt.=  196.9670 g
      4 species in reaction
     0.500  H2O   -1.000  H+   -0.250  O2(aq)
@@ -1137,7 +1137,7 @@ Gold                        type=
 * [HDNB78]
 
 Graphite                        type=
-     formula= C1
+     formula= C
      mole vol.=   5.2980 cc      mole wt.=  12.0110 g
      4 species in reaction
    -1.000  H2O    1.000  H+    1.000  HCO3-
@@ -1147,7 +1147,7 @@ Graphite                        type=
 * [HDNB78]
 
 Tin                        type=
-     formula= Sn1
+     formula= Sn
      mole vol.=   16.2890 cc      mole wt.=  118.7100 g
      4 species in reaction
     1.000  H2O   -2.000  H+   -0.500  O2(aq)
@@ -1157,7 +1157,7 @@ Tin                        type=
 * [JH85]
 
 Quartz                        type=
-     formula= O2Si1
+     formula= SiO2
      mole vol.=   22.6880 cc      mole wt.=  60.0840 g
      1 species in reaction
     1.000  SiO2(aq)    
@@ -1175,7 +1175,7 @@ Corundum                        type=
 * [Ber88]
 
 Lime                        type=
-     formula= Ca1O1
+     formula= CaO
      mole vol.=   16.7640 cc      mole wt.=  56.0770 g
      3 species in reaction
     1.000  H2O   -2.000  H+    1.000  Ca++
@@ -1184,7 +1184,7 @@ Lime                        type=
 * [Ber88]
 
 Potassium_oxid                        type=
-     formula= K2O1
+     formula= K2O
      mole vol.=   40.3800 cc      mole wt.=  94.1960 g
      3 species in reaction
     1.000  H2O   -2.000  H+    2.000  K+
@@ -1193,7 +1193,7 @@ Potassium_oxid                        type=
 * [HDNB78]
 
 Sodium_oxide                        type=
-     formula= Na2O1
+     formula= Na2O
      mole vol.=   25.8800 cc      mole wt.=  61.9790 g
      3 species in reaction
     1.000  H2O   -2.000  H+    2.000  Na+
@@ -1222,7 +1222,7 @@ Magnetite                        type=
 * [Ber88]
 
 Uraninite                        type=
-     formula= O2U1
+     formula= UO2
      mole vol.=   24.6180 cc      mole wt.=  270.0280 g
      4 species in reaction
     1.000  H2O   -2.000  H+   -0.500  O2(aq)
@@ -1232,7 +1232,7 @@ Uraninite                        type=
 * [SSB97]
 
 Cassiterite                        type=
-     formula= O2Sn1
+     formula= SnO2
      mole vol.=   21.5500 cc      mole wt.=  150.7090 g
      4 species in reaction
     1.000  H2O   -2.000  H+    0.500  O2(aq)
@@ -1242,7 +1242,7 @@ Cassiterite                        type=
 * [JH85]
 
 Tenorite                        type=
-     formula= Cu1O1
+     formula= CuO
      mole vol.=   12.2200 cc      mole wt.=  79.5450 g
      4 species in reaction
     0.500  H2O   -1.000  H+    0.250  O2(aq)
@@ -1252,7 +1252,7 @@ Tenorite                        type=
 * [HDNB78]
 
 Cuprite                        type=
-     formula= Cu2O1
+     formula= Cu2O
      mole vol.=   23.4370 cc      mole wt.=  143.0910 g
      3 species in reaction
     1.000  H2O   -2.000  H+    2.000  Cu+
@@ -1261,7 +1261,7 @@ Cuprite                        type=
 * [HDNB78]
 
 Manganosite                        type=
-     formula= Mn1O1
+     formula= MnO
      mole vol.=   13.2210 cc      mole wt.=  70.9370 g
      3 species in reaction
     1.000  H2O   -2.000  H+    1.000  Mn++
@@ -1270,7 +1270,7 @@ Manganosite                        type=
 * [HDNB78, WEP+82]
 
 Zincite                        type=
-     formula= O1Zn1
+     formula= ZnO
      mole vol.=   14.3380 cc      mole wt.=  81.3890 g
      3 species in reaction
     1.000  H2O   -2.000  H+    1.000  Zn++
@@ -1279,7 +1279,7 @@ Zincite                        type=
 * [SSWS97, HDNB78]
 
 Fluorite                        type=
-     formula= Ca1F2
+     formula= CaF2
      mole vol.=   24.5420 cc      mole wt.=  78.0750 g
      2 species in reaction
     2.000  F-    1.000  Ca++  
@@ -1288,7 +1288,7 @@ Fluorite                        type=
 * [HDNB78]
 
 Halite                        type=
-     formula= Cl1Na1Na3
+     formula= NaCl
      mole vol.=   27.0150 cc      mole wt.=  58.4420 g
      2 species in reaction
     1.000  Cl-    1.000  Na+  
@@ -1297,7 +1297,7 @@ Halite                        type=
 * [HDNB78]
 
 Pyrite                        type=
-     formula= Fe1S2Na3
+     formula= FeS2
      mole vol.=   23.9400 cc      mole wt.=  119.9790 g
      5 species in reaction
    -1.000  H2O    2.000  H+   -3.500  O2(aq)
@@ -1307,7 +1307,7 @@ Pyrite                        type=
 * [HDNB78]
 
 Sphalerite                        type=
-     formula= S1Zn1Na3
+     formula= ZnS
      mole vol.=   23.8100 cc      mole wt.=  97.4560 g
      3 species in reaction
    -2.000  O2(aq)    1.000  SO4--    1.000  Zn++
@@ -1316,7 +1316,7 @@ Sphalerite                        type=
 * [HDNB78]
 
 Chalcocite                        type=
-     formula= Cu2S1Na3
+     formula= Cu2S
      mole vol.=   27.4750 cc      mole wt.=  159.1580 g
      3 species in reaction
    -2.000  O2(aq)    1.000  SO4--    2.000  Cu+
@@ -1325,7 +1325,7 @@ Chalcocite                        type=
 * [HDNB78]
 
 Chalcopyrite                        type=
-     formula= Cu1Fe1S2
+     formula= CuFeS2
      mole vol.=   42.8300 cc      mole wt.=  183.5250 g
      6 species in reaction
    -0.500  H2O    1.000  H+   -3.750  O2(aq)
@@ -1335,7 +1335,7 @@ Chalcopyrite                        type=
 * [HDNB78, PK70]
 
 Bornite                        type=
-     formula= Cu5Fe1S4
+     formula= Cu5FeS4
      mole vol.=   98.6000 cc      mole wt.=  501.8410 g
      6 species in reaction
    -0.500  H2O    1.000  H+   -7.750  O2(aq)
@@ -1345,7 +1345,7 @@ Bornite                        type=
 * [HDNB78, PK70]
 
 Realgar                        type=
-     formula= As4S4S4
+     formula= As4S4
      mole vol.=   119.2000 cc      mole wt.=  427.9500 g
      5 species in reaction
   -10.000  H2O    8.000  H+    4.000  As(OH)3
@@ -1355,7 +1355,7 @@ Realgar                        type=
 * [NA03]
 
 Orpiment                        type=
-     formula= As2S3S4
+     formula= As2S3
      mole vol.=   70.5100 cc      mole wt.=  246.0410 g
      5 species in reaction
    -6.000  H2O    6.000  H+    2.000  As(OH)3
@@ -1365,7 +1365,7 @@ Orpiment                        type=
 * [NA03]
 
 Arsenopyrite                        type=
-     formula= As1Fe1S1
+     formula= FeAsS
      mole vol.=   26.4200 cc      mole wt.=  162.8350 g
      5 species in reaction
    -1.500  H2O    1.000  As(OH)3   -2.750  O2(aq)
@@ -1375,7 +1375,7 @@ Arsenopyrite                        type=
 * [NRK74, SB99]
 
 Diaspore                        type=
-     formula= Al1H1O2
+     formula= AlO2H
      mole vol.=   17.7600 cc      mole wt.=  59.9880 g
      3 species in reaction
     2.000  H2O   -3.000  H+    1.000  Al+++
@@ -1384,7 +1384,7 @@ Diaspore                        type=
 * [Ber88]
 
 Boehmite                        type=
-     formula= Al1H1O2
+     formula= AlO(OH)
      mole vol.=   19.5350 cc      mole wt.=  59.9880 g
      3 species in reaction
     2.000  H2O   -3.000  H+    1.000  Al+++
@@ -1393,7 +1393,7 @@ Boehmite                        type=
 * [HRA91, ZZL+16]
 
 Gibbsite                        type=
-     formula= Al1H3O3
+     formula= Al(OH)3
      mole vol.=   31.9560 cc      mole wt.=  78.0040 g
      3 species in reaction
     3.000  H2O   -3.000  H+    1.000  Al+++
@@ -1402,7 +1402,7 @@ Gibbsite                        type=
 * [RHF78, ZZL+16]
 
 Brucite                        type=
-     formula= H2Mg1O2
+     formula= MgO2H2
      mole vol.=   24.6300 cc      mole wt.=  58.3200 g
      3 species in reaction
     2.000  H2O   -2.000  H+    1.000  Mg++
@@ -1411,7 +1411,7 @@ Brucite                        type=
 * [Ber88]
 
 Goethite                        type=
-     formula= Fe1H1O2
+     formula= FeOOH
      mole vol.=   20.8200 cc      mole wt.=  88.8540 g
      4 species in reaction
     1.500  H2O   -2.000  H+    0.250  O2(aq)
@@ -1421,7 +1421,7 @@ Goethite                        type=
 * [MGN03, MLS+03]
 
 Calcite                        type=
-     formula= C1Ca1O3
+     formula= CaCO3
      mole vol.=   36.9340 cc      mole wt.=  100.0870 g
      3 species in reaction
    -1.000  H+    1.000  HCO3-    1.000  Ca++
@@ -1430,7 +1430,7 @@ Calcite                        type=
 * [Ber88]
 
 Aragonite                        type=
-     formula= C1Ca1O3
+     formula= CaCO3
      mole vol.=   34.1500 cc      mole wt.=  100.0870 g
      3 species in reaction
    -1.000  H+    1.000  HCO3-    1.000  Ca++
@@ -1439,7 +1439,7 @@ Aragonite                        type=
 * [FDM+14]
 
 Magnesite                        type=
-     formula= C1Mg1O3
+     formula= MgCO3
      mole vol.=   28.0180 cc      mole wt.=  84.3140 g
      3 species in reaction
    -1.000  H+    1.000  HCO3-    1.000  Mg++
@@ -1448,7 +1448,7 @@ Magnesite                        type=
 * [Ber88]
 
 Dolomite                        type=
-     formula= C2Ca1Mg1O6
+     formula= MgCaC2O6
      mole vol.=   64.3400 cc      mole wt.=  184.4010 g
      4 species in reaction
    -2.000  H+    2.000  HCO3-    1.000  Mg++
@@ -1458,7 +1458,7 @@ Dolomite                        type=
 * [Ber88]
 
 Siderite                        type=
-     formula= C1Fe1O3O6
+     formula= FeCO3
      mole vol.=   29.3780 cc      mole wt.=  115.8560 g
      3 species in reaction
    -1.000  H+    1.000  HCO3-    1.000  Fe++
@@ -1467,7 +1467,7 @@ Siderite                        type=
 * [HDNB78, Hel85]
 
 Cerussite                        type=
-     formula= C1O3Pb1O6
+     formula= PbCO3
      mole vol.=   40.6000 cc      mole wt.=  267.2090 g
      3 species in reaction
    -1.000  H+    1.000  HCO3-    1.000  Pb++
@@ -1476,7 +1476,7 @@ Cerussite                        type=
 * [HDNB78]
 
 Smithsonite                        type=
-     formula= C1O3Zn1O6
+     formula= ZnCO3
      mole vol.=   28.2750 cc      mole wt.=  125.3990 g
      3 species in reaction
    -1.000  H+    1.000  HCO3-    1.000  Zn++
@@ -1485,7 +1485,7 @@ Smithsonite                        type=
 * [HDNB78]
 
 Rhodochrosite                        type=
-     formula= C1Mn1O3O6
+     formula= MnCO3
      mole vol.=   31.0730 cc      mole wt.=  114.9470 g
      3 species in reaction
    -1.000  H+    1.000  HCO3-    1.000  Mn++
@@ -1494,7 +1494,7 @@ Rhodochrosite                        type=
 * [HDNB78]
 
 Alunite                        type=
-     formula= Al3H6K1O14S2
+     formula= KAl3(OH)6(SO4)2
      mole vol.=   146.8000 cc      mole wt.=  414.2140 g
      5 species in reaction
     6.000  H2O   -6.000  H+    2.000  SO4--
@@ -1504,7 +1504,7 @@ Alunite                        type=
 * [HDNB78]
 
 Anhydrite                        type=
-     formula= Ca1O4S1O14
+     formula= CaSO4
      mole vol.=   45.9400 cc      mole wt.=  136.1420 g
      2 species in reaction
     1.000  SO4--    1.000  Ca++  
@@ -1513,7 +1513,7 @@ Anhydrite                        type=
 * [HDNB78]
 
 Gypsum                        type=
-     formula= Ca1H4O6S1S2
+     formula= CaSO4*2H2O
      mole vol.=   74.6900 cc      mole wt.=  172.1720 g
      3 species in reaction
     2.000  H2O    1.000  SO4--    1.000  Ca++
@@ -1522,7 +1522,7 @@ Gypsum                        type=
 * [RH95, Kel60]
 
 Anglesite                        type=
-     formula= O4Pb1S1S1
+     formula= PbSO4
      mole vol.=   47.9500 cc      mole wt.=  303.2640 g
      2 species in reaction
     1.000  SO4--    1.000  Pb++  
@@ -1531,7 +1531,7 @@ Anglesite                        type=
 * [HDNB78]
 
 Forsterite                        type=
-     formula= Mg2O4Si1P3
+     formula= Mg2SiO4
      mole vol.=   43.7900 cc      mole wt.=  140.6930 g
      4 species in reaction
     2.000  H2O   -4.000  H+    1.000  SiO2(aq)
@@ -1541,7 +1541,7 @@ Forsterite                        type=
 * [Ber88]
 
 Fayalite                        type=
-     formula= Fe2O4Si1P3
+     formula= Fe2SiO4
      mole vol.=   46.1470 cc      mole wt.=  203.7770 g
      4 species in reaction
     2.000  H2O   -4.000  H+    1.000  SiO2(aq)
@@ -1551,7 +1551,7 @@ Fayalite                        type=
 * [Ber88]
 
 Grossular                        type=
-     formula= Al2Ca3O12Si3S2
+     formula= Ca3Al2Si3O12
      mole vol.=   125.3000 cc      mole wt.=  450.4460 g
      5 species in reaction
     6.000  H2O  -12.000  H+    3.000  SiO2(aq)
@@ -1561,7 +1561,7 @@ Grossular                        type=
 * [Ber88]
 
 Almandine                        type=
-     formula= Al2Fe3O12Si3S2
+     formula= Si3Fe3Al2O12
      mole vol.=   115.2700 cc      mole wt.=  497.7530 g
      5 species in reaction
     6.000  H2O  -12.000  H+    3.000  SiO2(aq)
@@ -1571,7 +1571,7 @@ Almandine                        type=
 * [Ber88, Ber90]
 
 Andalusite                        type=
-     formula= Al2O5Si1Si1
+     formula= Al2SiO5
      mole vol.=   51.5300 cc      mole wt.=  162.0460 g
      4 species in reaction
     3.000  H2O   -6.000  H+    1.000  SiO2(aq)
@@ -1581,7 +1581,7 @@ Andalusite                        type=
 * [Ber88]
 
 Sillimanite                        type=
-     formula= Al2O5Si1Si1
+     formula= Al2SiO5
      mole vol.=   50.0180 cc      mole wt.=  162.0460 g
      4 species in reaction
     3.000  H2O   -6.000  H+    1.000  SiO2(aq)
@@ -1591,7 +1591,7 @@ Sillimanite                        type=
 * [Ber88]
 
 Cordierite                        type=
-     formula= Al4Mg2O18Si5S2
+     formula= Mg2Al4Si5O18
      mole vol.=   233.2200 cc      mole wt.=  584.9530 g
      5 species in reaction
     8.000  H2O  -16.000  H+    5.000  SiO2(aq)
@@ -1601,7 +1601,7 @@ Cordierite                        type=
 * [Ber88]
 
 Wollastonite                        type=
-     formula= Ca1O3Si1Si5
+     formula= CaSiO3
      mole vol.=   39.9300 cc      mole wt.=  116.1620 g
      4 species in reaction
     1.000  H2O   -2.000  H+    1.000  SiO2(aq)
@@ -1611,7 +1611,7 @@ Wollastonite                        type=
 * [Ber88]
 
 Diopside                        type=
-     formula= Ca1Mg1O6Si2S2
+     formula= MgCaSi2O6
      mole vol.=   66.0900 cc      mole wt.=  216.5500 g
      5 species in reaction
     2.000  H2O   -4.000  H+    2.000  SiO2(aq)
@@ -1621,7 +1621,7 @@ Diopside                        type=
 * [Ber88]
 
 Enstatite                        type=
-     formula= Mg1O3Si1Si2
+     formula= MgSiO3
      mole vol.=   31.2760 cc      mole wt.=  100.3890 g
      4 species in reaction
     1.000  H2O   -2.000  H+    1.000  SiO2(aq)
@@ -1631,7 +1631,7 @@ Enstatite                        type=
 * [Ber88]
 
 Pargasite                        type=
-     formula= Al3Ca2H2Mg4Na1O24Si6
+     formula= Na(Ca2Mg4Al)(Al2Si6)O22(OH)2
      mole vol.=   272.0500 cc      mole wt.=  835.8250 g
      7 species in reaction
    12.000  H2O  -22.000  H+    6.000  SiO2(aq)
@@ -1642,7 +1642,7 @@ Pargasite                        type=
 * [HDNB78, SPRONS92]
 
 Anthophyllite                        type=
-     formula= H2Mg7O24Si8Si8
+     formula= Mg7Si8O24H2
      mole vol.=   264.4600 cc      mole wt.=  780.8200 g
      4 species in reaction
     8.000  H2O  -14.000  H+    8.000  SiO2(aq)
@@ -1652,7 +1652,7 @@ Anthophyllite                        type=
 * [Ber88]
 
 Tremolite                        type=
-     formula= Ca2H2Mg5O24Si8O24
+     formula= Ca2Mg5Si8O24H2
      mole vol.=   272.9200 cc      mole wt.=  812.3660 g
      5 species in reaction
     8.000  H2O  -14.000  H+    8.000  SiO2(aq)
@@ -1662,7 +1662,7 @@ Tremolite                        type=
 * [Ber88]
 
 Ferrotremolite                        type=
-     formula= Ca2Fe5H2O24Si8O24
+     formula= (Ca2Fe5)Si8O22(OH)2
      mole vol.=   282.8000 cc      mole wt.=  970.0760 g
      5 species in reaction
     8.000  H2O  -14.000  H+    8.000  SiO2(aq)
@@ -1672,7 +1672,7 @@ Ferrotremolite                        type=
 * [HDNB78]
 
 Paragonite                        type=
-     formula= Al3H2Na1O12Si3O24
+     formula= NaAl3Si3O12H2
      mole vol.=   132.5300 cc      mole wt.=  382.2000 g
      5 species in reaction
     6.000  H2O  -10.000  H+    3.000  SiO2(aq)
@@ -1682,7 +1682,7 @@ Paragonite                        type=
 * [Ber88, SHD91]
 
 Muscovite                        type=
-     formula= Al3H2K1O12Si3O24
+     formula= KAl3Si3O12H2
      mole vol.=   140.7100 cc      mole wt.=  398.3080 g
      5 species in reaction
     6.000  H2O  -10.000  H+    3.000  SiO2(aq)
@@ -1692,7 +1692,7 @@ Muscovite                        type=
 * [Ber88, SHD91]
 
 Phlogopite                        type=
-     formula= Al1H2K1Mg3O12Si3Si6
+     formula= KMg3AlSi3O12H2
      mole vol.=   149.9100 cc      mole wt.=  417.2600 g
      6 species in reaction
     6.000  H2O  -10.000  H+    3.000  SiO2(aq)
@@ -1702,7 +1702,7 @@ Phlogopite                        type=
 * [Ber88, SHD91]
 
 Annite                        type=
-     formula= Al1Fe3H2K1O12Si3Si6
+     formula= Si3Fe3AlKH2O12
      mole vol.=   154.3000 cc      mole wt.=  511.8860 g
      6 species in reaction
     6.000  H2O  -10.000  H+    3.000  SiO2(aq)
@@ -1712,7 +1712,7 @@ Annite                        type=
 * [Ber90, SHD91]
 
 Margarite                        type=
-     formula= Al4Ca1H2O12Si2Si3
+     formula= CaAl4Si2O12H2
      mole vol.=   133.8000 cc      mole wt.=  398.1840 g
      5 species in reaction
     8.000  H2O  -14.000  H+    2.000  SiO2(aq)
@@ -1722,7 +1722,7 @@ Margarite                        type=
 * [Ber88]
 
 Kaolinite                        type=
-     formula= Al2H4O9Si2Si4
+     formula= Al2Si2O9H4
      mole vol.=   99.5200 cc      mole wt.=  258.1600 g
      4 species in reaction
     5.000  H2O   -6.000  H+    2.000  SiO2(aq)
@@ -1732,7 +1732,7 @@ Kaolinite                        type=
 * [Ber88]
 
 Pyrophyllite                        type=
-     formula= Al2H2O12Si4Si4
+     formula= Al2Si4O12H2
      mole vol.=   125.9000 cc      mole wt.=  360.3140 g
      4 species in reaction
     4.000  H2O   -6.000  H+    4.000  SiO2(aq)
@@ -1742,7 +1742,7 @@ Pyrophyllite                        type=
 * [Ber88]
 
 Talc                        type=
-     formula= H2Mg3O12Si4Si4
+     formula= Mg3Si4O12H2
      mole vol.=   136.2500 cc      mole wt.=  379.2660 g
      4 species in reaction
     4.000  H2O   -6.000  H+    4.000  SiO2(aq)
@@ -1752,7 +1752,7 @@ Talc                        type=
 * [Ber88]
 
 Chrysotile                        type=
-     formula= H4Mg3O9Si2Si4
+     formula= Mg3Si2O9H4
      mole vol.=   107.1500 cc      mole wt.=  277.1120 g
      4 species in reaction
     5.000  H2O   -6.000  H+    2.000  SiO2(aq)
@@ -1762,7 +1762,7 @@ Chrysotile                        type=
 * [Ber88]
 
 Antigorite                        type=
-     formula= H62Mg48O147Si34Si4
+     formula= Mg48Si34O99H62O48
      mole vol.=   1749.2000 cc      mole wt.=  4535.9510 g
      4 species in reaction
    79.000  H2O  -96.000  H+   34.000  SiO2(aq)
@@ -1772,7 +1772,7 @@ Antigorite                        type=
 * [Ber88, BDat17]
 
 Prehnite                        type=
-     formula= Al2Ca2H2O12Si3Si3
+     formula= Ca2Al2Si3O12H2
      mole vol.=   140.3300 cc      mole wt.=  412.3840 g
      5 species in reaction
     6.000  H2O  -10.000  H+    3.000  SiO2(aq)
@@ -1782,7 +1782,7 @@ Prehnite                        type=
 * [Ber88]
 
 Zoisite                        type=
-     formula= Al3Ca2H1O13Si3Si3
+     formula= Ca2Al3Si3O13H
      mole vol.=   136.5200 cc      mole wt.=  454.3570 g
      5 species in reaction
     7.000  H2O  -13.000  H+    3.000  SiO2(aq)
@@ -1792,7 +1792,7 @@ Zoisite                        type=
 * [Got04]
 
 Epidote                        type=
-     formula= Al2Ca2Fe1H1O13Si3Si6
+     formula= Ca2FeAl2Si3O12(OH)
      mole vol.=   139.2000 cc      mole wt.=  483.2230 g
      7 species in reaction
     6.500  H2O  -12.000  H+    3.000  SiO2(aq)
@@ -1803,7 +1803,7 @@ Epidote                        type=
 * [Got04]
 
 Clinochlore                        type=
-     formula= Al2H8Mg5O18Si3Si3
+     formula= Mg5Al2Si3O18H8
      mole vol.=   211.5400 cc      mole wt.=  555.7970 g
      5 species in reaction
    12.000  H2O  -16.000  H+    3.000  SiO2(aq)
@@ -1813,7 +1813,7 @@ Clinochlore                        type=
 * [Ber88]
 
 Albite                        type=
-     formula= Al1Na1O8Si3Si2
+     formula= NaAlSi3O8
      mole vol.=   100.0700 cc      mole wt.=  262.2230 g
      5 species in reaction
     2.000  H2O   -4.000  H+    3.000  SiO2(aq)
@@ -1823,7 +1823,7 @@ Albite                        type=
 * [Ber88, SHD91]
 
 Microcline                        type=
-     formula= Al1K1O8Si3Si2
+     formula= KAlSi3O8
      mole vol.=   108.7200 cc      mole wt.=  278.3320 g
      5 species in reaction
     2.000  H2O   -4.000  H+    3.000  SiO2(aq)
@@ -1833,7 +1833,7 @@ Microcline                        type=
 * [Ber88, SHD91]
 
 Sanidine                        type=
-     formula= Al1K1O8Si3Si2
+     formula= KAlSi3O8
      mole vol.=   109.0500 cc      mole wt.=  278.3320 g
      5 species in reaction
     2.000  H2O   -4.000  H+    3.000  SiO2(aq)
@@ -1843,7 +1843,7 @@ Sanidine                        type=
 * [Ber88, SHD91]
 
 Anorthite                        type=
-     formula= Al2Ca1O8Si2Si2
+     formula= Al2CaSi2O8
      mole vol.=   100.7900 cc      mole wt.=  278.2070 g
      5 species in reaction
     4.000  H2O   -8.000  H+    2.000  SiO2(aq)
@@ -1853,7 +1853,7 @@ Anorthite                        type=
 * [Ber88]
 
 Nepheline                        type=
-     formula= Al1Na1O4Si1Si2
+     formula= Na(AlSi)O4
      mole vol.=   54.1600 cc      mole wt.=  142.0540 g
      5 species in reaction
     2.000  H2O   -4.000  H+    1.000  SiO2(aq)
@@ -1863,7 +1863,7 @@ Nepheline                        type=
 * [HDNB78]
 
 Lawsonite                        type=
-     formula= Al2Ca1H4O10Si2Si3
+     formula= CaAl2Si2O10H4
      mole vol.=   101.3200 cc      mole wt.=  314.2380 g
      5 species in reaction
     6.000  H2O   -8.000  H+    2.000  SiO2(aq)
@@ -1873,7 +1873,7 @@ Lawsonite                        type=
 * [Ber88]
 
 Laumontite                        type=
-     formula= Al2Ca1H8O16Si4Si3
+     formula= Ca(Al2Si4)O12*4H2O
      mole vol.=   203.8000 cc      mole wt.=  470.4370 g
      5 species in reaction
     8.000  H2O   -8.000  H+    4.000  SiO2(aq)
@@ -1883,7 +1883,7 @@ Laumontite                        type=
 * [HDNB78, SPRONS92]
 
 Wairakite                        type=
-     formula= Al2Ca1H4O14Si4Si3
+     formula= Ca(Al2Si4)O12*2H2O
      mole vol.=   190.7000 cc      mole wt.=  434.4060 g
      5 species in reaction
     6.000  H2O   -8.000  H+    4.000  SiO2(aq)
@@ -1893,7 +1893,7 @@ Wairakite                        type=
 * [HDNB78, SPRONS92]
 
 Pumpellyite                        type=
-     formula= Al5Ca4H7Mg1O28Si6Si6
+     formula= Ca4Al5MgSi6O28H7
      mole vol.=   295.5600 cc      mole wt.=  943.0770 g
      6 species in reaction
    16.000  H2O  -25.000  H+    6.000  SiO2(aq)
