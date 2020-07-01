@@ -139,7 +139,7 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, update.formulas, 
         }
         # add reference line 20200618
         if(i == iafter) {
-          refline <- "* no references available"
+          refline <- "* [no references available]"
           r1 <- LOGK$basis$ref1[ispecies]
           if(!is.na(r1)) {
             refline <- paste0("* [", r1, "]")
@@ -257,7 +257,7 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, update.formulas, 
             outline <- formatline(values, iline, na.500 = TRUE)
             # add reference line 20200617
             if(i == ilogK2) {
-              refline <- "* no references available"
+              refline <- "* [no references available]"
               r1 <- ref1[ispecies]
               if(!is.na(r1)) {
                 refline <- paste0("* [", r1, "]")

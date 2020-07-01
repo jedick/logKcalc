@@ -1,16 +1,16 @@
 context("logKcalc")
 
 # function extracted from individual test_that calls 20200625
-getlines <- function(file, do.rm = FALSE) {
+getlines <- function(file) {
   lines <- readLines(file)
   # normalize “ and ” to "
   # (straight quote is created in R CMD check -- locale setting??)
   lines <- gsub('“', '"', lines)
   lines <- gsub('”', '"', lines)
-  rmspecies <- function(name, lines) {
-    iname <- grep(paste0("^", name), lines)
+  rmspecies <- function(pattern, lines) {
+    iname <- grep(pattern, lines)
     if(length(iname)==1) {
-      iallrefs <- grep("^\\*\\ reference", lines)
+      iallrefs <- grep("^\\*\\ \\[", lines)
       irefline <- min(iallrefs[iallrefs > iname])
       lines <- lines[-(iname:irefline)]
     }
@@ -21,15 +21,23 @@ getlines <- function(file, do.rm = FALSE) {
     iReferences <- match("* References", lines)
     if(!is.na(iReferences)) lines <- lines[-(iReferences:length(lines))]
   }
-  # some minerals have changed 20200625
-  if(do.rm) {
-    if(utils::packageVersion("CHNOSZ") <= "1.3.6") lines <- rmspecies("Arsenopyrite", lines)
-    if(utils::packageVersion("CHNOSZ") < "1.3.3") {
-      lines <- rmspecies("Orpiment", lines)
-      lines <- rmspecies("Gibbsite", lines)
-      lines <- rmspecies("Zoisite", lines)
-      lines <- rmspecies("Epidote", lines)
-    }
+  # some things in OBIGT have changed in different CHNOSZ versions 20200625
+  if(utils::packageVersion("CHNOSZ") <= "1.3.6") {
+    lines <- rmspecies("^Arsenopyrite", lines)
+    # no references for H2O, H+, e-
+    lines <- rmspecies("^H2O", lines)
+    lines <- rmspecies("^H\\+", lines)
+    lines <- rmspecies("^e\\-", lines)
+  }
+  if(utils::packageVersion("CHNOSZ") < "1.3.4") {
+    # changed dawsonite to use Joules
+    lines <- rmspecies("^Dawsonite", lines)
+  }
+  if(utils::packageVersion("CHNOSZ") < "1.3.3") {
+    lines <- rmspecies("^Orpiment", lines)
+    lines <- rmspecies("^Gibbsite", lines)
+    lines <- rmspecies("^Zoisite", lines)
+    lines <- rmspecies("^Epidote", lines)
   }
   # exclude lines with the timestamp and package versions
   lines[-(7:9)]
@@ -95,7 +103,7 @@ test_that("Processing a K2GWB file works as expected", {
   modOBIGT(c("addSUPCRT", "steam", "realgar*4"))
   logKcalc(infile, outfile)
   reffile <- system.file("extdata/tests/ThermoGWB_OBIGT.tdat", package = "logKcalc")
-  reflines <- getlines(reffile, TRUE)
-  outlines <- getlines(outfile, TRUE)
+  reflines <- getlines(reffile)
+  outlines <- getlines(outfile)
   expect_identical(outlines, reflines)
 })

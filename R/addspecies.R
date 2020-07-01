@@ -94,7 +94,7 @@ addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, update.formulas, DH.m
     logK1 <- formatline(-a$values[[i]], 1, na.500 = TRUE)
     logK2 <- formatline(-a$values[[i]], 2, na.500 = TRUE)
     # Make a reference line 20200623
-    refline <- "* no references available"
+    refline <- "* [no references available]"
     r1 <- CHNOSZ::info(ispecies[i], check.it = FALSE)$ref1
     # remove suffixes
     r1 <- sapply(strsplit(sapply(strsplit(r1, "\\.[0-9]+"), "[", 1), " "), "[", 1)
