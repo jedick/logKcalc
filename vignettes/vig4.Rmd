@@ -73,7 +73,7 @@ logK <- "log&thinsp;<i>K</i>"
 
 This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
-The Deep Earth Water (DEW) model includes correlations for H~2~O and revised thermodynamic parameters of aqueous species for estimating thermodynamic properties to pressure of up to 6 GPa [@SHA14].
+The Deep Earth Water (DEW) model includes correlations for H~2~O and revised thermodynamic parameters of aqueous species for estimating thermodynamic properties to pressures of up to 6 GPa [@SHA14].
 This model was used to predict a significant stability region for organic ions, such as acetate and propionate, at high pressures corresponding to upper mantle conditions [@SSH14].
 
 Let us use the DEW model in CHNOSZ in order to calculate equilibrium constants for dissociation reactions in a GWB thermodynamic data file.
@@ -88,7 +88,7 @@ add.obigt("DEW_aq")
 
 Note that other changes to the database to add the properties of steam and minerals from SUPCRT92 [@JOH92] are not needed for this calculation.
 
-The `thermo_12elements.tdat` data file includes aqueous CH~4~, CO~2~, HCO~3~^-^, CO~3~^&#8209;&#8209;^, CH~3~COO^-^ (acetate) and HCH3COO (acetic acid), which will be updated during the conversion.
+The `thermo_12elements.tdat` data file includes aqueous CH~4~, CO~2~, HCO~3~^-^, CO~3~^&#8209;&#8209;^, CH~3~COO^-^ (acetate) and HCH~3~COO (acetic acid), which will be updated during the conversion.
 We can use the `ispecies` argument to add other species from OBIGT, in particular formic and propanoic acid and their anions, which were predicted to be major species by @SSH14.
 For completeness, we include other aqueous organic species, although they are not expected to appear in the diagrams.
 However, we do not include glycinate (added in the DEW 2019 dataset) to maintain backwards compatibility with CHNOSZ versions up to 1.3.6.
@@ -157,6 +157,38 @@ include_graphics("DEW_50.png")
 
 The presence of predominance fields for propanoate and formate is consistent with the model shown in Figure 3 of @SSH14, where these species are the most abundant C-bearing species in the fluid at 600 °C.
 It is unclear why these species are not present in the log*f*O~2~--pH diagram in Figure 1 of that paper, which instead shows a large predominance field for acetate.
-However, it may not be surprising that we have trouble reproducing some results of @SSH14; according to a comment in the DEW spreadsheet the acetate parameters were revised after that publication ("revised January 26th, 2016; new a1 value from complexes and organics correlation").
+However, it may not be surprising that we have trouble reproducing some results of @SSH14; according to a comment in the [DEW spreadsheet](http://www.dewcommunity.org/resources.html) the acetate parameters were revised after that publication, on January 26th, 2016.
+
+#### Comparison of equilibrium constants
+
+To check the accuracy of the data in OBIGT and equations in CHNOSZ, let's compare the calculations with the DEW spreadsheet.
+The dissociation reactions of the species in the GWB file are written in terms of the basis species HCO~3~^-^, H~2~O, O~2~(aq), and H^+^.
+We can use `logKcomp` to retrieve the equilibrium constants calculated for the reactions at 600 °C and 5 GPa, which is the 8th *T*,*P* pair.
+For comparison, the 2019 version of the DEW spreadsheet was used to calculate `r logK` for the same reactions and conditions.
+HCO~3~^-^ is not included; because it is a basis species, its dissociation reaction has a `r logK` of zero by definition.
+
+```{r logKcomp, message = FALSE, results = "hide"}
+species <- c("CH4", "CO2", "CO3--", "formate", "CH3COO-", "propanoate")
+# logK values calculated with CHNOSZ
+calc <- logKcomp(outfile, iTP = 8)
+cvals <- calc[species]
+# logK values calculated with the DEW spreadsheet
+dvals <- c(48.4582, -3.7302, 5.3468, 12.5707, 48.6838, 77.5725)
+```
+
+```{r kable, results = "asis"}
+logKs <- t(data.frame(dvals, cvals, dvals - cvals))
+colnames(logKs) <- paste0("`", species, "`")
+rownames(logKs) <- c("spreadsheet", "CHNOSZ", "difference")
+knitr::kable(logKs)
+ratios <- t(data.frame(dvals / cvals))
+colnames(ratios) <- paste0("`", species, "`")
+rownames(ratios) <- "ratio"
+knitr::kable(ratios)
+```
+
+The differences between the CHNOSZ calculation and DEW spreadsheet are roughly proportional to the magnitude of `r logK`.
+The ratios are close to 1.000666, the ratio between the values of the gas constant (*R*) used in CHNOSZ (1.9872 cal mol^-1^ K^-1^) and in the DEW spreadsheet (1.9858775 cal mol^-1^ K^-1^).
+These small differences have a negligible effect on the diagrams shown above.
 
 ## References
