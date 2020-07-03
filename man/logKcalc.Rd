@@ -28,7 +28,7 @@ Read dissociation reactions from a thermodynamic data file for The Geochemist's 
 \details{
 
 This function reads the input GWB file and assembles lists of species in the file.
-Species names are then converted to those used in OBIGT, by automatically matching the species name or by looking in a mapping file (see Names Mapping).
+Species names are then converted to those used in \link[CHNOSZ:thermo]{OBIGT}, by automatically matching the species name or by looking in a mapping file (see Names Mapping).
 Species that are not available in OBIGT are omitted from the output file.
 
 Species are also omitted if they available in OBIGT but their dissociation reactions in the GWB file are written in terms of basis species or redox couples that are not available.
@@ -43,6 +43,9 @@ To use any other values, provide 8 numeric values in \code{T} and/or \code{P}.
 Logarithms (base 10) of equilibrium constants are calculated for each of the following species types: redox, aqueous, electron, mineral, gas.
 The corresponding values for each species are inserted into the output GWB file.
 Any NA values (e.g. for temperatures above the melting point of a mineral) are represented by \samp{500} in the output file to indicate unavailable data (Bethke and Farrell, 2020).
+
+One or two citations are added for each species based on the references in OBIGT.
+If the CHNOSZ version is > 1.3.6, a reference list is added at the end of the output file.
 
 }
 

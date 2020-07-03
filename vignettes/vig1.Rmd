@@ -94,7 +94,7 @@ The file `ThermoGWB_15_6_2020.tdat` was created using K2GWB for a system with 24
 To make sure the files have identical dissociation reactions for each species in common, the TEdit program in GWB was used to modify the original `thermo.tdat` data file to have the same basis species as the K2GWB file and to remove all redox couples; the system was also reduced to have the same 24 elements.
 The result is the file `thermo_24noredox.tdat`.
 
-One type of species block can be selected for comparison (aqueous, mineral, gas); here we choose minerals.
+One or more types of species (redox, aqueous, mineral, or gas) can be selected for comparison; here we choose minerals.
 
 ```{r logKcomp1-1, eval = FALSE}
 file1 <- system.file("extdata/thermo_24noredox.tdat", package = "logKcalc")

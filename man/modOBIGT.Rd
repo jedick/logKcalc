@@ -17,29 +17,47 @@ These functions modify the thermodynamic database by adding data from optional d
   \item{mod}{Name(s) of modifications to make to OBIGT}
   \item{species}{Name of a species to add from a GWB file}
   \item{formula}{Chemical formula of the species for OBIGT}
-  \item{file}{GWB file that has the species as a redox or aqueous species}
+  \item{file}{GWB file that has the species as a redox couple, aqueous or mineral species}
   \item{tolerance}{Tolerance for checking equivalence of input and calculated \logK values}
 }
 
 \details{
 
-Before running \code{\link{logKcalc}}, you may wish to use \code{modOBIGT} to include some minerals not in OBIGT by default.
-The main source of mineral data for OBIGT is Berman (1988), but selected minerals from SUPCRT92, \dQuote{including native elements, sulfides, halides, sulfates, and carbonates and oxides that do not duplicate those in the Berman dataset}, are also included (Dick, 2019).
-Use \code{modOBIGT("addSUPCRT")} to add the remaining minerals from SUPCRT92 that are not in OBIGT.
-\code{modOBIGT("allSUPCRT")} adds all minerals from SUPCRT92, possibly replacing the Berman ones.
-Either of these commands can be preceeded by \code{modOBIGT("noBerman")} to remove the Berman minerals from the database and generate a set of minerals that is mostly compatible with SUPCRT92.
-
-\code{modOBIGT("steam")} adds data for steam (\H2O(g)) taken from the \samp{sprons92.dat} file of SUPCRT92, which is referenced there as \dQuote{Johnson, J.W., Personal calculation, Earth Sciences Dept., Lawrence Livermore National Lab., Livermore, CA. Parameters given provide smooth metastable extrapolation of one-bar steam properties predicted by the Haar et al. (1984) equation of state to temperatures < the saturation temperature (99.632 C).}
-This entry was removed in CHNOSZ 1.1.3 based on the issues raised by Zavarin et al. (2016, p. 6).
-However, many existing GWB files have an entry for steam, and the data are needed to include it in the output.
-
-\code{modOBIGT("realgar*4")} and \code{modOBIGT("antigorite/2")} scale the properties of realgar and antigorite by the indicated factors.
-These changes are appropriate for the UNITHERM database in the HCh package (Shvarov and Bastrkov, 1999) and for the thermo.tdat file from GWB, respectively.
-
+Before running \code{\link{logKcalc}}, \code{modOBIGT} can be used to make preset modifications to the default OBIGT database, for example to use a different dataset for minerals.
 If you require a redox, aqueous, or mineral species from a GWB file that is not present in OBIGT, \code{addOBIGT} can be used to add it.
-This function reads the equilibrium constants for the dissociation reaction of the species from the GWB file.
-Then, the standard Gibbs energy of the species is computed at each temperature from the \logK values and the Gibbs energies of the other species in the reaction, which must be available in OBIGT.
-The standard Gibbs energy of the species is fit using the thermodynamic parameters \emph{G}, \emph{S}, and \emph{Cp}.
+
+\code{modOBIGT} takes one or more names of modfications in \code{mod} and runs them in the order given.
+These are the available mods:
+
+\describe{
+  \item{\samp{addSUPCRT}}{
+    The main source of mineral data for OBIGT is Berman (1988), but selected minerals from SUPCRT92, \dQuote{including native elements, sulfides, halides, sulfates, and carbonates and oxides that do not duplicate those in the Berman dataset}, are also included (Dick, 2019).
+    This mod add the remaining minerals from SUPCRT92 that are not in OBIGT.
+  }
+  \item{\samp{allSUPCRT}}{
+    This mod adds all minerals from SUPCRT92, possibly replacing the Berman ones.
+  }
+  \item{\samp{noBerman}}{
+    This can be used before either of the above modifications to remove the Berman minerals from the database and generate a set of minerals that is mostly based on SUPCRT92.
+  }
+  \item{\samp{steam}}{
+    This adds data for steam (\H2O(g)) taken from the \samp{sprons92.dat} file of SUPCRT92, which is referenced there as \dQuote{Johnson, J.W., Personal calculation, Earth Sciences Dept., Lawrence Livermore National Lab., Livermore, CA. Parameters given provide smooth metastable extrapolation of one-bar steam properties predicted by the Haar et al. (1984) equation of state to temperatures < the saturation temperature (99.632 C).}
+    This entry was removed in CHNOSZ 1.1.3 based on the issues raised by Zavarin et al. (2016, p. 6).
+    However, many existing GWB files have an entry for steam, and the data are needed to include it in the output.
+  }
+  \item{\samp{realgar*4}}{
+    This mod scales the chemical formula and thermodynamic parameters of realgar by a factor of 4.
+    This makes realgar in OBIGT compatible with the UNITHERM database in the HCh package (Shvarov and Bastrkov, 1999).
+  }
+  \item{\samp{antigorite/2}}{
+    This mod scales the chemical formula and thermodynamic parameters of antigorite by a factor of 1/2.
+    This makes antigorite in OBIGT compatible with the thermo.tdat file from GWB.
+  }
+}
+
+\code{addOBIGT} reads the equilibrium constants for the dissociation reaction of one \code{species} from the indicated \code{file}.
+The standard Gibbs energy of the species is computed at each temperature from the \logK values and the Gibbs energies of the other species in the reaction, which must be available in OBIGT.
+Then, the standard Gibbs energy of the species is fit using the thermodynamic parameters \emph{G}, \emph{S}, and \emph{Cp}.
 
 The species is then added to OBIGT; the upper temperature limit (corresponding to the \T range for the fitted \logK values) is set in the \samp{T} parameter for minerals or the \samp{abbrv} parameter for aqueous species; the latter is specially used by other functions in this package to assign NA values at appropriate places (i.e., \samp{500} in GWB data files).
 An attempt is made to convert GWB-style formulas (e.g. Sn\S{++++}) to the format used in OBIGT (Sn\S{+4}) (see Names Mapping section in \code{\link{logKcalc}}), but if there is any doubt, the \code{formula} should be given explicitly.

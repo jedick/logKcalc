@@ -1,10 +1,10 @@
 ---
-title: "Changing the water model"
+title: "Choosing the water model (DEW)"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{4 - Changing the water model}
+  %\VignetteIndexEntry{4 - Choosing the water model (DEW)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: logKcalc.bib
@@ -69,7 +69,7 @@ if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL
 logK <- "log&thinsp;<i>K</i>"
 ```
 
-#### This vignette shows the conversion of a GWB data file to use the Deep Earth Water (DEW) model
+#### This vignette shows the conversion of a GWB data file to use the Deep Earth Water (DEW) model.
 
 This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
@@ -82,7 +82,7 @@ Separate commands are needed to change the water model and load the parameters o
 ```{r DEW, message = FALSE}
 reset()
 water("DEW")
-add.obigt("DEW_aq")
+add.obigt("DEW")
 # modOBIGT(c("addSUPCRT", "steam"))
 ```
 
@@ -147,6 +147,7 @@ This field is present both for the DEW model and for the water model from SUPCRT
 include_graphics("DEW_5.png")
 ```
 
+<a name="no-acetate"></a>
 The next pair of diagrams is for a pressure of 5 GPa (50 kbar) using the DEW model.
 In the first, propanoate and formate are predicted to predominate at some redox and pH conditions.
 In the second, the formation of both of these species is suppressed; the diagram shows that no other organic species can predominate at equilibrium.
