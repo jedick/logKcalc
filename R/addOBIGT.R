@@ -110,9 +110,9 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
       H = NA, V = NA, a1 = NA, a2 = NA, a3 = NA, a4 = NA, c2 = NA, omega = NA
     )
     if(utils::packageVersion("CHNOSZ") >= "1.3.3") moargs <- c(moargs, list(E_units = "cal"))
-    do.call(CHNOSZ::mod.obigt, moargs)
-    # We need to call mod.obigt() a second time to set Z = 0 (to avoid triggering HKF omega derivatives)
-    suppressMessages(CHNOSZ::mod.obigt(species, state = "aq", z = 0))
+    do.call(mod.OBIGT, moargs)
+    # We need to call mod.OBIGT() a second time to set Z = 0 (to avoid triggering HKF omega derivatives)
+    suppressMessages(mod.OBIGT(species, state = "aq", z = 0))
   } else {
     # Make a mineral 20200624
     # Nudge the Tmax to allow calculation at exactly that temperture 20200625
@@ -121,7 +121,7 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
       G = G, S = S, Cp = Cp, T = CHNOSZ::convert(Tmax, "K"),
       H = NA, V = NA, a = NA, b = NA, c = NA, d = NA, e = NA, f = NA, lambda = NA)
     if(utils::packageVersion("CHNOSZ") >= "1.3.3") moargs <- c(moargs, list(E_units = "cal"))
-    do.call(CHNOSZ::mod.obigt, moargs)
+    do.call(mod.OBIGT, moargs)
   }
   # Calculate ΔG°r of the reaction with the reactant species
   rxnspecies <- c(species, rxnspecies)

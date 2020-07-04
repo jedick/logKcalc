@@ -82,7 +82,7 @@ Separate commands are needed to change the water model and load the parameters o
 ```{r DEW, message = FALSE}
 reset()
 water("DEW")
-add.obigt("DEW")
+if(packageVersion("CHNOSZ") > "1.3.6") add.OBIGT("DEW") else add.obigt("DEW")
 # modOBIGT(c("addSUPCRT", "steam"))
 ```
 
@@ -141,7 +141,7 @@ To make these diagrams, we turn off the water limits and gas and mineral fields 
 
 The first diagram shows a small stability field for formate at 0.5 GPa (5 kbar).
 This field is present both for the DEW model and for the water model from SUPCRT92 [@JOH92] with the default OBIGT database in CHNOSZ, which has parameters of the organic acids from @Sho95.
-(The GWB data file was created as shown above except the `water` and `add.obigt` commands were omitted and all pressures were set to 5000 bar, the maximum for the revised HKF equations without the DEW model.)
+(The GWB data file was created as shown above except the `water` and `add.OBIGT` commands were omitted and all pressures were set to 5000 bar, the maximum for the revised HKF equations without the DEW model.)
 
 ```{r DEW5, echo = FALSE, out.width = "100%", out.extra='class="full-width"'}
 include_graphics("DEW_5.png")

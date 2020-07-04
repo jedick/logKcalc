@@ -34,7 +34,8 @@ mapnames <- function(GWBnames, type = NULL, na.omit = FALSE, return.processed.na
   if(return.processed.name) return(Gnames)
 
   # first look in OBIGT
-  OBIGT <- get("thermo", CHNOSZ)$obigt
+  if(utils::packageVersion("CHNOSZ") > "1.3.6") OBIGT <- get("thermo", CHNOSZ)$OBIGT
+  else OBIGT <- get("thermo", CHNOSZ)$obigt
   if(!is.null(type)) {
     if(type %in% c("basis", "redox", "aqueous", "electron")) OBIGT <- OBIGT[OBIGT$state=="aq", ]
     if(type == "mineral") OBIGT <- OBIGT[OBIGT$state=="cr", ]

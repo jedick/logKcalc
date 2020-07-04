@@ -1,7 +1,7 @@
 # logKcalc/addspecies.R
 # Create entries for one or more new species 20200619
 
-# ispecies: species index in thermo()$obigt
+# ispecies: species index in thermo()$OBIGT
 addspecies <- function(LOGK, ispecies, a0_ion, a0_neutral, update.formulas, DH.method) {
   # set defaults for a0_ion
   if(is.null(a0_ion)) {

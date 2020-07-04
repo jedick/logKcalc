@@ -132,7 +132,7 @@ The diagrams were made with [this script](Solubility100.ac2), which is adapted f
 include_graphics("Act2_vig1.png")
 ```
 
-#### Here are some recommended commands for converting the K2GWB data file using the [OBIGT](../../CHNOSZ/doc/obigt.html) database in CHNOSZ.
+#### Here are some recommended commands for converting the K2GWB data file using the [OBIGT database](../../CHNOSZ/doc/OBIGT.html) in CHNOSZ.
 
 The `modOBIGT` command adds more minerals from the SUPCRT92 database, an entry for steam that has been removed from OBIGT, and a modified version of realgar to match the chemical formula used in UNITHERM.
 

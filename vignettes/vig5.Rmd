@@ -88,7 +88,7 @@ This diagram is made using the default OBIGT database.
 # 20200624 jmd first version
 
 # Use default OBIGT database
-obigt()
+reset()
 
 # Get As-bearing species in the As-S-O-H system
 iaq <- retrieve("As", c("S", "O", "H"), "aq")

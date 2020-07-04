@@ -69,7 +69,7 @@ Note that the equation assumes a constant heat capacity and no volume change, so
 }
 
 \seealso{
-See \code{\link[CHNOSZ]{add.obigt}} in \pkg{CHNOSZ} for more information about modifying the database.
+See \code{\link[CHNOSZ]{add.OBIGT}} in \pkg{CHNOSZ} for more information about modifying the database.
 }
 
 

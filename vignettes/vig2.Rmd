@@ -69,13 +69,13 @@ if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL
 logK <- "log&thinsp;<i>K</i>"
 ```
 
-#### This vignette shows how to update a GWB thermodynamic data file using `r logK` values computed with the [OBIGT](../../CHNOSZ/doc/obigt.html) database in CHNOSZ.
+#### This vignette shows how to update a GWB thermodynamic data file using `r logK` values computed with the [OBIGT database](../../CHNOSZ/doc/OBIGT.html) in CHNOSZ.
 
 This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
 The `logKcalc` function updates the equilibrium constants for species in a GWB data file.
 In this example, we convert `thermo_24elements.tdat`, which is a modfied version of GWB's `thermo.tdat` file reduced to 24 elements (Ag, Al, As, Au, C, Ca, Cl, Cu, F, Fe, H, K, Mg, Mn, N, Na, O, P, Pb, S, Si, Sn, U, Zn, the same as in the [previous vignette](vig1.html)).
-Some species in the GWB data file may not be present in the default OBIGT database, but [optional databases](../../CHNOSZ/doc/obigt.html#optional-data) in CHNOSZ can also be used.
+Some species in the GWB data file may not be present in the default OBIGT database, but [optional databases](../../CHNOSZ/doc/OBIGT.html#optional-DEW) in CHNOSZ can also be used.
 Here, we use `modOBIGT` to add some minerals from SUPCRT92, an entry for steam that has been removed from OBIGT, and antigorite with a chemical formula to match the one used in thermo.tdat.
 
 ```{r modOBIGT, message = FALSE}

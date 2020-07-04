@@ -346,8 +346,8 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, update.formulas, 
     if("proton" %in% keys) keys <- c(keys, "JOH92")
     keys <- sort(unique(keys))
     # read the bibtex files from CHNOSZ and logKcalc
-    bibfile1 <- system.file("doc/obigt.bib", package = "CHNOSZ")
-    if(!file.exists(bibfile1)) warning("bibtex file CHNOSZ/doc/obigt.bib not found (CHNOSZ not installed with vignettes?)")
+    bibfile1 <- system.file("doc/OBIGT.bib", package = "CHNOSZ")
+    if(!file.exists(bibfile1)) warning("bibtex file CHNOSZ/doc/OBIGT.bib not found (CHNOSZ not installed with vignettes?)")
     else {
       bibentry1 <- bibtex::read.bib(bibfile1)
       bibfile2 <- system.file("extdata/logKcalc.bib", package = "logKcalc")
