@@ -11,8 +11,8 @@ bibliography: logKcalc.bib
 csl: elementa.csl
 ---
 
-<!-- https://gomakethings.com/how-to-break-an-image-out-of-its-parent-container-with-css/ -->
 <style>
+/* https://gomakethings.com/how-to-break-an-image-out-of-its-parent-container-with-css/ */
 @media (min-width: 700px) {
   .full-width {
     left: 50%;
@@ -34,7 +34,13 @@ csl: elementa.csl
     padding:10px;
   }
 }
+/* zero margin around pre blocks (looks more like R console output) */
+pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 </style>
+
 <script>
 function myFunction() {
   // https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
