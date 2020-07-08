@@ -4,11 +4,11 @@ activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Wed Jul  1 08:04:22 2020
-* by logKcalc 0.1.0 with CHNOSZ 1.3.6-12.
+* File generated at Wed Jul  8 07:15:58 2020
+* by logKcalc 0.1.0 with CHNOSZ 1.3.6-27.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
-* with 0 added and 96 unavailable species.
+* with 0 added and 95 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -1084,7 +1084,7 @@ CH3COO-                         formula= C2H3O2-
 
 -end-
 
-   84 minerals
+   85 minerals
 
 Sulphur                        type=
      formula= S
@@ -1740,6 +1740,16 @@ Pyrophyllite                        type=
         -0.6530     -1.6759     -3.6859     -5.8743
         -8.1999    -10.1582    -11.9123    -13.6267
 * [Ber88]
+
+Dickite                        type=
+     formula= Al2Si2O5(OH)4
+     mole vol.=   99.3000 cc      mole wt.=  258.1600 g
+     4 species in reaction
+    5.000  H2O   -6.000  H+    2.000  SiO2(aq)
+    2.000  Al+++    
+         7.6362      5.5507      2.7436      0.0167
+        -2.7608     -5.0579     -7.0845     -9.0101
+* [HDNB78, RH95]
 
 Talc                        type=
      formula= Mg3Si4O12H2
