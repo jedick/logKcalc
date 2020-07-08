@@ -4,7 +4,7 @@ output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{1 - Comparing two GWB thermodynamic data files}
+  %\VignetteIndexEntry{Comparing GWB thermodynamic data files}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: logKcalc.bib

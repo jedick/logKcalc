@@ -1,10 +1,10 @@
 ---
-title: "Changing *T* and *P* and adding species (Au complexes)"
+title: "Changing T and P and adding species (Au complexes)"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{3 - Changing T and P and adding species (Au complexes)}
+  %\VignetteIndexEntry{Changing T and P and adding species (Au complexes)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: logKcalc.bib

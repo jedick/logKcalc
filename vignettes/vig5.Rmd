@@ -4,7 +4,7 @@ output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{5 - Using fitted thermodynamic parameters in CHNOSZ}
+  %\VignetteIndexEntry{Using fitted thermodynamic parameters in CHNOSZ}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: logKcalc.bib
