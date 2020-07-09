@@ -56,20 +56,6 @@ function myFunction() {
   if (elem.innerText=="Hide results") elem.innerText = "Show results";
   else elem.innerText = "Hide results";
 }
-function myFunction2() {
-  // https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
-  var x = document.getElementById("myDIV2");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-  // https://stackoverflow.com/questions/10671174/changing-button-text-onclick
-  // https://stackoverflow.com/questions/7035842/how-to-change-the-buttons-text-using-javascript
-  var elem = document.getElementById("myButton2");
-  if (elem.innerText=="Hide results") elem.innerText = "Show results";
-  else elem.innerText = "Hide results";
-}
 </script>
 
 ```{r setup, include=FALSE}

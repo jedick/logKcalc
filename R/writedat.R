@@ -350,11 +350,11 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, update.formulas, 
     if(!file.exists(bibfile1)) warning("BibTeX file CHNOSZ/doc/OBIGT.bib not found (was CHNOSZ not installed with vignettes?)")
     else {
       bibentry1 <- bibtex::read.bib(bibfile1)
-      bibfile2 <- system.file("extdata/logKcalc.bib", package = "logKcalc")
+      bibfile2 <- system.file("extdata/logKrefs.bib", package = "logKcalc")
       bibentry2 <- bibtex::read.bib(bibfile2)
       # use the current year for the logK_fit entry 20200623
       bibentry2["logK_fit"]$year <- substr(date(), 21, 24)
-      # combine the entries from the OBIGT and logKcalc bib files
+      # combine the entries from the OBIGT and logKrefs bib files
       bibentry <- c(bibentry1, bibentry2)
       # check for missing entries
       inbib <- keys %in% names(bibentry)
