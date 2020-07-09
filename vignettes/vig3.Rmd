@@ -1,5 +1,5 @@
 ---
-title: "Changing T and P and adding species (Au complexes)"
+title: "Changing *T* and *P* and adding species (Au complexes)"
 output:
   html_vignette:
     mathjax: null
