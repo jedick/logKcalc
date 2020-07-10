@@ -124,7 +124,7 @@ m <- mosaic(bases, pH = pH, O2 = O2, T = 100)
 
 # Make the diagram
 par(cex = 2.5, mar = c(2.8, 3, 1.4, 1))
-fill <- c(rep("aliceblue", length(iaq)), rep("antiquewhite1", length(icr)))
+fill <- c(rep("lightcyan", length(iaq)), rep("lavenderblush", length(icr)))
 d <- diagram(m$A.species, fill = fill, lwd = 2)
 diagram(m$A.bases, add = TRUE, col = 4, lty = 3, lwd = 2, col.names = 4, cex.names = 0.7, italic = TRUE)
 water.lines(d)
@@ -203,7 +203,7 @@ bases <- c("SO4-2", "HSO4-", "H2S", "HS-", "S-2")
 m <- mosaic(bases, pH = pH, O2 = O2, T = 100, blend = TRUE)
 # Make the diagram
 par(cex = 2.5, mar = c(2.8, 3, 1.4, 1))
-fill <- c(rep("aliceblue", length(iaq)), rep("antiquewhite1", length(icr)))
+fill <- c(rep("lightcyan", length(iaq)), rep("lavenderblush", length(icr)))
 d <- diagram(m$A.species, fill = fill, lwd = 2)
 diagram(m$A.bases, add = TRUE, col = 4, lty = 3, lwd = 2,
         col.names = 4, cex.names = 0.7, italic = TRUE)
