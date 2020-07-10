@@ -75,7 +75,7 @@ if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL
 logK <- "log&thinsp;<i>K</i>"
 ```
 
-This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
+This vignette was compiled on `r Sys.Date()` with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
 #### These plots compare the \logK values in thermodynamic data files from GWB and K2GWB.
 

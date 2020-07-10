@@ -77,7 +77,7 @@ logK <- "log&thinsp;<i>K</i>"
 
 #### This vignette shows the conversion of a GWB data file to use the Deep Earth Water (DEW) model.
 
-This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
+This vignette was compiled on `r Sys.Date()` with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
 The Deep Earth Water (DEW) model includes correlations for H~2~O and revised thermodynamic parameters of aqueous species for estimating thermodynamic properties to pressures of up to 6 GPa [@SHA14].
 This model was used to predict a significant stability region for organic ions, such as acetate and propionate, at high pressures corresponding to upper mantle conditions [@SSH14].

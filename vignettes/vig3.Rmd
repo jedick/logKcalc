@@ -77,7 +77,7 @@ logK <- "log&thinsp;<i>K</i>"
 
 #### This vignette shows a worked example for gold speciation diagrams.
 
-This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
+This vignette was compiled on `r Sys.Date()` with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
 To calculate the speciation and solubility of gold in hydrothermal solutions requires data over a large temperature range (e.g. 150--600 °C) for hydroxide, chloride, and sulfide complexes with Au [@WBM09].
 Here we add these species to a GWB thermodynamic data file and change the temperature and pressure for `r logK` calculations.

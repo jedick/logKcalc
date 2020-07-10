@@ -79,7 +79,7 @@ reset()
 
 #### This vignette shows how to use data for species from a GWB file in a diagram made with CHNOSZ.
 
-This vignette was compiled with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
+This vignette was compiled on `r Sys.Date()` with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
 One of the example scripts for the Act2 program in The Geochemist's Workbench® is a mosaic diagram for the As-S-O-H system [@GWB20a `p.98`].
 A similar diagram can be produced using the OBIGT database and CHNOSZ, but some differences are apparent because of different thermodynamic data compared to the `thermo.tdat` data file in GWB.
