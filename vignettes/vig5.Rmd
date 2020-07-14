@@ -112,7 +112,7 @@ icr <- icr[!na.cr]
 basis(c("H3AsO3", "SO4-2", "H2O", "O2", "H+"))
 basis("SO4-2", -4)
 species(iaq, -3)
-species(icr, 0)
+species(icr, 0, add = TRUE)
 
 # Set pH and loga(O2) range and grid resolution
 pH <- c(0, 14, 500)
@@ -194,7 +194,7 @@ The activity of As-bearing aqueous species is set to 10^-3^ and that of SO~4~^-2
 basis(c("H3AsO3", "SO4-2", "H2O", "O2", "H+"))
 basis("SO4-2", -4)
 species(iaq, -3)
-species(icr, 0)
+species(icr, 0, add = TRUE)
 # Set pH and loga(O2) range and grid resolution
 pH <- c(0, 14, 500)
 O2 <- c(-70, -40, 500)
@@ -213,10 +213,9 @@ title(main = "blend = TRUE", font.main = 1)
 ```
 
 The diagram is made with the default setting of blend = TRUE to represent the continuous change of speciation between basis species.
+Using blend = FALSE would instead portray abrupt transitions between basis species, similar to the diagram from the `Mosaic.ac2` example in GWB.
 
 ```{r mosaic2, echo = FALSE, message = FALSE, results = "hide", fig.width = 12, fig.height = 10, out.width = "75%", fig.align = "center", pngquant = pngquant}
 ```
-
-Using blend = FALSE would instead portray sharp boundaries between basis species, similar to the diagram from the `Mosaic.ac2` example in GWB.
 
 ## References
