@@ -186,7 +186,7 @@ icr <- retrieve("As", c("S", "O", "H"), "cr")
 icr <- icr[!grepl("NA03", info(icr)$ref1)]
 ```
 
-Now we write some code to set up the system in CHNOSZ and make a log*a*O~2~--pH mosaic diagram at 100 °C.
+Now we write some code to set up the system in CHNOSZ and make a log*a*~O<sub>2</sub>~--pH mosaic diagram at 100 °C.
 The activity of As-bearing aqueous species is set to 10^-3^ and that of SO~4~^-2^ to 10^-4^ (this value applies to the S-bearing basis species as a whole).
 
 ```{r mosaic2, eval = FALSE}

@@ -137,8 +137,8 @@ include_graphics("QMK.png")
 ```
 
 Based on this plot, we choose pH = 4.7 as a representative value to make the following diagrams.
-The [React script for the first diagram](Au_HM_pH4.7.rea) sets up the hematite--magnetite (HM) oxygen fugacity (*f*O~2~) buffer and adds 0.01 mol S to the system.
-The [React script for the second diagram](Au_PPM_pH4.7.rea) sets up the pyrite--pyrrhotite--magnetite (PPM) buffer, which defines both *f*O~2~ and sulfur fugacity (*f*S~2~).
+The [React script for the first diagram](Au_HM_pH4.7.rea) sets up the hematite--magnetite (HM) oxygen fugacity (*f*~O<sub>2</sub>~) buffer and adds 0.01 mol S to the system.
+The [React script for the second diagram](Au_PPM_pH4.7.rea) sets up the pyrite--pyrrhotite--magnetite (PPM) buffer, which defines both *f*~O<sub>2</sub>~ and sulfur fugacity (*f*~S<sub>2</sub>~).
 The mineral abundances are chosen so that all of the minerals in the buffers are supersaturated at all temperatures; for the HM calculation the formation of pyrite and pyrrhotite is suppressed.
 
 ```{r Au, echo = FALSE, out.width = "100%", out.extra='class="full-width"'}

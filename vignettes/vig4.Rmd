@@ -139,7 +139,7 @@ logKcalc(infile, outfile, T = T, P = P, ispecies = ispecies, DH.method = "bgamma
 
 #### Scripts and output of GWB runs.
 
-[This script](DEW.ac2) for the Act2 program plots the speciation of carbon as a function of oxygen fugacity (*f*O~2~) and pH.
+[This script](DEW.ac2) for the Act2 program plots the speciation of carbon as a function of oxygen fugacity (*f*~O<sub>2</sub>~) and pH.
 The activity of HCO~3~^-^ is set to 0.03, which is close to the concentration of carbon in the fluid calculated for a model eclogite at 600 °C and 5 GPa [Supplementary Information of @SSH14].
 So as not to exceed the maximum pressure accepted by the Act2 program, the script sets a pressure of 5000 bar.
 This pressure affects the water limits and stability fields of gases but not the `r logK` values for reactions between aqueous species, which were calculated for higher pressures as described above.
@@ -163,7 +163,7 @@ include_graphics("DEW_50.png")
 ```
 
 The presence of predominance fields for propanoate and formate is consistent with the model shown in Figure 3 of @SSH14, where these species are the most abundant C-bearing species in the fluid at 600 °C.
-It is unclear why these species are not present in the log*f*O~2~--pH diagram in Figure 1 of that paper, which instead shows a large predominance field for acetate.
+It is unclear why these species are not present in the log*f*~O<sub>2</sub>~--pH diagram in Figure 1 of that paper, which instead shows a large predominance field for acetate.
 However, it may not be surprising that we have trouble reproducing some results of @SSH14; according to a comment in the [DEW spreadsheet](http://www.dewcommunity.org/resources.html) the acetate parameters were revised after that publication, on January 26th, 2016.
 
 #### Comparison of equilibrium constants
