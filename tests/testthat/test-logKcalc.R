@@ -12,7 +12,7 @@ getlines <- function(file) {
     if(length(iname)==1) {
       iallrefs <- grep("^\\*\\ \\[", lines)
       irefline <- min(iallrefs[iallrefs > iname])
-      lines <- lines[-(iname:irefline)]
+      lines <- lines[-(iname:(irefline + 1))]
     }
     lines
   }
@@ -20,9 +20,7 @@ getlines <- function(file) {
     # References block isn't available in CHNOSZ <= 1.3.6 20200625
     iReferences <- match("* References", lines)
     if(!is.na(iReferences)) lines <- lines[-(iReferences:length(lines))]
-  }
-  # some things in OBIGT have changed in different CHNOSZ versions 20200625
-  if(utils::packageVersion("CHNOSZ") <= "1.3.6") {
+    lines <- rmspecies("^Dickite", lines)  # got GHS from RH95
     lines <- rmspecies("^Arsenopyrite", lines)
     # no references for H2O, H+, e-
     lines <- rmspecies("^H2O", lines)
@@ -39,8 +37,10 @@ getlines <- function(file) {
     lines <- rmspecies("^Zoisite", lines)
     lines <- rmspecies("^Epidote", lines)
   }
-  # exclude lines with the timestamp and package versions
-  lines[-(7:9)]
+  # exclude header lines (timestamp, package version and unavailable species might change)
+  lines <- lines[-(7:12)]
+  # exclude mineral count (e.g. Dickite is not available in earlier versions)
+  lines[!grepl("minerals$", lines)]
 }
 
 test_that("Adding duplicate species produces an error", {

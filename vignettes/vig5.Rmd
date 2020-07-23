@@ -111,8 +111,8 @@ icr <- icr[!na.cr]
 # Set up basis species and system
 basis(c("H3AsO3", "SO4-2", "H2O", "O2", "H+"))
 basis("SO4-2", -4)
-species(iaq, -3)
-species(icr, 0, add = TRUE)
+logact <- c(rep(-3, length(iaq)), rep(0, length(icr)))
+species(c(iaq, icr), logact)
 
 # Set pH and loga(O2) range and grid resolution
 pH <- c(0, 14, 500)
@@ -193,8 +193,8 @@ The activity of As-bearing aqueous species is set to 10^-3^ and that of SO~4~^-2
 # Set up basis species and system
 basis(c("H3AsO3", "SO4-2", "H2O", "O2", "H+"))
 basis("SO4-2", -4)
-species(iaq, -3)
-species(icr, 0, add = TRUE)
+logact <- c(rep(-3, length(iaq)), rep(0, length(icr)))
+species(c(iaq, icr), logact)
 # Set pH and loga(O2) range and grid resolution
 pH <- c(0, 14, 500)
 O2 <- c(-70, -40, 500)
