@@ -79,11 +79,11 @@ logK <- "log&thinsp;<i>K</i>"
 
 This vignette was compiled on `r Sys.Date()` with **logKcalc** `r packageDescription("logKcalc")$Version` and **CHNOSZ** `r packageDescription("CHNOSZ")$Version`.
 
-To calculate the speciation and solubility of gold in hydrothermal solutions requires data over a large temperature range (e.g. 150--600 °C) for hydroxide, chloride, and sulfide complexes with Au [@WBM09].
+To calculate the speciation and solubility of gold in hydrothermal solutions requires data over a large temperature range (e.g. 150--600 °C) for hydroxide, chloride, and sulfide complexes with Au [@AZ01; @AZ10; @PAB+14] as well as minerals that may buffer the oxidation and sulfidation state of the sytem [e.g. @HDNB78].
 Here we add these species to a GWB thermodynamic data file and change the temperature and pressure for `r logK` calculations.
 
 The thermodynamic system is defined by `thermo_12elements.tdat`, which is a modfied version of GWB's `thermo.tdat` file reduced to 12 elements (Al, Au, C, Cl, Fe, H, K, N, Na, O, S, and Si).
-As described in the [previous vignette](vig2.html), we start by using `modOBIGT` to include data for steam and additional minerals from SUPCRT92 that are not in the default database.
+As described in the [previous vignette](vig2.html), we start by using `modOBIGT()` to include data for steam and additional minerals from SUPCRT92 that are not in the default database.
 If you want to use the SUPCRT92 versions of data for quartz, muscovite, and K-feldspar (and other minerals), use the command with `"noBerman"` instead.
 
 ```{r modOBIGT, message = FALSE}
@@ -95,11 +95,14 @@ modOBIGT(c("addSUPCRT", "steam"))
 The `ispecies` argument can be used to identify other species from OBIGT that should be added to the output.
 Their dissociation reactions are written in terms of the available basis species in the GWB file.
 This example adds pyrrhotite and some aqueous Au complexes.
-Note that the input GWB file also has AuCl~2~^-^ and AuCl~4~^-^; the `r logK` values for the former are recalculated for the given *T* and *P*, but the latter is excluded from the output because it is not available in OBIGT.
+The `thermo.refs()` command can be used to show the sources of data; here, just the reference keys from the `OBIGT.bib` file in CHNOSZ are printed.
 
 ```{r ispecies, message = FALSE}
 ispecies <- info(c("pyrrhotite", "AuCl", "AuOH", "AuHS", "Au(HS)2-"))
+thermo.refs(ispecies)$key
 ```
+
+Note that the input GWB file also has AuCl~2~^-^ and AuCl~4~^-^; the `r logK` values for the former are recalculated for the given *T* and *P*, but the latter is excluded from the output because it is not available in OBIGT.
 
 This sets up the temperature (8 equally-spaced values from 150 to 500 °C) and pressure (1000 bar)
 
@@ -144,5 +147,7 @@ The mineral abundances are chosen so that all of the minerals in the buffers are
 ```{r Au, echo = FALSE, out.width = "100%", out.extra='class="full-width"'}
 include_graphics("Au_pH4.7.png")
 ```
+
+The resulting plots are similar to Figure 2 of @WBM09 but not exactly alike because of more recent thermodynamic data used here [@AZ10; @PAB+14].
 
 ## References

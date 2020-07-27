@@ -83,7 +83,7 @@ This vignette was compiled on `r Sys.Date()` with **logKcalc** `r packageDescrip
 
 One of the example scripts for the Act2 program in The Geochemist's Workbench® is a mosaic diagram for the As-S-O-H system [@GWB20a `p.98`].
 A similar diagram can be produced using the OBIGT database and CHNOSZ, but some differences are apparent because of different thermodynamic data compared to the `thermo.tdat` data file in GWB.
-In particular, the parameters for As-bearing aqueous species (other than AsH~3~) in the default OBIGT database are from @NA03, while `thermo.tdat` is based on the LLNL (Lawrence Livermore National Laboratory) compilation from various earlier sources.
+In particular, the default OBIGT database has parameters for AsH~3~ from @SSW01, aqueous As(OH)~3~ and AsO(OH)~3~ from @PPB+08, and ionized As-bearing species from @NA03, while `thermo.tdat` is based on the LLNL (Lawrence Livermore National Laboratory) compilation from various earlier sources.
 
 This diagram is made using the default OBIGT database.
 
@@ -109,7 +109,7 @@ na.cr <- is.na(unlist(sout.cr))
 icr <- icr[!na.cr]
 
 # Set up basis species and system
-basis(c("H3AsO3", "SO4-2", "H2O", "O2", "H+"))
+basis(c("As(OH)3", "SO4-2", "H2O", "O2", "H+"))
 basis("SO4-2", -4)
 logact <- c(rep(-3, length(iaq)), rep(0, length(icr)))
 species(c(iaq, icr), logact)
@@ -124,7 +124,7 @@ m <- mosaic(bases, pH = pH, O2 = O2, T = 100)
 
 # Make the diagram
 par(cex = 2.5, mar = c(2.8, 3, 1.4, 1))
-fill <- c(rep("lightcyan", length(iaq)), rep("lavenderblush", length(icr)))
+fill <- c(rep("#E0FFFF88", length(iaq)), rep("#FFF0F588", length(icr)))
 d <- diagram(m$A.species, fill = fill, lwd = 2)
 diagram(m$A.bases, add = TRUE, col = 4, lty = 3, lwd = 2, col.names = 4, cex.names = 0.7, italic = TRUE)
 water.lines(d)
@@ -136,13 +136,13 @@ title(main = "Default OBIGT database", font.main = 1)
 ```{r mosaic1, echo = FALSE, message = FALSE, results = "hide", fig.width = 12, fig.height = 10, out.width = "75%", fig.align = "center", pngquant = pngquant}
 ```
 
-The major differences from the diagram made using `thermo.tdat` in GWB are the presence of native arsenic and different aqueous speciation under relatively reducing conditions at high pH.
+The major differences from the diagram made using `thermo.tdat` in GWB are a larger As(OH)~3~ field, the absence of orpiment and presence of native arsenic, and different aqueous speciation under relatively reducing conditions at high pH.
 
-In order to more closely reproduce the calculations, we can use `addOBIGT()` to fit thermodynamic parameters to the `r logK` values of dissociation reactions of species from a GWB data file.
+In order to more closely reproduce the example from GWB, we can use `addOBIGT()` to fit thermodynamic parameters to the `r logK` values of dissociation reactions of species from a GWB data file.
 This function uses a modified version of GWB's `thermo.tdat` in which the basis species are all available in OBIGT (`thermo_24swapped.tdat`).
 The fitted parameters (Δ*G*°, *S*° and *C~p~*°) of the formed species are added to the OBIGT database, so they can be used in diagrams made in CHNOSZ.
 
-Here, we fit the parameters for minerals and aqueous species other than As(OH)~3~ (H~3~AsO~3~ in OBIGT), which is a basis species in `thermo_24swapped.tdat`.
+Here, we fit the parameters for minerals and aqueous species other than As(OH)~3~, which is a basis species in `thermo_24swapped.tdat`.
 Although it has no stability field in the diagram, AsH~3~ is also updated because it appears in the dissociation reaction for realgar.
 Because it uses just three parameters, the fit may introduce some error, so we increase the tolerance (in `r logK` units) for H~2~AsO~4~^-^ to allow the checks for this species to pass.
 We run `reset()` first to make sure we are starting with the default OBIGT database.
@@ -176,12 +176,12 @@ Note that repeated '-' or '+' signs at the end of formulas are converted into e.
 
 Next we identify As-bearing species in the As-S-O-H system.
 We remove species with data from @NA03, as they may conflict with the GWB dataset.
-However, we explicitly include H~3~AsO~3~ here; although its thermodynamic parameters in OBIGT are still from @NA03, the parameters of the *other* species were made to be consistent with the `r logK` values for the dissociation reactions in `thermo_24swapped.tdat` that involve H~3~AsO~3~ as a basis species.
+However, we leave As(OH)~3~ in the system; although its thermodynamic parameters in OBIGT are still from @PPB+08, the parameters of the *other* species were made to be consistent with the `r logK` values for the dissociation reactions in `thermo_24swapped.tdat` that involve As(OH)~3~ as a basis species.
 
 ```{r species, message = FALSE}
 iaq <- retrieve("As", c("S", "O", "H"), "aq")
 iaq <- iaq[!grepl("NA03", info(iaq)$ref1)]
-iaq <- c(info("H3AsO3"), iaq)
+iaq <- c(info("As(OH)3"), iaq)
 icr <- retrieve("As", c("S", "O", "H"), "cr")
 icr <- icr[!grepl("NA03", info(icr)$ref1)]
 ```
@@ -191,7 +191,7 @@ The activity of As-bearing aqueous species is set to 10^-3^ and that of SO~4~^-2
 
 ```{r mosaic2, eval = FALSE}
 # Set up basis species and system
-basis(c("H3AsO3", "SO4-2", "H2O", "O2", "H+"))
+basis(c("As(OH)3", "SO4-2", "H2O", "O2", "H+"))
 basis("SO4-2", -4)
 logact <- c(rep(-3, length(iaq)), rep(0, length(icr)))
 species(c(iaq, icr), logact)
@@ -203,7 +203,8 @@ bases <- c("SO4-2", "HSO4-", "H2S", "HS-", "S-2")
 m <- mosaic(bases, pH = pH, O2 = O2, T = 100, blend = TRUE)
 # Make the diagram
 par(cex = 2.5, mar = c(2.8, 3, 1.4, 1))
-fill <- c(rep("lightcyan", length(iaq)), rep("lavenderblush", length(icr)))
+# Web colors lightcyan and lavenderblush with some transparency
+fill <- c(rep("#E0FFFF88", length(iaq)), rep("#FFF0F588", length(icr)))
 d <- diagram(m$A.species, fill = fill, lwd = 2)
 diagram(m$A.bases, add = TRUE, col = 4, lty = 3, lwd = 2,
         col.names = 4, cex.names = 0.7, italic = TRUE)

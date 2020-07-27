@@ -126,7 +126,7 @@ include_graphics("Act2_vig1.png")
 
 #### Here are some recommended commands for converting the K2GWB data file using the [OBIGT database](../../CHNOSZ/doc/OBIGT.html) in CHNOSZ.
 
-The `modOBIGT` command adds more minerals from the SUPCRT92 database, an entry for steam that has been removed from OBIGT, and a modified version of realgar to match the chemical formula used in UNITHERM.
+The `modOBIGT()` command adds more minerals from the SUPCRT92 database, an entry for steam that has been removed from OBIGT, and a modified version of realgar to match the chemical formula used in UNITHERM.
 
 ```{r logKcalc, eval = FALSE}
 infile <- system.file("extdata/ThermoGWB_15_6_2020.tdat", package = "logKcalc")
