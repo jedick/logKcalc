@@ -73,7 +73,14 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
   # Calculate ΔG°r of the dissociation reaction without the reactant species
   rxnspecies <- mapnames(rxn$species)$OBIGT
   rxncoeff <- rxn$coeff
-  Grout <- suppressWarnings(suppressMessages(CHNOSZ::subcrt(rxnspecies, rxncoeff, T = T)$out$G))
+  ina <- is.na(rxnspecies)
+  if(any(ina)) {
+    stop(paste("unable to map these species to the OBIGT database:", paste(rxn$species[ina], collapse = ", ")))
+  }
+  # Set autobalance = FALSE to prevent automatically balancing reaction with basis species 20200803
+  sargs <- list(species = rxnspecies, coeff = rxncoeff, T = T)
+  if(utils::packageVersion("CHNOSZ") > "1.3.6") sargs <- c(sargs, autobalance = FALSE)
+  Grout <- suppressWarnings(suppressMessages(do.call(CHNOSZ::subcrt, sargs)$out$G))
   # Calculate ΔG°f of the reactant species
   Gf <- Grout - Grin
 

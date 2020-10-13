@@ -4,11 +4,11 @@ activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Mon Jul 27 10:53:55 2020
-* by logKcalc 0.1.0 with CHNOSZ 1.3.6-62.
+* File generated at Tue Oct 13 07:46:14 2020
+* by logKcalc 0.1.0 with CHNOSZ 1.3.6-84.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
-* with 0 added and 95 unavailable species.
+* with 0 added and 87 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -249,7 +249,7 @@ UO2++                           formula= UO2+2
 
 -end-
 
-   101 aqueous species
+   106 aqueous species
 
 OH-                             formula= OH-
      charge= -1.0      ion size=  3.5 A      mole wt.=  17.0070 g
@@ -456,6 +456,22 @@ NaOH(aq)                        formula= NaOH
         15.1315     14.2047     13.2097     12.3772
         11.6420     11.1304     10.7623     10.4801
 * [SSWS97]
+
+NaCO3-                          formula= NaCO3-
+     charge= -1.0      ion size=  4.5 A      mole wt.=  82.9990 g
+     3 species in reaction
+   -1.000  H+    1.000  HCO3-    1.000  Na+
+         9.6840      9.7534      9.8537      9.9648
+        10.0637     10.0594      9.8384      9.1036
+* [SPD+19]
+
+NaHCO3(aq)                      formula= NaHCO3
+     charge= 0.0      ion size=  0.0 A      mole wt.=  84.0070 g
+     2 species in reaction
+    1.000  HCO3-    1.000  Na+  
+        -0.2011     -0.1613     -0.2247     -0.3728
+        -0.6241     -0.9389     -1.3373     -1.8866
+* [SPD+19]
 
 NaSO4-                          formula= NaSO4-
      charge= -1.0      ion size=  4.5 A      mole wt.=  119.0530 g
@@ -741,6 +757,14 @@ ZnOH+                           formula= ZnOH+
          6.0771      5.3124      4.6252      3.9820
 * [AT14]
 
+ZnHCO3+                         formula= ZnHCO3+
+     charge= 1.0      ion size=  4.5 A      mole wt.=  126.4070 g
+     2 species in reaction
+    1.000  HCO3-    1.000  Zn++  
+        -1.5852     -1.6199     -1.8325     -2.1783
+        -2.6955     -3.2891     -3.9772     -4.8230
+* [SPD+19]
+
 Zn(HS)2(aq)                     formula= Zn(HS)2
      charge= 0.0      ion size=  0.0 A      mole wt.=  131.5380 g
      4 species in reaction
@@ -931,6 +955,14 @@ MnOH+                           formula= MnOH+
          7.5681      6.8134      6.1883      5.6401
 * [SSWS97]
 
+MnHCO3+                         formula= MnHCO3+
+     charge= 1.0      ion size=  4.5 A      mole wt.=  115.9550 g
+     2 species in reaction
+    1.000  HCO3-    1.000  Mn++  
+        -1.1518     -1.2901     -1.6246     -2.0883
+        -2.7328     -3.4399     -4.2348     -5.1881
+* [SPD+19]
+
 MnSO4(aq)                       formula= MnSO4
      charge= 0.0      ion size=  0.0 A      mole wt.=  151.0020 g
      2 species in reaction
@@ -972,6 +1004,14 @@ FeOH+                           formula= FeOH+
         10.1319      9.3148      8.3650      7.4949
          6.6337      5.9419      5.3584      4.8384
 * [SSWS97]
+
+FeSO4(aq)                       formula= FeSO4
+     charge= 0.0      ion size=  0.0 A      mole wt.=  151.9110 g
+     2 species in reaction
+    1.000  SO4--    1.000  Fe++  
+        -2.9328     -2.9203     -3.0072     -3.1816
+        -3.4976     -3.9470     -4.5951     -5.5900
+* [SPD+19]
 
 FeCl+                           formula= FeCl+
      charge= 1.0      ion size=  4.5 A      mole wt.=  91.3000 g
@@ -1084,7 +1124,7 @@ CH3COO-                         formula= C2H3O2-
 
 -end-
 
-   85 minerals
+   88 minerals
 
 Sulphur                        type=
      formula= S
@@ -1145,6 +1185,16 @@ Graphite                        type=
         70.3758     64.1735     56.8565     49.9814
         42.9869     37.2430     32.3599     28.0165
 * [HDNB78]
+
+Manganese                        type=
+     formula= Mn
+     mole vol.=   7.3540 cc      mole wt.=  54.9380 g
+     4 species in reaction
+    1.000  H2O   -2.000  H+   -0.500  O2(aq)
+    1.000  Mn++    
+        91.4002     83.3903     74.1447     65.6640
+        57.2677     50.5815     45.0884     40.4318
+* [RH95]
 
 Tin                        type=
      formula= Sn
@@ -1265,9 +1315,29 @@ Manganosite                        type=
      mole vol.=   13.2210 cc      mole wt.=  70.9370 g
      3 species in reaction
     1.000  H2O   -2.000  H+    1.000  Mn++
-        20.3195     18.3638     16.1247     14.0926
-        12.0979     10.5104      9.1880      8.0287
-* [HDNB78, WEP+82]
+        20.3195     18.3637     16.1247     14.0933
+        12.0997     10.5135      9.1924      8.0342
+* [RH95]
+
+Pyrolusite                        type=
+     formula= MnO2
+     mole vol.=   16.6100 cc      mole wt.=  86.9370 g
+     4 species in reaction
+    1.000  H2O   -2.000  H+    0.500  O2(aq)
+    1.000  Mn++    
+        -1.0546     -0.9727     -0.8131     -0.5999
+        -0.3265     -0.0736      0.1390      0.3003
+* [RH95]
+
+Hausmannite                        type=
+     formula= Mn3O4
+     mole vol.=   46.9500 cc      mole wt.=  228.8120 g
+     4 species in reaction
+    3.000  H2O   -6.000  H+    0.500  O2(aq)
+    3.000  Mn++    
+        22.0112     19.6895     17.1035     14.8350
+        12.6760     10.9823      9.5448      8.2101
+* [RH95]
 
 Zincite                        type=
      formula= ZnO
@@ -2053,13 +2123,13 @@ epidote.” _Reviews in Mineralogy and Geochemistry_, *56*(1), 83-124. doi:
 [HDNB78]
 Helgeson HC, Delany JM, Nesbitt HW, Bird DK (1978). “Summary and critique of the
 thermodynamic properties of rock-forming minerals.” _American Journal of
-Science_, *278A*, 1-229. <URL: http://www.worldcat.org/oclc/13594862>.
+Science_, *278A*, 1-229. <URL: https://www.worldcat.org/oclc/13594862>.
 
 [HGK84]
 Haar L, Gallagher JS, Kell GS (1984). _NBS/NRC Steam Tables: Thermodynamic and
 Transport Properties and Computer Programs for Vapor and Liquid States of Water
 in SI Units_. Hemisphere Publishing Corporation, Washington, D. C. <URL:
-http://www.worldcat.org/oclc/858456124>.
+https://www.worldcat.org/oclc/858456124>.
 
 [HRA91]
 Hemingway BS, Robie RA, Apps JA (1991). “Revised values for the thermodynamic
@@ -2090,7 +2160,7 @@ https://doi.org/10.1016/0098-3004(92)90029-Q).
 [JUN92]
 JUN92.bs (1992). “JUN92.bs database supplied with Theriak/Domino software.” Last
 updated on 2017-02-04. Accessed on 2017-10-01. <URL:
-http://titan.minpet.unibas.ch/minpet/theriak/prog170204/>.
+https://titan.minpet.unibas.ch/minpet/theriak/prog170204/>.
 
 [Joh92]
 Johnson JW (1992). “Reference for H2O(g) from SUPCRT92/sprons92.dat.” Personal
@@ -2103,7 +2173,7 @@ properties predicted by the Haar et al. (1984) equation of state to temperatures
 Kelley KK (1960). _Contributions to the Data in Theoretical Metallurgy XIII:
 High Temperature Heat Content, Heat Capacities and Entropy Data for the Elements
 and Inorganic Compounds_, series Bulletin 584. U. S. Bureau of Mines. <URL:
-http://www.worldcat.org/oclc/693388901>.
+https://www.worldcat.org/oclc/693388901>.
 
 [MGN03]
 Majzlan J, Grevel K, Navrotsky A (2003). “Thermodynamics of Fe oxides: Part II.
@@ -2142,7 +2212,7 @@ https://doi.org/10.1144/SP402.4).
 [PK70]
 Pankratz LB, King EG (1970). _High-Temperature Enthalpies and Entropies of
 Chalcopyrite and Bornite_, number 7435 series Report of Investigations. U. S.
-Bureau of Mines. <URL: http://www.worldcat.org/oclc/14154292>.
+Bureau of Mines. <URL: https://www.worldcat.org/oclc/14154292>.
 
 [PPB+08]
 Perfetti E, Pokrovski GS, Ballerat-Busserolles K, Majer V, Gilbert F (2008).
@@ -2204,6 +2274,12 @@ slop98.dat (1998). “Sequential-access thermodynamic datafile used by PROGRAM
 supcrt92.” Last updated on 1998-08-20. Accessed on 2019-04-08. doi:
 10.5281/zenodo.2630820 (URL: https://doi.org/10.5281/zenodo.2630820).
 
+[SPD+19]
+St Clair B, Pottenger J, Debes R, Hanselmann K, Shock EL (2019). “Distinguishing
+biotic and abiotic iron oxidation at low temperatures.” _ACS Earth and Space
+Chemistry_, *3*(6), 905-921. doi: 10.1021/acsearthspacechem.9b00016 (URL:
+https://doi.org/10.1021/acsearthspacechem.9b00016).
+
 [SPRONS92]
 sprons92.dat (1992). “s[equential-access] pro[perties of] n[atural]
 s[ubstances].dat; datafile used by PROGRAM supcrt91.” Included with the SUPCRT92
@@ -2252,9 +2328,10 @@ https://doi.org/10.1016/S0016-7037(97)00274-3).
 [WEP+82]
 Wagman DD, Evans WH, Parker VB, Schumm RH, Halow I, Bailey SM, Churney KL,
 Nuttall RL (1982). “The NBS tables of chemical thermodynamic properties.
-Selected values for inorganic and C$_1$ and C$_2$ organic substances in SI
-units.” _Journal of Physical and Chemical Reference Data_, *11*(Suppl. 2),
-1-392. <URL: https://srd.nist.gov/JPCRD/jpcrdS2Vol11.pdf>.
+Selected values for inorganic and C\textsubscript{1} and C\textsubscript{2}
+organic substances in SI units.” _Journal of Physical and Chemical Reference
+Data_, *11*(Suppl. 2), 1-392. <URL:
+https://srd.nist.gov/JPCRD/jpcrdS2Vol11.pdf>.
 
 [ZZL+16]
 Zimmer K, Zhang Y, Lu P, Chen Y, Zhang G, Dalkilic M, Zhu C (2016). “SUPCRTBL: A

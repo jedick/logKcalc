@@ -86,6 +86,7 @@ A similar diagram can be produced using the OBIGT database and CHNOSZ, but some 
 In particular, the default OBIGT database has parameters for AsH~3~ from @SSW01, aqueous As(OH)~3~ and AsO(OH)~3~ from @PPB+08, and ionized As-bearing species from @NA03, while `thermo.tdat` is based on the LLNL (Lawrence Livermore National Laboratory) compilation from various earlier sources.
 
 This diagram is made using the default OBIGT database.
+However, the parameters for As(OH)~3~ are defined here if needed, because they were added to OBIGT after CHNOSZ 1.3.6.
 
 <button id="myButton" onclick="myFunction()">Show code</button>
 <div id="myDIV" style="display: none">
@@ -95,6 +96,10 @@ This diagram is made using the default OBIGT database.
 
 # Use default OBIGT database
 reset()
+# Add As(OH)3 if needed
+if(packageVersion("CHNOSZ") <= "1.3.6") mod.obigt("As(OH)3", E_units = "J",
+  G = -639800, H = -737300, S = 212.4, Cp = 85, V = 47.5,
+  a1 = 45.2, a2 = 16.1, a3 = 43.7, a4 = -18, c1 = 186.2, c2 = -47.7, omega = 0.52, z = 0)
 
 # Get As-bearing species in the As-S-O-H system
 iaq <- retrieve("As", c("S", "O", "H"), "aq")
@@ -145,10 +150,13 @@ The fitted parameters (Δ*G*°, *S*° and *C~p~*°) of the formed species are ad
 Here, we fit the parameters for minerals and aqueous species other than As(OH)~3~, which is a basis species in `thermo_24swapped.tdat`.
 Although it has no stability field in the diagram, AsH~3~ is also updated because it appears in the dissociation reaction for realgar.
 Because it uses just three parameters, the fit may introduce some error, so we increase the tolerance (in `r logK` units) for H~2~AsO~4~^-^ to allow the checks for this species to pass.
-We run `reset()` first to make sure we are starting with the default OBIGT database.
+We run `reset()` first to make sure we are starting with the default OBIGT database and add As(OH)~3~ again if needed.
 
 ```{r addOBIGT, message = FALSE}
 reset()
+if(packageVersion("CHNOSZ") <= "1.3.6") mod.obigt("As(OH)3", E_units = "J",
+  G = -639800, H = -737300, S = 212.4, Cp = 85, V = 47.5,
+  a1 = 45.2, a2 = 16.1, a3 = 43.7, a4 = -18, c1 = 186.2, c2 = -47.7, omega = 0.52, z = 0)
 addOBIGT("AsH3(aq)")
 addOBIGT("H2AsO4-", tolerance = 0.15)
 addOBIGT("HAsO4--")

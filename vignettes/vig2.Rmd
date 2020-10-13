@@ -91,8 +91,12 @@ modOBIGT(c("addSUPCRT", "steam", "antigorite/2"))
 
 Some basis species used in the GWB file are not in the default OBIGT database.
 They can be added to OBIGT by fitting their thermodynamic parameters (Δ*G*°, *S*° and *C~p~*°) to the `r logK` values for their dissociation reactions from a different GWB file where they have been swapped out of the basis.
+This depends on the parameters for As(OH)~3~ ([Perfetti et al., 2008](https://doi.org/10.1016/j.gca.2007.11.017)), which were added to OBIGT after CHNOSZ 1.3.6, so they are defined here if needed for an earlier version.
 
 ```{r addOBIGT, message = FALSE}
+if(packageVersion("CHNOSZ") <= "1.3.6") mod.obigt("As(OH)3", E_units = "J",
+  G = -639800, H = -737300, S = 212.4, Cp = 85, V = 47.5,
+  a1 = 45.2, a2 = 16.1, a3 = 43.7, a4 = -18, c1 = 186.2, c2 = -47.7, omega = 0.52, z = 0)
 addOBIGT("As(OH)4-")
 addOBIGT("Sn++++")
 ```
