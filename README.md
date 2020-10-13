@@ -17,7 +17,7 @@ It reads reactions from an input GWB data file, calculates equilibrium constants
 
 ```R
 install.packages("remotes")
-remotes::install_github("jedick/logKcalc", build_vignettes = TRUE)
+remotes::install_github("jedick/logKcalc", build_vignettes = TRUE, dependencies = TRUE)
 ```
 
 ## Documentation
