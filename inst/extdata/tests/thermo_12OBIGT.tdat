@@ -5,11 +5,11 @@ fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Tue Oct 13 07:42:49 2020
-* by logKcalc 0.1.0 with CHNOSZ 1.3.6-84.
+* File generated at Thu Nov 12 18:37:45 2020
+* by logKcalc 0.1.0 with CHNOSZ 1.4.0.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat
-* with 7 added and 87 unavailable species.
+* with 7 added and 86 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -605,7 +605,7 @@ e-
 
 -end-
 
-   44 minerals
+   45 minerals
 
 Albite                             type= feldspar
      formula= NaAlSi3O8
@@ -1022,6 +1022,16 @@ Sylvite                            type= halide
          1.3297      1.2382      1.0128      0.6044
 * [HDNB78]
 
+Wustite                            type= oxide
+     formula= Fe0.947O
+     mole vol.=   12.0400 cc      mole wt.=   68.8865 g
+     4 species in reaction
+       -2.000 H+               .841 Fe++            1.000 H2O     
+         .106 Fe+++   
+        14.0868     12.4498     10.5645      8.8429
+         7.1388      5.7670      4.6080      3.5751
+* [RH95]
+
 pyrrhotite
      formula= FeS
      mole vol.=   18.2000 cc      mole wt.=   87.9070 g
@@ -1211,7 +1221,7 @@ https://www.worldcat.org/oclc/858456124>.
 
 [HRA91]
 Hemingway BS, Robie RA, Apps JA (1991). “Revised values for the thermodynamic
-properties of boehmite, AlO(OH) , and related species and phases in the system
+properties of boehmite, AlO(OH), and related species and phases in the system
 Al-H-O.” _American Mineralogist_, *76*(3-4), 445-457. <URL:
 https://pubs.er.usgs.gov/publication/70016664>.
 
@@ -1290,8 +1300,8 @@ D. C. doi: 10.3133/b2131 (URL: https://doi.org/10.3133/b2131).
 [RHF78]
 Robie RA, Hemingway BS, Fisher JR (1978). _Thermodynamic Properties of Minerals
 and Related Substances at 298.15 K and 1 Bar ($10^5$ Pascals) Pressure and at
-Higher Temperatures_, series Bulletin 1452. U. S. Geological Surv. <URL:
-https://pubs.er.usgs.gov/publication/b1452>.
+Higher Temperatures_, series Bulletin 1452. U. S. Geological Surv. doi:
+10.3133/b1452 (URL: https://doi.org/10.3133/b1452).
 
 [SAJ00]
 Stoffregen RE, Alpers CN, Jambor JL (2000). “Alunite-jarosite crystallography,

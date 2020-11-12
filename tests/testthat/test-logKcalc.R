@@ -16,21 +16,17 @@ getlines <- function(file) {
     }
     lines
   }
-  if(utils::packageVersion("CHNOSZ") <= "1.3.6") {
-    # References block isn't available in CHNOSZ <= 1.3.6 20200625
+  if(utils::packageVersion("CHNOSZ") < "1.4.0") {
+    # References block isn't available in CHNOSZ < 1.4.0 20200625
     iReferences <- match("* References", lines)
     if(!is.na(iReferences)) lines <- lines[-(iReferences:length(lines))]
     # list unavailable minerals and aqueous speices; H2O, H+, e- because they had no references in OBIGT
-    patterns <- c("^Dickite", "^Arsenopyrite", "^FeCO3", "^FeHCO3\\+", "^FeSO4", "^NaCO3\\-", "NaHCO3", "^H2O", "^H\\+", "^e\\-")
+    patterns <- c("^Wustite", "^Dickite", "^Arsenopyrite", "^FeCO3", "^FeHCO3\\+", "^FeSO4", "^NaCO3\\-", "NaHCO3", "^H2O", "^H\\+", "^e\\-")
     for(pattern in patterns) lines <- rmspecies(pattern, lines)
   }
   if(utils::packageVersion("CHNOSZ") < "1.3.4") {
     # changed dawsonite to use Joules
     lines <- rmspecies("^Dawsonite", lines)
-  }
-  if(utils::packageVersion("CHNOSZ") < "1.3.3") {
-    patterns <- c("^Orpiment", "^Gibbsite", "^Zoisite", "^Epidote")
-    for(pattern in patterns) lines <- rmspecies(pattern, lines)
   }
   # exclude header lines (timestamp, package version and unavailable species might change)
   lines <- lines[-(7:12)]
@@ -90,7 +86,7 @@ test_that("Changing the temperature, water model, and Debye-Hückel method work 
 })
 
 # Only run the next test with sufficient CHNOSZ version (depends on As(OH)3 from PPB+08) 20201012
-if(packageVersion("CHNOSZ") > "1.3.6") {
+if(packageVersion("CHNOSZ") >= "1.4.0") {
   test_that("Processing a K2GWB file works as expected", {
     # Added this test to make sure the Methane(g) reaction is correct 20200625
     infile <- system.file("extdata/ThermoGWB_15_6_2020.tdat", package = "logKcalc")
