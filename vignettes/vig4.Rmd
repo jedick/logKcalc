@@ -88,7 +88,7 @@ Separate commands are needed to change the water model and load the parameters o
 ```{r DEW, message = FALSE}
 reset()
 water("DEW")
-if(packageVersion("CHNOSZ") > "1.3.6") add.OBIGT("DEW") else add.obigt("DEW")
+if(packageVersion("CHNOSZ") >= "1.4.0") add.OBIGT("DEW") else add.obigt("DEW")
 # modOBIGT(c("addSUPCRT", "steam"))
 ```
 
@@ -97,7 +97,7 @@ Note that other changes to the database to add the properties of steam and miner
 The `thermo_12elements.tdat` data file includes aqueous CH~4~, CO~2~, HCO~3~^-^, CO~3~^&#8209;&#8209;^, CH~3~COO^-^ (acetate) and HCH~3~COO (acetic acid), which will be updated during the conversion.
 We can use the `ispecies` argument to add other species from OBIGT, in particular formic and propanoic acid and their anions, which were predicted to be major species by @SSH14.
 For completeness, we include other aqueous organic species, although they are not expected to appear in the diagrams.
-However, we do not include glycinate (added in the DEW 2019 dataset) to maintain backwards compatibility with CHNOSZ versions up to 1.3.6.
+However, we do not include glycinate (added in the DEW 2019 dataset) to maintain backwards compatibility with CHNOSZ versions before 1.4.0.
 
 ```{r ispecies, message = FALSE}
 major <- c("formic acid", "formate", "propanoic acid", "propanoate")
