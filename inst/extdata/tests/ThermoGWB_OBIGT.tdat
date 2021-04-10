@@ -4,8 +4,8 @@ activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Thu Nov 12 18:39:18 2020
-* by logKcalc 0.1.0 with CHNOSZ 1.4.0.
+* File generated at Thu Apr  8 07:22:01 2021
+* by logKcalc 0.1.0 with CHNOSZ 1.4.1.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
 * with 0 added and 85 unavailable species.
@@ -959,8 +959,8 @@ MnHCO3+                         formula= MnHCO3+
      charge= 1.0      ion size=  4.5 A      mole wt.=  115.9550 g
      2 species in reaction
     1.000  HCO3-    1.000  Mn++  
-        -1.1518     -1.2901     -1.6246     -2.0883
-        -2.7328     -3.4399     -4.2348     -5.1881
+        -1.8942     -1.9703     -2.2334     -2.6318
+        -3.2121     -3.8686     -4.6224     -5.5420
 * [SPD+19]
 
 MnSO4(aq)                       formula= MnSO4
@@ -1009,8 +1009,8 @@ FeSO4(aq)                       formula= FeSO4
      charge= 0.0      ion size=  0.0 A      mole wt.=  151.9110 g
      2 species in reaction
     1.000  SO4--    1.000  Fe++  
-        -2.9328     -2.9203     -3.0072     -3.1816
-        -3.4976     -3.9470     -4.5951     -5.5900
+        -2.4088     -2.4402     -2.5775     -2.7980
+        -3.1593     -3.6445     -4.3215     -5.3402
 * [SPD+19]
 
 FeCl+                           formula= FeCl+
@@ -2232,7 +2232,7 @@ https://doi.org/10.1144/SP402.4).
 [PK70]
 Pankratz LB, King EG (1970). _High-Temperature Enthalpies and Entropies of
 Chalcopyrite and Bornite_, number 7435 series Report of Investigations. U. S.
-Bureau of Mines. <URL: https://www.worldcat.org/oclc/14154292>.
+Bureau of Mines. <URL: https://hdl.handle.net/2027/mdp.39015078533158>.
 
 [PPB+08]
 Perfetti E, Pokrovski GS, Ballerat-Busserolles K, Majer V, Gilbert F (2008).
