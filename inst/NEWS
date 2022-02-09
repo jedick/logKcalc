@@ -1,7 +1,7 @@
 CHANGES IN logKcalc 0.1.0
 -------------------------
 
-- 2020-06-21 Add new species to output.
+- 2020-06-21 Allow adding new (user-added) species to output.
 
 - 2020-06-17 Add references to output.
 

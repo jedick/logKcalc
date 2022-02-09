@@ -11,7 +11,7 @@ modOBIGT <- function(mod) {
     # adds minerals from SUPCRT92 that are not in OBIGT
     #add.OBIGT("SUPCRT92", force = FALSE)
     # 20200614 that should work, but doesn't because of addition of some cr2 phases to existing Berman cr entries, so subcrt("albite") produces
-    #Error in berman(PAR$name, T = T, P = P, thisinfo = PAR) : Data for ALBITE not available.
+    #Error in Berman(PAR$name, T = T, P = P, thisinfo = PAR) : Data for ALBITE not available.
     supfile <- system.file("extdata/OBIGT/SUPCRT92.csv", package = "CHNOSZ")
     supdat <- utils::read.csv(supfile, as.is = TRUE)
     if(utils::packageVersion("CHNOSZ") > "1.3.6") newnames <- setdiff(supdat$name, CHNOSZ::thermo()$OBIGT$name)
@@ -38,7 +38,7 @@ modOBIGT <- function(mod) {
     # divide the properties of antigorite by 2 (for thermo.tdat) 20200529
     mod.OBIGT("antigorite", formula = "Mg24Si17O49.5H31O24")
     name <- NULL
-    bdat <- subset(CHNOSZ::berman(), name == "antigorite")
+    bdat <- subset(Berman(), name == "antigorite")
     bdat[, 2:30] <- bdat[, 2:30] / 2
     bfile <- tempfile()
     utils::write.csv(bdat, bfile, row.names = FALSE, quote = FALSE)

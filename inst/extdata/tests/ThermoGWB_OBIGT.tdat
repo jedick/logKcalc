@@ -4,11 +4,11 @@ activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Thu Apr  8 07:22:01 2021
-* by logKcalc 0.1.0 with CHNOSZ 1.4.1.
+* File generated at Wed Feb  9 12:15:02 2022
+* by logKcalc 0.1.0 with CHNOSZ 1.4.2.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
-* with 0 added and 85 unavailable species.
+* with 0 added and 83 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -249,7 +249,7 @@ UO2++                           formula= UO2+2
 
 -end-
 
-   106 aqueous species
+   108 aqueous species
 
 OH-                             formula= OH-
      charge= -1.0      ion size=  3.5 A      mole wt.=  17.0070 g
@@ -545,6 +545,14 @@ MgCO3(aq)                       formula= MgCO3
          6.2284      5.9109      5.5428      5.0193
 * [SSH97]
 
+MgHCO3+                         formula= Mg(HCO3)+
+     charge= 1.0      ion size=  4.5 A      mole wt.=  85.3220 g
+     2 species in reaction
+    1.000  HCO3-    1.000  Mg++  
+        -1.0770     -1.0357     -1.1604     -1.4229
+        -1.8523     -2.3688     -2.9844     -3.7577
+* [SK95, SLOP98]
+
 MgSO4(aq)                       formula= MgSO4
      charge= 0.0      ion size=  0.0 A      mole wt.=  120.3690 g
      2 species in reaction
@@ -584,6 +592,14 @@ CaCO3(aq)                       formula= CaCO3
          7.5046      7.0017      6.4546      5.9746
          5.4924      5.0570      4.5885      3.9784
 * [SSH97]
+
+CaHCO3+                         formula= Ca(HCO3)+
+     charge= 1.0      ion size=  4.5 A      mole wt.=  101.0950 g
+     2 species in reaction
+    1.000  HCO3-    1.000  Ca++  
+        -1.0940     -1.0467     -1.1579     -1.4134
+        -1.8483     -2.3830     -3.0268     -3.8398
+* [SK95, SLOP98]
 
 CaSO4(aq)                       formula= CaSO4
      charge= 0.0      ion size=  0.0 A      mole wt.=  136.1420 g
@@ -2119,8 +2135,7 @@ https://doi.org/10.1093/petrology/29.2.445).
 
 [Ber90]
 Berman RG (1990). “Mixing properties of Ca-Mg-Fe-Mn garnets.” _American
-Mineralogist_, *75*(3-4), 328-344. <URL:
-http://ammin.geoscienceworld.org/content/75/3-4/328>.
+Mineralogist_, *75*(3-4), 328-344.
 
 [Eva90]
 Evans BW (1990). “Phase relations of epidote-blueschists.” _Lithos_, *25*(1),
@@ -2148,8 +2163,7 @@ Science_, *278A*, 1-229. <URL: https://www.worldcat.org/oclc/13594862>.
 [HGK84]
 Haar L, Gallagher JS, Kell GS (1984). _NBS/NRC Steam Tables: Thermodynamic and
 Transport Properties and Computer Programs for Vapor and Liquid States of Water
-in SI Units_. Hemisphere Publishing Corporation, Washington, D. C. <URL:
-https://www.worldcat.org/oclc/858456124>.
+in SI Units_. Hemisphere Publishing Corporation, Washington, D. C.
 
 [HRA91]
 Hemingway BS, Robie RA, Apps JA (1991). “Revised values for the thermodynamic
@@ -2289,6 +2303,14 @@ Standard partial molal properties of inorganic neutral species.” _Geochimica e
 Cosmochimica Acta_, *53*(9), 2157-2183. doi: 10.1016/0016-7037(89)90341-4 (URL:
 https://doi.org/10.1016/0016-7037(89)90341-4).
 
+[SK95]
+Shock EL, Koretsky CM (1995). “Metal-organic complexes in geochemical processes:
+Estimation of standard partial molal thermodynamic properties of aqueous
+complexes between metal cations and monovalent organic acid ligands at high
+pressures and temperatures.” _Geochimica et Cosmochimica Acta_, *59*(8),
+1497-1532. doi: 10.1016/0016-7037(95)00058-8 (URL:
+https://doi.org/10.1016/0016-7037(95)00058-8).
+
 [SLOP98]
 slop98.dat (1998). “Sequential-access thermodynamic datafile used by PROGRAM
 supcrt92.” Last updated on 1998-08-20. Accessed on 2019-04-08. doi:
@@ -2349,9 +2371,8 @@ https://doi.org/10.1016/S0016-7037(97)00274-3).
 Wagman DD, Evans WH, Parker VB, Schumm RH, Halow I, Bailey SM, Churney KL,
 Nuttall RL (1982). “The NBS tables of chemical thermodynamic properties.
 Selected values for inorganic and C\textsubscript{1} and C\textsubscript{2}
-organic substances in SI units.” _Journal of Physical and Chemical Reference
-Data_, *11*(Suppl. 2), 1-392. <URL:
-https://srd.nist.gov/JPCRD/jpcrdS2Vol11.pdf>.
+organic substances in SI units.” _J. Phys. Chem. Ref. Data_, *11*(Suppl. 2),
+1-392. <URL: https://srd.nist.gov/JPCRD/jpcrdS2Vol11.pdf>.
 
 [ZZL+16]
 Zimmer K, Zhang Y, Lu P, Chen Y, Zhang G, Dalkilic M, Zhu C (2016). “SUPCRTBL: A
