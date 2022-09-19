@@ -64,7 +64,7 @@ An attempt is made to convert GWB-style formulas (e.g. Sn\S{++++}) to the format
 For adding minerals, a valid formula must be provided in the \code{formula} argument.
 
 Note that the equation assumes a constant heat capacity and no volume change, so in general does not perfectly fit the \logK values in the input GWB file and may be unsuitable for extrapolation beyond the original \T and \P range.
-\code{\link{all.equal}} is used to test the near equivalence of the input and calculated equilibrium constants; if the differences exceed \code{tol}, the code generates an error.
+\code{\link{all.equal}} is used to test the near equivalence of the input and calculated equilibrium constants; if the differences exceed \code{tolerance}, the code generates an error.
 
 }
 
