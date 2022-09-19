@@ -25,14 +25,17 @@ modOBIGT <- function(mod) {
     message("modOBIGT: removing Berman minerals")
     if(utils::packageVersion("CHNOSZ") > "1.3.6") OBIGT <- CHNOSZ::thermo()$OBIGT
     else OBIGT <- CHNOSZ::thermo()$obigt
-    # adjust for earlier versions of CHNOSZ that didn't have the "units" column in OBIGT
-    if(utils::packageVersion("CHNOSZ") < "1.3.3") iBerman <- OBIGT$state=="cr" & apply(is.na(OBIGT[, 8:20]), 1, all)
-    else iBerman <- OBIGT$state=="cr" & apply(is.na(OBIGT[, 9:21]), 1, all)
+    # Adjust for addition of columns to OBIGT in versions of CHNOSZ
+    # ("units" column in 1.3.3, "model" column in 2.0.0)
+    if(utils::packageVersion("CHNOSZ") > "1.4.3") iBerman <- OBIGT$state=="cr" & apply(is.na(OBIGT[, 10:22]), 1, all)
+    else if(utils::packageVersion("CHNOSZ") >= "1.3.3") iBerman <- OBIGT$state=="cr" & apply(is.na(OBIGT[, 9:21]), 1, all)
+    else iBerman <- OBIGT$state=="cr" & apply(is.na(OBIGT[, 8:20]), 1, all)
     OBIGT <- OBIGT[!iBerman, ]
     if(utils::packageVersion("CHNOSZ") > "1.3.6") CHNOSZ::thermo(OBIGT = OBIGT)
     else CHNOSZ::thermo(obigt = OBIGT)
   } else if(mod=="steam") {
-    steamfile <- system.file("extdata/steam.csv", package = "logKcalc")
+    if(utils::packageVersion("CHNOSZ") > "1.4.3") steamfile <- system.file("extdata/steam.csv", package = "logKcalc")
+    else steamfile <- system.file("extdata/steam_old.csv", package = "logKcalc")
     add.OBIGT(steamfile)
   } else if(mod=="antigorite/2") {
     # divide the properties of antigorite by 2 (for thermo.tdat) 20200529
@@ -49,8 +52,9 @@ modOBIGT <- function(mod) {
     if(utils::packageVersion("CHNOSZ") > "1.3.6") OBIGT <- CHNOSZ::thermo()$OBIGT
     else OBIGT <- CHNOSZ::thermo()$obigt
     OBIGT$formula[irealgar] <- "As4S4"
-    if(utils::packageVersion("CHNOSZ") < "1.3.3") OBIGT[irealgar, 8:20] <- OBIGT[irealgar, 8:20] * 4
-    else OBIGT[irealgar, 9:21] <- OBIGT[irealgar, 9:21] * 4
+    if(utils::packageVersion("CHNOSZ") > "1.4.3") OBIGT[irealgar, 10:22] <- OBIGT[irealgar, 10:22] * 4
+    else if(utils::packageVersion("CHNOSZ") >= "1.3.3") OBIGT[irealgar, 9:21] <- OBIGT[irealgar, 9:21] * 4
+    else OBIGT[irealgar, 8:20] <- OBIGT[irealgar, 8:20] * 4
     if(utils::packageVersion("CHNOSZ") > "1.3.6") CHNOSZ::thermo(OBIGT = OBIGT)
     else CHNOSZ::thermo(obigt = OBIGT)
   } else stop("unrecognized 'mod' argument: ", mod)

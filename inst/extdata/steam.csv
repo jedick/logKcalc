@@ -1,2 +1,2 @@
-name,abbrv,formula,state,ref1,ref2,date,G,H,S,Cp,V,a1.a,a2.b,a3.c,a4.d,c1.e,c2.f,omega.lambda,z.T
-steam,H2O,H2O,gas,Joh92,NA,24.Mar.90,-54524.8,-57935.1,44.763,NA,0,12.6647,-10.4041,0.013078,0,0,0,0,2523.15
+name,abbrv,formula,state,ref1,ref2,date,model,G,H,S,Cp,V,a1.a,a2.b,a3.c,a4.d,c1.e,c2.f,omega.lambda,z.T
+steam,H2O,H2O,gas,Joh92,NA,24.Mar.90,CGL,-54524.8,-57935.1,44.763,NA,0,12.6647,-10.4041,0.013078,0,0,0,0,2523.15
