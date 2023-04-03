@@ -4,11 +4,11 @@ activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Mon Sep 19 15:46:24 2022
-* by logKcalc 0.1.1 with CHNOSZ 1.4.3.
+* File generated at Mon Apr  3 17:11:11 2023
+* by logKcalc 0.1.1 with CHNOSZ 2.0.0.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
-* with 0 added and 83 unavailable species.
+* with 0 added and 82 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -372,7 +372,7 @@ S2--                            formula= S2-2
    -1.000  H2O    2.000  H+   -3.500  O2(aq)
     2.000  SO4--    
        267.4762    243.3665    215.0433    188.5719
-       161.8282    140.0692    121.7991    105.8708
+       161.8282    140.0692    121.7990    105.8708
 * [SH88]
 
 S2O3--                          formula= S2O3-2
@@ -934,7 +934,7 @@ AuHS(aq)                        formula= AuHS
     1.000  H+   -2.000  O2(aq)    1.000  SO4--
     1.000  Au+    
        125.6081    113.7494     99.7227     86.5939
-        73.3358     62.5403     53.4230     45.3304
+        73.3358     62.5402     53.4230     45.3304
 * [AZ10, PAB+14]
 
 Au(HS)2-                        formula= Au(HS)2-
@@ -1093,7 +1093,7 @@ CH4(aq)                         formula= CH4
      4 species in reaction
     1.000  H2O    1.000  H+    1.000  HCO3-
    -2.000  O2(aq)    
-       157.9054    144.2101    128.1147    113.0651
+       157.9054    144.2100    128.1147    113.0651
         97.8553     85.4778     75.0822     66.0056
 * [PS01]
 
@@ -1102,7 +1102,7 @@ C2H6(aq)                        formula= C2H6
      4 species in reaction
     1.000  H2O    2.000  H+    2.000  HCO3-
    -3.500  O2(aq)    
-       278.5944    254.5034    226.1868    199.7191
+       278.5944    254.5034    226.1868    199.7190
        172.9855    151.2454    132.9988    117.0802
 * [SH90]
 
@@ -1140,7 +1140,7 @@ CH3COO-                         formula= C2H3O2-
 
 -end-
 
-   90 minerals
+   91 minerals
 
 Sulphur                        type=
      formula= S
@@ -1210,6 +1210,16 @@ Manganese                        type=
     1.000  Mn++    
         91.4002     83.3903     74.1447     65.6640
         57.2677     50.5815     45.0884     40.4318
+* [RH95]
+
+Zinc                        type=
+     formula= Zn
+     mole vol.=   9.1620 cc      mole wt.=  65.3900 g
+     4 species in reaction
+    1.000  H2O   -2.000  H+   -0.500  O2(aq)
+    1.000  Zn++    
+        75.7227     68.8035     60.8072     53.4683
+        46.1988     40.4048     35.6367     31.5820
 * [RH95]
 
 Tin                        type=
@@ -1293,7 +1303,7 @@ Uraninite                        type=
      4 species in reaction
     1.000  H2O   -2.000  H+   -0.500  O2(aq)
     1.000  UO2++    
-        32.5384     29.1258     25.1691     21.5152
+        32.5383     29.1258     25.1691     21.5152
         17.8579     14.8956     12.4015     10.2085
 * [SSB97]
 
@@ -1436,7 +1446,7 @@ Bornite                        type=
      6 species in reaction
    -0.500  H2O    1.000  H+   -7.750  O2(aq)
     4.000  SO4--    5.000  Cu+    1.000  Fe++
-       475.5551    432.0969    380.4677    331.7048
+       475.5550    432.0969    380.4677    331.7048
        281.8268    240.5682    205.0634    172.9137
 * [HDNB78, PK70]
 
@@ -1457,7 +1467,7 @@ Orpiment                        type=
    -6.000  H2O    6.000  H+    2.000  As(OH)3
    -6.000  O2(aq)    3.000  SO4--  
        405.5383    368.8072    325.1664    283.9567
-       241.8507    207.1186    177.4395    150.8640
+       241.8506    207.1186    177.4395    150.8640
 * [NA03]
 
 Arsenopyrite                        type=
@@ -1773,7 +1783,7 @@ Paragonite                        type=
      5 species in reaction
     6.000  H2O  -10.000  H+    3.000  SiO2(aq)
     1.000  Na+    3.000  Al+++  
-        17.2584     13.5284      8.6069      3.8602
+        17.2584     13.5283      8.6069      3.8602
         -0.9536     -4.9132     -8.3780    -11.6373
 * [Ber88, SHD91]
 
@@ -1883,7 +1893,7 @@ Antigorite                        type=
      4 species in reaction
    79.000  H2O  -96.000  H+   34.000  SiO2(aq)
    48.000  Mg++    
-       540.0484    488.4288    423.3142    362.5167
+       540.0484    488.4288    423.3141    362.5167
        302.9862    256.1270    217.1055    182.0213
 * [Ber88, BDat17]
 
@@ -2077,7 +2087,7 @@ H2S(g)
      3 species in reaction
     2.000  H+   -2.000  O2(aq)    1.000  SO4--
        144.0212    130.3410    114.2075     99.0723
-        83.7097     71.1275     60.4586     50.9988
+        83.7097     71.1274     60.4586     50.9988
 * [WEP+82, Kel60]
 
 S2(g)
@@ -2124,7 +2134,6 @@ doi:10.1134/S0016702910070074 <https://doi.org/10.1134/S0016702910070074>.
 [BDat17]
 berman.dat (2017). “Data file in SUPCRT92b.zip on the DEW website.” Last updated
 on 2017-02-03. Accessed on 2017-05-04.
-<http://www.dewcommunity.org/resources.html>.
 
 [Ber88]
 Berman RG (1988). “Internally-consistent thermodynamic data for minerals in the
@@ -2187,8 +2196,8 @@ relations in the Southeast Asian tin belt.” _Economic Geology_, *80*(5),
 [JOH92]
 Johnson JW, Oelkers EH, Helgeson HC (1992). “SUPCRT92: A software package for
 calculating the standard molal thermodynamic properties of minerals, gases,
-aqueous species, and reactions from 1 to 5000 bar and 0 to 1000°C.” _Computers
-\& Geosciences_, *18*(7), 899-947. doi:10.1016/0098-3004(92)90029-Q
+aqueous species, and reactions from 1 to 5000 bar and 0 to 1000°C.” _Computers &
+Geosciences_, *18*(7), 899-947. doi:10.1016/0098-3004(92)90029-Q
 <https://doi.org/10.1016/0098-3004%2892%2990029-Q>.
 
 [JUN92]
@@ -2266,8 +2275,8 @@ doi:10.1016/S0016-7037(01)00678-0
 [RH95]
 Robie RA, Hemingway BS (1995). _Thermodynamic Properties of Minerals and Related
 Substances at 298.15 K and 1 Bar (10\textsuperscript{5} Pascals) Pressure and at
-Higher Temperatures_, series Bulletin 2131. U. S. Geological Survey, Washington,
-D. C. doi:10.3133/b2131 <https://doi.org/10.3133/b2131>.
+Higher Temperatures_, series Bulletin 2131. U.S. Geological Survey, Washington,
+D.C. doi:10.3133/b2131 <https://doi.org/10.3133/b2131>.
 
 [RHF78]
 Robie RA, Hemingway BS, Fisher JR (1978). _Thermodynamic Properties of Minerals
@@ -2371,16 +2380,16 @@ HCl°\textsubscript{(aq)}.” _Geochimica et Cosmochimica Acta_, *61*(20),
 Wagman DD, Evans WH, Parker VB, Schumm RH, Halow I, Bailey SM, Churney KL,
 Nuttall RL (1982). “The NBS tables of chemical thermodynamic properties.
 Selected values for inorganic and C\textsubscript{1} and C\textsubscript{2}
-organic substances in SI units.” _J. Phys. Chem. Ref. Data_, *11*(Suppl. 2),
-1-392. <https://srd.nist.gov/JPCRD/jpcrdS2Vol11.pdf>.
+organic substances in SI units.” _Journal of Physical and Chemical Reference
+Data_, *11*(Suppl. 2), 1-392. <https://srd.nist.gov/JPCRD/jpcrdS2Vol11.pdf>.
 
 [ZZL+16]
 Zimmer K, Zhang Y, Lu P, Chen Y, Zhang G, Dalkilic M, Zhu C (2016). “SUPCRTBL: A
 revised and extended thermodynamic dataset and software package of SUPCRT92.”
-_Computers \& Geosciences_, *90*, 97-111. doi:10.1016/j.cageo.2016.02.013
+_Computers & Geosciences_, *90*, 97-111. doi:10.1016/j.cageo.2016.02.013
 <https://doi.org/10.1016/j.cageo.2016.02.013>.
 
 [proton]
-OBIGT (1997). “Hydrogen-ion convention.” OBIGT database in CHNOSZ. "The
+OBIGT (1997). “Hydrogen-ion convention.” OBIGT database in CHNOSZ. The
 conventional standard molal properties of the hydrogen ion are zero at any
 pressure and temperature" [@JOH92].

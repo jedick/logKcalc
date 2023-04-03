@@ -45,7 +45,7 @@ test_that("Modifying the database and adding species to the output work as expec
   # process the thermo_12elements.tdat file
   infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
   outfile <- file.path(tempdir(), "thermo_12OBIGT.tdat")
-#  outfile <- "thermo_OBIGT.tdat"
+#  outfile <- "thermo_12OBIGT.tdat"
   reset()
   modOBIGT(c("addSUPCRT", "steam"))
   addOBIGT("AuCl4-")
@@ -66,7 +66,7 @@ test_that("Changing the temperature, water model, and Debye-Hückel method work 
   # process the thermo_12elements.tdat file
   infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
   outfile <- file.path(tempdir(), "thermo_12OBIGT_bgamma.tdat")
-#  outfile <- "thermo_OBIGT.tdat"
+#  outfile <- "thermo_12OBIGT_bgamma.tdat"
   reset()
   modOBIGT(c("addSUPCRT", "steam"))
   addOBIGT("AuCl4-")
@@ -91,7 +91,7 @@ if(packageVersion("CHNOSZ") >= "1.4.0") {
     # Added this test to make sure the Methane(g) reaction is correct 20200625
     infile <- system.file("extdata/ThermoGWB_15_6_2020.tdat", package = "logKcalc")
     outfile <- file.path(tempdir(), "ThermoGWB_OBIGT.tdat")
-#    outfile <- "thermo_OBIGT.tdat"
+#    outfile <- "ThermoGWB_OBIGT.tdat"
     reset()
     # setup as in vig1.Rmd
     modOBIGT(c("addSUPCRT", "steam", "realgar*4"))

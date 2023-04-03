@@ -1,4 +1,4 @@
-Date: 2022-09-19
+Date: 2023-03-13
 Package: logKcalc
 Version: 0.1.1
 Title: Calculate Equilibrium Constants for GWB Thermodynamic Data Files
@@ -16,6 +16,6 @@ Description: Calculate equilibrium constants of reactions for data files
   database in the CHNOSZ package. Other functions are available to read
   logK values and compare values for species in two data files.
 Encoding: UTF-8
-License: GPL (>= 2)
+License: GPL-3
 VignetteBuilder: knitr
 URL: http://github.com/jedick/logKcalc
