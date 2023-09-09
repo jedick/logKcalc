@@ -1,7 +1,7 @@
 # logKcalc
 
 This R package calculates equilibrium constants for thermodynamic data files used in [The Geochemist's Workbench®](https://www.gwb.com).
-It reads reactions from an existing GWB thermodynamic data file, calculates equilibrium constants (log&#8201;*K*) for the reactions using the [OBIGT database in CHNOSZ](http://chnosz.net/vignettes/obigt.html), and writes them to a new GWB thermodynamic data file.
+It reads reactions from an existing GWB thermodynamic data file, calculates equilibrium constants (log&#8201;*K*) for the reactions using the [OBIGT database in CHNOSZ](https://chnosz.net/vignettes/OBIGT.html), and writes them to a new GWB thermodynamic data file.
 
 ## Features
 
@@ -22,4 +22,4 @@ remotes::install_github("jedick/logKcalc", build_vignettes = TRUE, dependencies 
 
 ## Documentation
 
-See the [vignettes](http://chnosz.net/#logKcalc) for detailed usage examples.
+See the [vignettes](https://chnosz.net/#logKcalc) for detailed usage examples.
