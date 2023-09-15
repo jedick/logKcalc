@@ -9,6 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 bibliography: logKcalc.bib
 csl: elementa.csl
+link-citations: true
 ---
 
 <style>
@@ -28,10 +29,8 @@ csl: elementa.csl
   .full-width {
     left: 50vw; /* fallback if needed */
     left: calc(50vw - 160px);
-    width: 1000px;
+    width: 1020px;
     position: relative;
-    background-color: #9ecff7;
-    padding:10px;
   }
 }
 /* zero margin around pre blocks (looks more like R console output) */
@@ -91,7 +90,7 @@ modOBIGT(c("addSUPCRT", "steam", "antigorite/2"))
 
 Some basis species used in the GWB file are not in the default OBIGT database.
 They can be added to OBIGT by fitting their thermodynamic parameters (Δ*G*°, *S*° and *C~p~*°) to the `r logK` values for their dissociation reactions from a different GWB file where they have been swapped out of the basis.
-This depends on the parameters for As(OH)~3~ ([Perfetti et al., 2008](https://doi.org/10.1016/j.gca.2007.11.017)), which were added to OBIGT in CHNOSZ 1.4.0, so they are defined here if needed for an earlier version.
+This depends on the parameters for As(OH)~3~ [@PPB+08], which were added to OBIGT in CHNOSZ 1.4.0, so they are defined here if needed for an earlier version.
 
 ```{r addOBIGT, message = FALSE}
 if(packageVersion("CHNOSZ") < "1.4.0") mod.obigt("As(OH)3", E_units = "J",
@@ -141,3 +140,5 @@ include_graphics("Act2_vig2.png")
 ```
 
 See the [next vignette](vig3.html) for an example of adding new species to the GWB thermodynamic data file.
+
+## References

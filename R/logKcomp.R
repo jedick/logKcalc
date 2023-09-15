@@ -143,7 +143,7 @@ logKcomp <- function(file1, file2, type = c("redox", "aqueous"), iTP = 2,
   subtitle <- paste0("NA values: ", sum(is.na(logKs$logK1)), " in ", lab1, ", ", sum(is.na(logKs$logK2)), " in ", lab2)
   x <- y <- NULL
   ggplot2::ggplot(xy, ggplot2::aes(x, y, label = labels)) +
-    ggrepel::geom_text_repel(na.rm = TRUE) +
+    ggrepel::geom_text_repel(na.rm = TRUE, max.overlaps = 20) +
     ggplot2::geom_point(color = 'red', na.rm = TRUE) +
     ggplot2::theme_bw(base_size = 16) +
     ggplot2::xlab(lab1) +

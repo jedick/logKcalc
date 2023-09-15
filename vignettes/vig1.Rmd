@@ -9,6 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 bibliography: logKcalc.bib
 csl: elementa.csl
+link-citations: true
 ---
 
 <style>
@@ -28,10 +29,8 @@ csl: elementa.csl
   .full-width {
     left: 50vw; /* fallback if needed */
     left: calc(50vw - 160px);
-    width: 1000px;
+    width: 1020px;
     position: relative;
-    background-color: #9ecff7;
-    padding:10px;
   }
 }
 /* zero margin around pre blocks (looks more like R console output) */

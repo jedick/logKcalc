@@ -9,6 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 bibliography: logKcalc.bib
 csl: elementa.csl
+link-citations: true
 ---
 
 <style>
@@ -28,10 +29,8 @@ csl: elementa.csl
   .full-width {
     left: 50vw; /* fallback if needed */
     left: calc(50vw - 160px);
-    width: 1000px;
+    width: 1020px;
     position: relative;
-    background-color: #9ecff7;
-    padding:10px;
   }
 }
 /* zero margin around pre blocks (looks more like R console output) */
@@ -195,7 +194,7 @@ knitr::kable(ratios)
 ```
 
 The differences between the CHNOSZ calculation and DEW spreadsheet are roughly proportional to the magnitude of `r logK`.
-The ratios are close to 1.000666, the ratio between the values of the gas constant (*R*) used in CHNOSZ (1.9872 cal mol^-1^ K^-1^) and in the DEW spreadsheet (1.9858775 cal mol^-1^ K^-1^).
+The ratios are close to 1.000666, the ratio between the values of the gas constant (*R*) used in CHNOSZ (roughly 1.9872 cal mol^-1^ K^-1^, converted from 8.314463 J mol^-1^ K^-1^) and in the DEW spreadsheet (1.9858775 cal mol^-1^ K^-1^).
 These small differences have a negligible effect on the diagrams shown above.
 
 ## References
