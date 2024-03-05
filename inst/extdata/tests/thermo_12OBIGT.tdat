@@ -5,8 +5,8 @@ fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Mon Apr  3 17:10:56 2023
-* by logKcalc 0.1.1 with CHNOSZ 2.0.0.
+* File generated at Tue Mar  5 14:15:55 2024
+* by logKcalc 0.1.1-3 with CHNOSZ 2.1.0.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat
 * with 7 added and 86 unavailable species.
@@ -157,16 +157,16 @@ Au+++                           formula= Au+3
      4 species in reaction
        -1.000 H2O             2.000 H+              1.000 Au+     
          .500 O2(aq)  
-         3.4164      4.3506      5.4673      6.5301
-         7.6423      8.6095      9.5090     10.4091
+         3.4164      4.3506      5.4673      6.5300
+         7.6423      8.6095      9.5090     10.4090
 * [SSWS97, SH88]
 
 CH3COO-                         formula= C2H3O2-
      charge= -1      ion size=  4.5 A      mole wt.=   59.0445 g
      3 species in reaction
         2.000 HCO3-           1.000 H+             -2.000 O2(aq)  
-       160.5574    146.7494    130.5819    115.5180
-       100.3508     88.0614     77.7942     68.9038
+       160.5571    146.7491    130.5816    115.5177
+       100.3506     88.0612     77.7940     68.9037
 * [Sho95]
 
 CH4(aq)                         formula= CH4
@@ -174,16 +174,16 @@ CH4(aq)                         formula= CH4
      4 species in reaction
         1.000 H2O             1.000 H+              1.000 HCO3-   
        -2.000 O2(aq)  
-       157.9054    144.2100    128.1147    113.0651
-        97.8553     85.4778     75.0822     66.0056
+       157.9050    144.2097    128.1144    113.0649
+        97.8551     85.4776     75.0820     66.0055
 * [PS01]
 
 ClO4-                           formula= ClO4-
      charge= -1      ion size=  3.5 A      mole wt.=   99.4506 g
      2 species in reaction
         1.000 Cl-             2.000 O2(aq)  
-        16.7900     15.7091     14.6708     13.9062
-        13.3466     13.0727     12.9985     13.1029
+        16.7900     15.7090     14.6707     13.9062
+        13.3465     13.0727     12.9985     13.1029
 * [SSWS97, SH88]
 
 Fe+++                           formula= Fe+3
@@ -199,16 +199,16 @@ H2(aq)                          formula= H2
      charge=  0      ion size=  -.5 A      mole wt.=    2.0158 g
      2 species in reaction
         1.000 H2O             -.500 O2(aq)  
-        50.4784     46.1066     40.9717     36.1762
-        31.3419     27.4263     24.1653     21.3650
+        50.4783     46.1065     40.9716     36.1761
+        31.3418     27.4262     24.1653     21.3649
 * [SHS89]
 
 HS-                             formula= HS-
      charge= -1      ion size=  3.5 A      mole wt.=   33.0679 g
      3 species in reaction
         1.000 SO4--           1.000 H+             -2.000 O2(aq)  
-       152.0993    138.3169    122.1371    107.0295
-        91.7855     79.4025     69.0257     60.0062
+       152.0990    138.3166    122.1368    107.0293
+        91.7853     79.4023     69.0255     60.0061
 * [SH88]
 
 N2(aq)                          formula= N2
@@ -225,15 +225,15 @@ NH4+                            formula= NH4+
      4 species in reaction
         1.000 NO3-            2.000 H+              1.000 H2O     
        -2.000 O2(aq)  
-        58.1088     52.8591     46.5407     40.4987
-        34.2478     29.0290     24.5195     20.4270
+        58.1087     52.8590     46.5406     40.4986
+        34.2478     29.0289     24.5195     20.4270
 * [SH88]
 
 NO2-                            formula= NO2-
      charge= -1      ion size=  3.0 A      mole wt.=   46.0055 g
      2 species in reaction
         1.000 NO3-            -.500 O2(aq)  
-        16.7548     15.2348     13.4416     11.7580
+        16.7547     15.2348     13.4416     11.7580
         10.0504      8.6583      7.4916      6.4828
 * [SH88]
 
@@ -245,24 +245,24 @@ Al(OH)2+                        formula= Al(OH)2+
      charge=  1      ion size=  4.0 A      mole wt.=   60.9961 g
      3 species in reaction
        -2.000 H+              1.000 Al+++           2.000 H2O     
-        12.7368     10.9206      8.8284      6.9240
-         5.0452      3.5342      2.2543      1.1175
+        12.7367     10.9206      8.8284      6.9239
+         5.0452      3.5341      2.2543      1.1175
 * [TS01]
 
 Al(OH)3                         formula= Al(OH)3
      charge=  0      ion size=  4.0 A      mole wt.=   78.0034 g
      3 species in reaction
        -3.000 H+              1.000 Al+++           3.000 H2O     
-        19.5033     17.0440     14.2222     11.6680
-         9.1680      7.1774      5.5082      4.0333
+        19.5032     17.0439     14.2222     11.6680
+         9.1680      7.1774      5.5081      4.0333
 * [TS01]
 
 Al(OH)4-                        formula= Al(OH)4-
      charge= -1      ion size=  4.0 A      mole wt.=   95.0107 g
      3 species in reaction
        -4.000 H+              1.000 Al+++           4.000 H2O     
-        25.7420     22.8506     19.5763     16.6250
-        13.7468     11.4826      9.6454      8.1492
+        25.7419     22.8506     19.5763     16.6250
+        13.7468     11.4826      9.6453      8.1492
 * [TS01]
 
 AlOH++                          formula= AlOH+2
@@ -277,8 +277,8 @@ AlSO4+                          formula= AlSO4+
      charge=  1      ion size=  4.0 A      mole wt.=  123.0391 g
      2 species in reaction
         1.000 Al+++           1.000 SO4--   
-        -3.0543     -3.1659     -3.7526     -4.6975
-        -6.0828     -7.6248     -9.3615    -11.5089
+        -3.0543     -3.1658     -3.7526     -4.6975
+        -6.0828     -7.6248     -9.3614    -11.5089
 * [TS01]
 
 AuCl2-                          formula= AuCl2-
@@ -286,14 +286,14 @@ AuCl2-                          formula= AuCl2-
      2 species in reaction
         2.000 Cl-             1.000 Au+     
        -10.3823     -9.5562     -8.6807     -7.9976
-        -7.4988     -7.3030     -7.3706     -7.7371
+        -7.4988     -7.3030     -7.3706     -7.7370
 * [AZ01]
 
 AuCl4-                          formula= AuCl4-
      charge= -1      ion size=  4.0 A      mole wt.=  338.7785 g
      2 species in reaction
         4.000 Cl-             1.000 Au+++   
-       -27.9009    -25.9915    -23.9939    -22.3475
+       -27.9010    -25.9915    -23.9939    -22.3475
        -20.9924    -20.2887    -20.2401    -21.0476
 * [logK_fit, thermo_24swapped.tdat]
 
@@ -301,8 +301,8 @@ CO2(aq)                         formula= CO2
      charge=  0      ion size=  4.0 A      mole wt.=   44.0098 g
      3 species in reaction
        -1.000 H2O             1.000 H+              1.000 HCO3-   
-        -6.5677     -6.3447     -6.2574     -6.3539
-        -6.6615     -7.1173     -7.7083     -8.4882
+        -6.5677     -6.3447     -6.2573     -6.3539
+        -6.6614     -7.1173     -7.7083     -8.4882
 * [PS01]
 
 CO3--                           formula= CO3-2
@@ -317,7 +317,7 @@ FeCH3COO+                       formula= FeCH3COO+
      charge=  1      ion size=  4.0 A      mole wt.=  114.8915 g
      2 species in reaction
         1.000 CH3COO-         1.000 Fe++    
-        -1.4284     -1.2901     -1.3225     -1.5167
+        -1.4283     -1.2901     -1.3225     -1.5167
         -1.8944     -2.3822     -2.9839     -3.7545
 * [SSH97]
 
@@ -326,7 +326,7 @@ FeCl+                           formula= FeCl+
      2 species in reaction
         1.000 Cl-             1.000 Fe++    
          0.1522      0.1605      0.0364     -0.2061
-        -0.6047     -1.0921     -1.6835     -2.4419
+        -0.6047     -1.0921     -1.6835     -2.4418
 * [SSH97]
 
 FeCl++                          formula= FeCl+2
@@ -341,7 +341,7 @@ FeCl2                           formula= FeCl2
      charge=  0      ion size=  4.0 A      mole wt.=  126.7530 g
      2 species in reaction
         2.000 Cl-             1.000 Fe++    
-         9.6489      8.1716      6.2535      4.2845
+         9.6488      8.1715      6.2535      4.2845
          2.0690      0.0106     -2.0222     -4.2220
 * [SSH97]
 
@@ -349,7 +349,7 @@ FeCO3                           formula= FeCO3
      charge=  0      ion size=  4.0 A      mole wt.=  115.8562 g
      3 species in reaction
         1.000 HCO3-           1.000 Fe++           -1.000 H+      
-         5.1363      4.9185      4.6987      4.5226
+         5.1362      4.9185      4.6987      4.5226
          4.3470      4.1594      3.8953      3.4580
 * [SPD+19]
 
@@ -389,15 +389,15 @@ H2S(aq)                         formula= H2S
      charge=  0      ion size=  4.0 A      mole wt.=   34.0758 g
      2 species in reaction
         1.000 H+              1.000 HS-     
-        -7.4159     -6.9878     -6.6467     -6.4827
-        -6.4960     -6.6831     -7.0225     -7.5536
+        -7.4159     -6.9877     -6.6467     -6.4827
+        -6.4960     -6.6831     -7.0224     -7.5536
 * [SHS89]
 
 HCH3COO                         formula= C2H4O2
      charge=  0      ion size=  4.0 A      mole wt.=   60.0524 g
      2 species in reaction
         1.000 H+              1.000 CH3COO- 
-        -4.7812     -4.7572     -4.8080     -4.9438
+        -4.7812     -4.7572     -4.8080     -4.9437
         -5.1953     -5.5241     -5.9419     -6.5094
 * [Sho95]
 
@@ -405,7 +405,7 @@ HCl                             formula= HCl
      charge=  0      ion size=  4.0 A      mole wt.=   36.4609 g
      2 species in reaction
         1.000 H+              1.000 Cl-     
-         0.4554      0.7096      0.8519      0.8053
+         0.4554      0.7095      0.8519      0.8053
          0.5366      0.1018     -0.4733     -1.2196
 * [TZA97]
 
@@ -414,7 +414,7 @@ HNO2                            formula= HNO2
      2 species in reaction
         1.000 H+              1.000 NO2-    
         -3.4897     -3.2252     -2.9908     -2.8441
-        -2.7852     -2.8365     -2.9999     -3.3278
+        -2.7852     -2.8365     -2.9999     -3.3277
 * [SSWS97]
 
 HSO4-                           formula= HSO4-
@@ -422,7 +422,7 @@ HSO4-                           formula= HSO4-
      2 species in reaction
         1.000 SO4--           1.000 H+      
         -1.7193     -1.9791     -2.4371     -3.0002
-        -3.7234     -4.4683     -5.2633     -6.1799
+        -3.7233     -4.4683     -5.2633     -6.1799
 * [SH88]
 
 KCl                             formula= KCl
@@ -437,7 +437,7 @@ KOH                             formula= KOH
      charge=  0      ion size=  4.0 A      mole wt.=   56.1056 g
      3 species in reaction
         1.000 K+              1.000 H2O            -1.000 H+      
-        15.4984     14.4386     13.3143     12.3777
+        15.4984     14.4385     13.3142     12.3776
         11.5515     10.9778     10.5696     10.2671
 * [SSWS97]
 
@@ -469,8 +469,8 @@ NaCO3-                          formula= NaCO3-
      charge= -1      ion size=  4.0 A      mole wt.=   82.9990 g
      3 species in reaction
         1.000 Na+             1.000 HCO3-          -1.000 H+      
-         9.6840      9.7534      9.8537      9.9648
-        10.0637     10.0594      9.8384      9.1036
+         9.6839      9.7534      9.8536      9.9648
+        10.0636     10.0594      9.8383      9.1035
 * [SPD+19]
 
 NaHCO3                          formula= NaHCO3
@@ -485,8 +485,8 @@ NaOH                            formula= NaOH
      charge=  0      ion size=  4.0 A      mole wt.=   39.9971 g
      3 species in reaction
         1.000 Na+             1.000 H2O            -1.000 H+      
-        15.1315     14.2047     13.2097     12.3772
-        11.6420     11.1304     10.7623     10.4801
+        15.1314     14.2047     13.2097     12.3771
+        11.6420     11.1304     10.7622     10.4801
 * [SSWS97]
 
 NaSO4-                          formula= NaSO4-
@@ -502,15 +502,15 @@ NH3                             formula= NH3
      2 species in reaction
         1.000 NH4+           -1.000 H+      
         10.0691      9.2410      8.2847      7.4010
-         6.5156      5.7992      5.1995      4.6767
+         6.5156      5.7992      5.1994      4.6767
 * [SHS89]
 
 OH-                             formula= OH-
      charge= -1      ion size=  3.5 A      mole wt.=   17.0073 g
      2 species in reaction
         1.000 H2O            -1.000 H+      
-        14.9398     13.9951     13.0273     12.2551
-        11.6308     11.2836     11.1675     11.3002
+        14.9398     13.9951     13.0272     12.2551
+        11.6308     11.2836     11.1674     11.3002
 * [SH88]
 
 S2--                            formula= S2-2
@@ -527,8 +527,8 @@ S3--                            formula= S3-2
      4 species in reaction
         2.500 HS-            -2.000 H2O             1.500 H+      
          .500 SO4--   
-       -11.1079    -10.2331     -9.3819     -8.7614
-        -8.3470     -8.2307     -8.3748     -8.8269
+       -11.1078    -10.2331     -9.3819     -8.7614
+        -8.3470     -8.2306     -8.3748     -8.8269
 * [SH88]
 
 S4--                            formula= S4-2
@@ -536,7 +536,7 @@ S4--                            formula= S4-2
      4 species in reaction
         3.250 HS-            -3.000 H2O             2.750 H+      
          .750 SO4--   
-       -23.2802    -21.5582    -19.8682    -18.6130
+       -23.2801    -21.5581    -19.8681    -18.6129
        -17.7362    -17.4298    -17.6198    -18.3910
 * [SH88]
 
@@ -545,8 +545,8 @@ S5--                            formula= S5-2
      4 species in reaction
         4.000 HS-            -4.000 H2O             4.000 H+      
         1.000 SO4--   
-       -35.2123    -32.6634    -30.1575    -28.2885
-       -26.9695    -26.4888    -26.7374    -27.8389
+       -35.2123    -32.6633    -30.1575    -28.2884
+       -26.9694    -26.4887    -26.7373    -27.8388
 * [SH88]
 
 glycinate                       formula= C2H4NO2-
@@ -554,23 +554,23 @@ glycinate                       formula= C2H4NO2-
      4 species in reaction
         2.000 H+              2.000 HCO3-           1.000 NO3-         
        -3.500 O2(aq)       
-       197.0600    180.0558    160.0039    141.1819
-       122.0639    106.4001     93.1210     81.3504
+       197.0596    180.0554    160.0036    141.1816
+       122.0637    106.3999     93.1208     81.3503
 * [Kit14, GKL02]
 
 ethylene                        formula= C2H4
      charge=  0      ion size= -0.5 A      mole wt.=   28.0538 g
      3 species in reaction
         2.000 H+              2.000 HCO3-          -3.000 O2(aq)       
-       250.5281    228.6658    202.9667    178.9389
-       154.6593    134.9032    118.3101    103.8211
+       250.5276    228.6653    202.9663    178.9385
+       154.6590    134.9029    118.3098    103.8209
 * [PS01]
 
 AuCl                            formula= AuCl
      charge=  0      ion size=  1.0 A      mole wt.=  232.4200 g
      2 species in reaction
         1.000 Au+             1.000 Cl-          
-        -8.4246     -7.9201     -7.3728     -6.9090
+        -8.4246     -7.9201     -7.3728     -6.9089
         -6.5092     -6.2720     -6.1912     -6.3119
 * [AZ01]
 
@@ -579,7 +579,7 @@ Au(OH)2-                        formula= Au(OH)2-
      3 species in reaction
         2.000 H2O             1.000 Au+            -2.000 H+           
          5.5823      5.7339      6.0680      6.5402
-         7.1987      7.8997      8.6364      9.4378
+         7.1987      7.8996      8.6363      9.4378
 * [AZ01]
 
 Au(HS)2-                        formula= Au(HS)2-
@@ -587,8 +587,8 @@ Au(HS)2-                        formula= Au(HS)2-
      4 species in reaction
         1.000 Au+             2.000 H+             -4.000 O2(aq)       
         2.000 SO4--        
-       271.7081    246.4097    216.5410    188.5986
-       160.3870    137.4367    118.1120    101.0953
+       271.7075    246.4092    216.5405    188.5982
+       160.3866    137.4364    118.1118    101.0951
 * [AZ10]
 
 -end-
@@ -614,7 +614,7 @@ Albite                             type= feldspar
         2.000 H2O             1.000 Na+             1.000 Al+++   
         3.000 SiO2(aq)       -4.000 H+      
          1.3042      0.9502     -0.0617     -1.2246
-        -2.4563     -3.4690     -4.3565     -5.2264
+        -2.4563     -3.4689     -4.3565     -5.2264
 * [Ber88, SHD91]
 
 Alunite                            type= sulfate
@@ -624,7 +624,7 @@ Alunite                            type= sulfate
         6.000 H2O             1.000 K+              3.000 Al+++   
        -6.000 H+              2.000 SO4--   
          3.1091     -0.4205     -4.9307     -9.4774
-       -14.5454    -19.2775    -24.0211    -29.2060
+       -14.5453    -19.2775    -24.0210    -29.2060
 * [HDNB78]
 
 Amrph^silica                       type= silica
@@ -652,7 +652,7 @@ Andalusite                         type=
      4 species in reaction
         3.000 H2O             2.000 Al+++           1.000 SiO2(aq)
        -6.000 H+      
-        17.1181     13.6784      9.4740      5.5131
+        17.1180     13.6784      9.4740      5.5130
          1.5061     -1.7953     -4.6669     -7.3100
 * [Ber88]
 
@@ -662,8 +662,8 @@ Annite                             type= mica
      6 species in reaction
       -10.000 H+              3.000 Fe++            3.000 SiO2(aq)
         1.000 Al+++           6.000 H2O             1.000 K+      
-        33.3717     29.4257     24.2884     19.3723
-        14.4312     10.4205      6.9688      3.7630
+        33.3716     29.4257     24.2884     19.3723
+        14.4311     10.4204      6.9688      3.7630
 * [Ber90, SHD91]
 
 Boehmite                           type= hydroxide
@@ -671,7 +671,7 @@ Boehmite                           type= hydroxide
      mole vol.=   19.5350 cc      mole wt.=   59.9882 g
      3 species in reaction
         2.000 H2O             1.000 Al+++          -3.000 H+      
-         9.4300      7.6105      5.5065      3.5803
+         9.4300      7.6105      5.5065      3.5802
          1.6597      0.0873     -1.2780     -2.5328
 * [HRA91, ZZL+16]
 
@@ -689,7 +689,7 @@ Corundum                           type= oxide
      mole vol.=   25.5750 cc      mole wt.=  101.9613 g
      3 species in reaction
         3.000 H2O             2.000 Al+++          -6.000 H+      
-        22.3975     18.2677     13.4713      9.0545
+        22.3974     18.2677     13.4713      9.0545
          4.6283      0.9973     -2.1460     -5.0118
 * [Ber88]
 
@@ -708,8 +708,8 @@ Daphnite-14A                       type= chlorite
      5 species in reaction
       -16.000 H+              5.000 Fe++            3.000 SiO2(aq)
         2.000 Al+++          12.000 H2O     
-        58.9740     51.0983     41.4452     32.4191
-        23.4095     16.0995      9.8117      4.0153
+        58.9739     51.0982     41.4452     32.4190
+        23.4094     16.0995      9.8117      4.0153
 * [HDNB78, SLOP98]
 
 Dawsonite                          type= carbonate
@@ -718,7 +718,7 @@ Dawsonite                          type= carbonate
      5 species in reaction
        -3.000 H+              1.000 Na+             1.000 Al+++   
         1.000 HCO3-           2.000 H2O     
-         6.2554      4.9687      3.4287      1.9752
+         6.2553      4.9687      3.4287      1.9752
          0.4576     -0.8833     -2.1845     -3.5892
 * [ZZL+16, RH95]
 
@@ -737,8 +737,8 @@ Fayalite                           type= olivine
      4 species in reaction
        -4.000 H+              2.000 Fe++            1.000 SiO2(aq)
         2.000 H2O     
-        21.7492     19.3815     16.4588     13.7143
-        10.9758      8.7691      6.8980      5.2043
+        21.7492     19.3815     16.4587     13.7143
+        10.9757      8.7691      6.8980      5.2043
 * [Ber88]
 
 FeO(c)                             type= 
@@ -746,8 +746,8 @@ FeO(c)                             type=
      mole vol.=   12.0000 cc      mole wt.=   71.8464 g
      3 species in reaction
        -2.000 H+              1.000 Fe++            1.000 H2O     
-        22.2516     20.4052     18.3075     16.4168
-        14.5709     13.1069     11.8857     10.8065
+        22.2516     20.4052     18.3075     16.4167
+        14.5709     13.1068     11.8857     10.8064
 * [SSWS97]
 
 Ferrosilite                        type= pyroxene
@@ -756,7 +756,7 @@ Ferrosilite                        type= pyroxene
      4 species in reaction
        -2.000 H+              1.000 Fe++            1.000 SiO2(aq)
         1.000 H2O     
-         8.6961      7.8180      6.6080      5.4235
+         8.6961      7.8180      6.6079      5.4235
          4.2250      3.2560      2.4317      1.6755
 * [Ber88]
 
@@ -766,7 +766,7 @@ Gibbsite                           type= hydroxide
      3 species in reaction
         3.000 H2O             1.000 Al+++          -3.000 H+      
          9.3858      7.7318      5.8388      4.1266
-         2.4361      1.0570     -0.1482     -1.2733
+         2.4360      1.0570     -0.1482     -1.2733
 * [RHF78, ZZL+16]
 
 Goethite                           type= hydroxide
@@ -775,7 +775,7 @@ Goethite                           type= hydroxide
      3 species in reaction
        -3.000 H+              1.000 Fe+++           2.000 H2O     
          1.2832      0.3155     -0.7979     -1.8121
-       500.0000    500.0000    500.0000    500.0000
+        -2.8311     -3.6921     -4.4850     -5.2756
 * [MGN03, MLS+03]
 
 Gold                               type= native
@@ -786,7 +786,7 @@ Gold                               type= native
         -.250 O2(aq)  
         -7.8869     -7.0864     -6.1914     -5.3884
         -4.6116     -4.0133     -3.5487     -3.1974
-* [HDNB78]
+* [HDNB78, RH95]
 
 Graphite                           type= native
      formula= C
@@ -804,8 +804,8 @@ Greenalite                         type= serpentine
      4 species in reaction
        -6.000 H+              3.000 Fe++            2.000 SiO2(aq)
         5.000 H2O     
-        26.0472     23.5211     20.2478     17.1379
-        14.0437     11.5642      9.4573      7.5150
+        26.0471     23.5211     20.2478     17.1378
+        14.0436     11.5642      9.4573      7.5150
 * [HDNB78]
 
 Halite                             type= halide
@@ -815,14 +815,14 @@ Halite                             type= halide
         1.000 Na+             1.000 Cl-     
          1.4920      1.5855      1.6176      1.5780
          1.4499      1.2422      0.9364      0.4683
-* [HDNB78]
+* [HDNB78, RH95]
 
 Hematite                           type= oxide
      formula= Fe2O3
      mole vol.=   30.2700 cc      mole wt.=  159.6922 g
      3 species in reaction
        -6.000 H+              2.000 Fe+++           3.000 H2O     
-         2.4999      0.4100     -2.0106     -4.2302
+         2.4998      0.4100     -2.0106     -4.2302
         -6.4643     -8.3389    -10.0379    -11.6965
 * [Ber88]
 
@@ -842,8 +842,8 @@ Jarosite-K                         type= sulfate
      5 species in reaction
         2.000 SO4--           3.000 Fe+++           6.000 H2O     
         1.000 K+             -6.000 H+      
-        -9.1781    -11.1453    -13.8117    -16.6318
-       -19.9666    -23.3117    -26.9369    -31.2361
+        -9.1781    -11.1453    -13.8117    -16.6317
+       -19.9666    -23.3116    -26.9369    -31.2360
 * [SAJ00]
 
 K-feldspar                         type= feldspar
@@ -853,7 +853,7 @@ K-feldspar                         type= feldspar
         2.000 H2O             1.000 K+              1.000 Al+++   
         3.000 SiO2(aq)       -4.000 H+      
         -1.3602     -1.3290     -1.9137     -2.7076
-        -3.6034     -4.3760     -5.0880     -5.8251
+        -3.6034     -4.3759     -5.0880     -5.8251
 * [Ber88, SHD91]
 
 Kalsilite                          type= feldspathoid
@@ -862,7 +862,7 @@ Kalsilite                          type= feldspathoid
      5 species in reaction
         2.000 H2O             1.000 K+              1.000 Al+++   
         1.000 SiO2(aq)       -4.000 H+      
-        12.5008     10.8745      8.7847      6.7834
+        12.5008     10.8744      8.7847      6.7833
          4.7570      3.0963      1.6577      0.3268
 * [HDNB78]
 
@@ -872,8 +872,8 @@ Kaolinite                          type= 7a-clay
      4 species in reaction
         5.000 H2O             2.000 Al+++           2.000 SiO2(aq)
        -6.000 H+      
-         6.9402      4.8858      2.1113     -0.5851
-        -3.3283     -5.5923     -7.5861     -9.4784
+         6.9402      4.8857      2.1113     -0.5851
+        -3.3282     -5.5923     -7.5861     -9.4784
 * [Ber88]
 
 Kyanite                            type= 
@@ -882,7 +882,7 @@ Kyanite                            type=
      4 species in reaction
         3.000 H2O             2.000 Al+++           1.000 SiO2(aq)
        -6.000 H+      
-        16.7765     13.4045      9.2786      5.3895
+        16.7764     13.4045      9.2785      5.3895
          1.4528     -1.7939     -4.6222     -7.2313
 * [Ber88]
 
@@ -893,7 +893,7 @@ Magnetite                          type= oxide
        -8.000 H+              1.000 Fe++            4.000 H2O     
         2.000 Fe+++   
         14.0643     10.5942      6.5850      2.9171
-        -0.7493     -3.7794     -6.4616     -9.0090
+        -0.7493     -3.7793     -6.4616     -9.0090
 * [Ber88]
 
 Maximum Microcline                 type= feldspar
@@ -903,7 +903,7 @@ Maximum Microcline                 type= feldspar
         2.000 H2O             1.000 K+              1.000 Al+++   
         3.000 SiO2(aq)       -4.000 H+      
         -1.3602     -1.3290     -1.9134     -2.7055
-        -3.5957     -4.3586     -5.0573     -5.7782
+        -3.5956     -4.3586     -5.0573     -5.7782
 * [Ber88, SHD91]
 
 Melanterite                        type= sulfate
@@ -941,7 +941,7 @@ Paragonite                         type= mica
      5 species in reaction
         6.000 H2O             1.000 Na+             3.000 Al+++   
         3.000 SiO2(aq)      -10.000 H+      
-        17.2584     13.5283      8.6069      3.8602
+        17.2584     13.5283      8.6068      3.8602
         -0.9536     -4.9132     -8.3780    -11.6373
 * [Ber88, SHD91]
 
@@ -951,9 +951,9 @@ Pyrite                             type= sulfide
      5 species in reaction
        -1.000 H2O             1.000 Fe++            1.750 HS-     
          .250 SO4--            .250 H+      
-       -26.5030    -24.6534    -22.7519    -21.2342
+       -26.5030    -24.6533    -22.7518    -21.2341
        -20.0243    -19.3946    -19.2757    -19.7393
-* [HDNB78]
+* [HDNB78, RH95]
 
 Pyrophyllite                       type= mica
      formula= Al2Si4O12H2
@@ -970,7 +970,7 @@ Quartz                             type= silica
      mole vol.=   22.6880 cc      mole wt.=   60.0843 g
      1 species in reaction
         1.000 SiO2(aq)
-        -4.6407     -4.0077     -3.4817     -3.0863
+        -4.6406     -4.0077     -3.4816     -3.0863
         -2.7270     -2.4455     -2.2132     -2.0242
 * [Ber88]
 
@@ -980,7 +980,7 @@ Sanidine high                      type= feldspar
      5 species in reaction
         2.000 H2O             1.000 K+              1.000 Al+++   
         3.000 SiO2(aq)       -4.000 H+      
-         1.1398      0.8997      0.0037     -1.0756
+         1.1397      0.8997      0.0037     -1.0756
         -2.2530     -3.2463     -4.1341     -5.0128
 * [HDNB78]
 
@@ -990,7 +990,7 @@ Siderite                           type= carbonate
      3 species in reaction
         1.000 HCO3-           1.000 Fe++           -1.000 H+      
          0.2914     -0.1920     -0.8309     -1.4966
-        -2.2680     -3.0227     -3.8214     -4.7582
+        -2.2680     -3.0226     -3.8214     -4.7582
 * [HDNB78, Hel85]
 
 Sillimanite                        type= 
@@ -1010,7 +1010,7 @@ Sulfur-Rhmb                        type= native
        -1.000 H2O              .750 HS-             1.250 H+      
          .250 SO4--   
        -11.3158    -10.5188     -9.7335     -9.1479
-        -8.7554     -8.6341     -8.7382     -9.1036
+        -8.7554     -8.6341     -8.7381     -9.1036
 * [MS97, SLOP98]
 
 Sylvite                            type= halide
@@ -1028,8 +1028,8 @@ Wustite                            type= oxide
      4 species in reaction
        -2.000 H+               .841 Fe++            1.000 H2O     
          .106 Fe+++   
-        14.0868     12.4498     10.5645      8.8429
-         7.1388      5.7670      4.6080      3.5751
+        14.0867     12.4498     10.5645      8.8429
+         7.1387      5.7670      4.6080      3.5750
 * [RH95]
 
 pyrrhotite
@@ -1037,8 +1037,8 @@ pyrrhotite
      mole vol.=   18.2000 cc      mole wt.=   87.9070 g
      3 species in reaction
         1.000 Fe++           -2.000 O2(aq)          1.000 SO4--        
-       148.4642    134.5976    118.2200    102.8332
-        87.1702     74.2657     63.2603     53.4258
+       148.4639    134.5973    118.2197    102.8330
+        87.1700     74.2655     63.2601     53.4257
 * [HDNB78]
 
 -end-
@@ -1062,7 +1062,7 @@ CO2(g)
      3 species in reaction
        -1.000 H2O             1.000 H+              1.000 HCO3-   
         -7.6765     -7.8136     -8.0527     -8.3574
-        -8.7692     -9.2165     -9.7202    -10.3393
+        -8.7691     -9.2165     -9.7202    -10.3393
 * [WEP+82, Kel60]
 
 H2(g)
@@ -1081,7 +1081,7 @@ H2S(g)
      2 species in reaction
         1.000 H+              1.000 HS-     
         -8.0781     -7.9758     -7.9295     -7.9572
-        -8.0759     -8.2750     -8.5671     -9.0074
+        -8.0759     -8.2750     -8.5670     -9.0073
 * [WEP+82, Kel60]
 
 N2(g)
@@ -1108,7 +1108,7 @@ S2(g)
        -2.000 H2O             2.500 H+               .500 SO4--   
         1.500 HS-     
         -6.6787     -7.1449     -7.9330     -8.9055
-       -10.1781    -11.5217    -12.9970    -14.7638
+       -10.1781    -11.5217    -12.9970    -14.7637
 * [WEP+82, Kel60]
 
 Steam
@@ -1126,8 +1126,8 @@ ammonia
      4 species in reaction
         1.000 H2O             1.000 H+              1.000 NO3-         
        -2.000 O2(aq)       
-        70.5512     63.8967     55.9822     48.5012
-        40.8523     34.5428     29.1546     24.3303
+        70.5511     63.8966     55.9821     48.5011
+        40.8522     34.5427     29.1545     24.3302
 * [WEP+82, Kel60]
 
 -end-
@@ -1221,7 +1221,7 @@ in SI Units_. Hemisphere Publishing Corporation, Washington, D. C.
 Hemingway BS, Robie RA, Apps JA (1991). “Revised values for the thermodynamic
 properties of boehmite, AlO(OH), and related species and phases in the system
 Al-H-O.” _American Mineralogist_, *76*(3-4), 445-457.
-<https://pubs.er.usgs.gov/publication/70016664>.
+<https://pubs.usgs.gov/publication/70016664>.
 
 [Hel85]
 Helgeson HC (1985). “Errata. II. Thermodynamics of minerals, reactions, and
@@ -1400,7 +1400,7 @@ properties of the formation reaction of H+ (0.5H2(g) = H+ + e-) are defined to
 be zero, the standard entropy of e- is half that of H2(g).
 
 [logK_fit]
-Anonymous (2023). “Thermodynamic parameters generated by logKcalc::addOBIGT().”
+Anonymous (2024). “Thermodynamic parameters generated by logKcalc::addOBIGT().”
 Values of G, S, and Cp were fit to logK values from the GWB thermodynamic data
 file named in the citation.
 

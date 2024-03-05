@@ -1,7 +1,7 @@
-Date: 2023-09-15
+Date: 2024-03-05
 Package: logKcalc
-Version: 0.1.1-2
-Title: Calculate Equilibrium Constants for GWB Thermodynamic Data Files
+Version: 0.1.1-3
+Title: Equilibrium Constants for GWB Thermodynamic Data Files
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),
       comment = c(ORCID = "0000-0002-0687-5890"))
@@ -9,7 +9,7 @@ Authors@R: c(
 Maintainer: Jeffrey Dick <j3ffdick@gmail.com>
 Depends: CHNOSZ (>= 1.3.3)
 Imports: ggplot2, ggrepel, bibtex
-Suggests: knitr, gridExtra, testthat
+Suggests: knitr, gridExtra, tinytest
 Description: Calculate equilibrium constants of reactions for data files
   used in The Geochemist's Workbench®. The main function updates logK values
   in an existing GWB thermodynamic data file using the OBIGT thermodynamic
