@@ -1,6 +1,6 @@
 Date: 2024-03-06
 Package: logKcalc
-Version: 0.1.1-4
+Version: 0.1.1-5
 Title: Equilibrium Constants for GWB Thermodynamic Data Files
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),

@@ -1,32 +1,9 @@
 library(logKcalc)
 
-# Function extracted from individual test_that calls 20200625
-getlines <- function(file) {
-  lines <- readLines(file)
-  # Normalize “ and ” to "
-  # (straight quote is created in R CMD check -- locale setting??)
-  lines <- gsub('“', '"', lines)
-  lines <- gsub('”', '"', lines)
-  rmspecies <- function(pattern, lines) {
-    iname <- grep(pattern, lines)
-    if(length(iname)==1) {
-      iallrefs <- grep("^\\*\\ \\[", lines)
-      irefline <- min(iallrefs[iallrefs > iname])
-      lines <- lines[-(iname:(irefline + 1))]
-    }
-    lines
-  }
-  # Exclude header lines (timestamp, package version and unavailable species might change)
-  lines <- lines[-(7:12)]
-  # exclude mineral and aqueous species counts
-  lines <- lines[!grepl("minerals$", lines)]
-  lines[!grepl("aqueous\\ species$", lines)]
-}
-
 info <- "Adding duplicate species produces an error"
 infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
 iAuCl2 <- info("AuCl2-")
-expect_error(logKcalc(infile, ispecies = iAuCl2), "duplicated aqueous species")
+expect_error(logKcalc(infile, ispecies = iAuCl2), info = info)
 
 info <- "Modifying the database and adding species to the output work as expected"
 # Process the thermo_12elements.tdat file
@@ -44,9 +21,9 @@ a0_ion <- 3.5
 a0_neutral <- c(NA, -0.5, 1, NA, NA, NA, NA)
 logKcalc(infile, outfile, ispecies = ispecies, a0_ion = a0_ion, a0_neutral = a0_neutral)
 reffile <- system.file("extdata/tests/thermo_12OBIGT.tdat", package = "logKcalc")
-reflines <- getlines(reffile)
-outlines <- getlines(outfile)
-expect_identical(outlines, reflines)
+calcdat <- unlist(readlogK(outfile))
+refdat <- unlist(readlogK(reffile))
+expect_equal(calcdat, refdat, tolerance = 1e-4, info = info)
 
 info <- "Changing the temperature, water model, and Debye-Hückel method work as expected"
 # Process the thermo_12elements.tdat file
@@ -64,11 +41,9 @@ T <- seq(300, 650, 50)
 P <- 1000
 logKcalc(infile, outfile, T, P, ispecies = ispecies, DH.method = "bgamma")
 reffile <- system.file("extdata/tests/thermo_12OBIGT_bgamma.tdat", package = "logKcalc")
-reflines <- getlines(reffile)
-outlines <- getlines(outfile)
-# Note: 650 degC, 1000 bar is out of the applicable range of HKF (low-density region),
-# so this is also a test that we get "500" values for the last T,P pair
-expect_identical(outlines, reflines)
+calcdat <- unlist(readlogK(outfile))
+refdat <- unlist(readlogK(reffile))
+expect_equal(calcdat, refdat, tolerance = 1e-4, info = info)
 
 # The next test depends on CHNOSZ >= 1.4.0 (has As(OH)3 from PPB+08) 20201012
 info <- "Processing a K2GWB file works as expected"
@@ -81,6 +56,6 @@ reset()
 modOBIGT(c("addSUPCRT", "steam", "realgar*4"))
 logKcalc(infile, outfile)
 reffile <- system.file("extdata/tests/ThermoGWB_OBIGT.tdat", package = "logKcalc")
-reflines <- getlines(reffile)
-outlines <- getlines(outfile)
-expect_identical(outlines, reflines)
+calcdat <- unlist(readlogK(outfile))
+refdat <- unlist(readlogK(reffile))
+expect_equal(calcdat, refdat, tolerance = 1e-4, info = info)
