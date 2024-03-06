@@ -87,24 +87,3 @@ cleanUTF8 <- function(LINES, file) {
   }
   LINES
 }
-
-# Run add.obigt or add.OBIGT depending on CHNOSZ version 20200704
-add.OBIGT <- function(...) {
-  if(utils::packageVersion("CHNOSZ") > "1.3.6") fun <- get("add.OBIGT", asNamespace("CHNOSZ"))
-  else fun <- get("add.obigt", asNamespace("CHNOSZ"))
-  fun(...)
-}
-
-# Run mod.obigt or mod.OBIGT depending on CHNOSZ version 20200704
-mod.OBIGT <- function(...) {
-  if(utils::packageVersion("CHNOSZ") > "1.3.6") fun <- get("mod.OBIGT", asNamespace("CHNOSZ"))
-  else fun <- get("mod.obigt", asNamespace("CHNOSZ"))
-  fun(...)
-}
-
-# Run berman or Berman depending on CHNOSZ version 20220209
-Berman <- function(...) {
-  if(utils::packageVersion("CHNOSZ") > "1.4.1") fun <- get("Berman", asNamespace("CHNOSZ"))
-  else fun <- get("berman", asNamespace("CHNOSZ"))
-  fun(...)
-}

@@ -78,8 +78,7 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
     stop(paste("unable to map these species to the OBIGT database:", paste(rxn$species[ina], collapse = ", ")))
   }
   # Set autobalance = FALSE to prevent automatically balancing reaction with basis species 20200803
-  sargs <- list(species = rxnspecies, coeff = rxncoeff, T = T)
-  if(utils::packageVersion("CHNOSZ") > "1.3.6") sargs <- c(sargs, autobalance = FALSE)
+  sargs <- list(species = rxnspecies, coeff = rxncoeff, T = T, autobalance = FALSE)
   Grout <- suppressWarnings(suppressMessages(do.call(CHNOSZ::subcrt, sargs)$out$G))
   # Calculate ΔG°f of the reactant species
   Gf <- Grout - Grin
@@ -116,20 +115,17 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
       G = G, S = S, c1 = Cp, abbrv = Tmax,
       H = NA, Cp = NA, V = NA, a1 = NA, a2 = NA, a3 = NA, a4 = NA, c2 = NA, omega = NA
     )
-    if(utils::packageVersion("CHNOSZ") > "1.4.3") moargs <- c(moargs, list(model = "HKF", E_units = "J"))
-    else if(utils::packageVersion("CHNOSZ") >= "1.3.3") moargs <- c(moargs, list(E_units = "cal"))
+    moargs <- c(moargs, list(model = "HKF", E_units = "J"))
     do.call(mod.OBIGT, moargs)
     # We need to call mod.OBIGT() a second time to set Z = 0 (to avoid triggering HKF omega derivatives)
     suppressMessages(mod.OBIGT(species, state = "aq", z = 0))
   } else {
     # Make a mineral 20200624
     # Nudge the Tmax to allow calculation at exactly that temperature 20200625
-    if(utils::packageVersion("CHNOSZ") < "1.3.4") Tmax <- Tmax + 0.01
     moargs <- list(species, formula = formula, state = "cr", ref1 = "logK_fit", ref2 = basename(file),
       G = G, S = S, Cp = Cp, T = CHNOSZ::convert(Tmax, "K"),
       H = NA, V = NA, a = NA, b = NA, c = NA, d = NA, e = NA, f = NA, lambda = NA)
-    if(utils::packageVersion("CHNOSZ") > "1.4.3") moargs <- c(moargs, list(model = "CGL", E_units = "J"))
-    else if(utils::packageVersion("CHNOSZ") >= "1.3.3") moargs <- c(moargs, list(E_units = "cal"))
+    moargs <- c(moargs, list(model = "CGL", E_units = "J"))
     do.call(mod.OBIGT, moargs)
   }
   # Calculate ΔG°r of the reaction with the reactant species

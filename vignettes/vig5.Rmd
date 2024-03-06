@@ -95,10 +95,6 @@ However, the parameters for As(OH)~3~ are defined here if needed (they were adde
 
 # Use default OBIGT database
 reset()
-# Add As(OH)3 if needed
-if(packageVersion("CHNOSZ") < "1.4.0") mod.obigt("As(OH)3", E_units = "J",
-  G = -639800, H = -737300, S = 212.4, Cp = 85, V = 47.5,
-  a1 = 45.2, a2 = 16.1, a3 = 43.7, a4 = -18, c1 = 186.2, c2 = -47.7, omega = 0.52, z = 0)
 
 # Get As-bearing species in the As-S-O-H system
 iaq <- retrieve("As", c("S", "O", "H"), "aq")
@@ -153,9 +149,6 @@ We run `reset()` first to make sure we are starting with the default OBIGT datab
 
 ```{r addOBIGT, message = FALSE}
 reset()
-if(packageVersion("CHNOSZ") < "1.4.0") mod.obigt("As(OH)3", E_units = "J",
-  G = -639800, H = -737300, S = 212.4, Cp = 85, V = 47.5,
-  a1 = 45.2, a2 = 16.1, a3 = 43.7, a4 = -18, c1 = 186.2, c2 = -47.7, omega = 0.52, z = 0)
 addOBIGT("AsH3(aq)")
 addOBIGT("H2AsO4-", tolerance = 0.15)
 addOBIGT("HAsO4--")

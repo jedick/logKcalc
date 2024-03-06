@@ -34,8 +34,7 @@ mapnames <- function(GWBnames, type = NULL, na.omit = FALSE, return.processed.na
   if(return.processed.name) return(Gnames)
 
   # first look in OBIGT
-  if(utils::packageVersion("CHNOSZ") > "1.3.6") OBIGT <- get("thermo", CHNOSZ)$OBIGT
-  else OBIGT <- get("thermo", CHNOSZ)$obigt
+  OBIGT <- get("thermo", CHNOSZ)$OBIGT
   if(!is.null(type)) {
     if(type %in% c("basis", "redox", "aqueous", "electron")) OBIGT <- OBIGT[OBIGT$state=="aq", ]
     if(type == "mineral") OBIGT <- OBIGT[OBIGT$state=="cr", ]
@@ -53,11 +52,6 @@ mapnames <- function(GWBnames, type = NULL, na.omit = FALSE, return.processed.na
   # then look in map_names.csv
   mapfile <- system.file("extdata/map_names.csv", package = "logKcalc")
   map <- utils::read.csv(mapfile, as.is = TRUE)
-  # earlier versions of CHNOSZ use lowercase "a" for Angstrom abbreviation in mineral names 20200609
-  if(!utils::packageVersion("CHNOSZ") > "1.3.6") {
-    map$OBIGT <- gsub("7A$", "7a", map$OBIGT)
-    map$OBIGT <- gsub("14A$", "14a", map$OBIGT)
-  }
   # loop over names to deal with multiple matches (Berman/SUPCRT options) 20200628
   for(i in 1:length(GWBnames)) {
     imap <- GWBnames[i]==map$GWB

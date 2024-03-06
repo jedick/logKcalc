@@ -87,7 +87,7 @@ Separate commands are needed to change the water model and load the parameters o
 ```{r DEW, message = FALSE}
 reset()
 water("DEW")
-if(packageVersion("CHNOSZ") >= "1.4.0") add.OBIGT("DEW") else add.obigt("DEW")
+add.OBIGT("DEW") 
 # modOBIGT(c("addSUPCRT", "steam"))
 ```
 

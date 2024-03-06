@@ -1,13 +1,13 @@
-Date: 2024-03-05
+Date: 2024-03-06
 Package: logKcalc
-Version: 0.1.1-3
+Version: 0.1.1-4
 Title: Equilibrium Constants for GWB Thermodynamic Data Files
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),
       comment = c(ORCID = "0000-0002-0687-5890"))
     )
 Maintainer: Jeffrey Dick <j3ffdick@gmail.com>
-Depends: CHNOSZ (>= 1.3.3)
+Depends: CHNOSZ (>= 2.0.0)
 Imports: ggplot2, ggrepel, bibtex
 Suggests: knitr, gridExtra, tinytest
 Description: Calculate equilibrium constants of reactions for data files

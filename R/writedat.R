@@ -324,59 +324,55 @@ writedat <- function(outfile, LINES, HEAD, LOGK, ADDS, infile, update.formulas, 
   # cleanup
   out <- stats::na.omit(out)
   # add reference block 20200618
-  if(utils::packageVersion("CHNOSZ") > "1.3.6") {
-    # get all reference keys used in output GWB file
-    basisrefs1 <- LOGK$basis$ref1
-    basisrefs2 <- LOGK$basis$ref2
-    speciestypes <- c("redox", "aqueous", "electron", "mineral", "gas")
-    speciesrefs1 <- unlist(lapply(speciestypes, function(x) c(LOGK[[x]]$ref1)))
-    speciesrefs2 <- unlist(lapply(speciestypes, function(x) c(LOGK[[x]]$ref2)))
-    # put together the basis and species references
-    refs1 <- c(basisrefs1, speciesrefs1)
-    refs2 <- c(basisrefs2, speciesrefs2)
-    # remove the file name used for the logK fit in addOBIGT() from the reference keys 20200629
-    refs2 <- refs2[refs1!="logK_fit"]    
-    # get the references of species added with addspecies()
-    addrefs <- sapply(ADDS, "[[", "refs")
-    # put together all the references
-    allrefs <- c(refs1, refs2, addrefs)
-    keys <- stats::na.omit(unlist(allrefs))
-    # make sure we include JOH92 if we have the proton 20200629
-    # (otherwise, JOH92 isn't listed with using the DEW model)
-    if("proton" %in% keys) keys <- c(keys, "JOH92")
-    keys <- sort(unique(keys))
-    # read the bibtex files from CHNOSZ and logKcalc
-    bibfile1 <- system.file("doc/OBIGT.bib", package = "CHNOSZ")
-    if(!file.exists(bibfile1)) warning("BibTeX file CHNOSZ/doc/OBIGT.bib not found (was CHNOSZ not installed with vignettes?)")
-    else {
-      bibentry1 <- bibtex::read.bib(bibfile1)
-      bibfile2 <- system.file("extdata/logKrefs.bib", package = "logKcalc")
-      bibentry2 <- bibtex::read.bib(bibfile2)
-      # use the current year for the logK_fit entry 20200623
-      bibentry2["logK_fit"]$year <- substr(date(), 21, 24)
-      # combine the entries from the OBIGT and logKrefs bib files
-      bibentry <- c(bibentry1, bibentry2)
-      # check for missing entries
-      inbib <- keys %in% names(bibentry)
-      if(any(!inbib)) warning(paste("reference(s) not found in bibtex file:", paste(keys[!inbib], collapse = ", ")))
-      keys <- keys[inbib]
-      # format the printed references
-      op <- options(width = 90)
-      on.exit(options(op))
-      reftext <- utils::capture.output(print(bibentry[keys]))
-      # insert the reference keys before the references
-      keys <- paste0("[", keys, "]")
-      refout <- c("* References", "")
-      j <- 1
-      for(i in 1:length(reftext)) {
-        if(i==1) { refout <- c(refout, keys[j]); j <- j + 1 }
-        refout <- c(refout, reftext[i])
-        if(reftext[i]=="") { refout <- c(refout, keys[j]); j <- j + 1 }
-      }
-      out <- c(out, refout)
+  # get all reference keys used in output GWB file
+  basisrefs1 <- LOGK$basis$ref1
+  basisrefs2 <- LOGK$basis$ref2
+  speciestypes <- c("redox", "aqueous", "electron", "mineral", "gas")
+  speciesrefs1 <- unlist(lapply(speciestypes, function(x) c(LOGK[[x]]$ref1)))
+  speciesrefs2 <- unlist(lapply(speciestypes, function(x) c(LOGK[[x]]$ref2)))
+  # put together the basis and species references
+  refs1 <- c(basisrefs1, speciesrefs1)
+  refs2 <- c(basisrefs2, speciesrefs2)
+  # remove the file name used for the logK fit in addOBIGT() from the reference keys 20200629
+  refs2 <- refs2[refs1!="logK_fit"]    
+  # get the references of species added with addspecies()
+  addrefs <- sapply(ADDS, "[[", "refs")
+  # put together all the references
+  allrefs <- c(refs1, refs2, addrefs)
+  keys <- stats::na.omit(unlist(allrefs))
+  # make sure we include JOH92 if we have the proton 20200629
+  # (otherwise, JOH92 isn't listed with using the DEW model)
+  if("proton" %in% keys) keys <- c(keys, "JOH92")
+  keys <- sort(unique(keys))
+  # read the bibtex files from CHNOSZ and logKcalc
+  bibfile1 <- system.file("doc/OBIGT.bib", package = "CHNOSZ")
+  if(!file.exists(bibfile1)) warning("BibTeX file CHNOSZ/doc/OBIGT.bib not found (was CHNOSZ not installed with vignettes?)")
+  else {
+    bibentry1 <- bibtex::read.bib(bibfile1)
+    bibfile2 <- system.file("extdata/logKrefs.bib", package = "logKcalc")
+    bibentry2 <- bibtex::read.bib(bibfile2)
+    # use the current year for the logK_fit entry 20200623
+    bibentry2["logK_fit"]$year <- substr(date(), 21, 24)
+    # combine the entries from the OBIGT and logKrefs bib files
+    bibentry <- c(bibentry1, bibentry2)
+    # check for missing entries
+    inbib <- keys %in% names(bibentry)
+    if(any(!inbib)) warning(paste("reference(s) not found in bibtex file:", paste(keys[!inbib], collapse = ", ")))
+    keys <- keys[inbib]
+    # format the printed references
+    op <- options(width = 90)
+    on.exit(options(op))
+    reftext <- utils::capture.output(print(bibentry[keys]))
+    # insert the reference keys before the references
+    keys <- paste0("[", keys, "]")
+    refout <- c("* References", "")
+    j <- 1
+    for(i in 1:length(reftext)) {
+      if(i==1) { refout <- c(refout, keys[j]); j <- j + 1 }
+      refout <- c(refout, reftext[i])
+      if(reftext[i]=="") { refout <- c(refout, keys[j]); j <- j + 1 }
     }
-  } else {
-    warning(paste0("creation of reference list requires CHNOSZ > 1.3.6 (you have ", cver, ")"))
+    out <- c(out, refout)
   }
 
   # write the output to file

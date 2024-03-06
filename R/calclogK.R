@@ -110,15 +110,6 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
           print(species)
         }
         sargs <- list(species = species, coeff, T = T, P = P, property = "logK")
-        # Force "methane" to be gas in previous versions of CHNOSZ 20200625
-        if(utils::packageVersion("CHNOSZ") <= "1.3.6") {
-          if(species[1] == "methane") {
-            # use species indices instead of names
-            infsp <- suppressMessages(CHNOSZ::info(species))
-            infsp[1] <- suppressMessages(CHNOSZ::info("methane", "gas"))
-            sargs <- list(species = infsp, coeff, T = T, P = P, property = "logK")
-          }
-        }
         sres <- suppressWarnings(suppressMessages(do.call(CHNOSZ::subcrt, sargs)))
         logK <- sres$out$logK
         # get Tmax from abbrv (for species added by addOBIGT) 20200615
@@ -153,13 +144,6 @@ calclogK <- function(LINES, HEAD, T = NULL, P = "Psat", maxprint = Inf) {
       }
       # get references 20200617
       ispecies <- suppressMessages(CHNOSZ::info(speciesOBIGT, check.it = FALSE))
-      # force "methane" to be a gas in previous versions of CHNOSZ 20200625
-      if(!utils::packageVersion("CHNOSZ") > "1.3.6") {
-        imethane <- speciesOBIGT == "methane"
-        if(any(imethane)) {
-          ispecies[imethane] <- suppressMessages(CHNOSZ::info("methane", "gas", check.it = FALSE))
-        }
-      }
       iinfo <- suppressMessages(CHNOSZ::info(ispecies, check.it = FALSE))
       ref1 <- iinfo$ref1
       ref2 <- iinfo$ref2

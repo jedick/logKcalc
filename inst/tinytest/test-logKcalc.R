@@ -16,18 +16,6 @@ getlines <- function(file) {
     }
     lines
   }
-  if(utils::packageVersion("CHNOSZ") < "1.4.0") {
-    # References block isn't available in CHNOSZ < 1.4.0 20200625
-    iReferences <- match("* References", lines)
-    if(!is.na(iReferences)) lines <- lines[-(iReferences:length(lines))]
-    # List unavailable minerals and aqueous speices; H2O, H+, e- because they had no references in OBIGT
-    patterns <- c("^Wustite", "^Dickite", "^Arsenopyrite", "^FeCO3", "^FeHCO3\\+", "^FeSO4", "^NaCO3\\-", "NaHCO3", "^H2O", "^H\\+", "^e\\-")
-    for(pattern in patterns) lines <- rmspecies(pattern, lines)
-  }
-  if(utils::packageVersion("CHNOSZ") < "1.3.4") {
-    # Changed dawsonite to use Joules
-    lines <- rmspecies("^Dawsonite", lines)
-  }
   # Exclude header lines (timestamp, package version and unavailable species might change)
   lines <- lines[-(7:12)]
   # exclude mineral and aqueous species counts

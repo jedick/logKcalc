@@ -77,14 +77,12 @@ See \code{\link[CHNOSZ]{add.OBIGT}} in \pkg{CHNOSZ} for more information about m
 ## Useful settings for processing the GWB thermo.tdat file
 modOBIGT(c("addSUPCRT", "steam", "antigorite/2"))
 
-if(packageVersion("CHNOSZ") > "1.3.6") {
 # As(OH)4- and Sn++++ are basis species in the thermo.tdat GWB file,
 # but aren't available in OBIGT, so we add them like this:
 addOBIGT("As(OH)4-")
 addOBIGT("Sn++++")
 # Now As- and Sn-bearing species can be included in the logK calculation:
 #logKcalc("thermo.tdat")
-}
 }
 
 \references{

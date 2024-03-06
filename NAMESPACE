@@ -2,8 +2,4 @@
 export("logKcalc", "readlogK", "logKcomp", "modOBIGT", "addOBIGT")
 
 # Imports from CHNOSZ
-importFrom("CHNOSZ", "CHNOSZ")
-#importFrom("CHNOSZ", "basis", "protein.basis", "protein.formula",
-#           "protein.length", "ZC", "add.protein", "affinity", "diagram",
-#           "list2array", "palply", "subcrt", "convert", "label.figure",
-#           "aminoacids", "info")
+importFrom("CHNOSZ", "CHNOSZ", "Berman", "mod.OBIGT", "add.OBIGT")
