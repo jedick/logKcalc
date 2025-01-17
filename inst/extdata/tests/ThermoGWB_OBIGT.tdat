@@ -4,11 +4,11 @@ activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Tue Mar  5 14:16:06 2024
-* by logKcalc 0.1.1-3 with CHNOSZ 2.1.0.
+* File generated at Fri Jan 17 10:39:40 2025
+* by logKcalc 0.1.1-5 with CHNOSZ 2.1.0-39.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
-* with 0 added and 82 unavailable species.
+* with 0 added and 76 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -217,7 +217,7 @@ Sn++                            formula= Sn+2
      charge=  2.0      ion size=  6.0 A      mole wt.=   118.7100 g
      1 elements in species
   1.0000 Sn    
-* [SSWS97]
+* [LYX23, SSWS97]
 
 Au+                             formula= Au+
      charge=  1.0      ion size=  4.5 A      mole wt.=   196.9670 g
@@ -249,7 +249,7 @@ UO2++                           formula= UO2+2
 
 -end-
 
-   108 aqueous species
+   114 aqueous species
 
 OH-                             formula= OH-
      charge= -1.0      ion size=  3.5 A      mole wt.=  17.0070 g
@@ -1084,9 +1084,57 @@ UO2OH+                          formula= UO2OH+
      charge= 1.0      ion size=  4.5 A      mole wt.=  287.0350 g
      3 species in reaction
     1.000  H2O   -1.000  H+    1.000  UO2++
-         5.9334      5.2173      4.4467      3.7912
-         3.1893      2.7386      2.3762      2.0586
-* [SSB97]
+         5.9584      5.2628      4.3466      3.4073
+         2.3697      1.4449      0.5963     -0.2066
+* [MBA+24]
+
+UO2CO3(aq)                      formula= UO2CO3
+     charge= 0.0      ion size=  0.0 A      mole wt.=  330.0370 g
+     3 species in reaction
+   -1.000  H+    1.000  HCO3-    1.000  UO2++
+         0.8746      0.5072      0.2223      0.0371
+        -0.1244     -0.2951     -0.5477     -0.9813
+* [MBA+24]
+
+UO2(CO3)2--                     formula= UO2(CO3)2-2
+     charge= -2.0      ion size=  4.5 A      mole wt.=  390.0460 g
+     3 species in reaction
+   -2.000  H+    2.000  HCO3-    1.000  UO2++
+         4.5604      3.9722      3.3429      2.8972
+         2.6338      2.5750      2.6238      2.7074
+* [MBA+24]
+
+UO2(CO3)3----                   formula= UO2(CO3)3-4
+     charge= -4.0      ion size=  4.5 A      mole wt.=  450.0550 g
+     3 species in reaction
+   -3.000  H+    3.000  HCO3-    1.000  UO2++
+         9.0379      9.2564      9.5788     10.1017
+        10.9656     12.0035     13.1756     14.4956
+* [MBA+24]
+
+UO2SO4(aq)                      formula= UO2SO4
+     charge= 0.0      ion size=  0.0 A      mole wt.=  366.0910 g
+     2 species in reaction
+    1.000  SO4--    1.000  UO2++  
+        -3.4616     -3.3513     -3.6030     -4.1798
+        -5.1547     -6.3429     -7.7602     -9.5293
+* [MBA+24]
+
+UO2(SO4)2--                     formula= UO2(SO4)2-2
+     charge= -2.0      ion size=  4.5 A      mole wt.=  462.1550 g
+     2 species in reaction
+    2.000  SO4--    1.000  UO2++  
+        -4.1992     -4.3401     -4.9324     -5.8533
+        -7.1948     -8.6946    -10.3839    -12.3962
+* [MBA+24]
+
+UO2Cl+                          formula= UO2Cl+
+     charge= 1.0      ion size=  4.5 A      mole wt.=  305.4800 g
+     2 species in reaction
+    1.000  Cl-    1.000  UO2++  
+        -0.2575     -0.2074     -0.3207     -0.5911
+        -1.0589     -1.6366     -2.3288     -3.1923
+* [MBA+24]
 
 CH4(aq)                         formula= CH4
      charge= 0.0      ion size=  0.0 A      mole wt.=  16.0430 g
@@ -1228,8 +1276,8 @@ Tin                        type=
      4 species in reaction
     1.000  H2O   -2.000  H+   -0.500  O2(aq)
     1.000  Sn++    
-        52.4095     47.8174     42.4704     37.5275
-        32.5931     28.6249     25.3005     22.3933
+        52.4137     47.8174     42.4755     37.5462
+        32.6344     28.6918     25.3942     22.5141
 * [JH85]
 
 Quartz                        type=
@@ -1313,8 +1361,8 @@ Cassiterite                        type=
      4 species in reaction
     1.000  H2O   -2.000  H+    0.500  O2(aq)
     1.000  Sn++    
-       -50.6374    -46.1641    -40.9867    -36.2133
-       -31.4718    -27.7078    -24.6605    -22.1608
+       -50.6331    -46.1641    -40.9817    -36.1946
+       -31.4305    -27.6409    -24.5669    -22.0401
 * [JH85, RH95]
 
 Tenorite                        type=
@@ -2206,17 +2254,30 @@ updated on 2017-02-04. Accessed on 2017-10-01.
 <https://titan.minpet.unibas.ch/minpet/theriak/prog170204/>.
 
 [Joh92]
-Johnson JW (1992). “Reference for H2O(g) from SUPCRT92/sprons92.dat.” Personal
-calculation, Earth Sciences Dept., Lawrence Livermore National Lab, Livermore,
-CA. Parameters given provide smooth metastable extrapolation of one-bar steam
-properties predicted by the Haar et al. (1984) equation of state to temperatures
-< the saturation temperature (99.632 C).
+Johnson JW (1992). “sprons92.dat data file for SUPCRT92.” Personal calculation,
+Earth Sciences Dept., Lawrence Livermore National Lab, Livermore, CA. Parameters
+given provide smooth metastable extrapolation of one-bar steam properties
+predicted by the Haar et al. (1984) equation of state to temperatures < the
+saturation temperature (99.632 C).
 
 [Kel60]
 Kelley KK (1960). _Contributions to the Data in Theoretical Metallurgy XIII:
 High Temperature Heat Content, Heat Capacities and Entropy Data for the Elements
 and Inorganic Compounds_, series Bulletin 584. U. S. Bureau of Mines.
 <https://www.worldcat.org/oclc/693388901>.
+
+[LYX23]
+Liu X, Yu P, Xiao C (2023). “Tin transport and cassiterite precipitation from
+hydrothermal fluids.” _Geoscience Frontiers_, *14*(6), 101624. ISSN 1674-9871,
+doi:10.1016/j.gsf.2023.101624 <https://doi.org/10.1016/j.gsf.2023.101624>.
+
+[MBA+24]
+Migdisov A, Bastrakov E, Alcorn C, Reece M, Boukhalfa H, Caporuscio FA,
+Jove-Colon C (2024). “A spectroscopic study of the stability of uranyl-carbonate
+complexes at 25–150 °C and re-visiting the data available for uranyl-chloride,
+uranyl-sulfate, and uranyl-hydroxide species.” _Geochimica et Cosmochimica
+Acta_. doi:10.1016/j.gca.2024.04.023
+<https://doi.org/10.1016/j.gca.2024.04.023>.
 
 [MGN03]
 Majzlan J, Grevel K, Navrotsky A (2003). “Thermodynamics of Fe oxides: Part II.
@@ -2319,11 +2380,6 @@ complexes between metal cations and monovalent organic acid ligands at high
 pressures and temperatures.” _Geochimica et Cosmochimica Acta_, *59*(8),
 1497-1532. doi:10.1016/0016-7037(95)00058-8
 <https://doi.org/10.1016/0016-7037%2895%2900058-8>.
-
-[SLOP98]
-slop98.dat (1998). “Sequential-access thermodynamic datafile used by PROGRAM
-supcrt92.” Last updated on 1998-08-20. Accessed on 2019-04-08.
-doi:10.5281/zenodo.2630820 <https://doi.org/10.5281/zenodo.2630820>.
 
 [SPD+19]
 St Clair B, Pottenger J, Debes R, Hanselmann K, Shock EL (2019). “Distinguishing
