@@ -125,7 +125,9 @@ addOBIGT <- function(species, formula = NULL, file = system.file("extdata/thermo
     moargs <- list(species, formula = formula, state = "cr", ref1 = "logK_fit", ref2 = basename(file),
       G = G, S = S, Cp = Cp, T = CHNOSZ::convert(Tmax, "K"),
       H = NA, V = NA, a = NA, b = NA, c = NA, d = NA, e = NA, f = NA, lambda = NA)
-    moargs <- c(moargs, list(model = "CGL", E_units = "J"))
+    # Use model="CGL_Ttr" to set values of G (and logK) to NA above Tmax 20250117
+    if(packageVersion("CHNOSZ") > "2.1.0") model <- "CGL_Ttr" else model <- "CGL"
+    moargs <- c(moargs, list(model = model, E_units = "J"))
     do.call(mod.OBIGT, moargs)
   }
   # Calculate ΔG°r of the reaction with the reactant species

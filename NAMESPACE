@@ -3,3 +3,6 @@ export("logKcalc", "readlogK", "logKcomp", "modOBIGT", "addOBIGT")
 
 # Imports from CHNOSZ
 importFrom("CHNOSZ", "CHNOSZ", "Berman", "mod.OBIGT", "add.OBIGT")
+
+# For checking CHNOSZ version 20250117
+importFrom("utils", "packageVersion")

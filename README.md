@@ -8,7 +8,7 @@ It reads reactions from an existing GWB thermodynamic data file, calculates equi
   * Change the temperature and pressure for log&#8201;*K* calculations.
   * Update parameters for activity and osmotic coefficients (Debye-Hückel, H<sub>2</sub>O, CO<sub>2</sub>) for specified *T* and *P*.
   * Add new species to the output file.
-  * List data references in the output file (requires CHNOSZ version > 1.3.6).
+  * List references for thermodynamic data in the output file.
   * Make plots comparing log&#8201;*K* values from two data files.
   * Update OBIGT using thermodynamic parameters (Δ*G*°, *S*° and <i>C<sub>p</sub></i>°) fitted to log&#8201;*K* values from a GWB file.
     * Enables addition of species from a GWB file to calculations and diagrams in CHNOSZ.
