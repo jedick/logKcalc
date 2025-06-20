@@ -4,11 +4,11 @@ activity model: debye-huckel
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Fri Jan 17 10:39:40 2025
-* by logKcalc 0.1.1-5 with CHNOSZ 2.1.0-39.
+* File generated at Fri Jun 20 08:02:19 2025
+* by logKcalc 0.1.1-7 with CHNOSZ 2.2.0.
 * (https://github.com/jedick/logKcalc)
 * System based on ThermoGWB_15_6_2020.tdat
-* with 0 added and 76 unavailable species.
+* with 0 added and 74 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -97,13 +97,13 @@ H2O                             formula= H2O
      charge=  0.0      ion size=  0.0 A      mole wt.=   18.0150 g
      2 elements in species
   2.0000 H  1.0000 O  
-* [HGK84, JOH92]
+* [JOH92, HGK84]
 
 H+                              formula= H+
      charge=  1.0      ion size=  9.0 A      mole wt.=   1.0080 g
      1 elements in species
   1.0000 H    
-* [proton]
+* [Den81]
 
 HCO3-                           formula= HCO3-
      charge=  -1.0      ion size=  4.0 A      mole wt.=   61.0170 g
@@ -1188,7 +1188,7 @@ CH3COO-                         formula= C2H3O2-
 
 -end-
 
-   91 minerals
+   93 minerals
 
 Sulphur                        type=
      formula= S
@@ -1249,6 +1249,16 @@ Graphite                        type=
         70.3756     64.1733     56.8563     49.9813
         42.9868     37.2430     32.3598     28.0164
 * [HDNB78]
+
+Uranium                        type=
+     formula= U
+     mole vol.=   12.4970 cc      mole wt.=  238.0290 g
+     4 species in reaction
+    1.000  H2O   -2.000  H+   -1.500  O2(aq)
+    1.000  UO2++    
+       233.3522    212.7904    189.0313    167.1936
+       145.5318    128.2721    114.1232    102.2027
+* [NEA20]
 
 Manganese                        type=
      formula= Mn
@@ -1351,9 +1361,9 @@ Uraninite                        type=
      4 species in reaction
     1.000  H2O   -2.000  H+   -0.500  O2(aq)
     1.000  UO2++    
-        32.5383     29.1257     25.1690     21.5152
-        17.8579     14.8955     12.4015     10.2085
-* [SSB97, RH95]
+        32.5379     29.1228     25.1621     21.5024
+        17.8360     14.8623     12.3547     10.1461
+* [NEA20]
 
 Cassiterite                        type=
      formula= SnO2
@@ -1361,9 +1371,9 @@ Cassiterite                        type=
      4 species in reaction
     1.000  H2O   -2.000  H+    0.500  O2(aq)
     1.000  Sn++    
-       -50.6331    -46.1641    -40.9817    -36.1946
-       -31.4305    -27.6409    -24.5669    -22.0401
-* [JH85, RH95]
+       -49.8641    -45.4452    -40.3204    -35.5867
+       -30.8757    -27.1288    -24.0898    -21.5923
+* [RH95]
 
 Tenorite                        type=
      formula= CuO
@@ -1573,6 +1583,15 @@ Goethite                        type=
         -8.7503     -8.1744     -7.4788     -6.8066
         -6.1185     -5.5762     -5.1670     -4.8854
 * [MGN03, MLS+03]
+
+Fe(OH)2                        type=
+     formula= Fe(OH)2
+     mole vol.=   0.0000 cc      mole wt.=  89.8620 g
+     3 species in reaction
+    2.000  H2O   -2.000  H+    1.000  Fe++
+        14.2745     12.8389     11.2051      9.7345
+         8.3008      7.1618      6.2066      5.3544
+* [LS20]
 
 Calcite                        type=
      formula= CaCO3
@@ -1816,14 +1835,14 @@ Tremolite                        type=
 * [Ber88]
 
 Ferrotremolite                        type=
-     formula= (Ca2Fe5)Si8O22(OH)2
+     formula= Ca2Fe5Si8O22(OH)2
      mole vol.=   282.8000 cc      mole wt.=  970.0760 g
      5 species in reaction
     8.000  H2O  -14.000  H+    8.000  SiO2(aq)
     2.000  Ca++    5.000  Fe++  
         57.1541     52.4184     45.3830     38.3200
-        31.1094     25.2598     20.2597     15.6114
-* [HDNB78]
+        31.1095     25.2598     20.2598     15.6116
+* [LS20]
 
 Paragonite                        type=
      formula= NaAl3Si3O12H2
@@ -2194,6 +2213,11 @@ _Journal of Petrology_, *29*(2), 445-522. doi:10.1093/petrology/29.2.445
 Berman RG (1990). “Mixing properties of Ca-Mg-Fe-Mn garnets.” _American
 Mineralogist_, *75*(3-4), 328-344.
 
+[Den81]
+Denbigh K (1981). _The Principles of Chemical Equilibrium_, 4th edition.
+Cambridge University Press, Cambridge. doi:10.1017/CBO9781139167604
+<https://doi.org/10.1017/CBO9781139167604>.
+
 [Eva90]
 Evans BW (1990). “Phase relations of epidote-blueschists.” _Lithos_, *25*(1),
 3-23. doi:10.1016/0024-4937(90)90003-J
@@ -2266,9 +2290,15 @@ High Temperature Heat Content, Heat Capacities and Entropy Data for the Elements
 and Inorganic Compounds_, series Bulletin 584. U. S. Bureau of Mines.
 <https://www.worldcat.org/oclc/693388901>.
 
+[LS20]
+Leong JAM, Shock EL (2020). “Thermodynamic constraints on the geochemistry of
+low-temperature, continental, serpentinization-generated fluids.” _American
+Journal of Science_, *320*(3), 185-235. doi:10.2475/03.2020.01
+<https://doi.org/10.2475/03.2020.01>.
+
 [LYX23]
 Liu X, Yu P, Xiao C (2023). “Tin transport and cassiterite precipitation from
-hydrothermal fluids.” _Geoscience Frontiers_, *14*(6), 101624. ISSN 1674-9871,
+hydrothermal fluids.” _Geoscience Frontiers_, *14*(6), 101624.
 doi:10.1016/j.gsf.2023.101624 <https://doi.org/10.1016/j.gsf.2023.101624>.
 
 [MBA+24]
@@ -2306,6 +2336,12 @@ geochemistry.” In Welch AH, Stollenwerk KG (eds.), _Arsenic in Groundwater_,
 1-25. Springer, New York. doi:10.1007/0-306-47956-7_1
 <https://doi.org/10.1007/0-306-47956-7_1>.
 
+[NEA20]
+Grenthe I, Gaona X, Plyasunov A, Rao L, Runde W, Grambow B (2020). _Second
+update on the Chemical Thermodynamics of Uranium, Neptunium, Plutonium,
+Americium And Technetium, Volume 14_. OECD and Nuclear Energy Agency.
+doi:10.1787/bf86a907-en <https://doi.org/10.1787/bf86a907-en>.
+
 [PAB+14]
 Pokrovski GS, Akinfiev NN, Borisova AY, Zotov AV, Kouzmanov K (2014). “Gold
 speciation and transport in geological fluids: insights from experiments and
@@ -2316,7 +2352,7 @@ Publications_, *402*(1), 9-70. doi:10.1144/SP402.4
 [PK70]
 Pankratz LB, King EG (1970). _High-Temperature Enthalpies and Entropies of
 Chalcopyrite and Bornite_, number 7435 series Report of Investigations. U. S.
-Bureau of Mines. <https://hdl.handle.net/2027/mdp.39015078533158>.
+Bureau of Mines. <https://www.worldcat.org/oclc/14154292>.
 
 [PPB+08]
 Perfetti E, Pokrovski GS, Ballerat-Busserolles K, Majer V, Gilbert F (2008).
@@ -2381,6 +2417,11 @@ pressures and temperatures.” _Geochimica et Cosmochimica Acta_, *59*(8),
 1497-1532. doi:10.1016/0016-7037(95)00058-8
 <https://doi.org/10.1016/0016-7037%2895%2900058-8>.
 
+[SLOP98]
+slop98.dat (1998). “Sequential-access thermodynamic datafile used by PROGRAM
+supcrt92.” Last updated on 1998-08-20. Accessed on 2019-04-08.
+doi:10.5281/zenodo.2630820 <https://doi.org/10.5281/zenodo.2630820>.
+
 [SPD+19]
 St Clair B, Pottenger J, Debes R, Hanselmann K, Shock EL (2019). “Distinguishing
 biotic and abiotic iron oxidation at low temperatures.” _ACS Earth and Space
@@ -2391,13 +2432,6 @@ Chemistry_, *3*(6), 905-921. doi:10.1021/acsearthspacechem.9b00016
 sprons92.dat (1992). “s[equential-access] pro[perties of] n[atural]
 s[ubstances].dat; datafile used by PROGRAM supcrt91.” Included with the SUPCRT92
 package (Johnson et al., 1992). Last updated on 1991-02-15.
-
-[SSB97]
-Shock EL, Sassani DC, Betz H (1997). “Uranium in geologic fluids: Estimates of
-standard partial molal properties, oxidation potentials, and hydrolysis
-constants at high temperatures and pressures.” _Geochimica et Cosmochimica
-Acta_, *61*(20), 4245-4266. doi:10.1016/S0016-7037(97)00240-8
-<https://doi.org/10.1016/S0016-7037%2897%2900240-8>.
 
 [SSH97]
 Sverjensky DA, Shock EL, Helgeson HC (1997). “Prediction of the thermodynamic
@@ -2444,8 +2478,3 @@ Zimmer K, Zhang Y, Lu P, Chen Y, Zhang G, Dalkilic M, Zhu C (2016). “SUPCRTBL:
 revised and extended thermodynamic dataset and software package of SUPCRT92.”
 _Computers & Geosciences_, *90*, 97-111. doi:10.1016/j.cageo.2016.02.013
 <https://doi.org/10.1016/j.cageo.2016.02.013>.
-
-[proton]
-OBIGT (1997). “Hydrogen-ion convention.” OBIGT database in CHNOSZ. The
-conventional standard molal properties of the hydrogen ion are zero at any
-pressure and temperature" [@JOH92].

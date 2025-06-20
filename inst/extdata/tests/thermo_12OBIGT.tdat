@@ -5,11 +5,11 @@ fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Fri Jan 17 10:36:51 2025
-* by logKcalc 0.1.1-5 with CHNOSZ 2.1.0-39.
+* File generated at Fri Jun 20 08:01:49 2025
+* by logKcalc 0.1.1-7 with CHNOSZ 2.2.0.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat
-* with 7 added and 86 unavailable species.
+* with 7 added and 85 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -74,7 +74,7 @@ H2O                             formula= H2O
      charge=  0      ion size=  0.0 A      mole wt.=   18.0152 g
      2 elements in species
         2.000 H               1.000 O       
-* [HGK84, JOH92]
+* [JOH92, HGK84]
 
 Al+++                           formula= Al+3
      charge=  3      ion size=  9.0 A      mole wt.=   26.9815 g
@@ -104,7 +104,7 @@ H+                              formula= H+
      charge=  1      ion size=  9.0 A      mole wt.=    1.0079 g
      1 elements in species
         1.000 H       
-* [proton]
+* [Den81]
 
 HCO3-                           formula= HCO3-
      charge= -1      ion size=  4.5 A      mole wt.=   61.0171 g
@@ -601,11 +601,11 @@ e-
          .500 H2O             -.250 O2(g)          -1.000 H+      
         23.0734     20.7762     18.1548     15.7800
         13.4650     11.6588     10.2135      9.0331
-* [electron]
+* [OBIGT06]
 
 -end-
 
-   45 minerals
+   46 minerals
 
 Albite                             type= feldspar
      formula= NaAlSi3O8
@@ -804,9 +804,9 @@ Greenalite                         type= serpentine
      4 species in reaction
        -6.000 H+              3.000 Fe++            2.000 SiO2(aq)
         5.000 H2O     
-        26.0471     23.5211     20.2478     17.1378
-        14.0436     11.5642      9.4573      7.5150
-* [HDNB78]
+        25.0951     22.6488     19.4671     16.4409
+        13.4290     11.0145      8.9601      7.0613
+* [LS20]
 
 Halite                             type= halide
      formula= NaCl
@@ -914,6 +914,16 @@ Melanterite                        type= sulfate
         -2.1361     -2.0177     -1.7597     -1.3369
         -0.7224     -0.1280      0.3210      0.4429
 * [PK95]
+
+Minnesotaite                       type= mica
+     formula= Fe3Si4O10(OH)2
+     mole vol.=  156.9000 cc      mole wt.=  473.8916 g
+     4 species in reaction
+       -6.000 H+              3.000 Fe++            4.000 SiO2(aq)
+        4.000 H2O     
+        15.2373     13.9717     11.7194      9.3486
+         6.9012      4.9136      3.2042      1.5782
+* [LS20]
 
 Muscovite                          type= mica
      formula= KAl3Si3O12H2
@@ -1201,6 +1211,11 @@ _Journal of Petrology_, *29*(2), 445-522. doi:10.1093/petrology/29.2.445
 Berman RG (1990). “Mixing properties of Ca-Mg-Fe-Mn garnets.” _American
 Mineralogist_, *75*(3-4), 328-344.
 
+[Den81]
+Denbigh K (1981). _The Principles of Chemical Equilibrium_, 4th edition.
+Cambridge University Press, Cambridge. doi:10.1017/CBO9781139167604
+<https://doi.org/10.1017/CBO9781139167604>.
+
 [GKL02]
 Goldberg RN, Kishore N, Lennen RM (2002). “Thermodynamic quantities for the
 ionization reactions of buffers.” _Journal of Physical and Chemical Reference
@@ -1255,6 +1270,12 @@ function of temperature and pH consistent with experimentally obtained results.�
 _Journal of Molecular Evolution_, *78*(3-4), 171-187.
 doi:10.1007/s00239-014-9616-1 <https://doi.org/10.1007/s00239-014-9616-1>.
 
+[LS20]
+Leong JAM, Shock EL (2020). “Thermodynamic constraints on the geochemistry of
+low-temperature, continental, serpentinization-generated fluids.” _American
+Journal of Science_, *320*(3), 185-235. doi:10.2475/03.2020.01
+<https://doi.org/10.2475/03.2020.01>.
+
 [MGN03]
 Majzlan J, Grevel K, Navrotsky A (2003). “Thermodynamics of Fe oxides: Part II.
 Enthalpies of formation and relative stability of goethite ($\alpha$-FeOOH),
@@ -1275,6 +1296,11 @@ McCollom TM, Shock EL (1997). “Geochemical constraints on chemolithoautotrophi
 metabolism by microorganisms in seafloor hydrothermal systems.” _Geochimica et
 Cosmochimica Acta_, *61*(20), 4375-4391. doi:10.1016/S0016-7037(97)00241-X
 <https://doi.org/10.1016/S0016-7037%2897%2900241-X>.
+
+[OBIGT06]
+OBIGT database in CHNOSZ (2006). “The standard entropy of _e_\textsuperscript{-}
+is assigned to be half that of H\textsubscript{2}(g) as implied by the hydrogen
+ion convention.”
 
 [PK95]
 Parker VB, Khodakovskii IL (1995). “Thermodynamic properties of the aqueous ions
@@ -1336,6 +1362,11 @@ acetate complexes at high pressures and temperatures.” _Geochimica et
 Cosmochimica Acta_, *57*(20), 4899-4922. doi:10.1016/0016-7037(93)90128-J
 <https://doi.org/10.1016/0016-7037%2893%2990128-J>.
 
+[SLOP98]
+slop98.dat (1998). “Sequential-access thermodynamic datafile used by PROGRAM
+supcrt92.” Last updated on 1998-08-20. Accessed on 2019-04-08.
+doi:10.5281/zenodo.2630820 <https://doi.org/10.5281/zenodo.2630820>.
+
 [SPD+19]
 St Clair B, Pottenger J, Debes R, Hanselmann K, Shock EL (2019). “Distinguishing
 biotic and abiotic iron oxidation at low temperatures.” _ACS Earth and Space
@@ -1388,18 +1419,7 @@ revised and extended thermodynamic dataset and software package of SUPCRT92.”
 _Computers & Geosciences_, *90*, 97-111. doi:10.1016/j.cageo.2016.02.013
 <https://doi.org/10.1016/j.cageo.2016.02.013>.
 
-[electron]
-OBIGT (2006). “Non-zero entropy of the electron based on the hydrogen-ion
-convention.” OBIGT database in CHNOSZ. Because the standard thermodynamic
-properties of the formation reaction of H+ (0.5H2(g) = H+ + e-) are defined to
-be zero, the standard entropy of e- is half that of H2(g).
-
 [logK_fit]
 Anonymous (2025). “Thermodynamic parameters generated by logKcalc::addOBIGT().”
 Values of G, S, and Cp were fit to logK values from the GWB thermodynamic data
 file named in the citation.
-
-[proton]
-OBIGT (1997). “Hydrogen-ion convention.” OBIGT database in CHNOSZ. The
-conventional standard molal properties of the hydrogen ion are zero at any
-pressure and temperature" [@JOH92].

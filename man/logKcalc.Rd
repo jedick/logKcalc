@@ -57,7 +57,7 @@ Set \code{update.formulas} to FALSE to not add or update formulas, but retain an
 This might be required for dataset formats \samp{oct13} or earlier, which do not have formulas for the aqueous species (Bethke and Farrell, 2020).
 Note that the \emph{names} of aqueous species, which may also be formulas, are never changed from the input file.
 
-The mass balance of dissociation reactions is checked (in CHNOSZ::\code{\link{subcrt}}) using the chemical formulas of species in OBIGT.
+The mass balance of dissociation reactions is checked (in CHNOSZ::\code{\link[CHNOSZ]{subcrt}}) using the chemical formulas of species in OBIGT.
 To allow for rounding errors in fractional coefficients, reactions are considered unbalanced if the difference for any element exceeds 0.001.
 Messages are shown for unbalanced reactions, and these species are omitted from the output file.
 This includes the minerals antigorite and pyrrhotite in the GWB \samp{thermo.tdat} file, for which the chemical formulas (and therefore reactions) differ from those in OBIGT.
