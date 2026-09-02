@@ -8,10 +8,12 @@ expect_error(logKcalc(infile, ispecies = iAuCl2), info = info)
 info <- "Modifying the database and adding species to the output work as expected"
 # Process the thermo_12elements.tdat file
 infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
+# Use this to test against an existing reference file (infile)
 outfile <- file.path(tempdir(), "thermo_12OBIGT.tdat")
+# Uncomment this to create the reference file in extdata/tests
 #outfile <- "thermo_12OBIGT.tdat"
 reset()
-modOBIGT(c("addSUPCRT", "steam"))
+modOBIGT(c("addSUPCRT", "addSLOP98"))
 addOBIGT("AuCl4-")
 # Add a selection of 5 aqueous, 1 mineral and 1 gas species
 ispecies <- info(c("glycinate", "C2H4", "AuCl", "Au(OH)2-", "Au(HS)2-", "pyrrhotite", "ammonia"))
@@ -31,7 +33,7 @@ infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
 outfile <- file.path(tempdir(), "thermo_12OBIGT_bgamma.tdat")
 #outfile <- "thermo_12OBIGT_bgamma.tdat"
 reset()
-modOBIGT(c("addSUPCRT", "steam"))
+modOBIGT(c("addSUPCRT", "addSLOP98"))
 addOBIGT("AuCl4-")
 # Add a selection of aqueous, mineral and gas species
 ispecies <- info(c("glycinate", "C2H4", "AuCl", "Au(OH)2-", "Au(HS)2-", "pyrrhotite", "ammonia"))
@@ -53,7 +55,7 @@ outfile <- file.path(tempdir(), "ThermoGWB_OBIGT.tdat")
 #outfile <- "ThermoGWB_OBIGT.tdat"
 reset()
 # Setup as in vig1.Rmd
-modOBIGT(c("addSUPCRT", "steam", "realgar*4"))
+modOBIGT(c("addSUPCRT", "addSLOP98", "realgar*4"))
 logKcalc(infile, outfile)
 reffile <- system.file("extdata/tests/ThermoGWB_OBIGT.tdat", package = "logKcalc")
 calcdat <- unlist(readlogK(outfile))

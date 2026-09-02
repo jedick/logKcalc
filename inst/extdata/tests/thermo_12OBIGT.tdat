@@ -5,11 +5,11 @@ fugacity model: tsonopoulos
 * Thermodynamic database: OBIGT in CHNOSZ
 * Water model: SUPCRT92
 * Debye-Hückel extended term: bdot
-* File generated at Fri Jun 20 08:01:49 2025
-* by logKcalc 0.1.1-7 with CHNOSZ 2.2.0.
+* File generated at Wed Sep  2 12:35:02 2026
+* by logKcalc 0.3.0 with CHNOSZ 2.3.0.
 * (https://github.com/jedick/logKcalc)
 * System based on thermo_12elements.tdat
-* with 7 added and 85 unavailable species.
+* with 7 added and 83 unavailable species.
 
 * temperatures
          0.0000     25.0000     60.0000    100.0000
@@ -239,7 +239,7 @@ NO2-                            formula= NO2-
 
 -end-
 
-   43 aqueous species
+   45 aqueous species
 
 Al(OH)2+                        formula= Al(OH)2+
      charge=  1      ion size=  4.0 A      mole wt.=   60.9961 g
@@ -265,6 +265,14 @@ Al(OH)4-                        formula= Al(OH)4-
         13.7468     11.4826      9.6453      8.1492
 * [TS01]
 
+AlCH3COO++                      formula= AlCH3COO+2
+     charge=  2      ion size=  5.0 A      mole wt.=   86.0260 g
+     2 species in reaction
+        1.000 Al+++           1.000 CH3COO- 
+        -2.4858     -2.0891     -1.8516     -1.8231
+        -2.0047     -2.3554     -2.8584     -3.5583
+* [SK93]
+
 AlOH++                          formula= AlOH+2
      charge=  2      ion size=  5.0 A      mole wt.=   43.9888 g
      3 species in reaction
@@ -285,9 +293,9 @@ AuCl2-                          formula= AuCl2-
      charge= -1      ion size=  4.0 A      mole wt.=  267.8725 g
      2 species in reaction
         2.000 Cl-             1.000 Au+     
-       -10.3823     -9.5562     -8.6807     -7.9976
-        -7.4988     -7.3030     -7.3706     -7.7370
-* [AZ01]
+       -10.3208     -9.3927     -8.4831     -7.8013
+        -7.3121     -7.1218     -7.1927     -7.5700
+* [TAZ24]
 
 AuCl4-                          formula= AuCl4-
      charge= -1      ion size=  4.0 A      mole wt.=  338.7785 g
@@ -393,6 +401,14 @@ H2S(aq)                         formula= H2S
         -6.4960     -6.6831     -7.0224     -7.5536
 * [SHS89]
 
+H2SO4                           formula= H2SO4
+     charge=  0      ion size=  4.0 A      mole wt.=   98.0734 g
+     2 species in reaction
+        2.000 H+              1.000 SO4--   
+         0.1167     -0.2060     -0.8785     -1.7699
+        -2.9650     -4.2272     -5.5900     -7.1725
+* [TAT+25]
+
 HCH3COO                         formula= C2H4O2
      charge=  0      ion size=  4.0 A      mole wt.=   60.0524 g
      2 species in reaction
@@ -445,9 +461,9 @@ KSO4-                           formula= KSO4-
      charge= -1      ion size=  4.0 A      mole wt.=  135.1559 g
      2 species in reaction
         1.000 K+              1.000 SO4--   
-        -0.8855     -0.8796     -0.9908     -1.1950
-        -1.5212     -1.9206     -2.4186     -3.0896
-* [SSH97]
+        -0.2414     -0.8767     -1.4359     -1.7918
+        -2.0013     -2.0879     -2.1599     -2.3388
+* [TAT+25]
 
 NaCH3COO                        formula= NaCH3COO
      charge=  0      ion size=  4.0 A      mole wt.=   82.0343 g
@@ -570,9 +586,9 @@ AuCl                            formula= AuCl
      charge=  0      ion size=  1.0 A      mole wt.=  232.4200 g
      2 species in reaction
         1.000 Au+             1.000 Cl-          
-        -8.4246     -7.9201     -7.3728     -6.9089
-        -6.5092     -6.2720     -6.1912     -6.3119
-* [AZ01]
+        -7.1323     -6.9789     -6.7045     -6.3736
+        -5.9846     -5.6563     -5.4243     -5.3574
+* [TAZ24]
 
 Au(OH)2-                        formula= Au(OH)2-
      charge= -1      ion size=  3.5 A      mole wt.=  230.9817 g
@@ -587,9 +603,9 @@ Au(HS)2-                        formula= Au(HS)2-
      4 species in reaction
         1.000 Au+             2.000 H+             -4.000 O2(aq)       
         2.000 SO4--        
-       271.7075    246.4092    216.5405    188.5982
-       160.3866    137.4364    118.1118    101.0951
-* [AZ10]
+       271.6826    246.4422    216.7187    188.8858
+       160.7052    137.7015    118.2812    101.1731
+* [TAT+25]
 
 -end-
 
@@ -1194,17 +1210,10 @@ hydrosulfide, and hydroxo complexes of Ag(I), Cu(I), and Au(I) at temperatures
 of 25-500°C and pressures of 1-2000 bar.” _Geochemistry International_,
 *39*(10), 990-1006.
 
-[AZ10]
-Akinfiev NN, Zotov AV (2010). “Thermodynamic description of aqueous species in
-the system Cu-Ag-Au-S-O-H at temperatures of 0-600°C and pressures of 1-3000
-bar.” _Geochemistry International_, *48*(7), 714-720.
-doi:10.1134/S0016702910070074 <https://doi.org/10.1134/S0016702910070074>.
-
 [Ber88]
 Berman RG (1988). “Internally-consistent thermodynamic data for minerals in the
-system
-Na$_2$O-K$_2$O-CaO-MgO-FeO-Fe$_2$O$_3$-Al$_2$O$_3$-SiO$_2$-TiO$_2$-H$_2$O-CO$_2$.”
-_Journal of Petrology_, *29*(2), 445-522. doi:10.1093/petrology/29.2.445
+system Na_2O-K_2O-CaO-MgO-FeO-Fe_2O_3-Al_2O_3-SiO_2-TiO_2-H_2O-CO_2.” _Journal
+of Petrology_, *29*(2), 445-522. doi:10.1093/petrology/29.2.445
 <https://doi.org/10.1093/petrology/29.2.445>.
 
 [Ber90]
@@ -1225,7 +1234,7 @@ Data_, *31*(2), 231-370. doi:10.1063/1.1416902
 [HDNB78]
 Helgeson HC, Delany JM, Nesbitt HW, Bird DK (1978). “Summary and critique of the
 thermodynamic properties of rock-forming minerals.” _American Journal of
-Science_, *278A*, 1-229. <https://www.worldcat.org/oclc/13594862>.
+Science_, *278A*, 1-229. <https://search.worldcat.org/title/13594862>.
 
 [HGK84]
 Haar L, Gallagher JS, Kell GS (1984). _NBS/NRC Steam Tables: Thermodynamic and
@@ -1262,7 +1271,7 @@ saturation temperature (99.632 C).
 Kelley KK (1960). _Contributions to the Data in Theoretical Metallurgy XIII:
 High Temperature Heat Content, Heat Capacities and Entropy Data for the Elements
 and Inorganic Compounds_, series Bulletin 584. U. S. Bureau of Mines.
-<https://www.worldcat.org/oclc/693388901>.
+<https://search.worldcat.org/title/693388901>.
 
 [Kit14]
 Kitadai N (2014). “Thermodynamic prediction of glycine polymerization as a
@@ -1278,17 +1287,17 @@ Journal of Science_, *320*(3), 185-235. doi:10.2475/03.2020.01
 
 [MGN03]
 Majzlan J, Grevel K, Navrotsky A (2003). “Thermodynamics of Fe oxides: Part II.
-Enthalpies of formation and relative stability of goethite ($\alpha$-FeOOH),
-lepidocrocite ($\gamma$-FeOOH), and maghemite ($\gamma$-Fe$_2$O$_3$).” _American
+Enthalpies of formation and relative stability of goethite (alpha-FeOOH),
+lepidocrocite (gamma-FeOOH), and maghemite (gamma-Fe_2O_3).” _American
 Mineralogist_, *88*(5-6), 855-859. doi:10.2138/am-2003-5-614
 <https://doi.org/10.2138/am-2003-5-614>.
 
 [MLS+03]
 Majzlan J, Lang BE, Stevens R, Navrotsky A, Woodfield BF, Boerio-Goates J
 (2003). “Thermodynamics of Fe oxides: Part I. Entropy at standard temperature
-and pressure and heat capacity of goethite ($\alpha$-FeOOH), lepidocrocite
-($\gamma$-FeOOH), and maghemite ($\gamma$-Fe$_2$O$_3$).” _American
-Mineralogist_, *88*(5-6), 846-854. doi:10.2138/am-2003-5-613
+and pressure and heat capacity of goethite (alpha-FeOOH), lepidocrocite
+(gamma-FeOOH), and maghemite (gamma-Fe_2O_3).” _American Mineralogist_,
+*88*(5-6), 846-854. doi:10.2138/am-2003-5-613
 <https://doi.org/10.2138/am-2003-5-613>.
 
 [MS97]
@@ -1323,7 +1332,7 @@ D.C. doi:10.3133/b2131 <https://doi.org/10.3133/b2131>.
 
 [RHF78]
 Robie RA, Hemingway BS, Fisher JR (1978). _Thermodynamic Properties of Minerals
-and Related Substances at 298.15 K and 1 Bar ($10^5$ Pascals) Pressure and at
+and Related Substances at 298.15 K and 1 Bar (10^5 Pascals) Pressure and at
 Higher Temperatures_, series Bulletin 1452. U. S. Geological Surv.
 doi:10.3133/b1452 <https://doi.org/10.3133/b1452>.
 
@@ -1393,6 +1402,17 @@ constants at high temperatures and pressures.” _American Journal of Science_,
 *295*(5), 496-580. doi:10.2475/ajs.295.5.496
 <https://doi.org/10.2475/ajs.295.5.496>.
 
+[TAT+25]
+Tagirov BR, Akinfiev NN, Tarnopolskaia ME, Nikolaeva IY, Zlivko IY, Volchenkova
+VA, Koroleva LA, Zotov AV (2025). “Gold in sulfide fluids revisited.”
+_Geochimica et Cosmochimica Acta_, *406*, 285-304. doi:10.1016/j.gca.2024.08.022
+<https://doi.org/10.1016/j.gca.2024.08.022>.
+
+[TAZ24]
+Tagirov BR, Akinfiev NN, Zotov AV (2024). “Gold(I) complexation in chloride
+hydrothermal fluids.” _Geology of Ore Deposits_, *66*(5), 581-597.
+doi:10.1134/S1075701524600403 <https://doi.org/10.1134/S1075701524600403>.
+
 [TS01]
 Tagirov B, Schott J (2001). “Aluminum speciation in crustal fluids revisited.”
 _Geochimica et Cosmochimica Acta_, *65*(21), 3965-3992.
@@ -1420,6 +1440,6 @@ _Computers & Geosciences_, *90*, 97-111. doi:10.1016/j.cageo.2016.02.013
 <https://doi.org/10.1016/j.cageo.2016.02.013>.
 
 [logK_fit]
-Anonymous (2025). “Thermodynamic parameters generated by logKcalc::addOBIGT().”
+Anonymous (2026). “Thermodynamic parameters generated by logKcalc::addOBIGT().”
 Values of G, S, and Cp were fit to logK values from the GWB thermodynamic data
 file named in the citation.

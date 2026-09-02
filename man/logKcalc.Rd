@@ -147,8 +147,8 @@ head(read.csv(mapfile))
 infile <- system.file("extdata/thermo_12elements.tdat", package = "logKcalc")
 outfile <- tempfile("thermo", fileext = ".tdat")
 # -- make some modifications to OBIGT
-# (add minerals from SUPCRT92 database and deprecated H2O(g))
-modOBIGT(c("addSUPCRT", "steam"))
+# (add minerals from SUPCRT92 database)
+modOBIGT(c("addSUPCRT"))
 # -- identify species to add to the output
 ispecies <- info("pyrrhotite")
 # -- process the file

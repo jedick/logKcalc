@@ -88,10 +88,10 @@ Separate commands are needed to change the water model and load the parameters o
 reset()
 water("DEW")
 add.OBIGT("DEW") 
-# modOBIGT(c("addSUPCRT", "steam"))
+# modOBIGT(c("addSUPCRT"))
 ```
 
-Note that other changes to the database to add the properties of steam and minerals from SUPCRT92 [@JOH92] are not needed for this calculation.
+Note that adding the properties of minerals from SUPCRT92 [@JOH92] is not needed for this calculation.
 
 The `thermo_12elements.tdat` data file includes aqueous CH~4~, CO~2~, HCO~3~^-^, CO~3~^&#8209;&#8209;^, CH~3~COO^-^ (acetate) and HCH~3~COO (acetic acid), which will be updated during the conversion.
 We can use the `ispecies` argument to add other species from OBIGT, in particular formic and propanoic acid and their anions, which were predicted to be major species by @SSH14.

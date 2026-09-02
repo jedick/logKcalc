@@ -35,15 +35,16 @@ These are the available mods:
     This mod add the remaining minerals from SUPCRT92 that are not in OBIGT.
   }
   \item{\samp{allSUPCRT}}{
-    This mod adds all minerals from SUPCRT92, possibly replacing the Berman ones.
+    This mod adds all minerals from SUPCRT92 files in CHNOSZ, possibly replacing the Berman ones.
+  }
+  \item{\samp{addSLOP98}}{
+    This mod adds species from SLOP98 files in CHNOSZ without replacing existing ones in the default OBIGT database.
+  }
+  \item{\samp{allSLOP98}}{
+    This mod adds all species from SLOP98 files in CHNOSZ, possibly replacing existing ones in the default OBIGT database.
   }
   \item{\samp{noBerman}}{
     This can be used before either of the above modifications to remove the Berman minerals from the database and generate a set of minerals that is mostly based on SUPCRT92.
-  }
-  \item{\samp{steam}}{
-    This adds data for steam (\H2O(g)) taken from the \samp{sprons92.dat} file of SUPCRT92, which is referenced there as \dQuote{Johnson, J.W., Personal calculation, Earth Sciences Dept., Lawrence Livermore National Lab., Livermore, CA. Parameters given provide smooth metastable extrapolation of one-bar steam properties predicted by the Haar et al. (1984) equation of state to temperatures < the saturation temperature (99.632 C).}
-    This entry was removed in CHNOSZ 1.1.3 based on the issues raised by Zavarin et al. (2016, p. 6).
-    However, many existing GWB files have an entry for steam, and the data are needed to include it in the output.
   }
   \item{\samp{realgar*4}}{
     This mod scales the chemical formula and thermodynamic parameters of realgar by a factor of 4.
@@ -75,7 +76,7 @@ See \code{\link[CHNOSZ]{add.OBIGT}} in \pkg{CHNOSZ} for more information about m
 
 \examples{
 ## Useful settings for processing the GWB thermo.tdat file
-modOBIGT(c("addSUPCRT", "steam", "antigorite/2"))
+modOBIGT(c("addSUPCRT", "antigorite/2"))
 
 # As(OH)4- and Sn++++ are basis species in the thermo.tdat GWB file,
 # but aren't available in OBIGT, so we add them like this:
